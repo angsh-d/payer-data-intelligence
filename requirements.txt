@@ -34,3 +34,20 @@ tenacity>=8.2.3
 
 # File watching (policy directory monitoring)
 watchdog>=3.0.0
+aiosqlite
+anthropic
+asyncpg
+fastapi
+google-genai
+httpx
+openai
+pydantic
+pydantic-settings
+python-dotenv
+python-multipart
+sqlalchemy[asyncio]
+structlog
+tenacity
+uvicorn[standard]
+watchdog
+websockets
