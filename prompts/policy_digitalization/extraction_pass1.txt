@@ -1,0 +1,167 @@
+You are a clinical policy digitization specialist. Your task is to extract ALL coverage criteria from a payer policy document into a structured, machine-readable format.
+
+## Policy Document
+{policy_document}
+
+## Version Extraction Directive
+{version_hint}
+
+## Instructions
+
+### Phase 1: Section Identification
+First, identify ALL sections of the policy document:
+- List each section with its title and page number (if available)
+- Note which sections contain coverage criteria, exclusions, step therapy, dosing, and safety requirements
+
+### Phase 2: Atomic Criteria Extraction
+For EVERY coverage criterion in the policy, extract an atomic criterion with:
+
+1. **criterion_id**: Unique ID (e.g., "DIAG_CD", "STEP_RA_DMARD", "SAFETY_TB_NEG")
+2. **criterion_type**: One of: age, gender, diagnosis_confirmed, diagnosis_severity, disease_duration, prior_treatment_tried, prior_treatment_failed, prior_treatment_intolerant, prior_treatment_contraindicated, prior_treatment_duration, lab_value, lab_test_completed, safety_screening_completed, safety_screening_negative, prescriber_specialty, prescriber_consultation, documentation_present, clinical_marker_present, concurrent_therapy, no_concurrent_therapy, custom
+3. **name**: Short descriptive name
+4. **description**: Full description from policy
+5. **policy_text**: Exact text excerpt from the policy document
+6. **clinical_codes**: Array of {{system, code, display}} for ICD-10, ICD-10-CM, HCPCS, CPT, NDC, LOINC, SNOMED, RxNorm codes
+7. **comparison_operator**: For numeric criteria — eq, ne, gt, gte, lt, lte, between, in, not_in
+8. **threshold_value**: Numeric threshold (e.g., 18 for age >= 18)
+9. **threshold_unit**: Unit (years, months, days, mg/dL, etc.)
+10. **allowed_values**: For list-based criteria
+11. **drug_names**: Specific drug names referenced
+12. **drug_classes**: Drug classes referenced
+13. **is_required**: Whether this criterion is mandatory
+14. **category**: One of: demographics, diagnosis, treatment_history, lab_results, safety, prescriber, documentation, concurrent_therapy
+15. **source_page**: Page number where this criterion appears (if available)
+16. **source_text_excerpt**: The exact text from the policy that defines this criterion
+17. **extraction_confidence**: high (explicitly stated), medium (implied), low (inferred), unconfident (uncertain — do NOT guess, flag for review)
+18. **patient_data_path**: JSONPath hint for evaluator (e.g., "demographics.age", "diagnoses[].icd10_code")
+19. **evaluation_strategy**: One of: numeric_compare, code_match, list_contains, boolean_check, date_compare
+
+### Phase 3: Criterion Groups
+Build logical groups that represent policy requirements:
+- Use AND for criteria that ALL must be met
+- Use OR for criteria where ANY satisfies the requirement
+- Use NOT for exclusion conditions
+- Support nesting (groups can contain subgroups)
+
+### Phase 4: Indications
+For each covered indication:
+- List indication codes (ICD-10)
+- Reference the root criterion group for initial approval
+- Reference the criterion group for continuation/renewal (if different)
+- Note approval duration
+- Note dosing requirements
+
+### Phase 5: Step Therapy
+For each step therapy requirement:
+- List required prior drugs/drug classes
+- Note minimum number of trials
+- Note minimum trial duration
+- Note whether failure, intolerance, and contraindication are acceptable
+
+### Phase 6: Exclusions
+For each exclusion:
+- Describe the exclusion condition
+- Reference trigger criteria
+
+## CRITICAL RULES
+- Extract EVERY criterion — do not skip any
+- Use clinical codes wherever the policy references them
+- If a criterion is ambiguous, set extraction_confidence to "unconfident" — do NOT guess
+- Each criterion must test ONE specific condition (atomic)
+- Include exact policy text excerpts for auditability
+
+## Output Format
+Respond with a JSON object matching this schema:
+```json
+{{
+  "policy_id": "string",
+  "policy_number": "string",
+  "policy_title": "string",
+  "payer_name": "string",
+  "medication_name": "string",
+  "medication_brand_names": ["string"],
+  "medication_generic_names": ["string"],
+  "medication_codes": [{{"system": "HCPCS", "code": "J1745", "display": "..."}}],
+  "effective_date": "YYYY-MM-DD",
+  "last_revision_date": "YYYY-MM-DD",
+  "policy_type": "medical_benefit_pa",
+  "atomic_criteria": {{
+    "CRITERION_ID": {{
+      "criterion_id": "CRITERION_ID",
+      "criterion_type": "age",
+      "name": "...",
+      "description": "...",
+      "policy_text": "...",
+      "clinical_codes": [],
+      "comparison_operator": "gte",
+      "threshold_value": 18,
+      "threshold_unit": "years",
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "is_required": true,
+      "category": "demographics",
+      "source_page": 3,
+      "source_text_excerpt": "...",
+      "extraction_confidence": "high",
+      "patient_data_path": "demographics.age",
+      "evaluation_strategy": "numeric_compare"
+    }}
+  }},
+  "criterion_groups": {{
+    "GROUP_ID": {{
+      "group_id": "GROUP_ID",
+      "name": "...",
+      "description": "...",
+      "operator": "AND",
+      "criteria": ["CRITERION_ID_1", "CRITERION_ID_2"],
+      "subgroups": ["SUBGROUP_ID"],
+      "negated": false
+    }}
+  }},
+  "indications": [
+    {{
+      "indication_id": "CROHNS_DISEASE",
+      "indication_name": "Crohn's Disease",
+      "indication_codes": [{{"system": "ICD-10", "code": "K50", "display": "..."}}],
+      "initial_approval_criteria": "GRP_CD_INITIAL",
+      "continuation_criteria": "GRP_CD_CONTINUATION",
+      "initial_approval_duration_months": 6,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [],
+      "min_age_years": 6,
+      "max_age_years": null
+    }}
+  ],
+  "exclusions": [
+    {{
+      "exclusion_id": "...",
+      "name": "...",
+      "description": "...",
+      "policy_text": "...",
+      "trigger_criteria": ["CRITERION_ID"]
+    }}
+  ],
+  "step_therapy_requirements": [
+    {{
+      "requirement_id": "...",
+      "indication": "...",
+      "required_drugs": [],
+      "required_drug_classes": [],
+      "minimum_trials": 1,
+      "minimum_duration_days": null,
+      "failure_required": true,
+      "intolerance_acceptable": true,
+      "contraindication_acceptable": true,
+      "documentation_requirements": []
+    }}
+  ],
+  "required_specialties": [],
+  "safety_screenings": [],
+  "sections_identified": [
+    {{"title": "...", "page": 1, "content_type": "coverage_criteria"}}
+  ]
+}}
+```
+
+Extract the policy now. Be thorough and precise.

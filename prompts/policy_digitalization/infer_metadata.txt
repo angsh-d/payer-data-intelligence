@@ -1,0 +1,24 @@
+You are analyzing a payer policy document to extract basic metadata.
+
+From the following document text, extract:
+1. payer_name — the insurance company / payer (e.g. "cigna", "unitedhealth", "uhc", "aetna", "anthem", "humana", "bcbs")
+2. medication_name — the primary drug / biologic the policy covers (e.g. "infliximab", "adalimumab", "etanercept")
+3. effective_date — the policy effective date or last revision date, if stated (ISO 8601 format YYYY-MM-DD, or null)
+
+Rules:
+- Normalize payer_name to lowercase with underscores (e.g. "unitedhealth" not "UnitedHealth")
+- Normalize medication_name to lowercase generic name (e.g. "infliximab" not "Remicade")
+- If you cannot determine a field, set it to null
+- Respond ONLY with valid JSON, no commentary
+
+Document text (first 3000 characters):
+---
+{document_text}
+---
+
+Respond with JSON:
+{
+  "payer_name": "...",
+  "medication_name": "...",
+  "effective_date": "..."
+}

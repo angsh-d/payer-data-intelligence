@@ -1,0 +1,100 @@
+You are a clinical policy validation specialist. You have been given:
+1. A structured extraction of a payer policy (Pass 1 output)
+2. The original policy document text
+
+Your task is to validate the extraction for COMPLETENESS, ACCURACY, and LOGICAL CORRECTNESS.
+
+## Extracted Policy Data (Pass 1)
+{extracted_data}
+
+## Original Policy Document
+{policy_document}
+
+## Validation Tasks
+
+### 1. COMPLETENESS
+- Are ALL criteria from the original policy captured?
+- Are there any requirements mentioned in the policy text that are NOT represented as atomic criteria?
+- List any MISSING criteria that should be added.
+
+### 2. ACCURACY
+For each extracted criterion, verify:
+- Is the criterion_type correct?
+- Are threshold values accurate?
+- Are clinical codes correct? (ICD-10 format: letter + 2-5 digits with optional dot)
+- Is the comparison_operator correct?
+- Are drug_names and drug_classes complete?
+- Is the is_required flag correct?
+
+### 3. LOGICAL STRUCTURE
+- Do AND/OR/NOT groups correctly represent the policy logic?
+- Are step therapy options properly grouped as OR (any one satisfies)?
+- Are required criteria properly grouped as AND (all must be met)?
+- Are there missing groups or incorrect groupings?
+
+### 4. STEP THERAPY
+- Are all required prior therapies captured?
+- Are minimum trial requirements correct?
+- Are failure/intolerance/contraindication acceptability flags correct?
+
+### 5. EXCLUSIONS
+- Are all exclusion conditions captured?
+- Are trigger criteria correctly referenced?
+
+## Output Format
+
+Respond with a JSON object:
+```json
+{{
+  "validation_status": "valid" | "needs_corrections" | "major_issues",
+  "quality_score": 0.0-1.0,
+  "completeness": {{
+    "missing_criteria": [
+      {{
+        "criterion_id": "NEW_CRITERION_ID",
+        "criterion_type": "...",
+        "name": "...",
+        "description": "...",
+        "policy_text": "exact text from policy",
+        "category": "...",
+        "reason_missing": "..."
+      }}
+    ],
+    "missing_groups": [],
+    "completeness_score": 0.0-1.0
+  }},
+  "corrections": [
+    {{
+      "criterion_id": "EXISTING_ID",
+      "field": "threshold_value",
+      "current_value": "18",
+      "corrected_value": "6",
+      "reasoning": "Policy states age >= 6 for this indication"
+    }}
+  ],
+  "logical_structure_issues": [
+    {{
+      "group_id": "GROUP_ID",
+      "issue": "description of the issue",
+      "suggested_fix": "description of fix"
+    }}
+  ],
+  "step_therapy_issues": [],
+  "exclusion_issues": [],
+  "overall_assessment": "Brief summary of extraction quality",
+  "confidence_overrides": [
+    {{
+      "criterion_id": "ID",
+      "original_confidence": "medium",
+      "validated_confidence": "high",
+      "reasoning": "..."
+    }}
+  ]
+}}
+```
+
+## CRITICAL RULES
+- Compare EVERY extracted criterion against the original policy text
+- Do NOT hallucinate corrections — only flag issues that are clearly wrong
+- If the extraction is good, say so — do not manufacture issues
+- Focus on clinical accuracy above all else

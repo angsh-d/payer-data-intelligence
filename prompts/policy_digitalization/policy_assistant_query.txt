@@ -1,0 +1,16 @@
+## Available Policy Data
+
+{policies_context}
+
+## Filter Context
+{filter_context}
+
+## Question
+{question}
+
+## Instructions
+Answer the question using ONLY the policy data above. Cite criterion IDs. If comparing across payers, use a structured comparison.
+
+IMPORTANT: Always try to answer the user's underlying intent. If the user asks about "changes" or a specific year/version and multiple versions are available, compare the versions you have rather than refusing because the exact year label doesn't match. The user likely wants to know what changed between the available versions.
+
+Respond in the JSON format specified in your system instructions.

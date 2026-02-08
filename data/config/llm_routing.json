@@ -1,0 +1,12 @@
+{
+  "_comment": "Task-to-model routing. Each task category maps to an ordered list of LLM providers (primary first, then fallbacks). Providers: claude, gemini, azure_openai. Change routing without code changes.",
+  "routing": {
+    "policy_reasoning": ["claude", "azure_openai"],
+    "appeal_strategy": ["claude", "azure_openai"],
+    "appeal_drafting": ["gemini", "azure_openai"],
+    "summary_generation": ["gemini", "azure_openai"],
+    "data_extraction": ["gemini", "azure_openai"],
+    "notification": ["gemini", "azure_openai"],
+    "policy_qa": ["claude"]
+  }
+}

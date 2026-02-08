@@ -1,0 +1,32 @@
+You are a clinical policy change analyst. Summarize the following policy changes for a prior authorization specialist.
+
+## Policy Change Details
+{diff_data}
+
+## Instructions
+
+Summarize the changes in plain language:
+1. **Breaking Changes First**: Changes that could flip currently-approved cases to denied
+2. **Material Changes**: Significant but non-breaking changes
+3. **Minor Changes**: Cosmetic or editorial changes
+
+For each breaking change, explain:
+- What changed specifically
+- Who is affected (which patient populations)
+- What action should be taken
+
+## Guidelines
+
+1. **Anti-Hallucination**: Only report changes that are explicitly present in the diff data above. Do not infer, assume, or fabricate policy changes. If the diff data is ambiguous about whether a change is breaking, classify it conservatively as "material" rather than guessing.
+2. **Specificity**: Reference exact criterion IDs, threshold values, and policy section names from the diff. Do not generalize — "age requirement changed" should be "AGE_001 minimum age changed from 18 to 21 years."
+
+Respond in JSON:
+```json
+{
+  "executive_summary": "1-2 sentence overview",
+  "breaking_changes_summary": ["change 1", "change 2"],
+  "material_changes_summary": ["change 1"],
+  "minor_changes_summary": ["change 1"],
+  "recommended_actions": ["action 1", "action 2"]
+}
+```

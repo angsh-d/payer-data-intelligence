@@ -1,0 +1,17 @@
+{
+  "_comment": "Bidirectional brand/generic medication name aliases for policy file resolution. Policy files may be named by brand (bcbs_spinraza.pdf) but lookups use generic names from patient data (nusinersen). Add new aliases as needed without code changes.",
+  "aliases": {
+    "nusinersen": "spinraza",
+    "spinraza": "nusinersen",
+    "lisocabtagene_maraleucel": "breyanzi",
+    "breyanzi": "lisocabtagene_maraleucel",
+    "ciltacabtagene_autoleucel": "carvykti",
+    "carvykti": "ciltacabtagene_autoleucel",
+    "palbociclib": "ibrance",
+    "ibrance": "palbociclib",
+    "infliximab": "remicade",
+    "remicade": "infliximab",
+    "adalimumab": "humira",
+    "humira": "adalimumab"
+  }
+}

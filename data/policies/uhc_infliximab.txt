@@ -1,0 +1,2420 @@
+--- Page 1 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 1 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+ 
+ 
+UnitedHealthcare® Commercial  
+Medical Benefit Drug Policy 
+Infliximab 
+(Avsola®, Inflectra®, Remicade®, & Renflexis®) 
+Policy Number: 2025D0004AQ  
+Effective Date: October 1, 2025  Instructions for Use 
+ 
+Table of Contents Page 
+Coverage Rationale .............................................................. 1 
+Documentation Requirements ............................................... 8 
+Applicable Codes .................................................................. 9 
+Background ......................................................................... 21 
+Benefit Considerations ........................................................ 22 
+Clinical Evidence ................................................................. 22 
+U.S. Food and Drug Administration .................................... 34 
+Centers for Medicare and Medicaid Services ..................... 36 
+References .......................................................................... 36 
+Policy History/Revision Information .................................... 39 
+Instructions for Use ............................................................. 40 
+ 
+Coverage Rationale 
+ 
+ See Benefit Considerations 
+ 
+This policy refers to the following infliximab products for intravenous use: 
+ Avsola® (infliximab-axxq) 
+ Inflectra® (infliximab-dyyb) 
+ Remicade® (infliximab) 
+ Renflexis® (infliximab-abda) 
+ Any FDA-approved infliximab biosimilar product not listed here* 
+ 
+*Any U.S. Food and Drug Administration approved and launched infliximab biosimilar product not listed by name in this 
+policy will be considered non-preferred until reviewed by UnitedHealthcare. 
+ 
+Infliximab for self-administered subcutaneous injection [i.e., Zymfentra (infliximab-dyyb)] is obtained under the pharmacy 
+benefit, unless otherwise specified in the member’s benefit plan documents. Exception: For members enrolled in 
+UnitedHealthcare of California plans with a delegated provider group conducting the prior authorization review, the self-
+administered infliximab may be obtained under the medical benefit. 
+ 
+Preferred Product 
+Medical Necessity Plans 
+Inflectra (infliximab-dyyb) and Avsola (infliximab-axxq) are the preferred infliximab products. Coverage will be provided for 
+Inflectra or Avsola contingent on the coverage criteria in the Diagnosis-Specific Criteria section. 
+ 
+Coverage for Renflexis (infliximab-abda), Remicade (infliximab), or other non-preferred infliximab product will be provided 
+contingent on the criteria in this section and the coverage criteria in the Diagnosis-Specific Criteria section. In order to 
+continue coverage, members already on Remicade, Renflexis, or other non-preferred infliximab product will be required to 
+change therapy to Inflectra or Avsola unless they meet the criteria in this section. 
+ 
+Related Commercial Policies 
+• Maximum Dosage and Frequency 
+• Provider Administered Drugs – Site of Care 
+ 
+Community Plan Policy 
+• Infliximab 
+ 
+Related Medicare Advantage Policy 
+• Medicare Part B Step Therapy Programs 
+
+
+--- Page 2 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 2 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Preferred Product Criteria (For Medicare reviews, refer to the CMS section**.) 
+Treatment with Remicade, Renflexis, or other non-preferred infliximab biosimilar is medically necessary for the 
+indications specified in this policy when both of the following criteria are met: 
+ One of the following: 
+o Both of the following: 
+ Documentation of a trial of at least 14 weeks of Inflectra or Avsola resulting in minimal clinical response to 
+therapy and residual disease activity; and 
+ Physician attests that in their clinical opinion, the clinical response would be expected to be superior with 
+Remicade, Renflexis, or other infliximab biosimilar product, than experienced with Inflectra and Avsola 
+or 
+o Both of the following: 
+ Documentation of intolerance, contraindication, or adverse event to Inflectra or Avsola; and  
+ Physician attests that in their clinical opinion, the same intolerance, contraindication, or adverse event would 
+not be expected to occur with Remicade, Renflexis, or other infliximab biosimilar product 
+and 
+ Patient has not had a loss of a favorable response after established maintenance therapy with Inflectra, Avsola, or 
+other infliximab biosimilar product 
+ 
+Non-Medical Necessity Plans 
+Any infliximab product is to be approved contingent on the coverage criteria in the Diagnosis-Specific Criteria section. 
+ 
+Diagnosis-Specific Criteria 
+“Infliximab” will be used to refer to all infliximab products. 
+ 
+Infliximab is proven for the treatment of ankylosing spondylitis when all of the following criteria is met:1,57, 62 
+ For initial therapy, all of the following: 
+o Diagnosis of ankylosing spondylitis (AS); and 
+o Infliximab is dosed according to U.S. Food and Drug Administration (FDA) labeled dosing for ankylosing 
+spondylitis; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Xeljanz (tofacitinib), Olumiant 
+(baricitinib), Rinvoq (upadacitinib)]; and 
+o Initial authorization is for no more than 12 months 
+ For continuation of therapy, all of the following: 
+o Documentation of positive clinical response to infliximab; and 
+o Infliximab is dosed according to U.S. FDA labeled dosing for ankylosing spondylitis; and 
+Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Xeljanz (tofacitinib), Olumiant 
+(baricitinib), Rinvoq (upadacitinib)]; and 
+o Reauthorization will be for no more than 12 months 
+ 
+Infliximab is medically necessary for the treatment of ankylosing spondylitis
+ when all of the following criteria is 
+met:1,57, 62 
+ For initial therapy, all of the following: 
+o Diagnosis of ankylosing spondylitis (AS); and 
+o One of the following: 
+ History of failure to two NSAIDs (e.g., ibuprofen, naproxen) at the maximally indicated doses, each used for 
+at least 4 weeks, unless contraindicated or clinically significant adverse effects are experienced; or 
+ Patient has been previously treated with a targeted immunomodulator FDA-approved for the treatment of 
+ankylosing spondylitis [e.g., adalimumab, Enbrel (etanercept), Cimzia (certolizumab), Simponi (golimumab), 
+Xeljanz (tofacitinib), Rinvoq (upadacitinib)];or 
+ Patient is currently on Infliximab 
+and 
+o Infliximab is dosed according to U.S. Food and Drug Administration (FDA) labeled dosing for ankylosing 
+spondylitis; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Xeljanz (tofacitinib), Olumiant 
+(baricitinib), Rinvoq (upadacitinib)]; and 
+o Prescribed by or in consultation with a rheumatologist; and 
+
+--- Page 3 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 3 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+o Initial authorization is for no more than 12 months 
+ For continuation of therapy, all of the following: 
+o Documentation of positive clinical response to infliximab; and 
+o Infliximab is dosed according to U.S. FDA labeled dosing for ankylosing spondylitis; and 
+Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Xeljanz (tofacitinib), Olumiant 
+(baricitinib), Rinvoq (upadacitinib)]; and 
+o Reauthorization will be for no more than 12 months 
+ 
+Infliximab is proven and medically necessary for the treatment of Crohn’s disease when all of the following 
+criteria is met:1,3-5,41,57, 62 
+ For initial therapy, all of the following:  
+o Diagnosis of moderately to severely active Crohn’s disease; and 
+ One of the following: 
+– Disease is considered high risk (e.g., fistulizing, stricturing, luminal, perianal, extensive disease, growth 
+delay) 
+– History of failure to one of the following conventional therapies at up to maximally indicated doses, unless 
+contraindicated or clinically significant adverse effects are experienced: 
+• Corticosteroids (e.g., prednisone, methylprednisolone, budesonide) 
+• 6-mercaptopurine (Purinethol) 
+• Azathioprine (Imuran) 
+• Methotrexate (Rheumatrex, Trexall) 
+– Patient has been previously treated with a targeted immunomodulator FDA-approved for the treatment of 
+Crohn’s disease [e.g., adalimumab, Cimzia (certolizumab), Stelara (ustekinumab), Skyrizi (risankizumab), 
+Rinvoq (upadacitinib)] 
+– Patient is currently on Infliximab  
+and 
+o Infliximab is dosed according to U.S. FDA labeled dosing for Crohn’s disease; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Xeljanz (tofacitinib), Olumiant 
+(baricitinib), Rinvoq (upadacitinib), Stelara (ustekinumab), Skyrizi (risankizumab)]; and 
+o Prescribed by or in consultation with a gastroenterologist; and 
+o Initial authorization is for no more than 12 months 
+ For continuation of therapy, all of the following: 
+o Documentation of positive clinical response to infliximab; and 
+o Infliximab is dosed according to U.S. FDA labeled dosing for Crohn’s disease; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Xeljanz (tofacitinib), Olumiant 
+(baricitinib), Rinvoq (upadacitinib), Stelara (ustekinumab), Skyrizi (risankizumab)]; and 
+o Reauthorization will be for no more than 12 months 
+ 
+Infliximab is proven and medically necessary for the treatment of noninfectious uveitis when all of the following 
+criteria are met:12-14,15,17 
+ For initial therapy, all of the following: 
+o Diagnosis of refractory noninfectious uveitis that is causing or threatening vision loss (e.g., noninfectious uveitis 
+associated with Behçet’s or Reiter’s syndromes); and 
+o History of failure, contraindication, or intolerance to all of the following: 
+ Topical corticosteroids; and 
+ Systemic corticosteroids; and 
+ Immunosuppressive drugs (e.g., azathioprine, cyclosporine, or methotrexate) 
+and 
+o Infliximab is dosed no higher than 5 mg/kg, administered at week 0, 2, 6, and every 8 weeks thereafter; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Xeljanz (tofacitinib), Olumiant 
+(baricitinib), Rinvoq (upadacitinib)]; and 
+o Prescribed by or in consultation with one of the following: 
+ Rheumatologist 
+ Ophthalmologist 
+and 
+
+--- Page 4 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 4 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+o Initial authorization is for no more than 12 months 
+ For continuation of therapy, all of the following: 
+o Documentation of positive clinical response to infliximab; and 
+o Infliximab is dosed no higher than 5 mg/kg, administered every 8 weeks; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Xeljanz (tofacitinib), Olumiant 
+(baricitinib), Rinvoq (upadacitinib)]; and 
+o Reauthorization will be for no more than 12 months 
+ 
+Infliximab is proven for the treatment of plaque psoriasis when all of the following criteria are met:1,57,62 
+ For initial therapy, all of the following: 
+o Diagnosis of chronic severe plaque psoriasis (i.e., extensive and/or disabling); and 
+o Patient is a candidate for systemic therapy; and 
+o Infliximab is dosed according to U.S. FDA labeled dosing for plaque psoriasis; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Stelara (ustekinumab), Skyrizi 
+(risankizumab), Tremfya (guselkumab), Cosentyx (secukinumab), Taltz (ixekizumab), Siliq (brodalumab), Ilumya 
+(tildrakizumab), Xeljanz (tofacitinib), Olumiant (baricitinib), Rinvoq (upadacitinib), Otezla (apremilast)]; and 
+o Initial authorization is for no more than 12 months 
+ For continuation of therapy, all of the following: 
+o Documentation of positive clinical response to infliximab; and 
+o Infliximab is dosed according to U.S. FDA labeled dosing for plaque psoriasis; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Stelara (ustekinumab), Skyrizi 
+(risankizumab), Tremfya (guselkumab), Cosentyx (secukinumab), Taltz (ixekizumab), Siliq (brodalumab), Ilumya 
+(tildrakizumab), Xeljanz (tofacitinib), Olumiant (baricitinib), Rinvoq (upadacitinib), Otezla (apremilast)]; and 
+o Reauthorization will be for no more than 12 months 
+ 
+Infliximab is medically necessary for the treatment of plaque psoriasis when all of the following criteria are 
+met:
+1,57,62 
+ For initial therapy, all of the following: 
+o Diagnosis of chronic severe plaque psoriasis (i.e., extensive and/or disabling); and 
+o One of the following: 
+ All of the following: 
+– Greater than or equal to 3% body surface area involvement, palmoplantar, facial, genital involvement, or 
+severe scalp psoriasis; and 
+– History of failure to one of the following topical therapies, unless contraindicated or clinically significant 
+adverse effects are experienced: 
+• Corticosteroids (e.g., betamethasone, clobetasol, desonide) 
+• Vitamin D analogs (e.g., calcitriol, calcipotriene) 
+• Tazarotene 
+• Calcineurin inhibitors (e.g., tacrolimus, pimecrolimus)  
+• Anthralin 
+• Coal tar 
+and 
+– History of failure to a 3-month trial of methotrexate at the maximally indicated dose, unless 
+contraindicated or clinically significant adverse effects are experienced 
+or 
+ Patient has been previously treated with a targeted immunomodulator FDA-approved for the treatment of 
+plaque psoriasis as documented by claims history or submission of medical records (document drug, date, 
+and duration of therapy) [e.g., adalimumab, Enbrel (etanercept), Cimzia (certolizumab), Orencia (abatacept), 
+Stelara (ustekinumab), Skyrizi (risankizumab), Tremfya (guselkumab), Cosentyx (secukinumab), Taltz 
+(ixekizumab), Siliq (brodalumab), Ilumya (tildrakizumab), Otezla (apremilast)] 
+or 
+ Patient is currently on Infliximab 
+and  
+o Infliximab is dosed according to U.S. FDA labeled dosing for plaque psoriasis; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Stelara (ustekinumab), Skyrizi 
+
+--- Page 5 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 5 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+(risankizumab), Tremfya (guselkumab), Cosentyx (secukinumab), Taltz (ixekizumab), Siliq (brodalumab), Ilumya 
+(tildrakizumab), Xeljanz (tofacitinib), Olumiant (baricitinib), Rinvoq (upadacitinib), Otezla (apremilast)]; and 
+o Prescribed by or in consultation with a dermatologist; and 
+o Initial authorization is for no more than 12 months 
+ For continuation of therapy, all of the following: 
+o Documentation of positive clinical response to infliximab; and 
+o Infliximab is dosed according to U.S. FDA labeled dosing for plaque psoriasis; and 
+Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Stelara (ustekinumab), Skyrizi 
+(risankizumab), Tremfya (guselkumab), Cosentyx (secukinumab), Taltz (ixekizumab), Siliq (brodalumab), Ilumya 
+(tildrakizumab), Xeljanz (tofacitinib), Olumiant (baricitinib), Rinvoq (upadacitinib), Otezla (apremilast)]; and 
+o Reauthorization will be for no more than 12 months 
+ 
+Infliximab is proven for the treatment of psoriatic arthritis when all of the following criteria are met:1,57,62 
+ For initial therapy, all of the following: 
+o Diagnosis of psoriatic arthritis (PsA); and 
+o Infliximab is dosed according to U.S. FDA labeled dosing for psoriatic arthritis; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Stelara (ustekinumab), Skyrizi 
+(risankizumab), Tremfya (guselkumab), Cosentyx (secukinumab), Taltz (ixekizumab), Xeljanz (tofacitinib), 
+Olumiant (baricitinib), Rinvoq (upadacitinib), Otezla (apremilast)]; and 
+o Initial authorization is for no more than 12 months 
+ For continuation of therapy, all of the following: 
+o Documentation of positive clinical response to infliximab; and 
+o Infliximab is dosed according to U.S. FDA labeled dosing for psoriatic arthritis; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Stelara (ustekinumab), Skyrizi 
+(risankizumab), Tremfya (guselkumab), Cosentyx (secukinumab), Taltz (ixekizumab), Xeljanz (tofacitinib), 
+Olumiant (baricitinib), Rinvoq (upadacitinib), Otezla (apremilast)]; and 
+o Reauthorization will be for no more than 12 months 
+ 
+Infliximab is medically necessary for the treatment of psoriatic arthritis when all of the following criteria are 
+met:
+1,57,62 
+ For initial therapy, all of the following: 
+o Diagnosis of psoriatic arthritis (PsA); and 
+o One of the following: 
+ History of failure to a 3-month trial of methotrexate at the maximally indicated dose, unless contraindicated or 
+clinically significant adverse effects are experienced; or 
+ Patient has been previously treated with a targeted immunomodulator FDA-approved for the treatment of 
+psoriatic arthritis [e.g., adalimumab, Enbrel (etanercept), Cimzia (certolizumab), Simponi (golimumab), 
+Orencia (abatacept), Stelara (ustekinumab), Skyrizi (risankizumab), Tremfya (guselkumab), Cosentyx 
+(secukinumab), Taltz (ixekizumab), Xeljanz (tofacitinib), Olumiant (baricitinib), Rinvoq (upadacitinib), Otezla 
+(apremilast)]; or 
+ Patient is currently on Infliximab; and 
+o Infliximab is dosed according to U.S. FDA labeled dosing for psoriatic arthritis; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Stelara (ustekinumab), Skyrizi 
+(risankizumab), Tremfya (guselkumab), Cosentyx (secukinumab), Taltz (ixekizumab), Xeljanz (tofacitinib), 
+Olumiant (baricitinib), Rinvoq (upadacitinib), Otezla (apremilast)]; and 
+o Prescribed by or in consultation with one of the following: 
+ Rheumatologist 
+ Dermatologist 
+and 
+o Initial authorization is for no more than 12 months 
+ For continuation of therapy, all of the following: 
+o Documentation of positive clinical response to infliximab; and 
+o Infliximab is dosed according to U.S. FDA labeled dosing for psoriatic arthritis; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Stelara (ustekinumab), Skyrizi 
+
+--- Page 6 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 6 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+(risankizumab), Tremfya (guselkumab), Cosentyx (secukinumab), Taltz (ixekizumab), Xeljanz (tofacitinib), 
+Olumiant (baricitinib), Rinvoq (upadacitinib), Otezla (apremilast)]; and 
+o Reauthorization will be for no more than 12 months 
+ 
+Infliximab is proven for the treatment of rheumatoid arthritis when all of the following criteria are met:1,57,62 
+ For initial therapy, all of the following: 
+o Diagnosis of moderately to severely active rheumatoid arthritis (RA); and 
+o One of the following: 
+ Patient is receiving concurrent therapy with methotrexate 
+ History of contraindication or intolerance to methotrexate 
+and 
+o Infliximab is dosed according to U.S. FDA labeled dosing for rheumatoid arthritis; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Xeljanz (tofacitinib), Olumiant 
+(baricitinib), Rinvoq (upadacitinib)]; and 
+o Initial authorization is for no more than 12 months 
+ For continuation of therapy, all of the following: 
+o Documentation of positive clinical response to infliximab; and 
+o Infliximab is dosed according to U.S. FDA labeled dosing for rheumatoid arthritis; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Xeljanz (tofacitinib), Olumiant 
+(baricitinib), Rinvoq (upadacitinib)]; and 
+o Reauthorization will be for no more than 12 months 
+ 
+Infliximab is medically necessary for the treatment of rheumatoid arthritis when all of the following criteria are 
+met:
+1,57, 62 
+ For initial therapy, all of the following: 
+o Diagnosis of moderately to severely active rheumatoid arthritis (RA); and 
+o One of the following: 
+ History of failure intolerance to a 3-month trial of one non-biologic disease modifying anti-rheumatic drug 
+(DMARD) [e.g., methotrexate, leflunomide, sulfasalazine, hydroxychloroquine] at maximally indicated doses 
+within the last 6 months, unless contraindicated or clinically significant adverse effects are experienced; or 
+ Patient has been previously treated with a targeted immunomodulator FDA-approved for the treatment of 
+rheumatoid arthritis [e.g., adalimumab, Enbrel (etanercept), Cimzia (certolizumab), Simponi (golimumab), 
+Orencia (abatacept), Xeljanz (tofacitinib), Olumiant (baricitinib), Rinvoq (upadacitinib)]; or 
+ Patient is currently on infliximab 
+and 
+o Infliximab is dosed according to U.S. FDA labeled dosing for rheumatoid arthritis; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Xeljanz (tofacitinib), Olumiant 
+(baricitinib), Rinvoq (upadacitinib)]; and 
+o Prescribed by or in consultation with a rheumatologist; and 
+o Initial authorization is for no more than 12 months 
+ For continuation of therapy, all of the following: 
+o Documentation of positive clinical response to infliximab; and 
+o Infliximab is dosed according to U.S. FDA labeled dosing for rheumatoid arthritis; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Xeljanz (tofacitinib), Olumiant 
+(baricitinib), Rinvoq (upadacitinib)]; and 
+o Reauthorization will be for no more than 12 months 
+ 
+Infliximab is proven and medically necessary for the treatment of sarcoidosis when all of the following criteria are 
+met:6,25,39-40,46,52 
+ For initial therapy, all of the following: 
+o Diagnosis of sarcoidosis; and 
+o History of failure, contraindication, or intolerance to corticosteroids (e.g., prednisone, methylprednisolone); and 
+o History of failure, contraindication, or intolerance to one immunosuppressant (e.g., methotrexate, 
+cyclophosphamide, azathioprine); and 
+o Infliximab is dosed no higher than 10 mg/kg, administered at week 0, 2, then once every 4 to 6 weeks thereafter; 
+and 
+
+--- Page 7 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 7 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Xeljanz (tofacitinib), Olumiant 
+(baricitinib), Rinvoq (upadacitinib)]; and 
+o Initial authorization is for no more than 12 months 
+ For continuation of therapy, all of the following: 
+o Documentation of positive clinical response to infliximab; and 
+o Infliximab is dosed no higher than 10 mg/kg, administered every 4 to 6 weeks; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Xeljanz (tofacitinib), Olumiant 
+(baricitinib), Rinvoq (upadacitinib)]; and 
+o Reauthorization will be for no more than 12 months 
+ 
+Infliximab is proven and medically necessary for the treatment of ulcerative colitis when all of the following 
+criteria are met:
+1,57, 62 
+ For initial therapy, all of the following: 
+o Diagnosis of moderately to severely active ulcerative colitis (UC); and 
+o One of the following: 
+ History of failure, contraindication, or intolerance to at least one conventional therapy (e.g., 6-mercaptopurine, 
+aminosalicylate, azathioprine, corticosteroids); or 
+ Patient has been previously treated with a targeted immunomodulator FDA-approved for the treatment of 
+ulcerative colitis as documented by claims history or submission medical records (Document drug, date, and 
+duration of therapy) [e.g., adalimumab, Simponi (golimumab), Stelara (ustekinumab), Xeljanz (tofacitinib), 
+Rinvoq (upadacitinib)]; or 
+ Patient is currently on infliximab  
+and 
+o Infliximab is dosed according to U.S. FDA labeled dosing for UC; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Xeljanz (tofacitinib), Olumiant 
+(baricitinib), Rinvoq (upadacitinib), Stelara (ustekinumab), Skyrizi (risankizumab)]; and 
+o Prescribed by or in consultation with a gastroenterologist; and 
+o Initial authorization is for no more than 12 months 
+ For continuation of therapy, all of the following: 
+o Documentation of positive clinical response to infliximab; and 
+o Infliximab is dosed according to U.S. FDA labeled dosing for UC; and 
+o Patient is not receiving infliximab in combination with a Targeted Immunomodulator [e.g., Enbrel (etanercept), 
+Cimzia (certolizumab), Simponi (golimumab), Orencia (abatacept), adalimumab, Xeljanz (tofacitinib), Olumiant 
+(baricitinib), Rinvoq (upadacitinib), Stelara (ustekinumab), Skyrizi (risankizumab)]; and 
+o Reauthorization will be for no more than 12 months 
+ 
+Infliximab is proven and medically necessary for the treatment of acute graft-versus-host disease (GVHD) when 
+all of the following criteria are met: 
+ For initial therapy, all of the following: 
+o Diagnosis of steroid-refractory acute GVHD; and 
+o One of the following: 
+ Patient is receiving infliximab in combination with systemic corticosteroids 
+ Patient is intolerant to systemic corticosteroid therapy 
+and 
+o Initial authorization is for no more than 4 doses 
+ For continuation of therapy, all of the following: 
+o Documentation of positive clinical response; and 
+o Patient continues to experience acute GVHD; and 
+o One of the following: 
+ Patient is receiving infliximab in combination with systemic corticosteroids 
+ Patient is intolerant to systemic corticosteroid therapy 
+and 
+o Reauthorization is for no more than 4 doses 
+ 
+Infliximab is proven and medically necessary for the treatment of Immune checkpoint inhibitor-related toxicities 
+when all of the following criteria are met:67 
+ For initial therapy, all of the following: 
+
+--- Page 8 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 8 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+o Patient has recently received checkpoint inhibitor therapy [e.g., Keytruda (Pembrolizumab), Opdivo (Nivolumab)]; 
+and 
+o Diagnosis of one of the following: 
+ Moderate (G2) or severe (G3-4) immunotherapy-related diarrhea or colitis 
+ Severe (G3-4) immunotherapy-related pneumonitis 
+ Severe (G3) or life-threatening (G4) immunotherapy-related acute renal failure/elevated serum creatinine; 
+severe (G3-4) immunotherapy-related uveitis 
+ Life threatening (G4) immunotherapy-related myocarditis, pericarditis, arrhythmias, impaired ventricular 
+function, or conduction abnormalities 
+ Severe immunotherapy-related inflammatory arthritis 
+ Moderate, severe, or life-threatening immunotherapy-related, steroid-refractory myalgias or myositis (muscle 
+weakness) 
+and 
+o Patient has had inadequate improvement in toxicities or symptoms despite systemic corticosteroid therapy of 
+adequate dose and duration for the diagnosis; and 
+o One of the following: 
+ Patient is receiving infliximab in combination with systemic corticosteroids 
+ Patient is intolerant to systemic corticosteroid therapy 
+and 
+o Initial authorization is for no more than 4 doses 
+ For continuation of therapy, all of the following: 
+o Documentation of positive clinical response; and 
+o Patient continues to experience toxicities from treatment with immune checkpoint inhibitor therapy; and 
+o One of the following: 
+ Patient is receiving infliximab in combination with systemic corticosteroids 
+ Patient is intolerant to systemic corticosteroid therapy 
+and 
+o Reauthorization is for no more than 4 doses 
+ 
+There may be other conditions that qualify as serious, rare diseases for which the use of infliximab may be appropriate. 
+Refer to the Benefit Considerations section of this policy for additional information.  
+ 
+Infliximab is unproven and not medically necessary for the treatment of: 
+ Hidradenitis suppurativa 
+ Juvenile idiopathic arthritis (juvenile rheumatoid 
+arthritis) 
+ Myelodysplastic syndromes 
+ Reiter’s syndrome 
+ Sjögren’s syndrome  
+ Still’s disease 
+ Undifferentiated spondyloarthropathy 
+ Wegener’s granulomatosis 
+ 
+Infliximab is unproven for the treatment of the above conditions because statistically robust randomized controlled trials 
+are needed to address the issue of whether infliximab has sufficient superiority in clinical efficacy compared to other 
+available treatments to justify the inherent clinical risk in the use of a monoclonal antibody anti-tumor necrosis factor 
+agent. 
+ 
+Documentation Requirements 
+ 
+Benefit coverage for health services is determined by the member specific benefit plan document and applicable laws that 
+may require coverage for a specific service. The documentation requirements outlined below are used to assess whether 
+the member meets the clinical criteria for coverage, but do not guarantee coverage of the service requested. 
+ 
+HCPCS Code* Required Clinical Information 
+Remicade®, Renflexis®, Ixifi™  
+J1745 
+Q5104 
+Q5109 
+For initial and continuation of therapy requests, medical notes documenting one of the following: 
+ Both of the following: 
+o History of a trial of at least 14 weeks of Inflectra or Avsola resulting in minimal clinical 
+response to therapy and residual disease activity; and 
+
+--- Page 9 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 9 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+HCPCS Code* Required Clinical Information 
+Remicade®, Renflexis®, Ixifi™  
+o Physician attests that in their clinical opinion, the clinical response would be expected to be 
+superior with Remicade, Renflexis, or other infliximab biosimilar product, than experienced 
+with Inflectra and Avsola. 
+or 
+ Both of the following: 
+o Documentation of intolerance, contraindication, or adverse event to Inflectra or Avsola; and 
+o Physician attests that in their clinical opinion, the same intolerance, contraindication, or 
+adverse event would not be expected to occur with Remicade, Renflexis, or other infliximab 
+biosimilar product. 
+*For code descriptions, refer to the Applicable Codes section. 
+ 
+Applicable Codes 
+ 
+The following list(s) of procedure and/or diagnosis codes is provided for reference purposes only and may not be all 
+inclusive. Listing of a code in this policy does not imply that the service described by the code is a covered or non-covered 
+health service. Benefit coverage for health services is determined by the member specific benefit plan document and 
+applicable laws that may require coverage for a specific service. The inclusion of a code does not imply any right to 
+reimbursement or guarantee claim payment. Other Policies and Guidelines may apply. 
+ 
+Coding Clarification: HCPCS code Q5109 is provided for informational purposes only. Ixifi™  (infliximab-qbtx) is currently 
+unavailable in the USA. 
+ 
+HCPCS Code Description 
+J1745 Injection, infliximab, excludes biosimilar, 10 mg 
+Q5103 Injection, infliximab-dyyb, biosimilar, (Inflectra), 10 mg 
+Q5104 Injection, infliximab-abda, biosimilar, (Renflexis), 10 mg 
+Q5109 Injection, infliximab-qbtx, biosimilar, (Ixifi), 10 mg 
+Q5121 Injection, infliximab-axxq, biosimilar, (Avsola), 10 mg 
+ 
+Diagnosis Code Description 
+D86.0 Sarcoidosis of lung 
+D86.1 Sarcoidosis of lymph nodes 
+D86.2 Sarcoidosis of lung with sarcoidosis of lymph nodes 
+D86.3 Sarcoidosis of skin 
+D86.81 Sarcoid meningitis 
+D86.82 Multiple cranial nerve palsies in sarcoidosis 
+D86.83 Sarcoid iridocyclitis 
+D86.84 Sarcoid pyelonephritis 
+D86.85 Sarcoid myocarditis 
+D86.86 Sarcoid arthropathy 
+D86.87 Sarcoid myositis 
+D86.89 Sarcoidosis of other sites 
+D86.9 Sarcoidosis, unspecified 
+D89.810 Acute graft-versus-host disease 
+H20.041 Secondary noninfectious iridocyclitis, right eye 
+H20.042 Secondary noninfectious iridocyclitis, left eye 
+H20.043 Secondary noninfectious iridocyclitis, bilateral 
+H20.049 Secondary noninfectious iridocyclitis, unspecified eye 
+H20.10 Chronic iridocyclitis, unspecified eye 
+
+--- Page 10 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 10 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Diagnosis Code Description 
+H20.11 Chronic iridocyclitis, right eye 
+H20.12 Chronic iridocyclitis, left eye 
+H20.13 Chronic iridocyclitis, bilateral 
+H20.821 Vogt-Koyanagi syndrome, right eye 
+H20.822 Vogt-Koyanagi syndrome, left eye 
+H20.823 Vogt-Koyanagi syndrome, bilateral 
+H20.829 Vogt-Koyanagi syndrome, unspecified eye 
+H30.001 Unspecified focal chorioretinal inflammation, right eye 
+H30.002 Unspecified focal chorioretinal inflammation, left eye 
+H30.003 Unspecified focal chorioretinal inflammation, bilateral 
+H30.009 Unspecified focal chorioretinal inflammation, unspecified eye 
+H30.011 Focal chorioretinal inflammation, juxtapapillary, right eye 
+H30.012 Focal chorioretinal inflammation, juxtapapillary, left eye 
+H30.013 Focal chorioretinal inflammation, juxtapapillary, bilateral 
+H30.019 Focal chorioretinal inflammation, juxtapapillary, unspecified eye 
+H30.021 Focal chorioretinal inflammation of posterior pole, right eye 
+H30.022 Focal chorioretinal inflammation of posterior pole, left eye 
+H30.023 Focal chorioretinal inflammation of posterior pole, bilateral 
+H30.029 Focal chorioretinal inflammation of posterior pole, unspecified eye 
+H30.031 Focal chorioretinal inflammation, peripheral, right eye 
+H30.032 Focal chorioretinal inflammation, peripheral, left eye 
+H30.033 Focal chorioretinal inflammation, peripheral, bilateral 
+H30.039 Focal chorioretinal inflammation, peripheral, unspecified eye 
+H30.041 Focal chorioretinal inflammation, macular or paramacular, right eye 
+H30.042 Focal chorioretinal inflammation, macular or paramacular, left eye 
+H30.043 Focal chorioretinal inflammation, macular or paramacular, bilateral 
+H30.049 Focal chorioretinal inflammation, macular or paramacular, unspecified eye 
+H30.101 Unspecified disseminated chorioretinal inflammation (chorioretinitis/choroiditis), right eye 
+H30.102 Unspecified disseminated chorioretinal inflammation (chorioretinitis/choroiditis), left eye 
+H30.103 Unspecified disseminated chorioretinal inflammation (chorioretinitis/choroiditis), bilateral 
+H30.109 Unspecified disseminated chorioretinal inflammation (chorioretinitis/choroiditis), unspecified eye 
+H30.111 Disseminated chorioretinal inflammation (choroiditis/chorioretinitis) posterior pole, right eye 
+H30.112 Disseminated chorioretinal inflammation (choroiditis/chorioretinitis) posterior pole, left eye 
+H30.113 Disseminated chorioretinal inflammation (choroiditis/chorioretinitis) posterior pole, bilateral 
+H30.119 Disseminated chorioretinal inflammation (choroiditis/chorioretinitis) posterior pole, unspecified eye 
+H30.121 Disseminated chorioretinal inflammation (chorioretinitis/choroiditis) peripheral, right eye 
+H30.122 Disseminated chorioretinal inflammation (chorioretinitis/choroiditis) peripheral, left eye 
+H30.123 Disseminated chorioretinal inflammation (chorioretinitis/choroiditis) peripheral, bilateral 
+H30.129 Disseminated chorioretinal inflammation (chorioretinitis/choroiditis) peripheral, unspecified eye 
+H30.131 Disseminated chorioretinal inflammation, generalized, right eye 
+H30.132 Disseminated chorioretinal inflammation, generalized, left eye 
+H30.133 Disseminated chorioretinal inflammation, generalized, bilateral 
+H30.139 Disseminated chorioretinal inflammation, generalized, unspecified eye 
+H30.20 Posterior cyclitis, unspecified eye 
+H30.21 Posterior cyclitis, right eye 
+
+--- Page 11 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 11 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Diagnosis Code Description 
+H30.22 Posterior cyclitis, left eye 
+H30.23 Posterior cyclitis, bilateral 
+H30.811 Harada’s disease, right eye 
+H30.812 Harada’s disease, left eye 
+H30.813 Harada’s disease, bilateral 
+H30.819 Harada’s disease, unspecified eye 
+H30.891 Other chorioretinal inflammations, right eye 
+H30.892 Other chorioretinal inflammations, left eye 
+H30.893 Other chorioretinal inflammations, bilateral 
+H30.899 Other chorioretinal inflammations, unspecified eye 
+H30.90 Unspecified chorioretinal inflammation, unspecified eye 
+H30.91 Unspecified chorioretinal inflammation, right eye 
+H30.92 Unspecified chorioretinal inflammation, left eye 
+H30.93 Unspecified chorioretinal inflammation, bilateral 
+H35.021 Exudative retinopathy, right eye 
+H35.022 Exudative retinopathy, left eye 
+H35.023 Exudative retinopathy, bilateral 
+H35.029 Exudative retinopathy, unspecified eye 
+H35.061 Retinal vasculitis, right eye 
+H35.062 Retinal vasculitis, left eye 
+H35.063 Retinal vasculitis, bilateral 
+H35.069 Retinal vasculitis, unspecified eye 
+H44.111 Panuveitis, right eye 
+H44.112 Panuveitis, left eye 
+H44.113 Panuveitis, bilateral 
+H44.119 Panuveitis, unspecified eye 
+H44.131 Sympathetic uveitis, right eye 
+H44.132 Sympathetic uveitis, left eye 
+H44.133 Sympathetic uveitis, bilateral 
+H44.139 Sympathetic uveitis, unspecified eye 
+I30.8 Other forms of acute pericarditis 
+I30.9 Acute pericarditis, unspecified 
+I40.8 Other acute myocarditis 
+I40.9 Acute myocarditis, unspecified 
+I50.9 Heart failure, unspecified 
+J70.2 Acute drug-induced interstitial lung disorders 
+J70.4 Drug-induced interstitial lung disorders, unspecified 
+K31.6 Fistula of stomach and duodenum 
+K50.00 Crohn’s disease of small intestine without complications 
+K50.011 Crohn’s disease of small intestine with rectal bleeding 
+K50.012 Crohn’s disease of small intestine with intestinal obstruction 
+K50.013 Crohn’s disease of small intestine with fistula 
+K50.014 Crohn’s disease of small intestine with abscess 
+K50.018 Crohn’s disease of small intestine with other complication 
+K50.019 Crohn’s disease of small intestine with unspecified complications 
+
+--- Page 12 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 12 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Diagnosis Code Description 
+K50.10 Crohn’s disease of large intestine without complications 
+K50.111 Crohn’s disease of large intestine with rectal bleeding 
+K50.112 Crohn’s disease of large intestine with intestinal obstruction 
+K50.113 Crohn’s disease of large intestine with fistula 
+K50.114 Crohn’s disease of large intestine with abscess 
+K50.118 Crohn’s disease of large intestine with other complication 
+K50.119 Crohn’s disease of large intestine with unspecified complications 
+K50.80 Crohn’s disease of both small and large intestine without complications 
+K50.811 Crohn’s disease of both small and large intestine with rectal bleeding 
+K50.812 Crohn’s disease of both small and large intestine with intestinal obstruction 
+K50.813 Crohn’s disease of both small and large intestine with fistula 
+K50.814 Crohn’s disease of both small and large intestine with abscess 
+K50.818 Crohn’s disease of both small and large intestine with other complication 
+K50.819 Crohn’s disease of both small and large intestine with unspecified complications 
+K50.90 Crohn’s disease, unspecified, without complications 
+K50.911 Crohn’s disease, unspecified, with rectal bleeding 
+K50.912 Crohn’s disease, unspecified, with intestinal obstruction 
+K50.913 Crohn’s disease, unspecified, with fistula 
+K50.914 Crohn’s disease, unspecified, with abscess 
+K50.918 Crohn’s disease, unspecified, with other complication 
+K50.919 Crohn’s disease, unspecified, with unspecified complications 
+K51.00 Ulcerative (chronic) pancolitis without complications 
+K51.011 Ulcerative (chronic) pancolitis with rectal bleeding 
+K51.012 Ulcerative (chronic) pancolitis with intestinal obstruction 
+K51.013 Ulcerative (chronic) pancolitis with fistula 
+K51.014 Ulcerative (chronic) pancolitis with abscess 
+K51.018 Ulcerative (chronic) pancolitis with other complication 
+K51.019 Ulcerative (chronic) pancolitis with unspecified complications 
+K51.20 Ulcerative (chronic) proctitis without complications 
+K51.211 Ulcerative (chronic) proctitis with rectal bleeding 
+K51.212 Ulcerative (chronic) proctitis with intestinal obstruction 
+K51.213 Ulcerative (chronic) proctitis with fistula 
+K51.214 Ulcerative (chronic) proctitis with abscess 
+K51.218 Ulcerative (chronic) proctitis with other complication 
+K51.219 Ulcerative (chronic) proctitis with unspecified complications 
+K51.30 Ulcerative (chronic) rectosigmoiditis without complications 
+K51.311 Ulcerative (chronic) rectosigmoiditis with rectal bleeding 
+K51.312 Ulcerative (chronic) rectosigmoiditis with intestinal obstruction 
+K51.313 Ulcerative (chronic) rectosigmoiditis with fistula 
+K51.314 Ulcerative (chronic) rectosigmoiditis with abscess 
+K51.318 Ulcerative (chronic) rectosigmoiditis with other complication 
+K51.319 Ulcerative (chronic) rectosigmoiditis with unspecified complications 
+K51.40 Inflammatory polyps of colon without complications 
+K51.411 Inflammatory polyps of colon with rectal bleeding 
+K51.412 Inflammatory polyps of colon with intestinal obstruction 
+
+--- Page 13 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 13 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Diagnosis Code Description 
+K51.413 Inflammatory polyps of colon with fistula 
+K51.414 Inflammatory polyps of colon with abscess 
+K51.418 Inflammatory polyps of colon with other complication 
+K51.419 Inflammatory polyps of colon with unspecified complications 
+K51.50 Left sided colitis without complications 
+K51.511 Left sided colitis with rectal bleeding 
+K51.512 Left sided colitis with intestinal obstruction 
+K51.513 Left sided colitis with fistula 
+K51.514 Left sided colitis with abscess 
+K51.518 Left sided colitis with other complication 
+K51.519 Left sided colitis with unspecified complications 
+K51.80 Other ulcerative colitis without complications 
+K51.811 Other ulcerative colitis with rectal bleeding 
+K51.812 Other ulcerative colitis with intestinal obstruction 
+K51.813 Other ulcerative colitis with fistula 
+K51.814 Other ulcerative colitis with abscess 
+K51.818 Other ulcerative colitis with other complication 
+K51.819 Other ulcerative colitis with unspecified complications 
+K51.90 Ulcerative colitis, unspecified, without complications 
+K51.911 Ulcerative colitis, unspecified with rectal bleeding 
+K51.912 Ulcerative colitis, unspecified with intestinal obstruction 
+K51.913 Ulcerative colitis, unspecified with fistula 
+K51.914 Ulcerative colitis, unspecified with abscess 
+K51.918 Ulcerative colitis, unspecified with other complication 
+K51.919 Ulcerative colitis, unspecified with unspecified complications 
+K52.1 Toxic gastroenteritis and colitis 
+K60.30 Anal fistula, unspecified 
+K60.311 Anal fistula, simple, initial 
+K60.312 Anal fistula, simple, persistent 
+K60.313 Anal fistula, simple, recurrent 
+K60.319 Anal fistula, simple, unspecified 
+K60.321 Anal fistula, complex, initial 
+K60.322 Anal fistula, complex, persistent 
+K60.323 Anal fistula, complex, recurrent 
+K60.329 Anal fistula, complex, unspecified 
+K60.40 Rectal fistula, unspecified 
+K60.411 Rectal fistula, simple, initial 
+K60.412 Rectal fistula, simple, persistent 
+K60.413 Rectal fistula, simple, recurrent 
+K60.419 Rectal fistula, simple, unspecified 
+K60.421 Rectal fistula, complex, initial 
+K60.422 Rectal fistula, complex, persistent 
+K60.423 Rectal fistula, complex, recurrent 
+K60.429 Rectal fistula, complex, unspecified 
+K60.50 Anorectal fistula, unspecified 
+
+--- Page 14 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 14 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Diagnosis Code Description 
+K60.511 Anorectal fistula, simple, initial 
+K60.512 Anorectal fistula, simple, persistent 
+K60.513 Anorectal fistula, simple, recurrent 
+K60.519 Anorectal fistula, simple, unspecified 
+K60.521 Anorectal fistula, complex, initial 
+K60.522 Anorectal fistula, complex, persistent 
+K60.523 Anorectal fistula, complex, recurrent 
+K60.529 Anorectal fistula, complex, unspecified 
+K63.2 Fistula of intestine 
+L40.0 Psoriasis vulgaris 
+L40.1 Generalized pustular psoriasis 
+L40.2 Acrodermatitis continua 
+L40.3 Pustulosis palmaris et plantaris 
+L40.4 Guttate psoriasis 
+L40.50 Arthropathic psoriasis, unspecified 
+L40.51 Distal interphalangeal psoriatic arthropathy 
+L40.52 Psoriatic arthritis mutilans 
+L40.53 Psoriatic spondylitis 
+L40.54 Psoriatic juvenile arthropathy 
+L40.59 Other psoriatic arthropathy 
+L40.8 Other psoriasis 
+L40.9 Psoriasis, unspecified 
+M05.A Abnormal rheumatoid factor and anti-citrullinated protein antibody with rheumatoid arthritis 
+M05.00 Felty’s syndrome, unspecified site 
+M05.011 Felty’s syndrome, right shoulder 
+M05.012 Felty’s syndrome, left shoulder 
+M05.019 Felty’s syndrome, unspecified shoulder 
+M05.021 Felty’s syndrome, right elbow 
+M05.022 Felty’s syndrome, left elbow 
+M05.029 Felty’s syndrome, unspecified elbow 
+M05.031 Felty’s syndrome, right wrist 
+M05.032 Felty’s syndrome, left wrist 
+M05.039 Felty’s syndrome, unspecified wrist 
+M05.041 Felty’s syndrome, right hand 
+M05.042 Felty’s syndrome, left hand 
+M05.049 Felty’s syndrome, unspecified hand 
+M05.051 Felty’s syndrome, right hip 
+M05.052 Felty’s syndrome, left hip 
+M05.059 Felty’s syndrome, unspecified hip 
+M05.061 Felty’s syndrome, right knee 
+M05.062 Felty’s syndrome, left knee 
+M05.069 Felty’s syndrome, unspecified knee 
+M05.071 Felty’s syndrome, right ankle and foot 
+M05.072 Felty’s syndrome, left ankle and foot 
+M05.079 Felty’s syndrome, unspecified ankle and foot 
+
+--- Page 15 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 15 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Diagnosis Code Description 
+M05.09 Felty’s syndrome, multiple sites 
+M05.20 Rheumatoid vasculitis with rheumatoid arthritis of unspecified site 
+M05.211 Rheumatoid vasculitis with rheumatoid arthritis of right shoulder 
+M05.212 Rheumatoid vasculitis with rheumatoid arthritis of left shoulder 
+M05.219 Rheumatoid vasculitis with rheumatoid arthritis of unspecified shoulder 
+M05.221 Rheumatoid vasculitis with rheumatoid arthritis of right elbow 
+M05.222 Rheumatoid vasculitis with rheumatoid arthritis of left elbow 
+M05.229 Rheumatoid vasculitis with rheumatoid arthritis of unspecified elbow 
+M05.231 Rheumatoid vasculitis with rheumatoid arthritis of right wrist 
+M05.232 Rheumatoid vasculitis with rheumatoid arthritis of left wrist 
+M05.239 Rheumatoid vasculitis with rheumatoid arthritis of unspecified wrist 
+M05.241 Rheumatoid vasculitis with rheumatoid arthritis of right hand 
+M05.242 Rheumatoid vasculitis with rheumatoid arthritis of left hand 
+M05.249 Rheumatoid vasculitis with rheumatoid arthritis of unspecified hand 
+M05.251 Rheumatoid vasculitis with rheumatoid arthritis of right hip 
+M05.252 Rheumatoid vasculitis with rheumatoid arthritis of left hip 
+M05.259 Rheumatoid vasculitis with rheumatoid arthritis of unspecified hip 
+M05.261 Rheumatoid vasculitis with rheumatoid arthritis of right knee 
+M05.262 Rheumatoid vasculitis with rheumatoid arthritis of left knee 
+M05.269 Rheumatoid vasculitis with rheumatoid arthritis of unspecified knee 
+M05.271 Rheumatoid vasculitis with rheumatoid arthritis of right ankle and foot 
+M05.272 Rheumatoid vasculitis with rheumatoid arthritis of left ankle and foot 
+M05.279 Rheumatoid vasculitis with rheumatoid arthritis of unspecified ankle and foot 
+M05.29 Rheumatoid vasculitis with rheumatoid arthritis of multiple sites 
+M05.30 Rheumatoid heart disease with rheumatoid arthritis of unspecified site 
+M05.311 Rheumatoid heart disease with rheumatoid arthritis of right shoulder 
+M05.312 Rheumatoid heart disease with rheumatoid arthritis of left shoulder 
+M05.319 Rheumatoid heart disease with rheumatoid arthritis of unspecified shoulder 
+M05.321 Rheumatoid heart disease with rheumatoid arthritis of right elbow 
+M05.322 Rheumatoid heart disease with rheumatoid arthritis of left elbow 
+M05.329 Rheumatoid heart disease with rheumatoid arthritis of unspecified elbow 
+M05.331 Rheumatoid heart disease with rheumatoid arthritis of right wrist 
+M05.332 Rheumatoid heart disease with rheumatoid arthritis of left wrist 
+M05.339 Rheumatoid heart disease with rheumatoid arthritis of unspecified wrist 
+M05.341 Rheumatoid heart disease with rheumatoid arthritis of right hand 
+M05.342 Rheumatoid heart disease with rheumatoid arthritis of left hand 
+M05.349 Rheumatoid heart disease with rheumatoid arthritis of unspecified hand 
+M05.351 Rheumatoid heart disease with rheumatoid arthritis of right hip 
+M05.352 Rheumatoid heart disease with rheumatoid arthritis of left hip 
+M05.359 Rheumatoid heart disease with rheumatoid arthritis of unspecified hip 
+M05.361 Rheumatoid heart disease with rheumatoid arthritis of right knee 
+M05.362 Rheumatoid heart disease with rheumatoid arthritis of left knee 
+M05.369 Rheumatoid heart disease with rheumatoid arthritis of unspecified knee 
+M05.371 Rheumatoid heart disease with rheumatoid arthritis of right ankle and foot 
+M05.372 Rheumatoid heart disease with rheumatoid arthritis of left ankle and foot 
+
+--- Page 16 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 16 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Diagnosis Code Description 
+M05.379 Rheumatoid heart disease with rheumatoid arthritis of unspecified ankle and foot 
+M05.39 Rheumatoid heart disease with rheumatoid arthritis of multiple sites 
+M05.40 Rheumatoid myopathy with rheumatoid arthritis of unspecified site 
+M05.411 Rheumatoid myopathy with rheumatoid arthritis of right shoulder 
+M05.412 Rheumatoid myopathy with rheumatoid arthritis of left shoulder 
+M05.419 Rheumatoid myopathy with rheumatoid arthritis of unspecified shoulder 
+M05.421 Rheumatoid myopathy with rheumatoid arthritis of right elbow 
+M05.422 Rheumatoid myopathy with rheumatoid arthritis of left elbow 
+M05.429 Rheumatoid myopathy with rheumatoid arthritis of unspecified elbow 
+M05.431 Rheumatoid myopathy with rheumatoid arthritis of right wrist 
+M05.432 Rheumatoid myopathy with rheumatoid arthritis of left wrist 
+M05.439 Rheumatoid myopathy with rheumatoid arthritis of unspecified wrist 
+M05.441 Rheumatoid myopathy with rheumatoid arthritis of right hand 
+M05.442 Rheumatoid myopathy with rheumatoid arthritis of left hand 
+M05.449 Rheumatoid myopathy with rheumatoid arthritis of unspecified hand 
+M05.451 Rheumatoid myopathy with rheumatoid arthritis of right hip 
+M05.452 Rheumatoid myopathy with rheumatoid arthritis of left hip 
+M05.459 Rheumatoid myopathy with rheumatoid arthritis of unspecified hip 
+M05.461 Rheumatoid myopathy with rheumatoid arthritis of right knee 
+M05.462 Rheumatoid myopathy with rheumatoid arthritis of left knee 
+M05.469 Rheumatoid myopathy with rheumatoid arthritis of unspecified knee 
+M05.471 Rheumatoid myopathy with rheumatoid arthritis of right ankle and foot 
+M05.472 Rheumatoid myopathy with rheumatoid arthritis of left ankle and foot 
+M05.479 Rheumatoid myopathy with rheumatoid arthritis of unspecified ankle and foot 
+M05.49 Rheumatoid myopathy with rheumatoid arthritis of multiple sites 
+M05.50 Rheumatoid polyneuropathy with rheumatoid arthritis of unspecified site 
+M05.511 Rheumatoid polyneuropathy with rheumatoid arthritis of right shoulder 
+M05.512 Rheumatoid polyneuropathy with rheumatoid arthritis of left shoulder 
+M05.519 Rheumatoid polyneuropathy with rheumatoid arthritis of unspecified shoulder 
+M05.521 Rheumatoid polyneuropathy with rheumatoid arthritis of right elbow 
+M05.522 Rheumatoid polyneuropathy with rheumatoid arthritis of left elbow 
+M05.529 Rheumatoid polyneuropathy with rheumatoid arthritis of unspecified elbow 
+M05.531 Rheumatoid polyneuropathy with rheumatoid arthritis of right wrist 
+M05.532 Rheumatoid polyneuropathy with rheumatoid arthritis of left wrist 
+M05.539 Rheumatoid polyneuropathy with rheumatoid arthritis of unspecified wrist 
+M05.541 Rheumatoid polyneuropathy with rheumatoid arthritis of right hand 
+M05.542 Rheumatoid polyneuropathy with rheumatoid arthritis of left hand 
+M05.549 Rheumatoid polyneuropathy with rheumatoid arthritis of unspecified hand 
+M05.551 Rheumatoid polyneuropathy with rheumatoid arthritis of right hip 
+M05.552 Rheumatoid polyneuropathy with rheumatoid arthritis of left hip 
+M05.559 Rheumatoid polyneuropathy with rheumatoid arthritis of unspecified hip 
+M05.561 Rheumatoid polyneuropathy with rheumatoid arthritis of right knee 
+M05.562 Rheumatoid polyneuropathy with rheumatoid arthritis of left knee 
+M05.569 Rheumatoid polyneuropathy with rheumatoid arthritis of unspecified knee 
+M05.571 Rheumatoid polyneuropathy with rheumatoid arthritis of right ankle and foot 
+
+--- Page 17 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 17 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Diagnosis Code Description 
+M05.572 Rheumatoid polyneuropathy with rheumatoid arthritis of left ankle and foot 
+M05.579 Rheumatoid polyneuropathy with rheumatoid arthritis of unspecified ankle and foot 
+M05.59 Rheumatoid polyneuropathy with rheumatoid arthritis of multiple sites 
+M05.60 Rheumatoid arthritis of unspecified site with involvement of other organs and systems 
+M05.611 Rheumatoid arthritis of right shoulder with involvement of other organs and systems 
+M05.612 Rheumatoid arthritis of left shoulder with involvement of other organs and systems 
+M05.619 Rheumatoid arthritis of unspecified shoulder with involvement of other organs and systems 
+M05.621 Rheumatoid arthritis of right elbow with involvement of other organs and systems 
+M05.622 Rheumatoid arthritis of left elbow with involvement of other organs and systems 
+M05.629 Rheumatoid arthritis of unspecified elbow with involvement of other organs and systems 
+M05.631 Rheumatoid arthritis of right wrist with involvement of other organs and systems 
+M05.632 Rheumatoid arthritis of left wrist with involvement of other organs and systems 
+M05.639 Rheumatoid arthritis of unspecified wrist with involvement of other organs and systems 
+M05.641 Rheumatoid arthritis of right hand with involvement of other organs and systems 
+M05.642 Rheumatoid arthritis of left hand with involvement of other organs and systems 
+M05.649 Rheumatoid arthritis of unspecified hand with involvement of other organs and systems 
+M05.651 Rheumatoid arthritis of right hip with involvement of other organs and systems 
+M05.652 Rheumatoid arthritis of left hip with involvement of other organs and systems 
+M05.659 Rheumatoid arthritis of unspecified hip with involvement of other organs and systems 
+M05.661 Rheumatoid arthritis of right knee with involvement of other organs and systems 
+M05.662 Rheumatoid arthritis of left knee with involvement of other organs and systems 
+M05.669 Rheumatoid arthritis of unspecified knee with involvement of other organs and systems 
+M05.671 Rheumatoid arthritis of right ankle and foot with involvement of other organs and systems 
+M05.672 Rheumatoid arthritis of left ankle and foot with involvement of other organs and systems 
+M05.679 Rheumatoid arthritis of unspecified ankle and foot with involvement of other organs and systems 
+M05.69 Rheumatoid arthritis of multiple sites with involvement of other organs and systems 
+M05.70 Rheumatoid arthritis with rheumatoid factor of unspecified site without organ or systems 
+involvement 
+M05.711 Rheumatoid arthritis with rheumatoid factor of right shoulder without organ or systems involvement 
+M05.712 Rheumatoid arthritis with rheumatoid factor of left shoulder without organ or systems involvement 
+M05.719 Rheumatoid arthritis with rheumatoid factor of unspecified shoulder without organ or systems 
+involvement 
+M05.721 Rheumatoid arthritis with rheumatoid factor of right elbow without organ or systems involvement 
+M05.722 Rheumatoid arthritis with rheumatoid factor of left elbow without organ or systems involvement 
+M05.729 Rheumatoid arthritis with rheumatoid factor of unspecified elbow without organ or systems 
+involvement 
+M05.731 Rheumatoid arthritis with rheumatoid factor of right wrist without organ or systems involvement 
+M05.732 Rheumatoid arthritis with rheumatoid factor of left wrist without organ or systems involvement 
+M05.739 Rheumatoid arthritis with rheumatoid factor of unspecified wrist without organ or systems 
+involvement 
+M05.741 Rheumatoid arthritis with rheumatoid factor of right hand without organ or systems involvement 
+M05.742 Rheumatoid arthritis with rheumatoid factor of left hand without organ or systems involvement 
+M05.749 Rheumatoid arthritis with rheumatoid factor of unspecified hand without organ or systems 
+involvement 
+M05.751 Rheumatoid arthritis with rheumatoid factor of right hip without organ or systems involvement 
+M05.752 Rheumatoid arthritis with rheumatoid factor of left hip without organ or systems involvement 
+
+--- Page 18 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 18 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Diagnosis Code Description 
+M05.759 Rheumatoid arthritis with rheumatoid factor of unspecified hip without organ or systems involvement 
+M05.761 Rheumatoid arthritis with rheumatoid factor of right knee without organ or systems involvement 
+M05.762 Rheumatoid arthritis with rheumatoid factor of left knee without organ or systems involvement 
+M05.769 Rheumatoid arthritis with rheumatoid factor of unspecified knee without organ or systems 
+involvement 
+M05.771 Rheumatoid arthritis with rheumatoid factor of right ankle and foot without organ or systems 
+involvement 
+M05.772 Rheumatoid arthritis with rheumatoid factor of left ankle and foot without organ or systems 
+involvement 
+M05.779 Rheumatoid arthritis with rheumatoid factor of unspecified ankle and foot without organ or systems 
+involvement 
+M05.79 Rheumatoid arthritis with rheumatoid factor of multiple sites without organ or systems involvement 
+M05.7A Rheumatoid arthritis with rheumatoid factor of other specified site without organ or systems 
+involvement 
+M05.80 Other rheumatoid arthritis with rheumatoid factor of unspecified site 
+M05.811 Other rheumatoid arthritis with rheumatoid factor of right shoulder 
+M05.812 Other rheumatoid arthritis with rheumatoid factor of left shoulder 
+M05.819 Other rheumatoid arthritis with rheumatoid factor of unspecified shoulder 
+M05.821 Other rheumatoid arthritis with rheumatoid factor of right elbow 
+M05.822 Other rheumatoid arthritis with rheumatoid factor of left elbow 
+M05.829 Other rheumatoid arthritis with rheumatoid factor of unspecified elbow 
+M05.831 Other rheumatoid arthritis with rheumatoid factor of right wrist 
+M05.832 Other rheumatoid arthritis with rheumatoid factor of left wrist 
+M05.839 Other rheumatoid arthritis with rheumatoid factor of unspecified wrist 
+M05.841 Other rheumatoid arthritis with rheumatoid factor of right hand 
+M05.842 Other rheumatoid arthritis with rheumatoid factor of left hand 
+M05.849 Other rheumatoid arthritis with rheumatoid factor of unspecified hand 
+M05.851 Other rheumatoid arthritis with rheumatoid factor of right hip 
+M05.852 Other rheumatoid arthritis with rheumatoid factor of left hip 
+M05.859 Other rheumatoid arthritis with rheumatoid factor of unspecified hip 
+M05.861 Other rheumatoid arthritis with rheumatoid factor of right knee 
+M05.862 Other rheumatoid arthritis with rheumatoid factor of left knee 
+M05.869 Other rheumatoid arthritis with rheumatoid factor of unspecified knee 
+M05.871 Other rheumatoid arthritis with rheumatoid factor of right ankle and foot 
+M05.872 Other rheumatoid arthritis with rheumatoid factor of left ankle and foot 
+M05.879 Other rheumatoid arthritis with rheumatoid factor of unspecified ankle and foot 
+M05.89 Other rheumatoid arthritis with rheumatoid factor of multiple sites 
+M05.8A Other rheumatoid arthritis with rheumatoid factor of other specified site 
+M05.9 Rheumatoid arthritis with rheumatoid factor, unspecified 
+M06.00 Rheumatoid arthritis without rheumatoid factor, unspecified site 
+M06.011 Rheumatoid arthritis without rheumatoid factor, right shoulder 
+M06.012 Rheumatoid arthritis without rheumatoid factor, left shoulder 
+M06.019 Rheumatoid arthritis without rheumatoid factor, unspecified shoulder 
+M06.021 Rheumatoid arthritis without rheumatoid factor, right elbow 
+M06.022 Rheumatoid arthritis without rheumatoid factor, left elbow 
+M06.029 Rheumatoid arthritis without rheumatoid factor, unspecified elbow 
+
+--- Page 19 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 19 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Diagnosis Code Description 
+M06.031 Rheumatoid arthritis without rheumatoid factor, right wrist 
+M06.032 Rheumatoid arthritis without rheumatoid factor, left wrist 
+M06.039 Rheumatoid arthritis without rheumatoid factor, unspecified wrist 
+M06.041 Rheumatoid arthritis without rheumatoid factor, right hand 
+M06.042 Rheumatoid arthritis without rheumatoid factor, left hand 
+M06.049 Rheumatoid arthritis without rheumatoid factor, unspecified hand 
+M06.051 Rheumatoid arthritis without rheumatoid factor, right hip 
+M06.052 Rheumatoid arthritis without rheumatoid factor, left hip 
+M06.059 Rheumatoid arthritis without rheumatoid factor, unspecified hip 
+M06.061 Rheumatoid arthritis without rheumatoid factor, right knee 
+M06.062 Rheumatoid arthritis without rheumatoid factor, left knee 
+M06.069 Rheumatoid arthritis without rheumatoid factor, unspecified knee 
+M06.071 Rheumatoid arthritis without rheumatoid factor, right ankle and foot 
+M06.072 Rheumatoid arthritis without rheumatoid factor, left ankle and foot 
+M06.079 Rheumatoid arthritis without rheumatoid factor, unspecified ankle and foot 
+M06.08 Rheumatoid arthritis without rheumatoid factor, vertebrae 
+M06.09 Rheumatoid arthritis without rheumatoid factor, multiple sites 
+M06.0A Rheumatoid arthritis without rheumatoid factor, other specified site 
+M06.1 Adult-onset Still’s disease 
+M06.20 Rheumatoid bursitis, unspecified site 
+M06.211 Rheumatoid bursitis, right shoulder 
+M06.212 Rheumatoid bursitis, left shoulder 
+M06.219 Rheumatoid bursitis, unspecified shoulder 
+M06.221 Rheumatoid bursitis, right elbow 
+M06.222 Rheumatoid bursitis, left elbow 
+M06.229 Rheumatoid bursitis, unspecified elbow 
+M06.231 Rheumatoid bursitis, right wrist 
+M06.232 Rheumatoid bursitis, left wrist 
+M06.239 Rheumatoid bursitis, unspecified wrist 
+M06.241 Rheumatoid bursitis, right hand 
+M06.242 Rheumatoid bursitis, left hand 
+M06.249 Rheumatoid bursitis, unspecified hand 
+M06.251 Rheumatoid bursitis, right hip 
+M06.252 Rheumatoid bursitis, left hip 
+M06.259 Rheumatoid bursitis, unspecified hip 
+M06.261 Rheumatoid bursitis, right knee 
+M06.262 Rheumatoid bursitis, left knee 
+M06.269 Rheumatoid bursitis, unspecified knee 
+M06.271 Rheumatoid bursitis, right ankle and foot 
+M06.272 Rheumatoid bursitis, left ankle and foot 
+M06.279 Rheumatoid bursitis, unspecified ankle and foot 
+M06.28 Rheumatoid bursitis, vertebrae 
+M06.29 Rheumatoid bursitis, multiple sites 
+M06.30 Rheumatoid nodule, unspecified site 
+M06.311 Rheumatoid nodule, right shoulder 
+
+--- Page 20 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 20 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Diagnosis Code Description 
+M06.312 Rheumatoid nodule, left shoulder 
+M06.319 Rheumatoid nodule, unspecified shoulder 
+M06.321 Rheumatoid nodule, right elbow 
+M06.322 Rheumatoid nodule, left elbow 
+M06.329 Rheumatoid nodule, unspecified elbow 
+M06.331 Rheumatoid nodule, right wrist 
+M06.332 Rheumatoid nodule, left wrist 
+M06.339 Rheumatoid nodule, unspecified wrist 
+M06.341 Rheumatoid nodule, right hand 
+M06.342 Rheumatoid nodule, left hand 
+M06.349 Rheumatoid nodule, unspecified hand 
+M06.351 Rheumatoid nodule, right hip 
+M06.352 Rheumatoid nodule, left hip 
+M06.359 Rheumatoid nodule, unspecified hip 
+M06.361 Rheumatoid nodule, right knee 
+M06.362 Rheumatoid nodule, left knee 
+M06.369 Rheumatoid nodule, unspecified knee 
+M06.371 Rheumatoid nodule, right ankle and foot 
+M06.372 Rheumatoid nodule, left ankle and foot 
+M06.379 Rheumatoid nodule, unspecified ankle and foot 
+M06.38 Rheumatoid nodule, vertebrae 
+M06.39 Rheumatoid nodule, multiple sites 
+M06.4 Inflammatory polyarthropathy 
+M06.80 Other specified rheumatoid arthritis, unspecified site 
+M06.811 Other specified rheumatoid arthritis, right shoulder 
+M06.812 Other specified rheumatoid arthritis, left shoulder 
+M06.819 Other specified rheumatoid arthritis, unspecified shoulder 
+M06.821 Other specified rheumatoid arthritis, right elbow 
+M06.822 Other specified rheumatoid arthritis, left elbow 
+M06.829 Other specified rheumatoid arthritis, unspecified elbow 
+M06.831 Other specified rheumatoid arthritis, right wrist 
+M06.832 Other specified rheumatoid arthritis, left wrist 
+M06.839 Other specified rheumatoid arthritis, unspecified wrist 
+M06.841 Other specified rheumatoid arthritis, right hand 
+M06.842 Other specified rheumatoid arthritis, left hand 
+M06.849 Other specified rheumatoid arthritis, unspecified hand 
+M06.851 Other specified rheumatoid arthritis, right hip 
+M06.852 Other specified rheumatoid arthritis, left hip 
+M06.859 Other specified rheumatoid arthritis, unspecified hip 
+M06.861 Other specified rheumatoid arthritis, right knee 
+M06.862 Other specified rheumatoid arthritis, left knee 
+M06.869 Other specified rheumatoid arthritis, unspecified knee 
+M06.871 Other specified rheumatoid arthritis, right ankle and foot 
+M06.872 Other specified rheumatoid arthritis, left ankle and foot 
+M06.879 Other specified rheumatoid arthritis, unspecified ankle and foot 
+
+--- Page 21 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 21 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Diagnosis Code Description 
+M06.88 Other specified rheumatoid arthritis, vertebrae 
+M06.89 Other specified rheumatoid arthritis, multiple sites 
+M06.8A Other specified rheumatoid arthritis, other specified site 
+M06.9 Rheumatoid arthritis, unspecified 
+M08.1 Juvenile ankylosing spondylitis 
+M45.0 Ankylosing spondylitis of multiple sites in spine 
+M45.1 Ankylosing spondylitis of occipito-atlanto-axial region 
+M45.2 Ankylosing spondylitis of cervical region 
+M45.3 Ankylosing spondylitis of cervicothoracic region 
+M45.4 Ankylosing spondylitis of thoracic region 
+M45.5 Ankylosing spondylitis of thoracolumbar region 
+M45.6 Ankylosing spondylitis lumbar region 
+M45.7 Ankylosing spondylitis of lumbosacral region 
+M45.8 Ankylosing spondylitis sacral and sacrococcygeal region 
+M45.9 Ankylosing spondylitis of unspecified sites in spine 
+M48.8X1 Other specified spondylopathies, occipito-atlanto-axial region 
+M48.8X2 Other specified spondylopathies, cervical region 
+M48.8X3 Other specified spondylopathies, cervicothoracic region 
+M48.8X4 Other specified spondylopathies, thoracic region 
+M48.8X5 Other specified spondylopathies, thoracolumbar region 
+M48.8X6 Other specified spondylopathies, lumbar region 
+M48.8X7 Other specified spondylopathies, lumbosacral region 
+M48.8X8 Other specified spondylopathies, sacral and sacrococcygeal region 
+M48.8X9 Other specified spondylopathies, site unspecified 
+N17.8 Other acute kidney failure 
+N17.9 Acute kidney failure, unspecified 
+N82.2 Fistula of vagina to small intestine 
+N82.3 Fistula of vagina to large intestine 
+N82.4 Other female intestinal-genital tract fistulae 
+R19.7 Diarrhea, unspecified 
+T45.1X5A Adverse effect of antineoplastic and immunosuppressive drugs, initial encounter 
+T45.1X5D Adverse effect of antineoplastic and immunosuppressive drugs, subsequent encounter 
+T45.1X5S Adverse effect of antineoplastic and immunosuppressive drugs, sequela 
+ 
+Background 
+ 
+Infliximab is a genetically engineered chimeric human/mouse monoclonal antibody (cA2) against tumor necrosis factor 
+alfa (TNF-alfa), a key mediator of mucosal inflammation. Increased levels of TNF-alfa are found in the intestinal mucosa 
+and stool of patients with active Crohn’s disease and in the joints of rheumatoid arthritis patients. Elevated TNF-alfa 
+concentrations are also involved in ulcerative colitis, ankylosing spondylitis, psoriatic arthritis, and plaque psoriasis. TNF-
+alfa activity is neutralized by cA2 antibody binding to the soluble and transmembrane forms which blocks the binding of 
+TNF-alfa with its receptors. Activities inhibited by anti-TNF-alfa antibodies include induction of interleukins, enhancement 
+of leukocyte migration, and expression of adhesion molecules. In vitro studies have demonstrated that cells expressing 
+transmembrane TNF-alfa bound by infliximab are lysed by complement or effector cells. In animal models, antibodies to 
+TNF-alfa were shown to prevent or reduce inflammation.
+1  
+ 
+
+--- Page 22 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 22 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Benefit Considerations 
+ 
+Some Certificates of Coverage allow for coverage of experimental/investigational/unproven treatments for life-threatening 
+illnesses when certain conditions are met. The member specific benefit plan document must be consulted to make 
+coverage decisions for this service. Some states mandate benefit coverage for off-label use of medications for some 
+diagnoses or under some circumstances when certain conditions are met. Where such mandates apply, they supersede 
+language in the benefit document or in the medical or drug policy. 
+ 
+Clinical Evidence 
+ 
+Proven 
+Sarcoidosis 
+The use of infliximab in patients with chronic pulmonary sarcoidosis was assessed in a multicenter, randomized, double-
+blind, placebo-controlled study.52 Patients must have been treated with at least 10 mg/d of prednisone or equivalent or one 
+or more immunosuppressants for ≥ 3 months before screening. They received infliximab 3 mg/kg (n = 46), 5 mg/kg  
+(n = 47), or placebo (n = 45) at weeks 0, 2, 6, 12, 18, and 24. They were followed through 52 weeks. The primary 
+endpoint was the change at week 24 from baseline in percent of predicted forced vital capacity (FVC). Patients receiving 
+infliximab 3 or 5 mg/kg had a mean increase of 2.5% compared with no change for those receiving placebo (p = 0.038). 
+ 
+Infliximab has also been studied for use in sarcoidosis in small clinical trials, small published studies, and reports that also 
+conclude that clinical evidence supports the use of infliximab for treatment-resistant sarcoidosis.
+6,25,39,40,46 
+ 
+Noninfectious Uveitis 
+Long-term safety and efficacy of treatment with infliximab in uveitis for more than one year in patients (n = 164) with 
+Behçet’s disease (BD) was evaluated via questionnaire in a retrospective multicenter study.12 Primary outcome measures 
+assessed were best-corrected VA (BCVA) determined by the Landolt ring, proportion of subjects without relapse of 
+uveitis, frequency of ocular inflammatory attacks per year, and adverse effects of the therapy. The mean age at initiation 
+of infliximab treatment was 42.6 ±11.7 years, and the mean treatment duration was 32.9 ±14.4 months. Data before and 
+at the last visit during infliximab treatment were analyzed in 4 groups divided by duration of treatment: group A (n = 43, 
+12-< 24 months), group B (n = 62, 24-< 36 months), group C (n = 42, 36-< 48 months), and group D (n = 17, ≥ 48 
+months). The frequency of ocular attacks decreased in all groups (from 5.3 ±3.0 to 1.0 ±0.3 in group A, 4.8 ±4.6 to 1.4 
+±0.3 in group B, 4.1 ±2.9 to 0.9 ±0.3 in group C, and 9.5 ±5.8 to 1.6 ±0.5 in group D; all p < 0.05). The BCVA was 
+improved in approximately 55% of the eyes after treatment. Mean BCVA was improved after treatment with infliximab in 
+groups A to C (from 0.79 ±1.04 to 0.59 ±0.94 in group A, 0.59 ±1.07 to 0.41 ±1.04 in group B, and 1.15 ±1.77 to 0.92 
+±1.73 in group C; all p < 0.05) but not in group D. Uveitis relapsed in 59.1% of all patients after infliximab treatment, and 
+no difference in duration until relapse was observed between individual groups. Approximately 80% of relapses occurred 
+within one year after the initiation of infliximab treatment in all groups, 90% of which were controlled by increasing doses 
+of topical corticosteroids and shortening the interval of infliximab infusion. Adverse effects were observed in 65 cases or 
+35% of all subjects. Infliximab treatment was continued in 85% of the patients, but 15% of the patients discontinued 
+infliximab treatment because of adverse effects or insufficient efficacy. Researchers concluded that this study 
+demonstrated that infliximab reduced the frequency of ocular attacks and improved VA inpatients with BD-related uveitis 
+refractory to conventional therapies and was generally well tolerated, with few serious adverse events. 
+ 
+Kruh et al conducted a retrospective, interventional, non-comparative cohort study which evaluated the safety and efficacy 
+of infliximab for the treatment of refractory noninfectious uveitis. Patients (n = 88) with chronic, recalcitrant uveitis treated 
+with infliximab were identified through an electronic medical record database.
+13 All charts were reviewed for sex, 
+diagnosis, location of inflammation, presence of vasculitis, prior immunomodulatory treatments, duration of infliximab 
+treatment, dose received, secondary side effects, and other medications continued while receiving treatment with 
+infliximab. The primary outcome measures assessed were the rate of remission, time to remission, relapse rate, failure 
+rate, and patient tolerance. Additional analysis was aimed to identity risk factors that would predict a higher success rate 
+of infliximab to treat various types of noninfectious uveitis. Of the 72 patients (81.8%) who achieved clinical remission 
+while being treated with infliximab, 42 (58.3%) required additional immunomodulatory medications. At 7, 18.1, and 44.7 
+weeks, 25%, 50%, and 75% of patients, respectively, achieved clinical remission off all corticosteroids. Thirty-two patients 
+(36.4%) experienced at least one side effect while on infliximab therapy, and 17 patients (19.3%) discontinued treatment 
+secondary to one or more intolerable side effects. The most common adverse effects were skin rash (9.1%) and fatigue 
+(8%). Factors associated with a higher chance to achieve clinical remission were non-idiopathic uveitis (p < 0.001), 
+intermediate or panuveitis (p < 0.001), absence of vasculitis (p < 0.001), and a starting dose ≥ 5 mg/kg (p < 0.011). 
+
+--- Page 23 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 23 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Researchers concluded that infliximab treatment induced a high rate of complete clinical remission in recalcitrant uveitis 
+and is well tolerated by most patients. 
+ 
+NCCN Recommended Uses 
+According to the NCCN Drugs & Biologics Compendium, NCCN recommends (2A) infliximab for the treatment of: 
+ Acute graft-versus-host disease (GVHD) as additional therapy in conjunction with systemic corticosteroids following 
+no response (steroid-refractory disease) to first-line therapy options. 
+o Therapy for steroid-refractory acute GVHD is often used in conjunction with the original immunosuppressive 
+agent. 
+ Immune checkpoint inhibitor-related toxicities - Consider adding infliximab for the management of immunotherapy-
+related: 
+o Myocarditis as a further intervention if no improvement within 24-48 hours of starting pulse-dose 
+methylprednisolone. 
+o Moderate (G2) and strongly consider for severe (G3-4) diarrhea or colitis if no response after 2 days of systemic 
+corticosteroids. 
+o Moderate (G2) pneumonitis if no improvement after 2 to 3 days of corticosteroids or severe (G3-4) pneumonitis if 
+no improvement after 2 days of systemic corticosteroids. 
+o Severe (G3) or life-threatening (G4) acute renal failure/elevated serum creatinine if toxicity remains > G2 after 4-6 
+weeks of systemic corticosteroids. 
+o G1-4 uveitis that is refractory to high-dose systemic corticosteroids. 
+o Severe inflammatory arthritis as additional disease modifying anti-rheumatic therapy if symptoms do not improve 
+after 7 days of starting high-dose corticosteroids or if unable to taper corticosteroids by week 2. 
+o Moderate, severe, or life-threatening steroid-refractory myalgias or myositis if refractory to steroids. 
+ 
+Unproven 
+Juvenile Idiopathic Arthritis (Juvenile Rheumatoid Arthritis) 
+In an international, multicenter, randomized, placebo-controlled, double-blind study, 122 children with polyarticular juvenile 
+rheumatoid arthritis (JRA) and persistent symptoms despite at least 3 months prior MTX were randomized to receive 
+infliximab 3 mg/kg + MTX or placebo + MTX at weeks 0, 2, and 6.24 At week 14, the placebo group was switched to 
+infliximab 6 mg/kg + placebo. Responses were measured according to American College of Rheumatology Pediatric 30 
+(Pedi 30) criteria. Although a higher percentage of patients in the 3 mg/kg group achieved responses at week 14 (63.8% 
+vs. 49.2% in placebo group), the study failed to show the efficacy of infliximab for JRA as the difference was not 
+statistically significant. By week 16, similar percentage response was achieved in both groups. At week 52, the 
+percentages reaching ACR Pedi 50 and ACR Pedi 70 were 69.6% and 51.8%, respectively. The safety profile of infliximab 
+3 mg/kg was generally less favorable than that of infliximab 6 mg/kg, with more serious adverse events, infusion 
+reactions, antibodies to infliximab, and newly induced antinuclear antibodies and antibodies to double-stranded DNA. 
+Patients who completed the study also continued to receive open-label treatment for up to 2 years.  
+ 
+Infliximab has also been studied for use in JIA in smaller, open-label trials.
+24,31-34,36,43-45 Further large-scale studies are 
+required to characterize the efficacy and safety of infliximab in JIA. 
+ 
+Miscellaneous 
+The medical literature contains a number of small open-label studies and case reports of infliximab therapy for the 
+treatment of adult-onset Still’s disease26,27, Sjögren’s syndrome22,28, myelodysplastic syndromes37, undifferentiated 
+spondyloarthropathy35, Reiter’s syndrome19, hidradenitis suppurativa21,49-51, and Wegener’s granulomatosis.38,47-48 While 
+these studies and reports showed infliximab to have a positive effect on the manifestations of these diseases, the use of 
+infliximab for these conditions has not been evaluated in large, controlled trials. 
+ 
+ 
+Professional Societies 
+Ulcerative Colitis 
+In 2020, the American Gastroenterological Association (AGA) published a clinical practice guideline on the management 
+of moderate to severe ulcerative colitis. In regard to infliximab, the guidelines recommend: 
+ In adult outpatients with moderate-severe ulcerative colitis, the AGA recommends using infliximab, adalimumab, 
+golimumab, vedolizumab, tofacitinib or ustekinumab over no treatment. (Strong recommendation, moderate quality 
+evidence). 
+ In adult outpatients with moderate-severe ulcerative colitis who are naïve to biologic agents, the AGA suggests using 
+infliximab or vedolizumab rather than adalimumab, for induction of remission. (Conditional recommendation, moderate 
+quality evidence). 
+
+--- Page 24 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 24 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+ In adult outpatients with moderate-severe ulcerative colitis who have previously been exposed to infliximab, 
+particularly those with primary non-response, the AGA suggests using ustekinumab or tofacitinib, rather than 
+vedolizumab or adalimumab for induction of remission. (Conditional recommendation, low quality evidence). 
+ In adult outpatients with active moderate-severe ulcerative colitis, the AGA suggests using biologic monotherapy 
+(TNFα antagonists, vedolizumab, ustekinumab) rather than thiopurine monotherapy for induction of remission. 
+(Conditional recommendation, low quality evidence). 
+ In adult outpatients with moderate-severe ulcerative colitis in remission, the AGA makes no recommendation in favor 
+of, or against, using biologic monotherapy (TNFα antagonists, vedolizumab or ustekinumab), rather than thiopurine 
+monotherapy for maintenance of remission. (No recommendation, knowledge gap). 
+ In adult outpatients with moderate-severe ulcerative colitis, the AGA suggests combining TNFα antagonists, 
+vedolizumab or ustekinumab with thiopurines or methotrexate, rather than biologic monotherapy. (Conditional 
+recommendation, low quality evidence). 
+ In adult outpatients with moderate-severe ulcerative colitis, the AGA suggests combining TNFα antagonists, 
+vedolizumab or ustekinumab with thiopurines or methotrexate, rather than thiopurine monotherapy. (Conditional 
+recommendation, low quality evidence). 
+ In adult outpatients with moderate-severe ulcerative colitis, the AGA suggests early use of biologic agents with or 
+without immunomodulator therapy, rather than gradual step up after failure of 5-aminosalicylates. (Conditional 
+recommendation, very low-quality evidence). 
+ In adult outpatients with moderate-severe ulcerative colitis who have achieved remission with biologic agents and/or 
+immunomodulators, or tofacitinib, the AGA suggests against continuing 5-aminosalicylates for induction and 
+maintenance of remission. (Conditional recommendation, very low-quality evidence). 
+ In hospitalized adult patients with acute severe ulcerative colitis refractory to intravenous corticosteroids, the AGA 
+suggests using infliximab or cyclosporine. (Conditional recommendation, low quality evidence). 
+ In hospitalized adult patients with acute severe ulcerative colitis, refractory to intravenous corticosteroids, being 
+treated with infliximab, the AGA makes no recommendation on routine use of intensive vs. standard infliximab dosing. 
+(No recommendation, knowledge gap). 
+ 
+The American College of Gastroenterology (ACG) published their guidelines for the management of adults with ulcerative 
+colitis in 2019. In regard to infliximab or anti-TNF therapy, the guidelines recommend: 
+Summary and strength of graded recommendations for the management of ulcerative colitis 
+ Induction of remission in moderately to severely active ulcerative colitis: 
+o In patients with moderately to severely active UC, the ACG recommends anti-TNF therapy using adalimumab, 
+golimumab, or infliximab for induction of remission (strong recommendation, high quality of evidence). 
+o In patients with moderately to severely active UC who have failed 5-ASA therapy and in whom anti-TNF therapy is 
+used for induction of remission, the ACG suggests against using 5-ASA for added clinical efficacy (conditional 
+recommendation, low quality of evidence). 
+o When infliximab is used as induction therapy for patients with moderately to severely active UC, the ACG 
+recommends combination therapy with a thiopurine (strong recommendation, moderate quality of evidence for 
+azathioprine). 
+o In patients with moderately to severely active UC who are responders to anti-TNF therapy and now losing 
+response, the ACG suggests measuring serum drug levels and antibodies (if there is not a therapeutic level) to 
+assess the reason for loss of response (conditional recommendation, very low quality of evidence). 
+ Maintenance of remission in patients with previously moderately to severely active ulcerative colitis: 
+o In patients with previously moderately to severely active UC who have achieved remission but previously failed 5-
+ASA therapy and are now on anti-TNF therapy, the ACG recommends against using concomitant 5-ASA for 
+efficacy of maintenance of remission (conditional recommendation, low quality of evidence). 
+o The ACG recommends continuing anti-TNF therapy using adalimumab, golimumab, or infliximab to maintain 
+remission after anti-TNF induction in patients with previously moderately to severely active UC (strong 
+recommendation, moderate quality of evidence). 
+ Management of the hospitalized patient with acute severe ulcerative colitis (ASUC): 
+o In patients with ASUC failing to adequately respond to intravenous corticosteroids by 3–5 days the ACG 
+recommends medical rescue therapy with infliximab or cyclosporine (strong recommendation, moderate quality of 
+evidence). 
+o In patients with ASUC who achieve remission with infliximab treatment, the ACG recommends maintenance of 
+remission with the same agent (strong recommendation, moderate quality of evidence). 
+ 
+Summary of key concept statements for the management of ulcerative colitis 
+ Induction of remission in moderately to severely active ulcerative colitis: 
+
+--- Page 25 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 25 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+o Robust data on combination anti-TNF and immunomodulator therapy in moderately to severely active UC exist 
+only for infliximab and thiopurines. 
+o Patients who are primary nonresponders to an anti-TNF (defined as lack of therapeutic benefit after induction 
+despite adequate drug levels) should be evaluated and considered for alternative mechanisms of disease control 
+(e.g., in a different class of therapy) rather than cycling to another drug within the anti-TNF class. 
+o In patients with moderately to severely active UC who had an initial response but subsequently lost efficacy to 
+one anti-TNF therapy, the ACG recommends alternative anti-TNF therapy (but not the biosimilar to the original 
+brand) compared with no treatment for induction of remission. 
+ 
+Plaque Psoriasis 
+In 2019, the American Academy of Dermatology and the National Psoriasis Foundation published updated treatment 
+guidelines for the management and treatment of psoriasis with biologic therapies. In regard to ustekinumab, the guidelines 
+state: 
+ Infliximab is recommended as a monotherapy treatment option in adult patients with moderate-to-severe plaque 
+psoriasis. 
+ The recommended starting dose of infliximab is an infusion of 5 mg/kg administered at week 0, week 2, and week 6, 
+and thereafter it is administered every 8 weeks. 
+ Infliximab is recommended to be administered at a more frequent interval (less than every 8 weeks and as frequently 
+as every 4 weeks during the maintenance phase) and/or at a higher dose up to 10 mg/kg for better disease control in 
+some adult patients. 
+ Infliximab can be recommended as a monotherapy treatment option in adult patients with moderate-to-severe plaque 
+psoriasis affecting the palms and soles (plaque-type palmoplantar psoriasis). 
+ Infliximab can be recommended as a monotherapy treatment option in adult patients with moderate-to-severe plaque 
+psoriasis affecting the nails. 
+ Infliximab can be recommended as a monotherapy treatment option in adult patients with moderate-to-severe plaque 
+psoriasis affecting the scalp. 
+ Infliximab may be recommended as a monotherapy treatment option in adult patients with other subtypes (pustular or 
+erythrodermic) of moderate-to-severe plaque psoriasis. 
+ Infliximab is recommended as a monotherapy treatment option in adult patients with plaque psoriasis of any severity 
+when associated with significant psoriatic arthritis. Infliximab also inhibits radiographically detected damage of joints in 
+patients with psoriatic arthritis. 
+ Combination of infliximab and topicals such as high-potency corticosteroids with or without a vitamin D analogue can 
+be recommended as a treatment option to augment efficacy for the treatment of moderate-to-severe plaque psoriasis 
+in adults. 
+ Infliximab may be combined with acitretin to augment efficacy for the treatment of moderate-to-severe plaque 
+psoriasis in adults. 
+ Infliximab may be combined with methotrexate to possibly augment efficacy for the treatment of moderate-to-severe 
+plaque psoriasis in adults. 
+ Infliximab may be combined with apremilast to augment efficacy for the treatment of moderate-to-severe plaque 
+psoriasis in adults when clinically indicated. 
+ 
+Psoriatic Arthritis  
+In 2018, the American College of Rheumatology and the National Psoriasis Foundation published treatment guidelines for 
+the treatment of psoriatic arthritis. In regard to psoriatic arthritis (PsA) and TNFi’s, the guidelines state: 
+ Recommendations for the initial treatment of patients with active psoriatic arthritis who are oral small molecule (OSM)-
+and other treatment–naïve patients: 
+o Treat with a TNFi biologic over an OSM. 
+ Conditional recommendation based on low-quality evidence; may consider an OSM if the patient does not 
+have severe PsA, does not have severe psoriasis,§ prefers oral therapy, has concern over starting a biologic 
+as the first therapy, or has contraindications to TNFi biologics, including congestive heart failure, previous 
+serious infections, recurrent infections, or demyelinating disease. 
+o Treat with a TNFi biologic over an IL-17i biologic. 
+ Conditional recommendation based on very-low-quality evidence; may consider an IL-17i biologic if the 
+patient has severe psoriasis or has contraindications to TNFi biologics, including congestive heart failure, 
+previous serious infections, recurrent infections, or demyelinating disease. 
+o Treat with a TNFi biologic over an IL-12/23i biologic. 
+ Conditional recommendation based on very-low-quality evidence; may consider an IL-12/23i biologic if the 
+patient has severe psoriasis, prefers less frequent drug administration, or has contraindications to TNFi 
+
+--- Page 26 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 26 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+biologics, including congestive heart failure, previous serious infections, recurrent infections, or demyelinating 
+disease. 
+ Recommendations for treatment of patients with active psoriatic arthritis despite treatment with an OSM: 
+o Switch to a TNFi biologic over a different OSM. 
+ Conditional recommendation based on moderate-quality evidence; may consider switching to a different OSM 
+if the patient has contraindications to TNFi biologics, including congestive heart failure, previous serious 
+infections, recurrent infections, or demyelinating disease, if the patient prefers an oral versus parenteral 
+therapy, or in patients without evidence of severe PsA or severe psoriasis. 
+o Switch to a TNFi biologic over an IL-17i biologic. 
+ Conditional recommendation based on moderate-quality evidence; may consider an IL-17i if the patient has 
+severe psoriasis and/or has contraindications to TNFi biologics, including congestive heart failure, previous 
+serious infections, recurrent infections, or demyelinating disease, and/or a family history of demyelinating 
+disease such as multiple sclerosis. 
+o Switch to a TNFi biologic over an IL-12/23i biologic. 
+ Conditional recommendation based on moderate-quality evidence; may consider an IL-12/23i if the patient 
+has severe psoriasis and/or contraindications to TNFi biologics, including congestive heart failure, previous 
+serious infections, recurrent infections, or demyelinating disease, or prefers less frequent drug administration. 
+o Switch to a TNFi biologic over abatacept. 
+ Conditional recommendation based on low-quality evidence; may consider abatacept if the patient has 
+contraindications to TNFi biologics, including congestive heart failure, previous serious infections, recurrent 
+infections, or demyelinating disease. 
+o Switch to a TNFi biologic over tofacitinib. 
+ Conditional recommendation based on low-quality evidence; may consider tofacitinib if the patient has 
+contraindications to TNFi biologics, including congestive heart failure, previous serious infections, recurrent 
+infections, or demyelinating disease, or prefers oral medication. 
+o Switch to a TNFi biologic monotherapy over MTX and a TNFi biologic combination therapy. 
+ Conditional recommendation based on low-quality evidence; may consider MTX and TNFi biologic 
+combination therapy if the patient has severe skin manifestations, has had a partial response to current MTX 
+therapy, has concomitant uveitis (since uveitis may respond to MTX therapy), and if the current TNFi biologic 
+is infliximab or adalimumab. 
+ Recommendations for treatment of patients with active psoriatic arthritis despite treatment with a TNFi biologic, as 
+monotherapy or in combination with MTX: 
+o Switch to a different TNFi biologic over switching to an IL-17i biologic. 
+ Conditional recommendation based on low-quality evidence; may consider an IL-17i if the patient had a 
+primary TNFi biologic efficacy failure or a TNFi biologic–associated serious adverse event or severe psoriasis. 
+o Switch to a different TNFi biologic over switching to an IL-12/23i biologic. 
+ Conditional recommendation based on low-quality evidence; may consider an IL-12/23i if the patient had a 
+primary TNFi biologic efficacy failure or a TNFi biologic–associated serious adverse effect or prefers less 
+frequent drug administration. 
+o Switch to a different TNFi biologic over switching to abatacept. 
+ Conditional recommendation based on low-quality evidence; may consider abatacept if the patient had a 
+primary TNFi biologic efficacy failure or TNFi biologic–associated serious adverse effect. 
+o Switch to a different TNFi biologic over switching to tofacitinib. 
+ Conditional recommendation based on low-quality evidence; may consider tofacitinib if the patient prefers an 
+oral therapy or had a primary TNFi biologic efficacy failure or a TNFi biologic–associated serious adverse 
+effect. 
+o Switch to a different TNFi biologic (with or without MTX) over adding MTX to the same TNFi biologic 
+monotherapy. 
+ Conditional recommendation based on very-low-quality evidence; may consider adding MTX when patients 
+have demonstrated partial response to the current TNFi biologic therapy, especially if the TNFi biologic is a 
+monoclonal antibody. 
+o Switch to a different TNFi biologic monotherapy over switching to a different TNFi biologic and MTX combination 
+therapy. 
+ Conditional recommendation based on very-low-quality evidence; may consider switching to a TNFi biologic 
+and MTX combination therapy if the current TNFi biologic is infliximab. 
+ In adult patients with active PsA despite treatment with a TNFi biologic and MTX combination therapy: 
+o Switch to a different TNFi biologic + MTX over switching to a different TNFi biologic monotherapy. 
+ Conditional recommendation based on very-low-quality evidence; may consider switching to a different TNFi 
+biologic monotherapy if the patient has demonstrated MTX-associated adverse events, prefers to receive 
+fewer medications, or perceives MTX as a burden. 
+
+--- Page 27 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 27 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Ankylosing Spondylitis 
+In 2017, the British Society for Rheumatology (BSR) and the British Health Professionals in Rheumatology published a 
+revision to their 2005 BSR guidelines to provide guidance for clinicians in the United Kingdom prescribing biologic drugs 
+for the treatment of axial spondyloarthritis (axSpA), including ankylosing spondylitis. This includes the criteria for starting 
+treatment, choice of drug, and assessing response. In regard to tumor necrosis factor inhibitors (TNFi), the guidelines 
+recommend: 
+ The effectiveness of biologics in axSpA: 
+o Anti-TNF therapy is effective at reducing disease activity and spinal pain in axSpA. While short-term MRI data 
+support the efficacy of anti-TNF therapy in treating inflammatory SIJ and spinal lesions in axSpA, evidence for 
+anti-TNF therapy on radiographic disease progression is currently limited. 
+o Currently there is insufficient evidence to recommend the use of other biologic agents in axSpA. 
+ Initiating treatment: 
+o Patients should be considered for anti-TNF therapy if they have active axSpA. 
+ Choice of Drug: 
+o Extra-articular manifestations and patient choice should be considered when selecting an anti-TNF agent. In the 
+absence of head-to-head studies, systematic reviews have shown no statistical difference in efficacy between 
+infliximab, golimumab, etanercept and adalimumab in the treatment of AS (certolizumab data were not included in 
+these comparative reviews, but its efficacy has been established in clinical trials). 
+o There are insufficient data to comment on relative efficacy in nr-axSpA. However, not all biologics are licensed for 
+or effective in the treatment of extra-articular disease, so drug choice should take into account co-morbidities and 
+the preferred route and frequency of administration. 
+ Assessing Response: 
+o Initial efficacy response should be assessed following 3–6 months of therapy and responders should then be 
+reassessed every 6 months. 
+ Withdrawal of Therapy: 
+o In the absence of an initial clinical response by 6 months, or failure to maintain response at two consecutive 
+assessments, withdrawal of that anti-TNF agent should be considered. 
+o There is no evidence to support the withdrawal of anti-TNF therapy in treatment responders. 
+ Switching: 
+o In the event of anti-TNF failure due to inefficacy or adverse events, an alternative anti-TNF agent should be 
+offered if clinically appropriate. 
+ Safety: 
+o The safety of anti-TNF therapies in axSpA is comparable to other inflammatory joint diseases such as RA. There 
+is little evidence to suggest that safety issues differ hugely with different disease groups, and the 2010 British 
+Society for Rheumatology (BSR) guidelines on the safety of anti-TNF therapies in RA are applicable in axSpA. 
+ 
+In 2016, the Assessment of SpondyloArthritis international Society (ASAS) and European League Against Rheumatism 
+(EULAR) updated and integrated the recommendations for ankylosing spondylitis (AS) and the recommendations for the 
+use of tumor necrosis factor inhibitors (TNFi) in axial spondyloarthritis (axSpA) into one guideline applicable to the full 
+spectrum of patients with axSpA. The recommendations describe all aspects of the management of patients with a 
+diagnosis of axSpA. The recommendations related to biologic DMARDs (bDMARDs) are: 
+ bDMARDs should be considered in patients with persistently high disease activity despite conventional treatments 
+(e.g., non-biologic DMARDs); current practice is to start with TNFi therapy. 
+ If TNFi therapy fails, switching to another TNFi or IL-17i therapy should be considered. 
+ If a patient is in sustained remission, tapering of a bDMARD can be considered. 
+ 
+In 2019, the American College of Rheumatology/Spondylitis Association of America/Spondyloarthritis Research and 
+Treatment Network published an update of their recommendations for the treatment of ankylosing spondylitis and 
+nonradiographic axial spondyloarthritis.
+77 The recommendations related to bDMARDs are:  
+• TNFi are recommended over secukinumab or ixekizumab as the first biologic to be used. 
+• Secukinumab or ixekizumab is recommended over the use of a second TNFi in patients with primary nonresponse to 
+the first TNFi. 
+• TNFi, secukinumab, and ixekizumab are favored over tofacitinib. 
+• Co-administration of low-dose methotrexate with TNFi is not recommended, nor is a strict treat-to-target strategy or 
+discontinuation or tapering of biologics in patients with stable disease. 
+• Sulfasalazine is recommended only for persistent peripheral arthritis when TNFi are contraindicated. 
+• For patients with unclear disease activity, spine or pelvis magnetic resonance imaging could aid assessment. 
+• Routine monitoring of radiographic changes with serial spine radiographs is not recommended. 
+ 
+
+--- Page 28 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 28 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Crohn’s Disease 
+According to the American College of Gastroenterology Practice Guidelines for the Management of Crohn’s Disease in 
+Adults (ACG Practice Guidelines) published in February 2009, patients with moderate-severe disease usually have a 
+Crohn’s Disease Activity Index (CDAI) of 220-450. They have failed to respond to treatment for mild-moderate disease, or 
+have more prominent symptoms of fever, significant weight loss, abdominal pain or tenderness, intermittent nausea, or 
+vomiting (without obstructive findings), or significant anemia.3  
+ 
+The CDAI52 is the sum of the following clinical or laboratory variables after multiplying by their weighting factor given in 
+parentheses: 
+ Number of liquid or soft stools each day for seven days (2). 
+ Abdominal pain graded from 0-3 in severity each day for seven days (5). 
+ General well-being, subjectively assessed from 0 (well) to 4 (terrible) each day for seven days (7). 
+ Presence of complications where 1 point is added for each complication (20). Complications include: 
+o The presence of joint pains (arthralgia) or frank arthritis. 
+o Inflammation of the iris or uveitis.  
+o Presence of erythema nodosum, pyoderma gangrenosum, or aphthous ulcers.  
+o Anal fissures, fistulae, or abscesses.  
+o Other fistulae (e.g., enterocutaneous, vesicle, vaginal). 
+o Fever (> 37.8° C) during the previous week. 
+ Taking diphenoxylate/atropine (Lomotil®) or opiates for diarrhea (30). 
+ Presence of an abdominal mass where 0 = none, 2 = questionable, 5 = definite (10). 
+ Absolute deviation of hematocrit from 47% in males and 42% in females (6). 
+ Percentage deviation from standard body weight (1). 
+ 
+The 2018 ACG Practice Guidelines support the use of infliximab for treatment and maintenance of patients with moderate 
+to severely active Crohn’s disease which is resistant or refractory to corticosteroids, thiopurines or methotrexate In 
+addition, they state anti-TNF agents can be considered to treat severely active Crohn’s disease.
+64 
+ 
+Rheumatoid Arthritis 
+The 2015 American College of Rheumatology (ACR) RA treatment guideline addresses the use of DMARDS, biologics, 
+tofacitinib, and glucocorticoids in early (< 6 months) and established (≥ 6 months) RA and the use of various treatment 
+approaches in frequently encountered clinical scenarios, including treat-to-target, switching between therapies, tapering of 
+therapy, the use of biologics and DMARDs in high-risk RA patients, vaccination in patients with RA receiving DMARDs or 
+biologics, TB screening with biologics or tofacitinib, and laboratory monitoring with DMARDs.
+2 The guideline 
+recommendations apply to common clinical situations, since the panel considered issues common to most patients, not 
+exceptions. Recommendations are classified as either strong or conditional. A strong recommendation means that the 
+panel was confident that the desirable effects of following the recommendation outweigh the undesirable effects (or vice 
+versa), so the course of action would apply to most patients, and only a small proportion would not want to follow the 
+recommendation. A conditional recommendation means that the desirable effects of following the recommendation 
+probably outweigh the undesirable effects, so the course of action would apply to the majority of patients, but some may 
+not want to follow the recommendation. As a result, conditional recommendations are preference sensitive and warrant a 
+shared decision-making approach. 
+ 
+Supplementary Appendix 5, of the 2015 ACR RA guideline, summarizes recommendations for patients with early RA, 
+established RA, and high-risk comorbidities:
+2 
+ 
+Recommendations for Early RA Patients 
+ The panel strongly recommends using a treat-to-target strategy rather than a non-targeted approach, regardless of 
+disease activity level. The ideal target should be low disease activity or remission, as determined by the clinician and 
+the patient. In some cases, another target may be chosen because risk tolerance by patients or comorbidities may 
+mitigate the usual choices. 
+ For DMARD-naïve patients with early, symptomatic RA, the panel strongly recommends DMARD monotherapy over 
+double or triple DMARD therapy in patients with low disease activity and conditionally recommends DMARD 
+monotherapy over double or triple DMARD therapy in patients with moderate or high disease activity. Methotrexate 
+should be the preferred initial therapy for most patients with early RA with active disease. 
+ For patients with moderate or high disease activity despite DMARD therapy (with or without glucocorticoids), the panel 
+strongly recommends treatment with a combination of DMARDs or a TNFi or a non-TNF biologic, with or without 
+
+--- Page 29 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 29 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+methotrexate (MTX) in no particular order of preference, rather than continuing DMARD monotherapy alone. Biologic 
+therapy should be used in combination with MTX over biologic monotherapy, when possible, due to superior efficacy. 
+ For patients with moderate or high disease activity despite any of the above DMARD or biologic therapies, the panel 
+conditionally recommends adding low-dose glucocorticoids (defined as ≤ 10 mg/day of prednisone or equivalent). 
+Low-dose glucocorticoids may also be used in patients who need a bridge until realizing the benefits of DMARD 
+therapy. The risk/benefit ratio of glucocorticoid therapy is favorable as long as the dose is low, and the duration of 
+therapy is short. 
+ For patients experiencing a flare of RA, the panel conditionally recommends adding short-term glucocorticoids (< 3 
+months of treatment) at the lowest possible dose for the shortest possible duration, to provide a favorable benefit-risk 
+ratio for the patient. 
+ 
+Recommendations for Established RA Patients 
+ The panel strongly recommends using a treat-to-target strategy rather than a non-targeted approach, regardless of 
+disease activity level. The ideal target should be low disease activity or remission, as determined by the clinician and 
+the patient. In some cases, however, another target may be chosen because tolerance by patients or comorbidities 
+may mitigate the usual choices.  
+ For DMARD-naïve patients with low disease activity, the panel strongly recommends using DMARD monotherapy 
+over a TNFi. For DMARD-naïve patients with moderate or high disease activity, the panel conditionally recommends 
+DMARD monotherapy over double or triple DMARD therapy and DMARD monotherapy over tofacitinib. In general, 
+MTX should be the preferred initial therapy for most patients with established RA with active disease. 
+ For patients with moderate or high disease activity despite DMARD monotherapy including methotrexate, the panel 
+strongly recommends using combination DMARDs or adding a TNFi or a non-TNF biologic or tofacitinib (all choices 
+with or without methotrexate) in no particular order of preference, rather than continuing DMARD monotherapy alone. 
+Biologic therapy should be used in combination with MTX over biologic monotherapy, when possible, due to its 
+superior efficacy. 
+ 
+For All Scenarios for Established RA Below, Treatment May Be With or Without MTX 
+ For moderate or high disease activity despite TNFi therapy in patients currently not on a DMARD, the panel strongly 
+recommends that one or two DMARDs be added to TNFi therapy rather than continuing TNFi therapy alone.  
+ If disease activity is moderate or high despite single TNFi biologic therapy, the panel conditionally recommends using 
+a non-TNF biologic.  
+ If disease activity is moderate or high despite non-TNF biologic therapy, the panel conditionally recommends using 
+another non-TNF biologic. However, if a patient has failed multiple non-TNF biologics and they are TNFi-naïve with 
+moderate or high disease activity, the panel conditionally recommends treatment with a TNFi. 
+ For patients with moderate or high disease activity despite prior treatment with at least one TNFi and at least one non-
+TNF-biologic (sequentially, not combined), the panel conditionally recommends first treating with another non-TNF 
+biologic. However, when a non-TNF biologic is not an option (e.g., patient declines non-TNF biologic therapy due to 
+inefficacy or side effects), the panel conditionally recommends treatment with tofacitinib. 
+ If disease activity is moderate or high despite the use of multiple (2 +) TNFi therapies (in sequence, not concurrently), 
+the panel conditionally recommends non-TNF biologic therapy and then conditionally treating with tofacitinib when a 
+non-TNF biologic is not an option.  
+ If disease activity is moderate or high despite any of the above DMARD or biologic therapies, the panel conditionally 
+recommends adding low-dose glucocorticoids.  
+ If patients with established RA experience an RA flare while on DMARD, TNFi, or non-TNF biologic therapy, the panel 
+conditionally recommends adding short-term glucocorticoids (< 3 months of treatment) at the lowest possible dose 
+and for shortest possible duration to provide the best benefit-risk ratio for the patient. 
+ In patients with established RA and low disease activity but not remission, the panel strongly recommends continuing 
+DMARD therapy, TNFi, non-TNF biologic or tofacitinib rather than discontinuing respective medication.  
+ In patients with established RA currently in remission, the panel conditionally recommends tapering DMARD therapy, 
+TNFi, non-TNF biologic, or tofacitinib.  
+ The panel strongly recommends not discontinuing all therapies in patients with established RA in disease remission. 
+ 
+Recommendations for RA Patients With High-Risk Comorbidities 
+Congestive Heart Failure 
+ In patients with established RA with moderate or high disease activity and New York Heart Association (NYHA) class 
+III or IV congestive heart failure (CHF), the panel conditionally recommends using combination DMARD therapy, a 
+non-TNF biologic, or tofacitinib rather than a TNFi.  
+
+--- Page 30 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 30 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+ If patients in this population are treated with a TNFi and their CHF worsens while on the TNFi, the panel conditionally 
+recommends switching to combination DMARD therapy, a non-TNF biologic, or tofacitinib rather than a different TNFi. 
+ 
+Hepatitis B 
+ In patients with established RA with moderate or high disease activity and evidence of active hepatitis B infection 
+(hepatitis surface antigen positive > 6 months), who are receiving or have received effective antiviral treatment, the 
+panel strongly recommends treating them the same as patients without this condition.  
+ For a patient with natural immunity from prior exposure to hepatitis B (i.e., HB core antibody and HBS antibody 
+positive and normal liver function tests), the panel recommends the same therapies as those without such findings as 
+long as the patient’s viral load is monitored.  
+ For patients with chronic hepatitis B who are untreated, referral for antiviral therapy is appropriate prior to 
+immunosuppressive therapy. 
+ 
+Hepatitis C 
+ In patients with established RA with moderate or high disease activity and evidence of chronic hepatitis C virus (HCV) 
+infection, who are receiving or have received effective antiviral treatment, the panel conditionally recommends treating 
+them the same as the patients without this condition.  
+ The panel recommends that rheumatologists work with gastroenterologists and/or hepatologists who would monitor 
+patients and reassess the appropriateness of antiviral therapy. This is important considering the recent availability of 
+highly effective therapy for HCV, which may lead to a greater number of HCV patients being treated successfully.  
+ If the same patient is not requiring or receiving antiviral treatment for their hepatitis C, the panel conditionally 
+recommends using DMARD therapy rather than TNFi. 
+ 
+Malignancy 
+ Previous Melanoma and Non-Melanoma Skin Cancer: 
+o In patients with established RA and moderate or high disease activity and a history of previously treated or 
+untreated skin cancer (melanoma or non-melanoma), the panel conditionally recommends the use of DMARD 
+therapy over biologics or tofacitinib.  
+ Previous Lymphoproliferative Disorders: 
+o In patients with established RA with moderate or high disease activity and a history of a previously treated 
+lymphoproliferative disorder, the panel strongly recommends using rituximab rather than a TNFi and conditionally 
+recommends using combination DMARD therapy, abatacept or tocilizumab rather than TNFi.  
+ Previous Solid Organ Cancer: 
+o In patients with established RA with moderate or high disease activity and previously treated solid organ cancer, 
+the panel conditionally recommends that they be treated for RA just as one would treat an RA patient without a 
+history of solid organ cancer. 
+ 
+Serious Infections 
+In patients with established RA with moderate or high disease activity and previous serious infection(s), the panel 
+conditionally recommends using combination DMARD therapy or abatacept rather than TNFi. 
+ 
+In 2021, the American College of Rheumatology published an update to their guideline for the treatment of rheumatoid 
+arthritis and included several new topics, including recommendations for administration of methotrexate, use of 
+methotrexate in patients with subcutaneous nodules, pulmonary disease, and NAFLD, use of rituximab in patients with 
+hypogammaglobulinemia, and treatment of RA in patients with NTM lung disease.
+78 Areas covered in the 2015 guidelines 
+that are not covered in this update include recommendations for patients with hepatitis C and solid malignancies. 
+ 
+The recommendations related to bDMARDs [TNF inhibitors (etanercept, adalimumab, infliximab, golimumab, certolizumab 
+pegol), T cell costimulatory inhibitor (abatacept), IL-6 receptor inhibitors (tocilizumab, sarilumab), anti-CD20 antibody 
+(rituximab)] are: 
+ Methotrexate monotherapy is strongly recommended over bDMARD or tsDMARD monotherapy for DMARD-naive 
+patients with moderate-to-high disease activity. 
+ Methotrexate monotherapy is strongly recommended over methotrexate plus a non–TNF inhibitor bDMARD or 
+tsDMARD for DMARD-naive patients with moderate-to-high disease activity. 
+ Methotrexate monotherapy is conditionally recommended over the combination of methotrexate plus a bDMARD or 
+tsDMARD. 
+ A treat-to-target approach is strongly recommended over usual care for patients who have not been previously treated 
+with bDMARDs or tsDMARDs. 
+
+--- Page 31 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 31 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+ A treat-to-target approach is conditionally recommended over usual care for patients who have had an inadequate 
+response to bDMARDs or tsDMARDs. 
+ Addition of a bDMARD or tsDMARD is conditionally recommended over triple therapy (i.e., addition of sulfasalazine 
+and hydroxychloroquine) for patients taking maximally tolerated doses of methotrexate who are not at target. 
+ Switching to a bDMARD or tsDMARD of a different class is conditionally recommended over switching to a bDMARD 
+or tsDMARD belonging to the same class for patients taking a bDMARD or tsDMARD who are not at target. 
+ Gradual discontinuation of methotrexate is conditionally recommended over gradual discontinuation of the bDMARD 
+or tsDMARD for patients taking methotrexate plus a bDMARD or tsDMARD who wish to discontinue a DMARD. 
+ 
+Heart Failure 
+ Addition of a non–TNF inhibitor bDMARD or tsDMARD is conditionally recommended over addition of a TNF inhibitor 
+for patients with New York Heart Association (NYHA) class III or IV heart failure and an inadequate response to 
+csDMARDs Switching to a non–TNF inhibitor bDMARD or tsDMARD is conditionally recommended over continuation 
+of a TNF inhibitor for patients taking a TNF inhibitor who develop heart failure. 
+ 
+Hepatitis B Infection  
+ Prophylactic antiviral therapy is strongly recommended over frequent monitoring of viral load and liver enzymes alone 
+for patients initiating rituximab who are hepatitis B core antibody positive (regardless of hepatitis B surface antigen 
+status) Prophylactic antiviral therapy is strongly recommended over frequent monitoring alone for patients initiating 
+any bDMARD or tsDMARD who are hepatitis B core antibody positive and hepatitis B surface antigen positive. 
+ Frequent monitoring alone of viral load and liver enzymes is conditionally recommended over prophylactic antiviral 
+therapy for patients initiating a bDMARD other than rituximab or a tsDMARD who are hepatitis B core antibody 
+positive and hepatitis B surface antigen negative. 
+ 
+Persistent Hypogammaglobulinemia Without Infection  
+ In the setting of persistent hypogammaglobulinemia without infection, continuation of rituximab therapy for patients at 
+target is conditionally recommended over switching to a different bDMARD or tsDMARD. 
+ 
+Previous Serious Infection  
+ Addition of csDMARDs is conditionally recommended over addition of a bDMARD or tsDMARD for patients with a 
+serious infection within the previous 12 months who have moderate-to-high disease activity despite csDMARD 
+monotherapy. 
+ 
+Nontuberculous Mycobacterial (NTM) Lung Disease 
+ Addition of csDMARDs is conditionally recommended over addition of a bDMARD or tsDMARD for patients with NTM 
+lung disease who have moderate-to-high disease activity despite csDMARD monotherapy. 
+ Abatacept is conditionally recommended over other bDMARDs and tsDMARDs for patients with NTM lung disease 
+who have moderate-to high disease activity despite csDMARDs. 
+ 
+Juvenile Idiopathic Arthritis 
+The 2011 American College of Rheumatology (ACR) Recommendations for the Treatment of Juvenile Idiopathic Arthritis 
+include the tumor necrosis factor (TNF) inhibitors adalimumab, etanercept, infliximab, and do not differentiate between the 
+agents.
+34, 66 
+ 
+For JIA patients with history of arthritis of 4 or fewer joints: 
+ Initiation of a TNF inhibitor was recommended for patients who have received glucocorticoids joint injections and 3 
+months of methotrexate at the maximum tolerated typical dose and have moderate or high disease activity and 
+features of poor prognosis (level C). 
+ Initiation of a TNF inhibitor was also recommended for patients who have received glucocorticoids joint injections and 
+6 months of methotrexate and have high disease activity without features of poor prognosis (level C). 
+ Initiation of a TNF inhibitor was recommended for patients specifically with the enthesitis-related arthritis category of 
+JIA who have received glucocorticoids joint injections and an adequate trial of sulfasalazine (without prior 
+methotrexate) and have moderate or high disease activity, irrespective of prognostic features (level C). 
+ 
+
+--- Page 32 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 32 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+For JIA patients with history of arthritis of 5 or more joints: 
+ Initiation of a TNF inhibitor was recommended for patients who have received methotrexate or leflunomide for 3 
+months at the maximum tolerated typical dose and have moderate or high disease activity, irrespective of poor 
+prognostic features (level B). 
+ Initiation of a TNF inhibitor was also recommended for patients who have received methotrexate or leflunomide for 6 
+months and have low disease activity, irrespective of poor prognostic features (level B). 
+ Switching from one TNF inhibitor to another was recommended as one treatment approach for patients who have 
+received the current TNF inhibitor for 4 months and have moderate or high disease activity, irrespective of poor 
+prognostic features (level C).  
+ Switching to a TNF inhibitor was recommended as one treatment approach for patients who have received abatacept 
+for 3 months and have high disease activity and features of poor prognosis and for patients who have received 
+abatacept for 6 months and have moderate or high disease activity, irrespective of prognostic features (level D). 
+ 
+Level of evidence “B” was assigned when the recommendation was supported by nonrandomized controlled studies (e.g., 
+cohort and case–control studies) or extrapolations from randomized clinical trials. 
+ 
+Level of evidence “C” was assigned when the recommendation was supported by uncontrolled studies (case series), 
+extrapolations from nonrandomized controlled studies, or marked extrapolations from randomized clinical trials (e.g., 
+studies of adult arthritis patients applied to juvenile arthritis or studies of polyarthritis phenotype applied to oligoarthritis). 
+ 
+In 2019, the ACR published additional guidelines for the treatment of juvenile idiopathic arthritis manifesting as non-
+systemic polyarthritis, sacroiliitis, or enthesitis.
+79 Recommendations including the use of TNF inhibitors (adalimumab, 
+etanercept, infliximab, golimumab) and non-TNF inhibitors (abatacept, tocilizumab, rituximab) are summarized below: 
+ 
+Polyarthritis 
+ In children and adolescents with JIA and polyarthritis initiating treatment with a biologic (etanercept, adalimumab, 
+golimumab, abatacept, or tocilizumab) combination therapy with a DMARD is conditionally recommended over 
+biologic monotherapy (Very low level of evidence). 
+ Combination therapy with a DMARD is strongly recommended for infliximab (Low level of evidence). 
+ Initial therapy. 
+o In patients without risk factors, a DMARD is conditionally recommended over a biologic (Low level of evidence). 
+o In patients with risk factors, a DMARD is conditionally recommended over a biologic, recognizing that there are 
+situations where initial therapy that includes a biologic may be preferred (Low level of evidence).  
+ Initial biologic therapy may be considered for patients with risk factors and involvement of high-risk joints 
+(e.g., cervical spine, wrist, or hip), high disease activity, and/or those judged by their physician to be at high 
+risk of disabling joint damage. 
+ Subsequent therapy: Low disease activity (cJADAS-10 ≤ 2.5 and ≥ 1 active joint). 
+o For children receiving a DMARD and/or biologic, escalating therapy is conditionally recommended over no 
+escalation of therapy. Escalation of therapy may include: Intraarticular glucocorticoid injection(s), optimization of 
+DMARD dose, trial of methotrexate if not done, and adding or changing biologic. (Very low level of evidence). 
+ Subsequent therapy: Moderate/high disease activity (cJADAS-10 > 2.5). 
+o If patient is receiving DMARD monotherapy: 
+ Adding a biologic to original DMARD is conditionally recommended over changing to a second DMARD (Low 
+level of evidence). 
+ Adding a biologic is conditionally recommended over changing to triple DMARD therapy (Low level of 
+evidence). 
+o If patient is receiving first TNFi (±DMARD): 
+ Switching to a non-TNFi biologic (tocilizumab or abatacept) is conditionally recommended over switching to a 
+second TNFi. 
+ A second TNFi may be appropriate for patients with good initial response to their first TNFi (Very low level of 
+evidence). 
+o If patient is receiving second biologic: 
+ Using TNFi, abatacept, or tocilizumab (depending on prior biologics received) is conditionally recommended 
+over rituximab (Very low level of evidence). 
+ 
+Sacroiliitis 
+ In children and adolescents with active sacroiliitis despite treatment with NSAIDs:  
+o Adding TNFi is strongly recommended over continued NSAID monotherapy (Low level of evidence). 
+ 
+
+--- Page 33 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 33 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Enthesitis 
+ In children and adolescents with active enthesitis despite treatment with NSAIDs: 
+o Using a TNFi is conditionally recommended over methotrexate or sulfasalazine (Low level of evidence). 
+ 
+A strong recommendation means that the Voting Panel was confident that the desirable effects of following the 
+recommendation outweigh the undesirable effects (or vice versa), so the course of action would apply to all or almost all 
+patients, and only a small proportion would not want to follow the recommendation. In some cases, strong 
+recommendations were made even in the absence of moderate- or high-quality evidence based on Voting Panel 
+experience and data from adult studies. 
+ 
+A conditional recommendation means that the Voting Panel believed that the desirable effects of following the 
+recommendation probably outweigh the undesirable effects, so the course of action would apply to the majority of the 
+patients, but some may not want to follow the recommendation. Because of this, conditional recommendations are 
+particularly preference-sensitive and warrant a shared decision-making approach. Conditional recommendations were 
+generally based on low- to very low–quality evidence. 
+ 
+In 2021, the ACR published additional guidelines for the treatment of juvenile idiopathic arthritis manifesting as 
+oligoarthritis, TMJ arthritis, and systemic JIA with and without macrophage activation syndrome (MAS).
+80 
+Recommendations including the use of TNF inhibitors (adalimumab, etanercept, infliximab, golimumab, certolizumab 
+pegol) and other biologic response modifiers (abatacept, tocilizumab, anakinra, canakinumab) are summarized below: 
+ 
+Oligoarticular JIA 
+ Biologic DMARDs are strongly recommended if there is inadequate response to or intolerance of NSAIDs and/or 
+intraarticular glucocorticoids (IAGCs) and at least 1 conventional synthetic DMARD (Very low certainty of evidence). 
+ 
+TMJ Arthritis 
+ Biologic DMARDs are conditionally recommended if there is inadequate response to or intolerance of NSAIDs and/or 
+intraarticular glucocorticoids (IAGCs) and at least 1 conventional synthetic DMARD (Very low certainty of evidence). 
+ 
+Systemic JIA Without Macrophage Activation Syndrome (MAS) 
+ Biologic DMARDs (IL-1 and IL-6 inhibitors) are conditionally recommended as initial monotherapy (Very low certainty 
+of evidence). 
+ IL-1 and IL-6 inhibitors are strongly recommended over a single or combination of conventional synthetic DMARDs for 
+inadequate response to or intolerance of NSAIDs and/or glucocorticoids (Very low certainty of evidence). 
+ Biologic DMARDs or conventional synthetic DMARDs are strongly recommended over long-term glucocorticoids for 
+residual arthritis and incomplete response to IL-1 and/or IL-6 inhibitors (Very low certainty of evidence). 
+ 
+Systemic JIA with MAS 
+ IL-1 and IL-6 inhibitors are conditionally recommended over calcineurin inhibitors alone to achieve inactive disease 
+and resolution of MAS. (Very low certainty of evidence). 
+ Biologic DMARDs or conventional synthetic DMARDs are strongly recommended over long-term glucocorticoids for 
+residual arthritis and incomplete response to IL-1 and/or IL-6 inhibitors(Very low certainty of evidence). 
+ 
+Noninfectious Uveitis 
+In 2014, a subcommittee of the Executive Committee of the American Uveitis Society conducted a systematic review of 
+published literature and developed a guideline for the use of anti-tumor necrosis factor α (TNF-α) biologic agents in 
+patients with ocular inflammatory disorders. There recommendations are as follows: 
+ Strong recommendation. Anti-TNF therapy with infliximab (good-quality evidence) or adalimumab (moderate-quality 
+evidence) should be considered early in management of patients with vision threatening ocular manifestations of 
+Behçet’s disease. 
+ Strong recommendation. Anti-TNF therapy with infliximab (good-quality evidence) or adalimumab (good-quality 
+evidence) should be considered as second-line immunomodulatory therapy for children with vision-threatening uveitis 
+secondary to JIA in whom methotrexate therapy is insufficiently effective or not tolerated. Methotrexate therapy, if 
+tolerated, may be combined with infliximab therapy. 
+ Strong recommendation. Anti-TNF therapy with infliximab or potentially adalimumab should be considered as second-
+line immunomodulatory therapy in patients with vision-threatening chronic uveitis from seronegative 
+spondyloarthropathy (good- to moderate-quality evidence). 
+
+--- Page 34 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 34 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+ Discretionary recommendation. Anti-TNF therapy with infliximab or adalimumab for other forms of ocular 
+inflammation, including sarcoidosis, scleritis, and panuveitis, may be considered in patients with vision-threatening, 
+corticosteroid-dependent disease who have failed first-line immunomodulatory therapies such as antimetabolites or 
+calcineurin inhibitors (moderate-quality evidence). The literature for adalimumab is less developed than for infliximab, 
+but these agents seem to show similar efficacy in most studies. Until more comparative data are available, no 
+recommendation can be made as to preferred agent, although numerous studies have suggested that adalimumab 
+may be effective in patients who have become intolerant to or have developed reduced clinical responsiveness to 
+infliximab. 
+ Strong recommendation. Use of infliximab or adalimumab should be considered before etanercept therapy for 
+treatment of ocular inflammatory disease. Etanercept may have efficacy for treatment of some forms of ocular 
+inflammatory disease such as mucocutaneous Behçet’s disease, but it has been associated with development of 
+uveitis in JIA patients and development of sarcoid-like disease in others. Patients presently taking etanercept for other 
+indications with existing, incompletely controlled uveitis or new ocular inflammatory disease should consider switching 
+to infliximab or adalimumab if possible. 
+ 
+Technology Assessments 
+A 2020 Cochrane review was published to compare the efficacy and safety of conventional systemic agents, small 
+molecules, and biologics for patients with moderate to severe psoriasis.
+24 The technical assessment also sought to 
+provide a ranking of these treatments according to their efficacy and safety. The assessment included 140 studies (31 
+new studies for the update) in the review (51,749 randomized participants, 68% men, mainly recruited from hospitals). 
+Nineteen treatments were assessed. At class level, in terms of reaching PASI 90, the biologic treatments anti‐IL17, anti‐
+IL12/23, anti‐IL23, and anti‐TNF alpha were significantly more effective than the small molecules and the conventional 
+systemic agents. At drug level, in terms of reaching PASI 90, infliximab, all of the anti‐IL17 drugs (ixekizumab, 
+secukinumab, bimekizumab, and brodalumab) and the anti‐IL23 drugs (risankizumab and guselkumab, but not 
+tildrakizumab) were significantly more effective in reaching PASI 90 than ustekinumab and 3 anti‐TNF alpha agents: 
+adalimumab, certolizumab and etanercept. Adalimumab and ustekinumab were significantly more effective in reaching 
+PASI 90 than certolizumab and etanercept. There was no significant difference between tofacitinib or apremilast and 
+between two conventional drugs: ciclosporin and methotrexate. The network meta‐analysis also showed that infliximab, 
+ixekizumab, risankizumab, bimekizumab, guselkumab, secukinumab and brodalumab outperformed other drugs when 
+compared to placebo in reaching PASI 90. The authors review showed that compared to placebo, the biologics infliximab, 
+ixekizumab, risankizumab, bimekizumab, guselkumab, secukinumab, and brodalumab were the best choices for achieving 
+PASI 90 in people with moderate‐to‐severe psoriasis on the basis of moderate‐ to high‐certainty evidence (low‐certainty 
+evidence for bimekizumab). 
+ 
+U.S. Food and Drug Administration (FDA) 
+ 
+This section is to be used for informational purposes only. FDA approval alone is not a basis for coverage. 
+ 
+Remicade is a tumor necrosis factor (TNF) blocker indicated for: 1 
+ Crohn’s Disease:  
+o Reducing signs and symptoms and inducing and maintaining clinical remission in adult patients with moderately 
+to severely active disease who have had an inadequate response to conventional therapy.  
+o Reducing the number of draining enterocutaneous and rectovaginal fistulas and maintaining fistula closure in 
+adult patients with fistulizing disease.  
+ Pediatric Crohn’s Disease: 
+o Reducing signs and symptoms and inducing and maintaining clinical remission in pediatric patients 6 years of age 
+and older with moderately to severely active disease who have had an inadequate response to conventional 
+therapy. 
+ Ulcerative Colitis:  
+o Reducing signs and symptoms, inducing, and maintaining clinical remission and mucosal healing, and eliminating 
+corticosteroid use in adult patients with moderately to severely active disease who have had an inadequate 
+response to conventional therapy.  
+ Pediatric Ulcerative Colitis: 
+o Reducing signs and symptoms and inducing and maintaining clinical remission in pediatric patients 6 years of age 
+and older with moderately to severely active disease who have had an inadequate response to conventional 
+therapy. 
+ Rheumatoid Arthritis in combination with methotrexate:  
+o Reducing signs and symptoms, inhibiting the progression of structural damage, and improving physical function in 
+adult patients with moderately to severely active disease.  
+
+--- Page 35 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 35 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+ Plaque Psoriasis:  
+o Treatment of adult patients with chronic severe (i.e., extensive and /or disabling) plaque psoriasis who are 
+candidates for systemic therapy and when other systemic therapies are medically less appropriate.  
+ Psoriatic Arthritis:  
+o Reducing signs and symptoms of active arthritis, inhibiting the progression of structural damage, and improving 
+physical function in adult patients with psoriatic arthritis.  
+ Ankylosing Spondylitis: 
+o Reducing signs and symptoms in adult patients with active disease. 
+ 
+Avsola (infliximab-axxq), Inflectra (infliximab-dyyb), and Renflexis (infliximab-abda) are biosimilar* to Remicade 
+(infliximab). Avsola, Inflectra and Renflexis are a tumor necrosis factor (TNF) blocker indicated for: 57-60, 62 
+ Crohn’s Disease:  
+o Reducing signs and symptoms and inducing and maintaining clinical remission in adult patients with moderately 
+to severely active disease who have had an inadequate response to conventional therapy. 
+o Reducing the number of draining enterocutaneous and rectovaginal fistulas and maintaining fistula closure in 
+adult patients with fistulizing disease. 
+ Pediatric Crohn’s Disease: 
+o Reducing signs and symptoms and inducing and maintaining clinical remission in pediatric patients 6 years of age 
+and older with moderately to severely active disease who have had an inadequate response to conventional 
+therapy. 
+ Ulcerative Colitis: 
+o Reducing signs and symptoms, inducing, and maintaining clinical remission and mucosal healing, and eliminating 
+corticosteroid use in adult patients with moderately to severely active disease who have had an inadequate 
+response to conventional therapy. 
+ Pediatric Ulcerative Colitis: 
+o Reducing signs and symptoms and inducing and maintaining clinical remission in pediatric patients 6 years of age 
+and older with moderately to severely active disease who have had an inadequate response to conventional 
+therapy. 
+ Rheumatoid Arthritis in combination with methotrexate: 
+o Reducing signs and symptoms, inhibiting the progression of structural damage, and improving physical function in 
+adult patients with moderately to severely active disease. 
+ Ankylosing Spondylitis: 
+o Reducing signs and symptoms in adult patients with active disease. 
+ Psoriatic Arthritis: 
+o Reducing signs and symptoms of active arthritis, inhibiting the progression of structural damage, and improving 
+physical function in adult patients with psoriatic arthritis. 
+ Plaque Psoriasis: 
+o Treatment of adult patients with chronic severe (i.e., extensive and /or disabling) plaque psoriasis who are 
+candidates for systemic therapy and when other systemic therapies are medically less appropriate.  
+ 
+*Biosimilar means that the biological product is approved based on data demonstrating that it is highly similar to an FDA-
+approved biological product, known as a reference product, and that there are no clinically meaningful differences 
+between the biosimilar product and the reference product. 
+Reference Product Biosimilar Product 
+Remicade Avsola, Inflectra, Ixifi, Renflexis 
+ 
+The FDA issued an alert dated September 7, 2011, to inform healthcare professionals that the Boxed Warning for the 
+entire class of Tumor Necrosis Factor-alpha (TNFα) blockers has been updated to include the risk of infection from two 
+bacterial pathogens, Legionella and Listeria. In addition, the Boxed Warning and Warnings and Precautions sections of 
+the labels for all of the TNFα blockers have been revised so that they contain consistent information about the risk for 
+serious infections and the associated disease-causing pathogens.11 
+ 
+The FDA issued an update on November 3, 2011 regarding their ongoing safety review of Tumor Necrosis Factor (TNF) 
+blockers and malignancy in children, adolescents, and young adults (30 years of age or younger). This issue was 
+previously communicated in June 2008, August 2009, and April 2011. The FDA is requiring the manufacturers of TNF 
+blockers to perform enhanced safety surveillance for these products. The manufacturers will also provide FDA with annual 
+summaries and assessments of malignancies and TNF blocker utilization data. Healthcare professionals should remain 
+vigilant for cases of malignancy in patients treated with TNF blockers.
+10 
+ 
+
+--- Page 36 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 36 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Centers for Medicare and Medicaid Services (CMS) 
+ 
+Medicare does not have a National Coverage Determination (NCD) specifically for Infliximab (Avsola®, Inflectra®, 
+Remicade®, & Renflexis®). Local Coverage Determinations (LCDs)/Local Coverage Articles (LCAs) exist; refer to the 
+LCDs/LCAs for Infliximab and Drugs and Biologicals, Coverage of, for Label and Off-Label Uses. 
+ 
+In general, Medicare may cover outpatient (Part B) drugs that are furnished "incident to" a physician's service provided 
+that the drugs are not usually self-administered by the patients who take them. Refer to the Medicare Benefit Policy 
+Manual, Chapter 15, §50 - Drugs and Biologicals. (Accessed November 22, 2023) 
+ 
+**Preferred therapy criteria for Medicare Advantage members, refer to Medicare Part B Step Therapy Programs. 
+ 
+References 
+ 
+1. Remicade [prescribing information]. Horsham, PA: Janssen Biotech Inc.; October 2021. 
+2. Singh JA, Saag KG, Bridges SL, et al. 2015 American College of Rheumatology Guideline for the Treatment of 
+Rheumatoid Arthritis. Arthritis Care & Research. Arthritis Rheum. 2016;68(1):1-26. 
+3. Lichtenstein GR, Hanauer SB, Sandborn WJ, et al. American College of Gastroenterology Practice Guidelines. 
+Management of Crohn’s Disease in Adults. Am J Gastroenterol. 2009;104(2):465-83. 
+4. Lichtenstein GR, Abreu MT, Cohen R, Tremaine W. American Gastroenterological Association Institute medical 
+position statement on corticosteroids, immunomodulators, and infliximab in inflammatory bowel disease. 
+Gastroenterology. 2006;130(3):935-9. 
+5. MCG
+®. Ambulatory Care 24th Edition. Infliximab. Accessed on March 16, 2020. 
+6. Yee AM, Pochapin MB. Treatment of complicated sarcoidosis with infliximab anti-tumor necrosis factor-alpha therapy. 
+Ann Intern Med. 2001;135(1):27-31. 
+7. Zochling J, van der Heijde D, Burgos-Vargas R, et al. ASAS/EULAR recommendations for the management of 
+Ankylosing Spondylitis. Ann Rheum Dis. 2006 65:442-452. 
+8. Braun J, van den Berg R, Baraliakos X, et al. 2010 Update of the ASAS/EULAR Recommendations for the 
+Management of Ankylosing Spondylitis. Ann Rheum Dis. 2011;70(6):896-904. 
+9. U.S. Food and Drug Administration Information for Patients and Providers: Tumor Necrosis Factor (TNF) Blockers 
+(marketed as Remicade, Enbrel, Humira, Cimzia, and Simponi). https://www.fda.gov/drugs/postmarket-drug-safety-
+information-patients-and-providers/information-tumor-necrosis-factor-tnf-blockers-marketed-remicade-enbrel-humira-
+cimzia-and-simponi. Accessed July 2, 2021. 
+10. U.S. Food and Drug Administration Drug Safety Communication: UPDATE on Tumor Necrosis Factor (TNF) blockers 
+and risk for pediatric malignancy. http://www.fda.gov/Drugs/DrugSafety/ucm278267.htm. Accessed July 2, 2021. 
+11. U.S. Food and Drug Administration Drug Safety Communication: Drug labels for the Tumor Necrosis Factor-alpha 
+(TNFα) blockers now include warnings about infection with Legionella and Listeria bacteria. 
+http://www.fda.gov/Drugs/DrugSafety/ucm270849.htm. Accessed July 2, 2021. 
+12. Takeuchi M, Kezuka T, Sugita S, et al. Evaluation of the long-term efficacy and safety of infliximab treatment for 
+uveitis in Behçet’s disease: a multicenter study. Ophthalmology. 2014 Oct;121(10):1877-84. 
+13. Kruh JN, Yang P, Suelves AM, et al. Infliximab for the treatment of refractory noninfectious Uveitis: a study of 88 
+patients with long-term follow-up. Ophthalmology. 2014 Jan;121(1):358-64. 
+14. Levy-Clark G, Jabs DA, Read RW, et al. Expert panel recommendations for the use of anti–tumor necrosis factor 
+biologic agents in patients with ocular inflammatory disorders. Ophthalmology. 2014 Mar;121(3):785-96. 
+15. Lee FF, Foster CS. Pharmacology of uveitis. Expert Opin Pharmacother. 2010;11(7):1135-1146. 
+16. Gottlieb A, Korman NJ, Gordon KB, et al. American Academy of Dermatology Guidelines for the Care and 
+Management of Psoriasis and Psoriatic Arthritis. Section 2: Psoriatic arthritis: Overview and guidelines of care for 
+treatment with an emphasis on the biologics. J Am Acad Dermatol. 2008;58(5):851-64. 
+17. Hatemi G, et al. EULAR recommendations for the management of Behcet disease. Annals of the Rheumatic Diseases 
+2008;67(12):1656-62. 
+
+--- Page 37 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 37 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+18. Menter A, Gottlieb A, Feldman SR, et al. American Academy of Dermatology Guidelines for the Care and 
+Management of Psoriasis and Psoriatic Arthritis. Section 1: Overview of psoriasis and guidelines of care for the 
+treatment of psoriasis with biologics. J Am Acad Dermatol. 2008;58(5):826-50. 
+19. Gaylis N. Infliximab in the treatment of an HIV positive patient with Reiter’s syndrome. J Rheumatol. 2003;30(2):407-
+411. 
+20. Murphy CC, Ayliffe WH, Booth A, et al. Tumor necrosis factor alpha blockade with infliximab for refractory uveitis and 
+scleritis. Ophthalmology. 2004;111(2):352-356. 
+21. Sullivan TP, Welsh E, Kerdel FA, et al. Infliximab for hidradenitis suppurativa. Br J Dermatol. 2003;149(5):1046-1049. 
+22. Mariette X, Ravaud P, Steinfeld S, et al. Inefficacy of infliximab in primary Sjögren’s syndrome: results of the 
+randomized, controlled Trial of Remicade in Primary Sjögren’s Syndrome (TRIPSS). Arthritis Rheum. 
+2004;50(4):1270-1276. 
+23. Ruperto N, Lovell DJ, Cuttica R, et al. A randomized, placebo-controlled trial of infliximab plus methotrexate for the 
+treatment of polyarticular-course juvenile rheumatoid arthritis. Arthritis Rheum. 2007;56(9):3096-106. 
+24. Russo RA, Katsicas MM. Clinical remission in patients with systemic juvenile idiopathic arthritis treated with anti-tumor 
+necrosis factor agents. J Rheumatol. 2009;36(5):1078-82. 
+25. Baughman RP, Lower EE. Infliximab for refractory sarcoidosis. Sarcoidosis Vasc Diffuse Lung Dis. 2001;18(1):70-74. 
+26. Kraetsch HG, Antoni C, Kalden JR, Manger B. Successful treatment of a small cohort of patients with adult onset 
+Still’s Disease with infliximab: first experiences. Ann Rheum Dis. 2001;60(suppl 3):iii55-57. 
+27. Cavagna L, Caporali R, Epis O, et al. Infliximab in the treatment of adult Still’s Disease refractory to conventional 
+therapy. Clin Exp Rheumatol. 2001;19(3):329-332. 
+28. Steinfeld SD, Demols P, Salmon I, et al. Infliximab in patients with primary Sjögren’s Syndrome: a pilot study. Arthritis 
+Rheum. 2001;44(10):2371-2375. 
+29. Kobbe G, Schneider P, Rohr U, et al. Treatment of severe steroid refractory acute graft-vs-host disease with 
+infliximab, a chimeric human/mouse antiTNFalpha antibody. Bone Marrow Transplant. 2001;28(1):47-49. 
+30. Rivkina AM, Stump LS. Infliximab in graft-versus-host disease. Am J Health-Syst Pharm. 2002;59(13):1271-1275. 
+31. Tynjälä P, Vähäsalo P, Tarkiainen M, et al. Aggressive Combination Drug Therapy in Very Early Polyarticular Juvenile 
+Idiopathic Arthritis (ACUTE-JIA): a multicentre randomised open-label clinical trial. Ann Rheum Dis. 2011 
+Sep;70(9):1605-12. 
+32. Lamot L, Bukovac LT, Vidovic M, et al. The ‘head-to-head’ comparison of etanercept and infliximab in treating children 
+with juvenile idiopathic arthritis. Clin Exp Rheumatol. 2011 Jan-Feb;29(1):131-9. 
+33. Ruperto N, Lovell DJ, Cuttica R, et al. Long-term efficacy and safety of infliximab plus methotrexate for the treatment 
+of polyarticular-course juvenile rheumatoid arthritis: findings from an open-label treatment extension. Ann Rheum Dis. 
+2010 Apr;69(4):718-22. 
+34. Beukelman T, Patkar NM, Saag KG, et al. 2011 American College of Rheumatology Recommendations for the 
+Treatment of Juvenile Idiopathic Arthritis: Initiation and Safety Monitoring of Therapeutic Agents for the Treatment of 
+Arthritis and Systemic Features. Arthritis Care & Research. 2011 April;63(4):465-82. 
+35. Brandt J, Haibel H, Reddig J, et al. Successful short-term treatment of severe undifferentiated spondyloarthropathy 
+with anti-tumor necrosis factor- monoclonal antibody infliximab. J Rheumatol. 2002;29(1):118-122. 
+36. De Marco G, Gerloni V, Pontikaki I, et al. Long-term evaluation of infliximab in the treatment of persistently active 
+juvenile idiopathic arthritis refractory to conventional therapy. Reumatismo. 2007;59(1):50-6. 
+37. Stasi R, Amadori S. Infliximab chimaeric anti-tumour necrosis factor alpha monoclonal antibody treatment for patients 
+with myelodysplastic syndromes. Br J Haematol. 2002;116(2):334-337. 
+38. Lamprecht P, Voswinkel J, Lilienthal T, et al. Effectiveness of TNF-alpha blockade with infliximab in refractory 
+Wegener’s granulomatosis. Rheumatology. 2002;41(11):1303-1307. 
+39. Doty JD, Mazur JE, Judson MA. Treatment of sarcoidosis with infliximab. Chest. 2005;127(3):1064-71. 
+40. Ulbricht KU, Stoll M, Bierwirth J, et al. Successful tumor necrosis factor alpha blockade treatment in therapy-resistant 
+sarcoidosis. Arthritis Rheum. 2003; 48(12):3542-3. 
+41. Yoshida EM. The Crohn’s Disease Activity Index, its derivatives and the Inflammatory Bowel Disease Questionnaire: 
+A review of instruments to assess Crohn’s disease. Can J Gastroenterol. 1999;13(1):65-73. 
+
+--- Page 38 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 38 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+42. Kornbluth A. Ulcerative Colitis Practice Guidelines in Adults: American College of Gastroenterology, Practice 
+Parameters Committee. Am J Gastroenterol. 2010;105:501-523. 
+43. Katsicas MM, Russo RA. Use of infliximab in patients with systemic juvenile idiopathic arthritis refractory to 
+etanercept. Clin Exp Rheumatol. 2005;23(4):545-8. 
+44. Gerloni V, Pontikaki I, Gattinara M, et al. Efficacy of repeated intravenous infusions of an anti-tumor necrosis factor 
+alpha monoclonal antibody, infliximab, in persistently active, refractory juvenile idiopathic arthritis: results of an open-
+label prospective study. Arthritis Rheum. 2005;52(2):548-53. 
+45. Lahdenne P, Vahasalo P, Honkanen V. Infliximab or etanercept in the treatment of children with refractory juvenile 
+idiopathic arthritis: an open label study. Ann Rheum Dis. 2003;62(3):245-7. 
+46. Doherty CB, Rosen T. Evidence-based therapy for cutaneous sarcoidosis. Drugs. 2008;68(10):1361-83. 
+47. Bartolucci P, Ramanoelina J, Cohen P, et al. Efficacy of the anti-TNF-alpha antibody infliximab against refractory 
+systemic vasculitides: an open pilot study on 10 patients. Rheumatology (Oxford). 2002;41(10):1126-32. 
+48. Kleinert J, Lorenz M, Kostler W, et al. Refractory Wegener’s granulomatosis responds to tumor necrosis factor 
+blockade. Win Klin Wochenschr. 2004;116(9-10):334-8. 
+49. Roussomoustakaki M, Dimoulios P, Chatzicostas C, et al. Hidradentis suppurativa associated with Crohn’s disease 
+and spondyloarthropathy: response to anti-TNF therapy. J Gastroenterol. 2003;38(10):1000-4. 
+50. Rosi YL, Lowe L, Kang S. Treatment of hidradenitis suppurativa with infliximab in a patient with Crohn’s disease. J 
+Dermatolog Treat. 2005;16(1):58-61. 
+51. Fardet L, Dupuy A, Kerob D, et al. Infliximab for severe hidradenitis suppurativa: transient clinical efficacy in 7 
+consecutive patients. J Am Acad Dermatol. 2007;56(4):624-8. 
+52. Baughman RP, Drent M, Kavuru M, et al. Infliximab therapy in patients with chronic sarcoidosis and pulmonary 
+involvement. Am J Respir Crit Care Med. 2006;174(7):795-802. 
+53. Menter A, Korman NJ, Elmets CA, et al. American Academy of Dermatology Guidelines for the Care and 
+Management of Psoriasis and Psoriatic Arthritis. Section 5: Guidelines of care for the treatment of psoriasis with 
+phototherapy and photochemotherapy. J Am Acad Dermatol. 2010;62:114-35. 
+54. Menter A, Korman NJ, Elmets CA, et al. American Academy of Dermatology Guidelines for the Care and 
+Management of Psoriasis and Psoriatic Arthritis. Section 3: Overview of psoriasis and guidelines of care for the 
+treatment of psoriasis with topical therapies. J Am Acad Dermatol. 2009;60:643-59. 
+55. Menter A, Korman NJ, Elmets CA, et al. American Academy of Dermatology Guidelines for the Care and 
+Management of Psoriasis and Psoriatic Arthritis. Section 4: Overview of psoriasis and guidelines of care for the 
+treatment of psoriasis with traditional systemic agents. J Am Acad Dermatol. 2009;61:451-85. 
+56. Xeljanz [prescribing information]. New York, NY: Pfizer Labs; October 2020. 
+57. Inflectra [prescribing information]. New York, NY: Pfizer Labs; March 2022. 
+58. Yoo DH, Hrycaj P, Miranda P, et al. A randomised, double-blind, parallel-group study to demonstrate equivalence in 
+efficacy and safety of CT-P13 compared with innovator infliximab when coadministered with methotrexate in patients 
+with active rheumatoid arthritis: the PLANETRA study. Ann Rheum Dis. 2013 Oct;72(10):1613-20. 
+59. Park W, Hrycaj P, Jeka S, et al. A randomised, double-blind, multicentre, parallel-group, prospective study comparing 
+the pharmacokinetics, safety, and efficacy of CT-P13 and innovator infliximab in patients with ankylosing spondylitis: 
+the PLANETAS study. Ann Rheum Dis. 2013 Oct;72(10):1605-12. 
+60. Gecse KB, Lovász BD, Farkas K et al. Efficacy and Safety of the Biosimilar Infliximab CT-P13 Treatment in 
+Inflammatory Bowel Diseases: A Prospective, Multicentre, Nationwide Cohort. J Crohns Colitis. 2016 Feb;10(2):133-
+40. 
+61. Ruiz-Argüello MB, Maguregui A, Ruiz Del Agua A, et al. Antibodies to infliximab in Remicade-treated rheumatic 
+patients show identical reactivity towards biosimilars. Ann Rheum Dis. 2016 Sep;75(9):1693-6. 
+62. Renflexis [prescribing information]. Jersey City, NJ: Organon & Co.; January 2022. 
+63. Choe JY, Prodanovic N, Niebrzydowski J, et al. A randomised, double-blind, phase III study comparing SB2, an 
+infliximab biosimilar, to the infliximab reference product Remicade in patients with moderate to severe rheumatoid 
+arthritis despite methotrexate therapy. Ann Rheum Dis. 2017 Jan;76(1):58-64. 
+64. Lichtenstein GR, Loftus EV, Isaacs KL, Regueiro MD, Gerson LB, Sands BE. American College of Gastroenterology 
+Practice Guidelines. Management of Crohn’s Disease in Adults. Am J Gastroenterol. 2018 Apr;113(4):481-517. 
+
+--- Page 39 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 39 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+65. Ward MM, Deodhar A, Akl EA, Lui A, et al. American College of Rheumatology/Spondylitis Association of America, 
+Spondyloarthritis Research and Treatment Network 2015 Recommendations for the Treatment of Ankylosing 
+Spondylitis and Nonradiographic Axial Spondyloarthritis. Arthritis Rheumatol. 2016 Feb;68(2):282-98. 
+66. Ringold S, Weiss PF, Beukelman T, DeWitt EM et al. 2013 update of the 2011 American College of Rheumatology 
+recommendations for the treatment of juvenile idiopathic arthritis: recommendations for the medical therapy of 
+children with systemic juvenile idiopathic arthritis and tuberculosis screening among children receiving biologic 
+medications. Arthritis Rheum. 2013 Oct;65(10):2499-512. 
+67. NCCN Clinical Practice Guidelines in Oncology® (NCCN Guidelines®). Management of Immunotherapy-Related 
+Toxicities. Version 1.2020. Available at www.nccn.org. Accessed on July 2, 2021. 
+68. Avsola [prescribing information]. Thousand Oaks, CA: Amgen Inc.; September 2021. 
+69. NCCN Clinical Practice Guidelines in Oncology® (NCCN Guidelines®). Hematopoietic Cell Transplantation (HCT): Pre-
+Transplant Recipient Evaluation and Management of Graft-Versus-Host Disease. Version 1.2020. Available at 
+www.nccn.org. Accessed on November 30, 2022. 
+70. The NCCN Drugs & Biologics Compendium® (NCCN Compendium®). Available at www.nccn.org. Accessed on 
+November 30, 2022. 
+71. Singh JA, Guyatt G, Ogdie A, et al. Special Article: 2018 American College of Rheumatology/National Psoriasis 
+Foundation Guideline for the Treatment of Psoriatic Arthritis. Arthritis Care Res (Hoboken). 2019 Jan;71(1):2-29. 
+72. Lichtenstein GR, Loftus EV, Isaacs KL, et al. ACG Clinical Guideline: Management of Crohn’s Disease in Adults. Am J 
+Gastroenterol. 2018 Apr;113(4):481-517. 
+73. Menter A, Strober BE, Kaplan DH, et al. Joint AAD-NPF guidelines of care for the management and treatment of 
+psoriasis with biologics. J Am Acad Dermatol. 2019 Apr;80(4):1029-1072. 
+74. Feuerstein JD, Isaacs KL, Schneider Y, et al. AGA Clinical Practice Guidelines on the Management of Moderate to 
+Severe Ulcerative Colitis. Gastroenterology. 2020 Jan 13. 
+75. Rubin DT, Ananthakrishnan AN, Siegel CA, et al. ACG Clinical Guideline: Ulcerative Colitis in Adults. Am J 
+Gastroenterol. 2019 Mar;114(3):384-413. 
+76. Sbidian E, Chaimani A, Afach S, et al. Systemic pharmacological treatments for chronic plaque psoriasis: a network 
+meta-analysis. Cochrane Database Syst Rev. 2020 Jan 9;1:CD011535. 
+77. Ward MM, Deodhar A, Gensler LS, et al. 2019 Update of the American College of Rheumatology/Spondylitis 
+Association of America/Spondyloarthritis Research and Treatment Network Recommendations for the Treatment of 
+Ankylosing Spondylitis and Nonradiographic Axial Spondyloarthritis. Arthritis Care Res (Hoboken). 2019;71(10):1285-
+1299. doi:10.1002/acr.24025. 
+78. Fraenkel L, Bathon JM, England BR, et al. 2021 American College of Rheumatology Guideline for the Treatment of 
+Rheumatoid Arthritis. Arthritis Care Res (Hoboken). 2021;73(7):924-939. doi:10.1002/acr.24596. 
+79. Ringold S, Angeles-Han ST, Beukelman T, et al. 2019 American College of Rheumatology/Arthritis Foundation 
+Guideline for the Treatment of Juvenile Idiopathic Arthritis: Therapeutic Approaches for Non-Systemic Polyarthritis, 
+Sacroiliitis, and Enthesitis. Arthritis Rheumatol. 2019;71(6):846-863. doi:10.1002/art.40884. 
+80. Onel KB, Horton DB, Lovell DJ, et al. 2021 American College of Rheumatology Guideline for the Treatment of 
+Juvenile Idiopathic Arthritis: Recommendations for Nonpharmacologic Therapies, Medication Monitoring, 
+Immunizations, and Imaging. Arthritis Rheumatol. 2022;74(4):570-585. doi:10.1002/art.42036. 
+81. van Rheenen PF, Aloi M, Assa A, et al. The Medical Management of Paediatric Crohn's Disease: an ECCO-
+ESPGHAN Guideline Update. Journal of Crohn's & colitis. 2020. 
+ 
+Policy History/Revision Information 
+ 
+Date Summary of Changes 
+10/01/2025 Coverage Rationale 
+ Added language to clarify Infliximab for self-administered subcutaneous injection [i.e., 
+Zymfentra (infliximab-dyyb)] is obtained under the pharmacy benefit, unless otherwise specified 
+in the member’s benefit plan documents; for members enrolled in UnitedHealthcare of California 
+plans with a delegated provider group conducting the prior authorization review, the self-
+administered infliximab may be obtained under the medical benefit 
+
+--- Page 40 ---
+ 
+Infliximab (Avsola®, Inflectra®, Remicade®, & Renflexis®) Page 40 of 40 
+UnitedHealthcare Commercial Medical Benefit Drug Policy Effective 10/01/2025 
+Proprietary Information of UnitedHealthcare. Copyright 2025 United HealthCare Services, Inc. 
+ 
+Date Summary of Changes 
+Applicable Codes 
+ Updated list of applicable ICD-10 diagnosis codes to reflect annual edits; added M05.A 
+Supporting Information 
+ Archived previous policy version 2025D0004AP 
+ 
+Instructions for Use 
+ 
+This Medical Benefit Drug Policy provides assistance in interpreting UnitedHealthcare standard benefit plans. When 
+deciding coverage, the member specific benefit plan document must be referenced as the terms of the member specific 
+benefit plan may differ from the standard plan. In the event of a conflict, the member specific benefit plan document 
+governs. Before using this policy, please check the member specific benefit plan document and any applicable federal or 
+state mandates. UnitedHealthcare reserves the right to modify its Policies and Guidelines as necessary. This Medical 
+Benefit Drug Policy is provided for informational purposes. It does not constitute medical advice. 
+ 
+This Medical Benefit Drug Policy may also be applied to Medicare Advantage plans in certain instances. In the absence of 
+a Medicare National Coverage Determination (NCD), Local Coverage Determination (LCD), or other Medicare coverage 
+guidance, CMS allows a Medicare Advantage Organization (MAO) to create its own coverage determinations, using 
+objective evidence-based rationale relying on authoritative evidence (Medicare IOM Pub. No. 100-16, Ch. 4, §90.5). 
+ 
+UnitedHealthcare may also use tools developed by third parties, such as the InterQual® criteria, to assist us in 
+administering health benefits. UnitedHealthcare Medical Benefit Drug Policies are intended to be used in connection with 
+the independent professional medical judgment of a qualified health care provider and do not constitute the practice of 
+medicine or medical advice. 

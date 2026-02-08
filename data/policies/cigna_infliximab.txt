@@ -1,0 +1,1378 @@
+--- Page 1 ---
+ 
+Page 1 of 23 
+Coverage Policy Number: IP0660 
+   Drug Coverage Policy 
+ 
+Effective Date .................. 01/01/2026 
+Coverage Policy Number .......... IP0660 
+Policy Title… …. Infliximab Intravenous  
+Products Prior Authorization Policy  
+ 
+ 
+Inflammatory Conditions – Infliximab 
+Intravenous Products  Prior Authorization 
+Policy 
+• Avsola™  (infliximab -axxq intravenous infusion – Amgen) 
+• Inflectra ® (infliximab -dyyb intravenous infusion – Hospira/Pfizer)  
+• Infliximab intravenous infusion – Janssen/Johnson & Johnson 
+• Remicade ® (infliximab intravenous infusion – Janssen/Johnson & Johnson)  
+• Renflexis ® (infliximab -abda intravenous infusion – Samsung Bioepis/Organon)  
+ 
+ 
+ 
+INSTRUCTIONS FOR USE 
+The following Coverage Policy applies to health benefit plans administered by Cigna Companies. 
+Certain Cigna Companies and/or lines of business only provide utilization review services to clients 
+and do not make coverage determinations. References to standard benefit plan language and 
+coverage determinations do not apply to those clients. Coverage Policies are intended to provide 
+guidance in interpreting certain standard benefit plans administered by Cigna Companies. Please 
+note, the terms of a customer’s particular benefit plan document [Group Service Agreement, 
+Evidence of Coverage, Certificate of Coverage, Summary Plan Description (SPD) or similar plan 
+document] may differ significantly from the standard benefit plans upon which these Coverage 
+Policies are based. For example, a customer’s benefit plan document may contain a specific 
+exclusion related to a topic addressed in a Coverage Policy. In the event of a conflict, a customer’s 
+benefit plan document always supersedes the information in the Coverage Policies. In the absence 
+of a controlling federal or state coverage mandate, benefits are ultimately determined by the 
+terms of the applicable benefit plan document. Coverage determinations in each specific instance 
+require consideration of 1) the terms of the applicable benefit plan document in effect on the date 
+of service; 2) any applicable laws/regulations; 3) any relevant collateral source materials including 
+Coverage Policies and; 4) the specific facts of the particular situation. Each coverage request 
+should be reviewed on its own merits. Medical directors are expected to exercise clinical judgment 
+where appropriate and have discretion in making individual coverage determinations. Where 
+coverage for care or services does not depend on specific circumstances, reimbursement will only 
+be provided if a requested service(s) is submitted in accordance with the relevant criteria outlined 
+in the applicable Coverage Policy, including covered diagnosis and/or procedure code(s). 
+Reimbursement is not allowed for services when billed for conditions or diagnoses that are not 
+covered under this Coverage Policy (see “Coding Information” below). When billing, providers 
+must use the most appropriate codes as of the effective date of the submission. Claims submitted 
+for services that are not accompanied by covered code(s) under the applicable Coverage Policy 
+
+--- Page 2 ---
+ 
+Page 2 of 23 
+Coverage Policy Number: IP0660 
+will be denied as not covered. Coverage Policies relate exclusively to the administration of health 
+benefit plans. Coverage Policies are not recommendations for treatment and should never be used 
+as treatment guidelines. In certain markets, delegated vendor guidelines may be used to support 
+medical necessity and other coverage determinations. 
+ 
+OVERVIEW 
+Infliximab products are tumor necrosis factor inhibitors (TNFis) approved for the following 
+indications:1-3 
+• Ankylosing spondylitis, for reducing signs and symptoms of active disease. 
+• Crohn’s disease, for the following uses: 
+o Reducing the signs and symptoms and inducing and maintaining clinical remission in 
+patients ≥ 6 years of age  with moderately to severely active Crohn’s disease who have 
+had an inadequate response to conventional therapy; AND 
+o Reducing the number of draining enterocutaneous and rectovaginal fistulas and 
+maintaining fistula closure in adults with fistulizing Crohn’s disease. 
+• Plaque psoriasis , for treatment of adults with chronic severe (i.e., extensive and/or 
+disabling) disease who are candidates for systemic therapy and when other systemic 
+therapies are less appropriate. 
+• Psoriatic arthritis , for reducing signs and symptoms of active arthritis, inhibiting the 
+progression of structural damage and improving physical function. 
+• Rheumatoid arthritis, in combination with methotrexate for reducing signs and symptoms, 
+inhibiting the progression of structural damage and improving physical function in patients 
+with moderately to severely active disease. 
+• Ulcerative colitis, for the following uses: 
+o Reducing signs and symptoms, inducing and maintaining clinical remission and mucosal 
+healing, and eliminating corticosteroid use in adults with moderately to severely active 
+disease who have had an inadequate response to conventional therapy; AND 
+o Reducing signs and symptoms and inducing and maintaining clinical remission in patients 
+≥ 6 years of age with moderately to severely active disease who have had an inadequate 
+response to conventional therapy. 
+ 
+Avsola,
+ Inflectra, and Renflexis were approved as biosimilar to Remicade, indicating no clinically 
+meaningful differences in safety and effectiveness and the same mechanism of action, route of 
+administration, dosage form, and strength as Remicade.2-3  However, minor differences in clinically 
+inactive components are allowed.  At this time, only biosimilarity has been demonstrated (not 
+interchangeability). 
+ 
+Guidelines 
+TNFis feature prominently in guidelines for treatment of many inflammatory conditions. 
+• Ankylosing Spondylitis and Non -Radiographic Spondyloarthritis:   Guidelines for 
+ankylosing spondylitis and non -radiographic axial spondyloarthritis are published by the 
+American College of Rheumatology (ACR)/Spondylitis Association of 
+America/Spondyloarthritis Research and Treatment Network (2019). 4  Following primary 
+nonresponse to a TNFi, an interleukin (IL) -17 blocker is recommended; however, if the 
+patient is a secondary nonresponder, a second TNFi is recommended over switching out of 
+the class.  In pati ents with a contraindication to a TNFi, use of an IL -17 blocker is 
+recommended over traditional oral agents such as methotrexate or sulfasalazine. 
+• Crohn’s Disease:  The American College of Gastroenterology (ACG) [2025] has guidelines 
+for the management of CD in adults. 5  In moderate to severe disease, systemic 
+corticosteroids or advanced therapies may be utilized for induction of remission.  Advanced 
+therapies recommended include tumor necrosis factor (TNF) inhibitors, Entyvio ® 
+(vedolizumab), interleukin (IL) -23 inhibitors, IL -12/23 inhibitors, and Rinvoq ® 
+
+--- Page 3 ---
+ 
+Page 3 of 23 
+Coverage Policy Number: IP0660 
+(upadacitinib).  If steroids are utilized for induction, efforts should be made to introduce 
+steroid-sparing agents for maintenance therapy.  Guidelines from the American 
+Gastroenterological Association (AGA) [2021] include infliximab among the therapies f or 
+moderate to severe Crohn’s disease, for induction and maintenance of remission.6 
+• Plaque Psoriasis:  Guidelines from the American Academy of Dermatologists (AAD) and 
+National Psoriasis Foundation (NPF) [2019] recommend infliximab as a monotherapy 
+treatment option for adults with moderate to severe disease.7 
+• Psoriatic Arthritis:  Guidelines from ACR (2019) recommend TNFis over other biologics for 
+use in treatment -naïve patients with psoriatic arthritis, and in those who were previously 
+treated with an oral therapy.8 
+• Rheumatoid Arthritis:  Guidelines from ACR (2021) recommend addition of a biologic or a 
+targeted synthetic disease modifying anti -rheumatic drug (DMARD) for a patient taking the 
+maximum tolerated dose of methotrexate who is not at target.9 
+• Ulcerative Colitis:  The AGA (2024) and the ACG (2025) have clinical practice guidelines 
+on the management of moderate to severe UC.10,11  In moderate to severe disease, systemic 
+corticosteroids or advanced therapies may be utilized for induction of remission.  Advanced 
+therapies recommended include TNF inhibitors, Entyvio, IL-23 inhibitors, IL-12/23 inhibitors, 
+sphingosine-1-phosphate (S1P) receptor modulators, and Janus kinase (JAK) inhibitors.  If 
+steroids are utilized for induction, efforts should be made to introduce steroid-sparing agents 
+for maintenance therapy.  Of note, guidelines state corticosteroids may be avoided entirely 
+when other effective induction strategies are planned. 11  Both guidelines also recommend 
+that any drug that effectively treats induction should be continued for maintenance.10,11 
+• Behcet’s Disease:  The European League Against Rheumatism (EULAR) recommendations 
+(2018) include TNFis for initial or recurrent sight -threatening uveitis. 13  For patients 
+refractory to first -line treatments (e.g., corticosteroids), TNFis are among the treatment 
+options for mucocutaneous manifestations, venous thrombosis, severe or refractory 
+gastrointestinal disease, and recurrent/chronic joint involvement.  Recommendations for the 
+use of TNFis in ocular inflammatory disorders from the American Academy of Ophthalmology 
+(AAO) [2014] note that TNFis may be used first- line in patients with ophthalmic 
+manifestations of Behcet’s disease and for acute exacerbations of pre -existing Behcet’s 
+disease.14 
+• Graft-Versus-Host Disease (GVHD):   Guidelines for hematopoietic cell transplantation 
+from the National Comprehensive Cancer network (NCCN) [version 2.2025 – June 3, 2025] 
+list infliximab among the agents used for steroid-refractory acute GVHD.15  For patients with 
+steroid-refractory acute GVHD, Jakafi ® (ruxolitinib tablets) is the only category 1 
+recommended agent.  Other alternative agents recommended by NCCN for acute GVHD 
+(category 2A) include the following:  alemtuzumab IV infusion, alpha -1 antitrypsin, anti-
+thymocyte globulin, Simulect ® (basiliximab), calcineurin inhibitors (e.g., tacrolimus, 
+cyclosporine), Enbrel® (etanercept), extracorporeal photopheresis, infliximab, mammalian 
+target of rapamycin inhibitors (e.g., sirolimus), mycophenolate mofetil, Nipent ™  
+(pentostatin), tocilizumab, urinary-derived human chorionic gonadotropin/epidermal growth 
+factor, and Entyvio® (vedolizumab)..15 
+• Hidradenitis Suppurativa:  Guidelines from the US and Canadian Hidradenitis Suppurativa 
+Foundations make recommendations for topical, intralesional, and systemic medical 
+management of disease.16  For acute lesions of all stages, antiseptic washes, short-term oral 
+steroids, and interlesional steroids are among the recommendations.  Systemic antibiotics 
+have been a mainstay of treatment.  Infliximab is a recommended therapy for moderate to 
+severe disease. 
+• Immunotherapy-Related Toxicities Associated with Checkpoint Inhibitors:   NCCN 
+has guidelines (version 1.2025 – December 20, 2024) for Management of Immunotherapy -
+Related Toxicities.17  Infliximab is recommended among the alternatives to manage steroid-
+refractory toxicities related to immune checkpoint inhibitors including inflammatory arthritis, 
+
+--- Page 4 ---
+ 
+Page 4 of 23 
+Coverage Policy Number: IP0660 
+uveitis, hemolytic anemia, myocarditis, stage 3 acute kidney injury/elevated serum 
+creatinine, pneumonitis, esophagitis, gastritis, duodenitis, and diarrhea/colitis.  Additionally, 
+the guidelines also note that infliximab has not been tested and is not rec ommended for 
+hepatotoxicity due to concerns of liver toxicity.   
+• Indeterminate Colitis:  Infliximab has been effective in some patients with refractory 
+indeterminate colitis (retrospective reviews). 18,19  When patients who are refractory to 
+standard therapy can be definitively classified as having ulcerative colitis, colectomy is 
+considered an effective long -term surgical treatment.  Patient’s with Crohn’s disease; 
+however, have a high risk of complications after ileal pouch-anal anastomosis and are treated 
+more aggressively with medical interventions since surgical options cannot offer the same 
+likelihood of success as in ulcerative colitis. 
+• Juvenile Idiopathic Arthritis (JIA):   There are guidelines from ACR and the Arthritis 
+Foundation for the treatment of JIA (2021) which address oligoarthritis and 
+temporomandibular joint (TMJ) arthritis. 20  For oligoarthritis, a biologic is recommended 
+following a trial of a conventional synthetic DMARD.  In patients with TMJ arthritis, scheduled 
+nonsteroidal anti -inflammatory drugs (NSAIDs) and/or intra -articular glucocorticoids are 
+recommended first-line.  A biologic is a therapeutic option if there is an inadequate response 
+or intolerance.  Additionally, rapid escalation to a biologic ± conventional synthetic DMARD 
+(methotrexate preferred) is often appropriate given the impact and destructive nature of 
+TMJ arthritis.  In these guidelines, there is not a preferred biologic that should be initiated 
+for JIA.  The ACR/Arthritis Foundation Guideline for the treatment of JIA (2019) provides 
+updated recommendations for juvenile non -
+systemic polyarthritis, sacroiliitis, and 
+enthesitis.21  Infliximab is among the TN Fis recommended as subsequent therapy following 
+treatment with a conventional synthetic DMARD such as methotrexate.  TNF antagonists 
+such as infliximab may also be used as second- or third-line treatment for systemic JIA.22 
+• Ocular Inflammatory Disorders:   Recommendations for the use of TNFis in ocular 
+inflammatory disorders from the AAO (2014) note that infliximab may be used as second-
+line corticosteroid-sparing therapy for chronic and severe scleritis.14  Infliximab may be used 
+in patients with uveitis due to various causes (e.g., spondyloarthropathy -associated or 
+human leukocyte antigen [HLA] -B27-associated uveitis, juvenile idiopathic arthritis -
+associated uveitis, and other posterior uveitides and panuv eitis syndromes).  I nfliximab 
+should be considered second -line in vision -threatening JIA -associated uveitis when 
+methotrexate has failed or is not tolerated (strong recommendation) and vision-threatening 
+chronic uveitis from seronegative spondyloarthropathy (strong recommendation).  Infliximab 
+may also be considered in other patients who have vision -threatening or corticosteroid -
+dependent disease who have failed first-line therapies.  The recommendations point out that 
+studies evaluating infliximab in uveitis included patients with birdshot chorioretinitis (BSCR), 
+a bilateral posterior uveitis generally treated with systemic immunomodulation; these 
+patients showed a good response to infliximab. 
+• Pyoderma Gangrenosum:   Although guidelines are not current, multiple topical and 
+systemic therapies have been used for pyoderma gangrenosum.  Oral prednisone is the most 
+common initial immunosuppressant medication. 23  Other systemic therapies include 
+cyclosporine, methotrexate, azathioprine, cyclophosphamide, mycophenolate mofetil, and 
+TNFis (i.e., infliximab, etanercept, and adalimumab products).  In case reports, TNFis have 
+been effective. 
+• Sarcoidosis:  The European Respiratory Society Task Force has guidelines for treatment of 
+pulmonary, cutaneous, cardiac, and neurologic sarcoidosis. 24  Infliximab is a recommended 
+therapy after continued disease or relapse while taking systemic corticosteroids and 
+immunosuppressants (e.g., methotrexate, azathioprine, leflunomide, mycophenolate 
+mofetil, hydroxychloroquine). 
+• Still’s Disease:  Still’s disease presents in adults with features similar to those of systemic 
+onset JIA.25,26  In case series, infliximab has been effective in patients with Still’s disease 
+
+--- Page 5 ---
+ 
+Page 5 of 23 
+Coverage Policy Number: IP0660 
+that was refractory to therapy with corticosteroids, methotrexate, azathioprine, and 
+cyclophosphamide.24 
+ 
+Dosing Information 
+The recommended dose of infliximab intravenous is weight-based and varies slightly by indication.1-
+3  Dosing increase, interval shortening, or changing to another therapy is generally recommended 
+for attenuation of response.  Thus, published recommendations note that the dose and interval of 
+infliximab may be adjusted, as needed, in patients who initially respond but then lose that 
+response.
+2  Additionally, data are emerging concerning tapering of infliximab dosage in patients 
+with inflammatory conditions who are in remission or have low disease activity.  When the dose of 
+any RA therapy is tapered, it is recommended that there be a comprehensive plan to monitor disease 
+activity and address possible flares. 
+ 
+Coverage Policy 
+ 
+POLICY STATEMENT 
+Prior Authorization is required for benefit coverage of infliximab products.  Approval is 
+recommended for those who meet the Criteria and Dosing for the listed indications.  Extended 
+approvals are allowed if the patient continues to meet the Criteria and Dosing.  Requests for doses 
+outside of the established dosing documented in this policy will be considered on a case-by-case 
+basis by a clinician (i.e., Medical Director or Pharmacist).  All approvals are provided for the 
+duration noted below.  In cases where the approval is authorized in months, 1 month is equal to 
+30 days.  Because of the specialized skills required for evaluation and diagnosis of a patient 
+treated with infliximab products as well as the monitoring required for adverse events and long -
+term efficacy, initial approval requires infliximab products to be prescribed by or in consultation 
+with a physician who specializes in the condition being treated. 
+ 
+NOTE: This product also requires the use of preferred products before approval of a  
+requested non-preferred infliximab intravenous product. Refer to the respective 
+Inflammatory Conditions – Infliximab Intravenous Products Preferred Specialty 
+Management Policy (PSM005) for additional preferred product criteria requirements and 
+exceptions. 
+ 
+ 
+ 
+Infliximab intravenous products are considered medically necessary when ONE of the 
+following is met (1-18):   
+ 
+FDA-Approved Indications 
+ 
+1. Ankylosing Spondylitis.  Approve for the duration noted if the patient meets ONE of the 
+following (A or B): 
+A) Initial Therapy.  Approve for 6 months if the patient meets BOTH of the following (i and ii): 
+i. Patient is > 18 years of age; AND 
+ii. The medication is prescribed by or in consultation with a rheumatologist; OR 
+B) Patient is Currently Receiving an Infliximab Product.  Approve for 1 year if the patient 
+meets BOTH of the following (i and ii): 
+i. Patient has been established on therapy for at least 6 months; AND 
+Note:  A patient who has received < 6 months of therapy or who is restarting therapy 
+with an infliximab product is reviewed under criterion A (Initial Therapy). 
+ii. Patient meets at least ONE of the following (a or b): 
+
+--- Page 6 ---
+ 
+Page 6 of 23 
+Coverage Policy Number: IP0660 
+a) When assessed by at least one objective measure, patient experienced a beneficial 
+clinical response from baseline (prior to initiating an infliximab product); OR 
+Note:  Examples of objective measures include Ankylosing Spondylitis Disease 
+Activity Score (ASDAS), Ankylosing Spondylitis Quality of Life Scale (ASQoL), Bath 
+Ankylosing Spondylitis Disease Activity Index (BASDAI), Bath Ankylosing Spondylitis 
+Functional Index (BASFI), Bath Ankylosing Spondylitis Global Score (BAS-G), Bath 
+Ankylosing Spondylitis Metrology Index (BASMI), Dougados Functional Index (DFI), 
+Health Assessment Questionnaire for the Spondyloarthropathies (HAQ-S), and/or 
+serum markers (e.g., C-reactive protein, erythrocyte sedimentation rate). 
+b) Compared with baseline (prior to initiating an infliximab product), patient 
+experienced an improvement in at least one symptom, such as decreased pain or 
+stiffness, or improvement in function or activities of daily living. 
+ 
+Dosing.  Approve ONE of the following regimens (A or B): 
+A) Initial Therapy.  Approve up to 5 mg/kg as an intravenous infusion followed by additional 
+similar doses at 2 and 6 weeks after the first infusion, and then no more frequently than 
+once every 6 weeks thereafter. 
+B) Patient is Currently Receiving an Infliximab Product.  Approve up to a maximum dose of 10 
+mg/kg administered intravenously no more frequently than once every 4 weeks. 
+ 
+ 
+2. Crohn’s Disease.  Approve for the duration noted if the patient meets ONE of the following (A 
+or B): 
+A) Initial Therapy.  Approve for 6 months if the patient meets ALL of the following (i, ii, and 
+iii): 
+i. Patient is ≥ 6 years of age; AND 
+ii. Patient meets ONE of the following (a, b, c, or d): 
+a) Patient has tried or is currently taking corticosteroids, or corticosteroids are 
+contraindicated in this patient; OR 
+Note:  Examples of corticosteroids are prednisone and methylprednisolone. 
+b) Patient has tried one other conventional systemic therapy for Crohn’s disease; OR 
+Note:  Examples of conventional systemic therapies for Crohn’s disease include 
+azathioprine, 6-mercaptopurine, or methotrexate.  An exception to the requirement 
+for a trial of or contraindication to steroids or a trial of one other conventional 
+systemic agent can be made if the patient has already tried at least one biologic 
+other than the requested medication.  A biosimilar of the requested biologic does 
+not count.  Refer to Appendix for examples of biologics used for Crohn’s disease.  A 
+trial of mesalamine does not count as a systemic therapy for Crohn’s disease. 
+c) Patient has enterocutaneous (perianal or abdominal) or rectovaginal fistulas; OR 
+d) Patient had ileocolonic resection (to reduce the chance of Crohn’s disease 
+recurrence); AND 
+iii. The medication is prescribed by or in consultation with a gastroenterologist; OR 
+B) Patient is Currently Receiving an Infliximab Product.  Approve for 1 year if the patient 
+meets BOTH of the following (i and ii): 
+i. Patient has been established on therapy for at least 6 months; AND 
+Note:  A patient who has received < 6 months of therapy or who is restarting therapy 
+with an infliximab product is reviewed under criterion A (Initial Therapy). 
+ii. Patient meets at least ONE of the following (a or b): 
+a) When assessed by at least one objective measure, patient experienced a beneficial 
+clinical response from baseline (prior to initiating an infliximab product); OR 
+Note:  Examples of objective measures include fecal markers (e.g., fecal lactoferrin, 
+fecal calprotectin), serum markers (e.g., C-reactive protein), imaging studies 
+
+--- Page 7 ---
+ 
+Page 7 of 23 
+Coverage Policy Number: IP0660 
+(magnetic resonance enterography [MRE], computed tomography enterography 
+[CTE]), endoscopic assessment, and/or reduced dose of corticosteroids. 
+b) Compared with baseline (prior to initiating an infliximab product), patient 
+experienced an improvement in at least one symptom, such as decreased pain, 
+fatigue, stool frequency, and/or blood in stool. 
+ 
+Dosing.  Approve ONE of the following regimens (A or B): 
+A) Initial Therapy.  Approve up to 5 mg/kg as an intravenous infusion followed by additional 
+similar doses at 2 and 6 weeks after the first infusion, and then no more frequently than 
+once every 8 weeks thereafter. 
+B) Patient is Currently Receiving an Infliximab Product.  Approve up to a maximum dose of 10 
+mg/kg administered intravenously no more frequently than once every 4 weeks. 
+ 
+ 
+3. Plaque Psoriasis.  Approve for the duration noted if the patient meets ONE of the following 
+(A or B): 
+A) Initial Therapy.  Approve for 3 months if the patient meets ALL of the following (i, ii, and 
+iii): 
+i. Patient is ≥ 18 years of age; AND 
+ii. Patient meets ONE of the following (a or b): 
+a) Patient has tried at least one traditional systemic agent for psoriasis for at least 3 
+months, unless intolerant; OR 
+Note:  Examples include methotrexate, cyclosporine, or acitretin (Soriatane®, 
+generics).  A 3-month trial of psoralen plus ultraviolet A light (PUVA) also counts.  
+An exception to the requirement for a trial of one traditional systemic agent for 
+psoriasis can be made if the patient already had a 3-month trial or previous 
+intolerance to at least one biologic (other than the requested medication), 
+Otezla/Otezla XR (apremilast tablets/extended-release tablets), or Sotyktu 
+(deucravacitinib tablets).  A biosimilar of the requested biologic does not count.  
+Refer to Appendix for examples of biologics used for plaque psoriasis. A patient who 
+has already tried a biologic, Otezla/Otezla XR, or Sotyktu for plaque psoriasis is not 
+required to “step back” and try a traditional systemic agent for plaque psoriasis. 
+b) According to the prescriber, the patient has a contraindication to methotrexate; 
+AND 
+iii. The medication is prescribed by or in consultation with a dermatologist; OR 
+B) Patient is Currently Receiving an Infliximab Product.  Approve for 1 year if the patient 
+meets ALL of the following (i, ii, and iii): 
+i. Patient has been established on therapy for at least 3 months; AND 
+Note:  A patient who has received < 3 months of therapy or who is restarting therapy 
+with an infliximab product is reviewed under criterion A (Initial Therapy). 
+ii. Patient experienced a beneficial clinical response, defined as improvement from 
+baseline (prior to initiating an infliximab product) in at least one of the following:  
+estimated body surface area affected, erythema, induration/thickness, and/or scale of 
+areas affected by psoriasis; AND 
+iii. Compared with baseline (prior to receiving an infliximab product), patient experienced 
+an improvement in at least one symptom, such as decreased pain, itching, and/or 
+burning. 
+ 
+Dosing.  Approve ONE of the following regimens (A or B): 
+A) Initial Therapy.  Approve up to 5 mg/kg as an intravenous infusion followed by additional 
+similar doses at 2 and 6 weeks after the first infusion, and then no more frequently than 
+once every 8 weeks thereafter. 
+
+--- Page 8 ---
+ 
+Page 8 of 23 
+Coverage Policy Number: IP0660 
+B) Patient is Currently Receiving an Infliximab Product.  Approve up to a maximum dose of 10 
+mg/kg administered intravenously no more frequently than once every 4 weeks. 
+ 
+ 
+4. Psoriatic Arthritis.  Approve for the duration noted if the patient meets ONE of the following 
+(A or B): 
+A) Initial Therapy.  Approve for 6 months if the patient meets BOTH of the following (i and ii): 
+i. Patient is > 18 years of age; AND 
+ii. The medication is if prescribed by or in consultation with a rheumatologist or a 
+dermatologist; OR 
+B) Patient is Currently Receiving an Infliximab Product.  Approve for 1 year if the patient 
+meets BOTH of the following (i and ii): 
+iii. Patient has been established on therapy for at least 6 months; AND 
+Note:  A patient who has received < 6 months of therapy or who is restarting therapy 
+with an infliximab product is reviewed under criterion A (Initial Therapy). 
+iv. Patient meets at least ONE of the following (a or b): 
+a) When assessed by at least one objective measure, patient experienced a beneficial 
+clinical response from baseline (prior to initiating an infliximab product); OR 
+Note:  Examples of objective measures of disease activity include Disease Activity 
+Index for Psoriatic Arthritis (DAPSA), Composite Psoriatic Disease Activity Index 
+(CPDAI), Psoriatic Arthritis Disease Activity Score (PsA DAS), Grace Index, Leeds 
+Enthesitis Score (LEI), Spondyloarthritis Consortium of Canada (SPARCC) enthesitis 
+score, Leeds Dactylitis Instrument Score, Minimal Disease Activity (MDA), Psoriatic 
+Arthritis Impact of Disease (PsAID-12), and/or serum markers (e.g., C-reactive 
+protein, erythrocyte sedimentation rate). 
+b) Compared with baseline (prior to initiating an infliximab product), patient 
+experienced an improvement in at least one symptom, such as less joint pain, 
+morning stiffness, or fatigue; improved function or activities of daily living; or 
+decreased soft tissue swelling in joints or tendon sheaths. 
+ 
+Dosing.  Approve ONE of the following regimens (A or B): 
+A) Initial Therapy.  Approve up to 5 mg/kg as an intravenous infusion followed by additional 
+similar doses 2 and 6 weeks after the first infusion, and then no more frequently than once 
+every 8 weeks thereafter. 
+B) Patient is Currently Receiving an Infliximab Product.  Approve up to a maximum dose of 10 
+mg/kg administered intravenously no more frequently than once every 4 weeks. 
+ 
+ 
+5. Rheumatoid Arthritis.  Approve for the duration noted if the patient meets ONE of the 
+following (A or B): 
+A) Initial Therapy.  Approve for 6 months if the patient meets ALL of the following (i, ii, and 
+iii): 
+i. Patient is > 18 years of age; AND 
+ii. Patient has tried ONE conventional synthetic disease-modifying antirheumatic drug 
+(DMARD) for at least 3 months; AND 
+Note:  Examples include methotrexate (oral or injectable), leflunomide, 
+hydroxychloroquine, and sulfasalazine.  An exception to the requirement for a trial of 
+one conventional synthetic DMARD can be made if the patient already had a 3-month 
+trial of at least one biologic other than the requested medication.  A biosimilar of the 
+requested biologic does not count.  Refer to Appendix for examples of biologics used for 
+rheumatoid arthritis.  A patient who has already tried a biologic is not required to “step 
+back” and try a conventional synthetic DMARD. 
+ii. The medication is prescribed by or in consultation with a rheumatologist; OR 
+
+--- Page 9 ---
+ 
+Page 9 of 23 
+Coverage Policy Number: IP0660 
+B) Patient is Currently Receiving an Infliximab Product.  Approve for 1 year if the patient 
+meets BOTH of the following (i and ii): 
+i. Patient has been established on therapy for at least 6 months; AND 
+Note:  A patient who has received < 6 months of therapy or who is restarting therapy 
+with an infliximab product is reviewed under criterion A (Initial Therapy). 
+ii. Patient meets at least ONE of the following (a or b): 
+a) Patient experienced a beneficial clinical response when assessed by at least one 
+objective measure; OR 
+Note:  Examples of objective measures of disease activity include Clinical Disease 
+Activity Index (CDAI), Disease Activity Score (DAS) 28 using erythrocyte 
+sedimentation rate or C-reactive protein, Patient Activity Scale (PAS)-II, Rapid 
+Assessment of Patient Index Data 3 (RAPID-3), and/or Simplified Disease Activity 
+Index (SDAI). 
+b) Patient experienced an improvement in at least one symptom, such as decreased 
+joint pain, morning stiffness, or fatigue; improved function or activities of daily 
+living; or decreased soft tissue swelling in joints or tendon sheaths. 
+ 
+Dosing.  Approve ONE of the following regimens (A or B): 
+A) Initial Therapy.  Approve up to 3 mg/kg as an intravenous infusion followed by additional 
+similar doses at 2 and 6 weeks after the first infusion, and then no more frequently than 
+once every 8 weeks thereafter. 
+B) Patient is Currently Receiving an Infliximab Product.  Approve up to a maximum dose of 10 
+mg/kg administered intravenously no more frequently than once every 4 weeks. 
+ 
+ 
+6. Ulcerative Colitis.  Approve for the duration noted if the patient meets ONE of the following 
+(A or B): 
+A) Initial Therapy.  Approve for 6 months if the patient meets BOTH of the following (i and ii): 
+i. Patient is ≥ 6 years of age; AND 
+ii. The medication is prescribed by or in consultation with a gastroenterologist; OR 
+B) Patient is Currently Receiving an Infliximab Product.  Approve for 1 year if the patient 
+meets BOTH of the following (i and ii): 
+i. Patient has been established on therapy for at least 6 months; AND 
+Note:  A patient who has received < 6 months of therapy or who is restarting therapy 
+with an infliximab product is reviewed under criterion A (Initial Therapy). 
+ii. Patient meets at least ONE of the following (a or b): 
+a) When assessed by at least one objective measure, patient experienced a beneficial 
+clinical response from baseline (prior to initiating an infliximab product); OR 
+Note:  Examples of objective measures include fecal markers (e.g., fecal 
+calprotectin), serum markers (e.g., C-reactive protein), endoscopic assessment, 
+and/or reduced dose of corticosteroids. 
+b) Compared with baseline (prior to initiating an infliximab product), patient 
+experienced an improvement in at least one symptom, such as decreased pain, 
+fatigue, stool frequency, and/or rectal bleeding. 
+ 
+Dosing.  Approve ONE of the following regimens (A or B): 
+A) Initial Therapy.  Approve up to 5 mg/kg as an intravenous infusion followed by additional 
+similar doses 2 and 6 weeks after the first infusion, and then no more frequently than once 
+every 8 weeks thereafter. 
+B) Patient is Currently Receiving an Infliximab Product.  Approve up to a maximum dose of 10 
+mg/kg administered intravenously no more frequently than once every 4 weeks. 
+ 
+ 
+
+--- Page 10 ---
+ 
+Page 10 of 23 
+Coverage Policy Number: IP0660 
+Other Uses with Supportive Evidence 
+ 
+7. Behcet’s Disease.  Approve for the duration noted if the patient meets ONE of the following 
+(A or B): 
+A) Initial Therapy.  Approve for 3 months if the patient meets ALL of the following (i, ii, and 
+iii): 
+i. Patient is > 6 years of age; AND 
+ii. Patient meets ONE of the following (a or b): 
+a) Patient has tried at least ONE conventional therapy; OR 
+Note:  Examples include systemic corticosteroids (e.g., methylprednisolone), 
+immunosuppressants (azathioprine, methotrexate, mycophenolate mofetil, 
+cyclosporine, tacrolimus, Leukeran® [chlorambucil tablet], cyclophosphamide, 
+interferon alfa).  An exception to the requirement for a trial of one conventional 
+therapy can be made if the patient has already had a trial of at least one tumor 
+necrosis factor inhibitor (e.g., an adalimumab product, an etanercept product).  A 
+patient who has already tried one biologic other than the requested drug for 
+Behcet’s disease is not required to “step back” and try a conventional therapy.  A 
+biosimilar of the requested biologic does not count. 
+b) Patient has ophthalmic manifestations of Behcet’s disease; AND 
+iii. The medication is prescribed by or in consultation with a rheumatologist, dermatologist, 
+ophthalmologist, gastroenterologist, or neurologist; OR 
+A) Patient is Currently Receiving an Infliximab Product.  Approve for 1 year if the patient 
+meets ALL of the following (i, ii, and iii): 
+i. Patient has been established on therapy for at least 3 months; AND 
+Note:  A patient who has received < 3 months of therapy or who is restarting therapy 
+with an infliximab product is reviewed under criterion A (Initial Therapy). 
+ii. When assessed by at least one objective measure, patient experienced a beneficial 
+clinical response from baseline (prior to initiating an infliximab product); AND 
+Note:  Examples of objective measures are dependent upon organ involvement but may 
+include best-corrected visual acuity (if ophthalmic manifestations); serum markers 
+(e.g., C-reactive protein, erythrocyte sedimentation rate); or ulcer depth, number, 
+and/or lesion size. 
+iii. Compared with baseline (prior to initiating an infliximab product), patient experienced 
+an improvement in at least one symptom, such as decreased pain or improved visual 
+acuity (if ophthalmic manifestations). 
+ 
+Dosing.  Approve ONE of the following regimens (A or B): 
+A) Initial Therapy.  Approve up to 5 mg/kg as an intravenous infusion followed by additional 
+similar doses at 2 and 6 weeks after the first infusion, then no more frequently than once 
+every 6 weeks thereafter. 
+B) Patient is Currently Receiving an Infliximab Product.  Approve up to a maximum dose of 10 
+mg/kg administered intravenously no more frequently than once every 4 weeks. 
+ 
+ 
+8. Graft-Versus-Host Disease.  Approve for the duration noted if the patient meets ONE of the 
+following (A or B): 
+A) Initial Therapy.  Approve for 1 month if the patient meets ALL of the following (i, ii, and iii): 
+i. Patient is > 6 years of age; AND 
+ii. Patient has acute graft-versus-host disease; AND 
+iii. Patient has tried at least one systemic medication for graft-versus-host disease; AND 
+Note:  Examples of systemic medications include corticosteroids (e.g., 
+methylprednisolone), antithymocyte globulin, cyclosporine, tacrolimus, mycophenolate 
+
+--- Page 11 ---
+ 
+Page 11 of 23 
+Coverage Policy Number: IP0660 
+mofetil, Jakafi (ruxolitinib), Simulect (basiliximab), an etanercept product, sirolimus, 
+Nipent (pentostatin), a tocilizumab product, and Entyvio (vedolizumab). 
+iv. The medication is prescribed by or in consultation with an oncologist, hematologist, or a 
+physician affiliated with a transplant center; OR 
+B) Patient is Currently Receiving an Infliximab Product.  Approve for 3 months if the patient 
+meets BOTH of the following (i and ii): 
+i. Patient has been established on an infliximab product for at least 1 month; AND 
+Note:  A patient who has received < 1 month of therapy or who is restarting therapy is 
+reviewed under criterion A (Initial Therapy). 
+ii. Patient meets at least ONE of the following (a or b): 
+a) When assessed by at least one objective measure, patient experienced a beneficial 
+clinical response from baseline (prior to initiating an infliximab product); OR 
+Note:  An example of objective measures is normalization of liver function tests, red 
+blood cell count, or platelet count, or resolution of fever or rash. 
+b) Compared with baseline (prior to initiating an infliximab product), patient 
+experienced an improvement in at least one symptom, such as improvement in 
+skin, oral mucosal, ocular, or gastrointestinal symptoms (e.g., nausea, vomiting, 
+anorexia). 
+ 
+Dosing.  Approve the following regimens (A and B): 
+A) The dose is up to 10 mg/kg given intravenously; AND 
+B) Doses are administered no more frequently than once weekly. 
+ 
+ 
+9. Hidradenitis Suppurativa.  Approve for the duration noted if the patient meets ONE of the 
+following (A or B): 
+A) Initial Therapy.  Approve for 3 months if the patient meets ALL of the following (i, ii, and 
+iii): 
+i. Patient is > 18 years of age; AND 
+ii. Patient has tried one other therapy; AND 
+Note:  Examples include intralesional or oral corticosteroids (e.g., triamcinolone, 
+prednisone), systemic antibiotics (e.g., clindamycin, dicloxacillin, erythromycin), and 
+isotretinoin. 
+iii. The medication is prescribed by or in consultation with a dermatologist; OR 
+B) Patient is Currently Receiving an Infliximab Product.  Approve for 1 year if the patient 
+meets ALL of the following (i, ii, and iii): 
+i. Patient has been established on therapy for at least 3 months; AND 
+Note:  A patient who has received < 3 months of therapy or who is restarting therapy 
+with an infliximab product is reviewed under criterion A (Initial Therapy). 
+ii. When assessed by at least one objective measure, patient experienced a beneficial 
+clinical response from baseline (prior to initiating an infliximab product); AND 
+Note:  Examples of objective measures include Hurley staging, Sartorius score, 
+Physician Global Assessment, and Hidradenitis Suppurativa Severity Index. 
+iii. Compared with baseline (prior to initiating an infliximab product), patient experienced 
+an improvement in at least one symptom, such as decreased pain or drainage of 
+lesions, nodules, or cysts. 
+ 
+Dosing.  Approve ONE of the following regimens (A or B): 
+A) Initial Therapy.  Approve up to 5 mg/kg as an intravenous infusion followed by additional 
+similar doses 2 and 6 weeks after the first infusion, and then no more frequently than once 
+every 8 weeks thereafter. 
+B) Patient is Currently Receiving an Infliximab Product.  Approve up to a maximum dose of 10 
+mg/kg administered intravenously no more frequently than once every 4 weeks. 
+
+--- Page 12 ---
+ 
+Page 12 of 23 
+Coverage Policy Number: IP0660 
+ 
+ 
+10.  Immunotherapy-Related Toxicities Associated with Checkpoint Inhibitor Therapy.  
+Approve for the duration noted if the patient meets ONE of the following (A or B): 
+Note:  Examples of checkpoint inhibitors include Keytruda (pembrolizumab intravenous [IV] 
+infusion), Opdivo (nivolumab IV infusion), Yervoy (ipilimumab IV infusion), Tecentriq 
+(atezolizumab IV infusion), Bavencio (avelumab IV infusion), or Imfinzi (durvalumab IV infusion). 
+A) Initial Therapy.  Approve for 6 months if the patient meets ALL of the following (i, ii, iii, iv, 
+and v): 
+i. Patient is > 18 years of age; AND 
+ii. According to the prescriber, patient developed an immunotherapy-related toxicity other 
+than hepatitis; AND 
+iii. Patient developed this immunotherapy related toxicity while receiving a checkpoint 
+inhibitor; AND 
+iv. Patient has tried one systemic corticosteroid; AND 
+Note:  Examples include methylprednisolone and prednisone. 
+v. The medication is prescribed by or in consultation with an oncologist, cardiologist,  
+gastroenterologist, hematologist, nephrologist, pulmonologist, rheumatologist, or 
+ophthalmologist; OR 
+B) Patient is Currently Receiving an Infliximab Product.  Approve for 1 year if the patient 
+meets BOTH of the following (i and ii): 
+i. Patient has been established on therapy for at least 6 months; AND 
+Note:  A patient who has received < 6 months of therapy or who is restarting therapy 
+with an infliximab product is reviewed under criterion A (Initial Therapy). 
+ii. Patient meets at least ONE of the following (a or b): 
+a) When assessed by at least one objective measure, patient experienced a beneficial 
+clinical response from baseline (prior to initiating an infliximab product); OR 
+Note:  Examples of objective measures are dependent upon organ involvement but 
+may include clinically significant improvement or normalization of serum markers 
+(e.g., C-reactive protein, erythrocyte sedimentation rate), fecal markers (e.g., fecal 
+calprotectin), and/or reduced dosage of corticosteroids. 
+b) Compared with baseline (prior to initiating an infliximab product), patient 
+experienced an improvement in at least one symptom, such as less joint 
+pain/tenderness, stiffness or swelling (if joint symptoms), stool frequency and/or 
+rectal bleeding (if gastrointestinal symptoms), and/or improved function or activities 
+of daily living. 
+Dosing.  Approve ONE of the following regimens (A or B): 
+A) Initial Therapy.  Approve up to 10 mg/kg as an intravenous infusion followed by additional 
+similar doses at 2 and 6 weeks after the first infusion, then no more frequently than once 
+every 4 weeks thereafter. 
+B) Patient is Currently Receiving an Infliximab Product.  Approve up to a maximum dose of 10 
+mg/kg administered intravenously no more frequently than once every 4 weeks. 
+ 
+ 
+11.  Indeterminate Colitis.  Approve for the duration noted if the patient meets ONE of the 
+following (A or B): 
+Note:  Indeterminate colitis is defined as colitis that cannot be classified with certainty as 
+either ulcerative colitis or Crohn’s disease. 
+A) Initial Therapy.  Approve for 6 months if the patient meets ALL of the following (i, ii, iii, iv, 
+and v): 
+i. Patient is ≥ 6 years of age; AND 
+ii. Patient has tried one systemic corticosteroid; AND 
+Note:  Examples include prednisone and methylprednisolone. 
+
+--- Page 13 ---
+ 
+Page 13 of 23 
+Coverage Policy Number: IP0660 
+iii. Patient has tried mesalamine; AND 
+iv. Patient has tried either azathioprine or 6-mercaptopurine; AND 
+v. The medication is prescribed by or in consultation with a gastroenterologist; OR 
+B) Patient is Currently Receiving an Infliximab Product.  Approve for 1 year if the patient 
+meets BOTH of the following (i and ii): 
+ii. Patient has been established on therapy for at least 6 months; AND 
+Note:  A patient who has received < 6 months of therapy or who is restarting therapy 
+with an infliximab product is reviewed under criterion A (Initial Therapy). 
+iii. Patient meets at least ONE of the following (a or b): 
+a) When assessed by at least one objective measure, patient experienced a beneficial 
+clinical response from baseline (prior to initiating an infliximab product); OR 
+Note:  Examples of objective measures include fecal markers (e.g., fecal 
+calprotectin), serum markers (e.g., C-reactive protein), endoscopic assessment, 
+and/or reduced dose of corticosteroids. 
+b) Compared with baseline (prior to initiating an infliximab product), patient 
+experienced an improvement in at least one symptom, such as decreased pain, 
+fatigue, stool frequency, and/or rectal bleeding. 
+ 
+Dosing.  Approve ONE of the following regimens (A or B): 
+A) Initial Therapy.  Approve up to 5 mg/kg as an intravenous infusion followed by additional 
+similar doses at 2 and 6 weeks after the first infusion, and then no more frequently than 
+once every 8 weeks thereafter. 
+B) Patient is Currently Receiving an Infliximab Product.  Approve up to a maximum dose of 10 
+mg/kg administered intravenously no more frequently than once every 4 weeks. 
+ 
+ 
+12.  Juvenile Idiopathic Arthritis (JIA).  Approve for the duration noted if the patient meets 
+ONE of the following (A or B): 
+Note:  This includes JIA regardless of type of onset, including a patient with juvenile 
+spondyloarthropathy/active sacroiliac arthritis.  JIA is also referred to as Juvenile Rheumatoid 
+Arthritis. 
+A) Initial Therapy.  Approve for 6 months if the patient meets ALL of the following (i, ii, and 
+iii): 
+i. Patient is > 6 years of age; AND 
+ii. Patient meets ONE of the following (a or b): 
+a) Patient has tried one other systemic medication for this condition; OR 
+Note:  Examples of other medications for JIA include methotrexate, sulfasalazine, or 
+leflunomide, a nonsteroidal anti-inflammatory drug (NSAID) [e.g., ibuprofen, 
+naproxen].  A previous trial of one biologic other than the requested medication also 
+counts as a trial of one medication.  A biosimilar of the requested biologic does not 
+count.  Refer to Appendix for examples of biologics used for JIA. 
+b) Patient has aggressive disease, as determined by the prescriber; AND 
+iii. The medication is prescribed by or in consultation with a rheumatologist; OR 
+B) Patient is Currently Receiving an Infliximab Product.  Approve for 1 year if the patient 
+meets BOTH of the following (i and ii): 
+i. Patient has been established on therapy for at least 6 months; AND 
+Note:  A patient who has received < 6 months of therapy or who is restarting therapy 
+with an infliximab product is reviewed under criterion A (Initial Therapy). 
+ii. Patient meets at least ONE of the following (a or b): 
+a) When assessed by at least one objective measure, patient experienced a beneficial 
+clinical response from baseline (prior to initiating an infliximab product); OR 
+Note:  Examples of objective measures include Physician Global Assessment (MD 
+global), Parent/Patient Global Assessment of Overall Well-Being (PGA), 
+
+--- Page 14 ---
+ 
+Page 14 of 23 
+Coverage Policy Number: IP0660 
+Parent/Patient Global Assessment of Disease Activity (PDA), Juvenile Arthritis 
+Disease Activity Score (JDAS), Clinical Juvenile Arthritis Disease Activity Score 
+(cJDAS), Juvenile Spondyloarthritis Disease Activity Index (JSpADA), serum 
+markers (e.g., C-reactive protein, erythrocyte sedimentation rate), and/or reduced 
+dosage of corticosteroids. 
+b) Compared with baseline (prior to initiating an infliximab product), patient 
+experienced an improvement in at least one symptom, such as improvement in 
+limitation of motion, less joint pain or tenderness, decreased duration of morning 
+stiffness or fatigue, or improved function or activities of daily living. 
+ 
+Dosing.  Approve ONE of the following regimens (A or B): 
+A) Initial Therapy.  Approve up to 6 mg/kg as an intravenous infusion followed by additional 
+similar doses at 2 and 6 weeks after the first infusion, and then no more frequently than 
+once every 8 weeks thereafter. 
+B) Patient is Currently Receiving an Infliximab Product.  Approve up to a maximum dose of 10 
+mg/kg administered intravenously no more frequently than once every 4 weeks. 
+ 
+ 
+13.  Pyoderma Gangrenosum.  Approve for the duration noted if the patient meets ONE of the 
+following (A or B): 
+A) Initial Therapy.  Approve for 4 months if the patient meets ALL of the following (i, ii, and 
+iii): 
+i. Patient is > 18 years of age; AND 
+ii. Patient meets ONE of the following conditions (a or b): 
+a) Patient has tried one systemic corticosteroid; OR 
+Note:  Examples include prednisone and methylprednisolone. 
+b) Patient has tried one other immunosuppressant for at least 2 months or was 
+intolerant to one of these medications; AND 
+Note:  Examples include mycophenolate mofetil and cyclosporine. 
+iii. The medication is prescribed by or in consultation with a dermatologist; OR 
+B) Patient is Currently Receiving an Infliximab Product.  Approve for 1 year if the patient 
+meets ALL of the following (i, ii, and iii): 
+i. Patient has been established on therapy for at least 4 months; AND 
+Note:  A patient who has received < 4 months of therapy or who is restarting therapy 
+with an infliximab product is reviewed under criterion A (Initial Therapy). 
+ii. Patient experienced a beneficial clinical response, defined as improvement from 
+baseline (prior to initiating an infliximab product) in at least one of the following:  size, 
+depth, and/or number of lesions; AND 
+iii. Compared with baseline (prior to initiating an infliximab product), patient experienced 
+an improvement in at least one symptom, such as decreased pain and/or tenderness of 
+affected lesions. 
+ 
+Dosing.  Approve ONE of the following regimens (A or B): 
+A) Initial Therapy.  Approve up to 5 mg/kg as an intravenous infusion followed by additional 
+similar doses 2 and 6 weeks after the first infusion, and then no more frequently than once 
+every 8 weeks thereafter. 
+B) Patient is Currently Receiving an Infliximab Product.  Approve up to a maximum dose of 10 
+mg/kg administered intravenously no more frequently than once every 4 weeks. 
+ 
+ 
+14.  Sarcoidosis.  Approve for the duration noted if the patient meets ONE of the following (A or 
+B): 
+
+--- Page 15 ---
+ 
+Page 15 of 23 
+Coverage Policy Number: IP0660 
+A) Initial Therapy.  Approve for 3 months if the patient meets ALL of the following (i, ii, iii, and 
+iv): 
+i. Patient is > 18 years of age; AND 
+ii. Patient has tried at least one corticosteroid; AND 
+Note:  Examples include prednisone and methylprednisolone. 
+iii. Patient has tried at least one immunosuppressive medication; AND 
+Note:  Examples include methotrexate, azathioprine, leflunomide, mycophenolate 
+mofetil, hydroxychloroquine, or chloroquine. 
+iv. The medication is prescribed by or in consultation with a pulmonologist, 
+ophthalmologist, cardiologist, neurologist, or dermatologist; OR 
+B) Patient is Currently Receiving an Infliximab Product.  Approve for 1 year if the patient 
+meets ALL of the following (i, ii, and iii): 
+i. Patient has been established on therapy for at least 3 months; AND 
+Note:  A patient who has received < 3 months of therapy or who is restarting therapy 
+with an infliximab product is reviewed under criterion A (Initial Therapy). 
+ii. When assessed by at least one objective measure, patient experienced a beneficial 
+clinical response from baseline (prior to initiating an infliximab product); AND 
+Note:  Examples of objective measures are dependent upon organ involvement but may 
+include lung function (e.g., predicted forced vital capacity and/or 6-minute walk 
+distance); serum markers (e.g., C-reactive protein, liver enzymes, N-terminal pro-brain 
+natriuretic peptide [NT-proBNP]); improvement in rash or skin manifestations, 
+neurologic symptoms, or rhythm control; or imaging (e.g., if indicated, chest 
+radiograph, magnetic resonance imaging [MRI], or echocardiography). 
+iii. Compared with baseline (prior to initiating an infliximab product), patient experienced 
+an improvement in at least one symptom, such as decreased cough, fatigue, pain, 
+palpitations, neurologic symptoms, and/or shortness of breath. 
+ 
+Dosing.  Approve ONE of the following regimens (A or B): 
+A) Initial Therapy.  Approve up to 5 mg/kg as an intravenous infusion followed by additional 
+similar doses at 2 and 6 weeks after the first infusion, then no more frequently than once 
+every 6 weeks thereafter. 
+B) Patient is Currently Receiving an Infliximab Product.  Approve up to a maximum dose of 10 
+mg/kg administered intravenously no more frequently than once every 4 weeks. 
+ 
+ 
+15.  Scleritis or Sterile Corneal Ulceration.  Approve for the duration noted if the patient meets 
+ONE of the following (A or B): 
+A) Initial Therapy.  Approve for 6 months if the patient meets ALL of the following (i, ii, and 
+iii): 
+i. Patient is > 18 years of age; AND 
+ii. Patient has tried one other therapy for this condition; AND 
+Note:  Examples include oral non-steroidal anti-inflammatory drugs (NSAIDs) such as 
+indomethacin; oral, topical (ophthalmic) or intravenous corticosteroids (such as 
+prednisone, prednisolone, methylprednisolone); methotrexate; cyclosporine; or other 
+immunosuppressants. 
+iii. The medication is prescribed by or in consultation with an ophthalmologist; OR 
+B) Patient is Currently Receiving an Infliximab Product.  Approve for 1 year if the patient 
+meets BOTH of the following (i and ii): 
+i. Patient has been established on therapy for at least 6 months; AND 
+Note:  A patient who has received < 6 months of therapy or who is restarting therapy 
+with an infliximab product is reviewed under criterion A (Initial Therapy). 
+ii. Patient meets at least ONE of the following (a or b): 
+
+--- Page 16 ---
+ 
+Page 16 of 23 
+Coverage Policy Number: IP0660 
+a) When assessed by at least one objective measure, patient experienced a beneficial 
+clinical response from baseline (prior to initiating an infliximab product); OR 
+Note:  Examples of objective measures are serum markers (e.g., C-reactive protein, 
+erythrocyte sedimentation rate). 
+b) Compared with baseline (prior to initiating an infliximab product), patient 
+experienced an improvement in at least one symptom, such as decreased eye pain, 
+redness, light sensitivity, tearing, and/or improvement in visual acuity. 
+ 
+Dosing.  Approve ONE of the following regimens (A or B): 
+A) Initial Therapy.  Approve up to 10 mg/kg as an intravenous infusion administered at 
+baseline and followed by up to three additional similar doses (for example, up to three 
+additional doses given 2, 6, and 8 weeks after the initial infusion). 
+B) Patient is Currently Receiving an Infliximab Product.  Approve up to a maximum dose of 10 
+mg/kg administered intravenously no more frequently than once every 4 weeks. 
+ 
+ 
+16.  Spondyloarthritis, Other Subtypes Approve for the duration noted if the patient meets 
+ONE of the following (A or B): 
+Note:  Examples of other subtypes include undifferentiated arthritis, non-radiographic axial 
+spondylitis, Reactive Arthritis [Reiter’s disease].  For ankylosing spondylitis or psoriatic 
+arthritis, refer to the respective criteria under FDA-approved indications. 
+A) Initial Therapy.  Approve for 6 months if the patient meets ALL of the following (i, ii, and 
+iii): 
+i. Patient is > 18 years of age; AND 
+ii. Patient meets ONE of the following (a or b): 
+a) Patient has arthritis primarily in the knees, ankles, elbows, wrists, hands, and/or 
+feet AND has tried at least ONE conventional synthetic disease-modifying 
+antirheumatic drug (DMARD); OR 
+Note:  Examples include methotrexate, leflunomide, and sulfasalazine. 
+b) Patient has axial spondyloarthritis with objective signs of inflammation, defined as 
+at least one of the following [(1) or (2)]: 
+(1)C-reactive protein elevated beyond the upper limit of normal for the reporting 
+laboratory; OR 
+(2)Sacroiliitis reported on magnetic resonance imaging; AND 
+iii. The medication is prescribed by or in consultation with a rheumatologist; OR 
+B) Patient is Currently Receiving an Infliximab Product.  Approve for 1 year if the patient 
+meets BOTH of the following (i and ii): 
+i. Patient has been established on therapy for at least 6 months; AND 
+Note:  A patient who has received < 6 months of therapy or who is restarting therapy 
+with an infliximab product is reviewed under criterion A (Initial Therapy). 
+ii. Patient meets at least ONE of the following (a or b): 
+a) When assessed by at least one objective measure, patient experienced a beneficial 
+clinical response from baseline (prior to initiating an infliximab product); OR 
+Note:  Examples of objective measures include Ankylosing Spondylitis Disease 
+Activity Score (ASDAS) and/or serum markers (e.g., C-reactive protein, erythrocyte 
+sedimentation rate). 
+b) Compared with baseline (prior to initiating an infliximab product), patient 
+experienced an improvement in at least one symptom, such as decreased pain or 
+stiffness, or improvement in function or activities of daily living. 
+ 
+Dosing.  Approve ONE of the following regimens (A or B): 
+
+--- Page 17 ---
+ 
+Page 17 of 23 
+Coverage Policy Number: IP0660 
+A) Initial Therapy.  Approve up to 5 mg/kg as an intravenous infusion followed by additional 
+similar doses at 2 and 6 weeks after the first infusion, and then no more frequently than 
+once every 6 weeks thereafter. 
+B) Patient is Currently Receiving an Infliximab Product.  Approve up to a maximum dose of 10 
+mg/kg administered intravenously no more frequently than once every 4 weeks. 
+ 
+ 
+17.  Still’s Disease.  Approve for the duration noted if the patient meets ONE of the following (A 
+or B): 
+A) Initial Therapy.  Approve for 6 months if the patient meets ALL of the following (i, ii, iii, and 
+iv): 
+i. Patient is > 18 years of age; AND 
+ii. Patient has tried one corticosteroid; AND 
+Note:  Examples include prednisone and methylprednisolone. 
+iii. Patient has tried one conventional synthetic disease-modifying antirheumatic drug 
+(DMARD) given for at least 2 months or was intolerant; AND 
+Note:  An example is methotrexate.  A previous trial of one biologic other than the 
+requested drug (e.g., Actemra [tocilizumab intravenous injection, tocilizumab 
+subcutaneous injection], Arcalyst [rilonacept subcutaneous injection], Ilaris 
+[canakinumab subcutaneous injection]) also counts towards this requirement for 
+previous therapy for Still’s disease.  A biosimilar of the requested biologic does not 
+count. 
+iv. The medication is prescribed by or in consultation with a rheumatologist; OR 
+B) Patient is Currently Receiving an Infliximab Product.  Approve for 1 year if the patient 
+meets BOTH of the following (i and ii): 
+i. Patient has been established on this medication for at least 6 months; AND 
+Note:  A patient who has received < 6 months of therapy or who is restarting therapy 
+with an infliximab product is reviewed under criterion A (Initial Therapy). 
+ii. Patient meets at least ONE of the following (a or b): 
+a) When assessed by at least one objective measure, patient experienced a beneficial 
+clinical response from baseline (prior to initiating an infliximab product); OR 
+Note:  Examples of objective measures include resolution of fever, improvement in 
+rash or skin manifestations, clinically significant improvement or normalization of 
+serum markers (e.g., C-reactive protein, erythrocyte sedimentation rate), and/or 
+reduced dosage of corticosteroids. 
+b) Compared with baseline (prior to initiating an infliximab product), patient 
+experienced an improvement in at least one symptom, such as less joint 
+pain/tenderness, stiffness, or swelling; decreased fatigue; improved function or 
+activities of daily living. 
+ 
+Dosing.  Approve ONE of the following regimens (A or B): 
+A) Initial Therapy.  Approve up to 6 mg/kg as an intravenous fusion followed by additional 
+similar doses at 2 and 6 weeks after the first infusion, and then no more frequently than 
+once every 8 weeks thereafter. 
+B) Patient is Currently Receiving an Infliximab Product.  Approve up to a maximum dose of 10 
+mg/kg administered intravenously no more frequently than once every 4 weeks. 
+ 
+ 
+18.  Uveitis.  Approve for the duration noted if the patient meets ONE of the following (A or B): 
+Note:  This includes other posterior uveitides and panuveitis syndromes. 
+A) Initial Therapy.  Approve for 6 months if the patient meets ALL of the following (i, ii, and 
+iii): 
+i. Patient is > 6 years of age; AND 
+
+--- Page 18 ---
+ 
+Page 18 of 23 
+Coverage Policy Number: IP0660 
+ii. Patient has tried one of the following therapies:  periocular, intraocular, or systemic 
+corticosteroids, or immunosuppressives; AND 
+Note:  Examples of corticosteroids include prednisolone, triamcinolone, betamethasone, 
+methylprednisolone, prednisone.  Examples of immunosuppressives include 
+methotrexate, mycophenolate mofetil, and cyclosporine.  An exception to the 
+requirement for a trial of one of these therapies can be made if the patient has already 
+had a trial of an etanercept product or an adalimumab product for uveitis.  A patient 
+who has already tried one biologic other than the requested medication also counts.  A 
+biosimilar of the requested biologic does not count. 
+iii. The medication is prescribed by or in consultation with an ophthalmologist; OR 
+B) Patient is Currently Receiving an Infliximab Product.  Approve for 1 year if the patient 
+meets BOTH of the following (i and ii): 
+i. Patient has been established on therapy for at least 6 months; AND 
+Note:  A patient who has received < 6 months of therapy or who is restarting therapy 
+with an infliximab product is reviewed under criterion A (Initial Therapy). 
+ii. Patient meets at least ONE of the following (a or b): 
+a) When assessed by at least one objective measure, patient experienced a beneficial 
+clinical response from baseline (prior to initiating an infliximab product); OR 
+Note:  Examples of objective measures include best-corrected visual acuity, 
+assessment of chorioretinal and/or inflammatory retinal vascular lesions, or anterior 
+chamber cell grade or vitreous haze grade. 
+b) Compared with baseline (prior to initiating an infliximab product), patient 
+experienced an improvement in at least one symptom, such as decreased eye pain, 
+redness, light sensitivity, and/or blurred vision; or improvement in visual acuity. 
+ 
+Dosing.  Approve ONE of the following regimens (A or B): 
+A) Initial Therapy.  Approve up to 10 mg/kg as an intravenous infusion followed by additional 
+similar doses at 2 and 6 weeks after the first infusion, then no more frequently than once 
+every 4 weeks thereafter. 
+B) Patient is Currently Receiving an Infliximab Product.  Approve up to a maximum dose of 10 
+mg/kg administered intravenously no more frequently than once every 4 weeks. 
+ 
+ 
+ 
+Conditions Not Covered 
+ 
+Infliximab intravenous products for any other use are considered not medically 
+necessary, including the following (this list may not be all inclusive; criteria will be 
+updated as new published data are available):  
+ 
+ 
+1. Concurrent Use with a Biologic or with a Targeted Synthetic Oral Small Molecule Drug.  
+This medication should not be administered in combination with another biologic or with a 
+targeted synthetic oral small molecule drug used for an inflammatory condition (see Appendix  
+for examples).  Combination therapy is generally not recommended due to a potentially higher 
+rate of adverse events and lack of controlled clinical data supporting additive efficacy. 
+Note:  This does NOT exclude the use of conventional synthetic disease-modifying antirheumatic 
+drug (e.g., methotrexate, leflunomide, hydroxychloroquine, or sulfasalazine) in combination with 
+this medication. 
+ 
+Coding Information 
+ 
+1)  This list of codes may not be all-inclusive.  
+
+--- Page 19 ---
+ 
+Page 19 of 23 
+Coverage Policy Number: IP0660 
+2) Deleted codes and codes which are not effective at the time the service is rendered may not 
+be eligible for reimbursement. 
+ 
+Considered Medically Necessary when criteria in the applicable policy statements listed 
+above are met: 
+ 
+HCPCS 
+Codes 
+Description 
+J1745 Injection, infliximab, excludes biosimilar, 10 mg 
+Q5103 Injection, infliximab-dyyb, biosimilar, (Inflectra), 10 mg 
+Q5104 Injection, infliximab-abda, biosimilar, (Renflexis), 10 mg 
+Q5121 Injection, infliximab-axxq, biosimilar, (Avsola), 10 mg 
+ 
+References 
+ 
+1. Infliximab intravenous infusion [prescribing information].  Horsham, PA:  Janssen; October 
+2021. 
+2. Inflectra injection [prescribing information].  Lake Forest, IL:  Hospira/Pfizer; June 2021. 
+3. Renflexis injection [prescribing information].  Jersey City, NJ:  Samsung Bioepis/Organon; 
+December 2023. 
+4. Ward MM, Deodhar A, Gensler LS, et al.  2019 update of the American College of 
+Rheumatology/Spondylitis Association of America/Spondyloarthritis Research and Treatment 
+Network recommendations for the treatment of ankylosing spondylitis and nonradiographic 
+axial spondyloarthritis.  Arthritis Rheumatol.  2019;(10):1599-1613. 
+5. Lichtenstein G, Loftus E, Afzali A, et al.  ACG Clinical Guideline:  Management of Crohn's 
+Disease in Adults.  Am J Gastroenterol.  2025 June;120(6):1225-1264. 
+6. Feuerstein JD, Ho EY, Shmidt E, et al.  AGA clinical practice guidelines on the medical 
+management of moderate to severe luminal and perianal fistulizing Crohn's disease.  
+Gastroenterology.  2021;160(7):2496-2508. 
+7. Menter A, Strober BE, Kaplan DH, et al.  Joint AAD-NPF guidelines of care for the management 
+and treatment of psoriasis with biologics.  J Am Acad Dermatol.  2019;80(4):1029-1072. 
+8. Singh JA, Guyatt G, Ogdie A, et al.  2018 American College of Rheumatology/National Psoriasis 
+Foundation Guideline for the treatment of psoriatic arthritis.  Arthritis Care Res (Hoboken).  
+2019;71(1):2-29. 
+9. Fraenkel L, Bathon JM, England BR, et al.  2021 American College of Rheumatology guideline 
+for the treatment of rheumatoid arthritis.  Arthritis Rheumatol.  2021;73(7):1108-1123. 
+10. Singh S, Loftus EV Jr, Limketkai BN, et al.  AGA Living Clinical Practice Guideline on 
+Pharmacological Management of Moderate-to-Severe Ulcerative Colitis.  Gastroenterology.  
+2024 Dec;167(7):1307-1343. 
+11. Rubin D, Ananthakrishnan A, Siegel C.  ACG Clinical Guideline Update:  Ulcerative Colitis in 
+Adults.  Am J of Gastroenterol.   2025 June;120(6):1187-1224. 
+13. Hatemi G, Christensen R, Bang D, et al.  2018 update of the EULAR recommendations for the 
+management of Behçet's syndrome.  Ann Rheum Dis.  2018;77(6):808-818. 
+14. Levy-Clarke G, Jabs DA, Read RW, et al.  Expert panel recommendations for the use of anti-
+tumor necrosis factor biologic agents in patients with ocular inflammatory disorders.  
+Ophthalmology.  2014;121(3):785-796. 
+15. The NCCN Hematopoietic Cell Transplantation (HCT) Clinical Practice Guidelines in Oncology 
+(version 2.2025 – June 5, 2025).  © 2025 National Comprehensive Cancer Network.  Available 
+at: http://www.nccn.org.  Accessed on July 14, 2025. 
+16. Alikhan A, Sayed C, Alavi A, et al.  North American clinical management guidelines for 
+hidradenitis suppurativa:  a publication from the United States and Canadian Hidradenitis 
+
+--- Page 20 ---
+ 
+Page 20 of 23 
+Coverage Policy Number: IP0660 
+Suppurativa Foundations:  Part II:  topical, intralesional, and systemic medical management.  
+J Am Acad Dermatol.  2019;81(1):91-101. 
+17. The NCCN Management of Immunotherapy-Related Toxicities Clinical Practice Guidelines in 
+Oncology (version 1.2025 – December 20, 2024).  © 2024 National Comprehensive Cancer 
+Network.  Available at: http://www.nccn.org.  Accessed July 14, 2025. 
+18. Papadakis KA, Treyzon L, Abreu MT, et al.  Infliximab in the treatment of medically refractory 
+indeterminate colitis.  Aliment Pharmacol Ther.  2003;18:741-747. 
+19. Gornet JM, Couve S, Hassani Z, et al.  Infliximab for refractory ulcerative colitis or 
+indeterminate colitis:  an open-label multicentre study.  Aliment Pharmacol Ther.  
+2003;18:175-181. 
+20. Onel KB, Horton DB, Lovell DJ, et al.  2021 American College of Rheumatology guideline for 
+the treatment of juvenile idiopathic arthritis:  therapeutic approaches for oligoarthritis, 
+temporomandibular joint arthritis, and systemic juvenile idiopathic arthritis.  Arthritis 
+Rheumatol.  2022 Apr;74(4):553-569. 
+21. Ringold S, Angeles-Han ST, Beukelman T, et al.  2019 American College of 
+Rheumatology/Arthritis Foundation guideline for the treatment of juvenile idiopathic arthritis:  
+therapeutic approaches for non-systemic polyarthritis, sacroiliitis, and enthesitis.  Arthritis 
+Rheumatol.  2019;71(6):846-863. 
+22. Ringold S, Weiss PF, Beukelman T, et al.  2013 update of the 2011 American College of 
+Rheumatology recommendations for the treatment of juvenile idiopathic arthritis:  
+recommendations for the medical therapy of children with systemic juvenile idiopathic arthritis 
+and tuberculosis screening among children receiving biologic medications.  Arthritis Rheum.  
+2013;65(10):2499-2512. 
+23. Dabade TS, Davis MD.  Diagnosis and treatment of the neutrophilic dermatoses (pyoderma 
+gangrenosum, Sweet's syndrome).  Dermatol Ther.  2011;24(2):273-284. 
+24. Baughman RP, Valeyre D, Korsten P, et al.  ERS clinical practice guidelines on treatment of 
+sarcoidosis.  Eur Respir J.  2021;58(6):2004079. 
+25. Riera E, Olivé A, Narváez J, et al.  Adult onset Still's disease:  review of 41 cases.  Clin Exp 
+Rheumatol.  2011;29(2):331-336. 
+26. Pouchot J, Arlet JB.  Biological treatment in adult-onset Still's disease.  Best Pract Res Clin 
+Rheumatol.  2012;26(4):477-487. 
+27. Kontzias A, Efthimiou P.  Adult-onset Still's disease:  pathogenesis, clinical manifestations and 
+therapeutic advances.  Drugs.  2008;68:319-337. 
+ 
+Revision Details 
+ 
+Type of Revision Summary of Changes Date 
+New New policy 
+ 
+11/01/2024  
+ 
+Annual Revision Immunotherapy-Related Toxicities Associated 
+with Checkpoint Inhibitor Therapy:  Myalgia 
+and myositis were removed from the examples of 
+immunotherapy-related toxicities associated with 
+checkpoint inhibitor therapy. 
+02/15/2025 
+Selected Revision Ulcerative Colitis:  For initial therapy, removed 
+the following options of approval:  (1) the patient 
+has tried one systemic therapy; (2) the patient has 
+pouchitis and tried an antibiotic, probiotic, 
+corticosteroid enema, or mesalamine enema. 
+09/01/2025 
+Selected Revision Graft-versus-Host Disease:  For initial approvals, 
+added the requirement that patient has acute graft-
+versus-host disease.  Modified the requirement that 
+10/15/2025 
+
+--- Page 21 ---
+ 
+Page 21 of 23 
+Coverage Policy Number: IP0660 
+patient has tried at least one conventional systemic 
+treatment to at least one systemic medication.  
+Jakafi (ruxolitinib), Simulect (basiliximab), an 
+etanercept product, sirolimus, Nipent (pentostatin), 
+a tocilizumab product, and Entyvio (vedolizumab) 
+were added to the Note of examples of systemic 
+medications. 
+Immunotherapy-Related Toxicities Associated 
+with Checkpoint Inhibitor Therapy:   
+“According to the prescriber” was added to the 
+requirement that patient experienced an 
+immunotherapy-related toxicity while receiving a 
+checkpoint inhibitor and specific examples of 
+immunotherapy-related toxicities were removed.  
+Cardiologist, hematologist, nephrologist, and 
+pulmonologist were added as accepted specialists 
+to the specialist requirement.   
+Early Annual 
+Revision 
+Plaque Psoriasis:  For initial therapy, in the Note, 
+a 3-month trial or prior intolerance to Otezla/Otezla 
+XR (apremilast tablets/extended-release tablets), or 
+Sotyktu (deucravacitinib tablets) was added as an 
+exception to the requirement for a trial of one 
+traditional systemic agent for psoriasis.  For initial 
+therapy, the requirement “patient has a 
+contraindication to methotrexate, as determined by 
+the prescriber” was modified to “according to the 
+prescriber, the patient has a contraindication to 
+methotrexate”.  In the Appendix, Otezla XR 
+(apremilast extended-release tablets) was added 
+under the Oral Therapies/Targeted Synthetic Oral 
+Small Molecular Drugs. 
+01/01/2026 
+ 
+ 
+The policy effective date is in force until updated or retired.  
+ 
+ 
+ 
+ 
+APPENDIX  
+Mechanism of Action Examples of Indications* 
+Biologics 
+Adalimumab SC Products (Humira®, 
+biosimilars) 
+Inhibition of TNF AS, CD, JIA, PsO, PsA, RA, UC 
+Cimzia® (certolizumab pegol SC 
+injection) 
+Inhibition of TNF AS, CD, nr-axSpA, PsO, PsA, 
+RA 
+Etanercept SC Products (Enbrel®, 
+biosimilars) 
+Inhibition of TNF AS, JIA, PsO, PsA, RA 
+Infliximab IV Products (Remicade®, 
+biosimilars) 
+Inhibition of TNF AS, CD, PsO, PsA, RA, UC 
+Zymfentra® (infliximab-dyyb SC 
+injection) 
+Inhibition of TNF CD, UC 
+Simponi®, Simponi Aria® (golimumab 
+SC injection, golimumab IV infusion) 
+Inhibition of TNF SC formulation:  AS, PsA, RA, 
+UC 
+
+--- Page 22 ---
+ 
+Page 22 of 23 
+Coverage Policy Number: IP0660 
+IV formulation:  AS, PJIA, 
+PsA, RA 
+Tocilizumab Products (Actemra® IV, 
+biosimilar; Actemra SC, biosimilar) 
+Inhibition of IL-6 SC formulation:  PJIA, RA, 
+SJIA 
+IV formulation:  PJIA, RA, 
+SJIA 
+Kevzara® (sarilumab SC injection) Inhibition of IL-6 RA 
+Orencia® (abatacept IV infusion, 
+abatacept SC injection) 
+T-cell costimulation 
+modulator 
+SC formulation:  JIA, PSA, RA 
+IV formulation:  JIA, PsA, RA 
+Rituximab IV Products (Rituxan®, 
+biosimilars) 
+CD20-directed cytolytic 
+antibody 
+RA 
+Kineret® (anakinra SC injection) Inhibition of IL-1 JIA^, RA 
+Omvoh® (mirikizumab IV infusion, SC 
+injection) 
+Inhibition of IL-23 CD, UC 
+Ustekinumab Products (Stelara® IV, 
+biosimilar; Stelara SC, biosimilar) 
+Inhibition of IL-12/23 SC formulation:  CD, PsO, 
+PsA, UC 
+IV formulation:  CD, UC 
+Siliq® (brodalumab SC injection) Inhibition of IL-17 PsO 
+Cosentyx® (secukinumab SC injection; 
+secukinumab IV infusion) 
+Inhibition of IL-17A SC formulation:  AS, ERA, nr-
+axSpA, PsO, PsA 
+IV formulation:  AS, nr-
+axSpA, PsA 
+Taltz® (ixekizumab SC injection) Inhibition of IL-17A AS, nr-axSpA, PsO, PsA 
+Bimzelx® (bimekizumab-bkzx SC 
+injection) 
+Inhibition of IL-
+17A/17F 
+PsO, AS, nr-axSpA, PsA 
+Ilumya® (tildrakizumab-asmn SC 
+injection) 
+Inhibition of IL-23 PsO 
+Skyrizi® (risankizumab-rzaa SC 
+injection, risankizumab-rzaa IV infusion) 
+Inhibition of IL-23 SC formulation:  CD, PSA, 
+PsO, UC 
+IV formulation:  CD, UC 
+Tremfya® (guselkumab SC injection, 
+guselkumab IV infusion) 
+Inhibition of IL-23 SC formulation:  CD, PsA, 
+PsO, UC 
+IV formulation:  CD, UC 
+Entyvio® (vedolizumab IV infusion, 
+vedolizumab SC injection) 
+Integrin receptor 
+antagonist 
+CD, UC 
+ Oral Therapies/Targeted Synthetic Oral Small Molecule Drugs 
+Otezla® (apremilast tablets) Inhibition of PDE4 PsO, PsA 
+Otezla XR™  (apremilast extended-
+release tablets) 
+Inhibition of PDE4 PsO, PsA 
+Cibinqo™  (abrocitinib tablets) Inhibition of JAK 
+pathways 
+AD 
+Olumiant® (baricitinib tablets) Inhibition of JAK 
+pathways 
+RA, AA 
+Litfulo® (ritlecitinib capsules) Inhibition of JAK 
+pathways 
+AA 
+Leqselvi® (deuruxolitinib tablets) Inhibition of JAK 
+pathways 
+AA 
+Rinvoq® (upadacitinib extended-release 
+tablets) 
+Inhibition of JAK 
+pathways 
+AD, AS, nr-axSpA, RA, PsA, 
+CD, UC 
+Rinvoq® LQ (upadacitinib oral solution) Inhibition of JAK 
+pathways 
+PsA, PJIA 
+Sotyktu® (deucravacitinib tablets) Inhibition of TYK2 PsO 
+Xeljanz® (tofacitinib tablets/oral 
+solution) 
+Inhibition of JAK 
+pathways 
+RA, PJIA, PsA, UC 
+Xeljanz® XR (tofacitinib extended-
+release tablets) 
+Inhibition of JAK 
+pathways 
+RA, PsA, UC 
+
+--- Page 23 ---
+ 
+Page 23 of 23 
+Coverage Policy Number: IP0660 
+Zeposia® (ozanimod tablets) Sphingosine 1 
+phosphate receptor 
+modulator 
+UC 
+Velsipity® (etrasimod tablets) Sphingosine 1 
+phosphate receptor 
+modulator 
+UC 
+* Not an all-inclusive list of indications.  Refer to the prescribing information for the respective agent for FDA -
+approved indications; SC – Subcutaneous; TNF – Tumor necrosis factor; AS – Ankylosing spondylitis; CD – 
+Crohn’s disease; JIA – Juvenile idiopa thic arthritis; PsO – Plaque psoriasis; PsA – Psoriatic arthritis; RA – 
+Rheumatoid arthritis; UC – Ulcerative colitis; nr -axSpA – Non-radiographic axial spondyloarthritis; IV – 
+Intravenous, PJIA – Polyarticular juvenile idiopathic arthritis; IL – Interleukin; SJIA – Systemic juvenile 
+idiopathic arthritis; ^ Off-label use of Kineret in JIA supported in guidelines; ERA – Enthesitis-related arthritis; 
+DMARD – Disease-modifying antirheumatic drug; PDE4 – Phosphodiesterase 4; JAK – Janus kinase; AD – Atopic 
+dermatitis; AA – Alopecia areata; TYK2 – Tyrosine kinase 2. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+“Cigna Companies” refers to operating subsidiaries of The Cigna Group. All products and services are provided exclusively 
+by or through such operating subsidiaries, including Cigna Health and Life Insurance Company, Connecticut General Life 
+Insurance Company, Evernorth Behavioral Health, Inc., Cigna Health Management, Inc., and HMO or service company 
+subsidiaries of The Cigna Group. © 2025 The Cigna Group. 
+ 

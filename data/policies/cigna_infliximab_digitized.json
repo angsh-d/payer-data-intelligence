@@ -1,0 +1,3136 @@
+{
+  "policy_id": "IP0660",
+  "policy_number": "IP0660",
+  "policy_title": "Inflammatory Conditions \u2013 Infliximab Intravenous Products Prior Authorization Policy",
+  "payer_name": "Cigna",
+  "medication_name": "Infliximab",
+  "medication_brand_names": [
+    "Avsola",
+    "Inflectra",
+    "Remicade",
+    "Renflexis"
+  ],
+  "medication_generic_names": [
+    "infliximab-axxq",
+    "infliximab-dyyb",
+    "infliximab",
+    "infliximab-abda"
+  ],
+  "medication_codes": [
+    {
+      "system": "HCPCS",
+      "code": "J1745",
+      "display": "Injection, infliximab, excludes biosimilar, 10 mg"
+    },
+    {
+      "system": "HCPCS",
+      "code": "Q5103",
+      "display": "Injection, infliximab-dyyb, biosimilar, (Inflectra), 10 mg"
+    },
+    {
+      "system": "HCPCS",
+      "code": "Q5104",
+      "display": "Injection, infliximab-abda, biosimilar, (Renflexis), 10 mg"
+    },
+    {
+      "system": "HCPCS",
+      "code": "Q5121",
+      "display": "Injection, infliximab-axxq, biosimilar, (Avsola), 10 mg"
+    }
+  ],
+  "effective_date": "2026-01-01",
+  "last_revision_date": "2025-10-15",
+  "atomic_criteria": {
+    "AGE_GE_18": {
+      "criterion_id": "AGE_GE_18",
+      "criterion_type": "age",
+      "name": "Age >= 18 years",
+      "description": "Patient is 18 years of age or older",
+      "policy_text": "Patient is >= 18 years of age",
+      "clinical_codes": [],
+      "comparison_operator": "gte",
+      "threshold_value": 18,
+      "threshold_value_upper": null,
+      "threshold_unit": "years",
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "age",
+      "source_section": null
+    },
+    "AGE_GE_6": {
+      "criterion_id": "AGE_GE_6",
+      "criterion_type": "age",
+      "name": "Age >= 6 years",
+      "description": "Patient is 6 years of age or older",
+      "policy_text": "Patient is >= 6 years of age",
+      "clinical_codes": [],
+      "comparison_operator": "gte",
+      "threshold_value": 6,
+      "threshold_value_upper": null,
+      "threshold_unit": "years",
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "age",
+      "source_section": null
+    },
+    "PRESCRIBER_RHEUM": {
+      "criterion_id": "PRESCRIBER_RHEUM",
+      "criterion_type": "prescriber_specialty",
+      "name": "Prescribed by Rheumatologist",
+      "description": "The medication is prescribed by or in consultation with a rheumatologist",
+      "policy_text": "The medication is prescribed by or in consultation with a rheumatologist",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "prescriber",
+      "source_section": null
+    },
+    "PRESCRIBER_GI": {
+      "criterion_id": "PRESCRIBER_GI",
+      "criterion_type": "prescriber_specialty",
+      "name": "Prescribed by Gastroenterologist",
+      "description": "The medication is prescribed by or in consultation with a gastroenterologist",
+      "policy_text": "The medication is prescribed by or in consultation with a gastroenterologist",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "prescriber",
+      "source_section": null
+    },
+    "PRESCRIBER_DERM": {
+      "criterion_id": "PRESCRIBER_DERM",
+      "criterion_type": "prescriber_specialty",
+      "name": "Prescribed by Dermatologist",
+      "description": "The medication is prescribed by or in consultation with a dermatologist",
+      "policy_text": "The medication is prescribed by or in consultation with a dermatologist",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "prescriber",
+      "source_section": null
+    },
+    "PRESCRIBER_OPHTH": {
+      "criterion_id": "PRESCRIBER_OPHTH",
+      "criterion_type": "prescriber_specialty",
+      "name": "Prescribed by Ophthalmologist",
+      "description": "The medication is prescribed by or in consultation with an ophthalmologist",
+      "policy_text": "The medication is prescribed by or in consultation with an ophthalmologist",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "prescriber",
+      "source_section": null
+    },
+    "PRESCRIBER_ONC_HEM_TRANSPLANT": {
+      "criterion_id": "PRESCRIBER_ONC_HEM_TRANSPLANT",
+      "criterion_type": "prescriber_specialty",
+      "name": "Prescribed by Oncologist/Hematologist/Transplant",
+      "description": "The medication is prescribed by or in consultation with an oncologist, hematologist, or a physician affiliated with a transplant center",
+      "policy_text": "The medication is prescribed by or in consultation with an oncologist, hematologist, or a physician affiliated with a transplant center",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "prescriber",
+      "source_section": null
+    },
+    "PRESCRIBER_MULTI_SPECIALTY_BEHCETS": {
+      "criterion_id": "PRESCRIBER_MULTI_SPECIALTY_BEHCETS",
+      "criterion_type": "prescriber_specialty",
+      "name": "Prescribed by Specialist (Behcet's)",
+      "description": "Prescribed by rheumatologist, dermatologist, ophthalmologist, gastroenterologist, or neurologist",
+      "policy_text": "The medication is prescribed by or in consultation with a rheumatologist, dermatologist, ophthalmologist, gastroenterologist, or neurologist",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "prescriber",
+      "source_section": null
+    },
+    "PRESCRIBER_MULTI_SPECIALTY_SARCOID": {
+      "criterion_id": "PRESCRIBER_MULTI_SPECIALTY_SARCOID",
+      "criterion_type": "prescriber_specialty",
+      "name": "Prescribed by Specialist (Sarcoidosis)",
+      "description": "Prescribed by pulmonologist, ophthalmologist, cardiologist, neurologist, or dermatologist",
+      "policy_text": "The medication is prescribed by or in consultation with a pulmonologist, ophthalmologist, cardiologist, neurologist, or dermatologist",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "prescriber",
+      "source_section": null
+    },
+    "PRESCRIBER_MULTI_SPECIALTY_IMMUNO": {
+      "criterion_id": "PRESCRIBER_MULTI_SPECIALTY_IMMUNO",
+      "criterion_type": "prescriber_specialty",
+      "name": "Prescribed by Specialist (Immunotherapy Toxicity)",
+      "description": "Prescribed by oncologist, cardiologist, gastroenterologist, hematologist, nephrologist, pulmonologist, rheumatologist, or ophthalmologist",
+      "policy_text": "The medication is prescribed by or in consultation with an oncologist, cardiologist, gastroenterologist, hematologist, nephrologist, pulmonologist, rheumatologist, or ophthalmologist",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "prescriber",
+      "source_section": null
+    },
+    "DIAG_AS": {
+      "criterion_id": "DIAG_AS",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Diagnosis of Ankylosing Spondylitis",
+      "description": "Patient has a diagnosis of Ankylosing Spondylitis",
+      "policy_text": "Ankylosing Spondylitis",
+      "clinical_codes": [
+        {
+          "system": "ICD-10",
+          "code": "M45.0",
+          "display": "Ankylosing spondylitis of multiple sites in spine"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "DIAG_CD": {
+      "criterion_id": "DIAG_CD",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Diagnosis of Crohn's Disease",
+      "description": "Patient has a diagnosis of Crohn's Disease (any K50.x ICD-10 code including subtypes with fistula, obstruction, abscess)",
+      "policy_text": "Crohn's Disease",
+      "clinical_codes": [
+        {
+          "system": "ICD-10",
+          "code": "K50",
+          "display": "Crohn's disease [regional enteritis] - all subtypes"
+        },
+        {
+          "system": "ICD-10",
+          "code": "K50.0",
+          "display": "Crohn's disease of small intestine"
+        },
+        {
+          "system": "ICD-10",
+          "code": "K50.1",
+          "display": "Crohn's disease of large intestine"
+        },
+        {
+          "system": "ICD-10",
+          "code": "K50.8",
+          "display": "Crohn's disease of both small and large intestine"
+        },
+        {
+          "system": "ICD-10",
+          "code": "K50.9",
+          "display": "Crohn's disease, unspecified"
+        },
+        {
+          "system": "ICD-10",
+          "code": "K50.013",
+          "display": "Crohn's disease of small intestine with fistula"
+        },
+        {
+          "system": "ICD-10",
+          "code": "K50.113",
+          "display": "Crohn's disease of large intestine with fistula"
+        },
+        {
+          "system": "ICD-10",
+          "code": "K50.813",
+          "display": "Crohn's disease of both small and large intestine with fistula"
+        },
+        {
+          "system": "ICD-10",
+          "code": "K50.913",
+          "display": "Crohn's disease, unspecified, with fistula"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "STEP_CD_STEROIDS": {
+      "criterion_id": "STEP_CD_STEROIDS",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Corticosteroids (CD)",
+      "description": "Patient has tried or is currently taking corticosteroids, or corticosteroids are contraindicated",
+      "policy_text": "Patient has tried or is currently taking corticosteroids, or corticosteroids are contraindicated in this patient",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [
+        "corticosteroids"
+      ],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "STEP_CD_CONVENTIONAL": {
+      "criterion_id": "STEP_CD_CONVENTIONAL",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Conventional Systemic Therapy (CD)",
+      "description": "Patient has tried one other conventional systemic therapy for Crohn's disease (e.g., azathioprine, 6-mercaptopurine, methotrexate)",
+      "policy_text": "Patient has tried one other conventional systemic therapy for Crohn's disease",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [
+        "azathioprine",
+        "6-mercaptopurine",
+        "methotrexate"
+      ],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "CLINICAL_CD_FISTULAS": {
+      "criterion_id": "CLINICAL_CD_FISTULAS",
+      "criterion_type": "clinical_marker_present",
+      "name": "Presence of Fistulas (Alternative to Step Therapy)",
+      "description": "Patient has enterocutaneous (perianal or abdominal) or rectovaginal fistulas - qualifies as alternative to conventional step therapy",
+      "policy_text": "Patient has enterocutaneous (perianal or abdominal) or rectovaginal fistulas",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "CLINICAL_CD_RESECTION": {
+      "criterion_id": "CLINICAL_CD_RESECTION",
+      "criterion_type": "clinical_marker_present",
+      "name": "History of Ileocolonic Resection (Alternative to Step Therapy)",
+      "description": "Patient had ileocolonic resection - qualifies as alternative to conventional step therapy to reduce recurrence risk",
+      "policy_text": "Patient had ileocolonic resection",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "DIAG_PSO": {
+      "criterion_id": "DIAG_PSO",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Diagnosis of Plaque Psoriasis",
+      "description": "Patient has a diagnosis of Plaque Psoriasis",
+      "policy_text": "Plaque Psoriasis",
+      "clinical_codes": [
+        {
+          "system": "ICD-10",
+          "code": "L40.0",
+          "display": "Psoriasis vulgaris"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "STEP_PSO_SYSTEMIC": {
+      "criterion_id": "STEP_PSO_SYSTEMIC",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Systemic Agent (PsO)",
+      "description": "Patient has tried at least one traditional systemic agent for psoriasis for at least 3 months, unless intolerant",
+      "policy_text": "Patient has tried at least one traditional systemic agent for psoriasis for at least 3 months, unless intolerant",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": 3,
+      "threshold_value_upper": null,
+      "threshold_unit": "months",
+      "allowed_values": [],
+      "drug_names": [
+        "methotrexate",
+        "cyclosporine",
+        "acitretin"
+      ],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "STEP_PSO_PUVA": {
+      "criterion_id": "STEP_PSO_PUVA",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of PUVA",
+      "description": "A 3-month trial of psoralen plus ultraviolet A light (PUVA)",
+      "policy_text": "A 3-month trial of psoralen plus ultraviolet A light (PUVA) also counts",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": 3,
+      "threshold_value_upper": null,
+      "threshold_unit": "months",
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "CONTRAINDICATION_MTX": {
+      "criterion_id": "CONTRAINDICATION_MTX",
+      "criterion_type": "prior_treatment_contraindicated",
+      "name": "Contraindication to Methotrexate",
+      "description": "According to the prescriber, the patient has a contraindication to methotrexate",
+      "policy_text": "According to the prescriber, the patient has a contraindication to methotrexate",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [
+        "methotrexate"
+      ],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "DIAG_PSA": {
+      "criterion_id": "DIAG_PSA",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Diagnosis of Psoriatic Arthritis",
+      "description": "Patient has a diagnosis of Psoriatic Arthritis",
+      "policy_text": "Psoriatic Arthritis",
+      "clinical_codes": [
+        {
+          "system": "ICD-10",
+          "code": "L40.50",
+          "display": "Arthropathic psoriasis, unspecified"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "DIAG_RA": {
+      "criterion_id": "DIAG_RA",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Diagnosis of Rheumatoid Arthritis",
+      "description": "Patient has a diagnosis of Rheumatoid Arthritis",
+      "policy_text": "Rheumatoid Arthritis",
+      "clinical_codes": [
+        {
+          "system": "ICD-10",
+          "code": "M06.9",
+          "display": "Rheumatoid arthritis, unspecified"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "STEP_RA_DMARD": {
+      "criterion_id": "STEP_RA_DMARD",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Conventional DMARD (RA)",
+      "description": "Patient has tried ONE conventional synthetic disease-modifying antirheumatic drug (DMARD) for at least 3 months",
+      "policy_text": "Patient has tried ONE conventional synthetic disease-modifying antirheumatic drug (DMARD) for at least 3 months",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": 3,
+      "threshold_value_upper": null,
+      "threshold_unit": "months",
+      "allowed_values": [],
+      "drug_names": [
+        "methotrexate",
+        "leflunomide",
+        "hydroxychloroquine",
+        "sulfasalazine"
+      ],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "DIAG_UC": {
+      "criterion_id": "DIAG_UC",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Diagnosis of Ulcerative Colitis",
+      "description": "Patient has a diagnosis of Ulcerative Colitis",
+      "policy_text": "Ulcerative Colitis",
+      "clinical_codes": [
+        {
+          "system": "ICD-10",
+          "code": "K51.9",
+          "display": "Ulcerative colitis, unspecified"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "DIAG_BEHCETS": {
+      "criterion_id": "DIAG_BEHCETS",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Diagnosis of Behcet's Disease",
+      "description": "Patient has a diagnosis of Behcet's Disease",
+      "policy_text": "Behcet's Disease",
+      "clinical_codes": [
+        {
+          "system": "ICD-10",
+          "code": "M35.2",
+          "display": "Behcet's disease"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "STEP_BEHCETS_CONVENTIONAL": {
+      "criterion_id": "STEP_BEHCETS_CONVENTIONAL",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Conventional Therapy (Behcet's)",
+      "description": "Patient has tried at least ONE conventional therapy",
+      "policy_text": "Patient has tried at least ONE conventional therapy",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [
+        "corticosteroids",
+        "immunosuppressants"
+      ],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "CLINICAL_BEHCETS_OPHTHALMIC": {
+      "criterion_id": "CLINICAL_BEHCETS_OPHTHALMIC",
+      "criterion_type": "clinical_marker_present",
+      "name": "Ophthalmic Manifestations (Behcet's)",
+      "description": "Patient has ophthalmic manifestations of Behcet's disease",
+      "policy_text": "Patient has ophthalmic manifestations of Behcet's disease",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "DIAG_GVHD": {
+      "criterion_id": "DIAG_GVHD",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Diagnosis of Graft-Versus-Host Disease",
+      "description": "Patient has acute graft-versus-host disease",
+      "policy_text": "Patient has acute graft-versus-host disease",
+      "clinical_codes": [
+        {
+          "system": "ICD-10",
+          "code": "D89.811",
+          "display": "Chronic graft-versus-host disease"
+        },
+        {
+          "system": "ICD-10",
+          "code": "D89.810",
+          "display": "Acute graft-versus-host disease"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "STEP_GVHD_SYSTEMIC": {
+      "criterion_id": "STEP_GVHD_SYSTEMIC",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Systemic Medication (GVHD)",
+      "description": "Patient has tried at least one systemic medication for graft-versus-host disease",
+      "policy_text": "Patient has tried at least one systemic medication for graft-versus-host disease",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [
+        "corticosteroids",
+        "immunosuppressants"
+      ],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "DIAG_HS": {
+      "criterion_id": "DIAG_HS",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Diagnosis of Hidradenitis Suppurativa",
+      "description": "Patient has a diagnosis of Hidradenitis Suppurativa",
+      "policy_text": "Hidradenitis Suppurativa",
+      "clinical_codes": [
+        {
+          "system": "ICD-10",
+          "code": "L73.2",
+          "display": "Hidradenitis suppurativa"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "STEP_HS_THERAPY": {
+      "criterion_id": "STEP_HS_THERAPY",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Therapy (HS)",
+      "description": "Patient has tried one other therapy (e.g., corticosteroids, antibiotics, isotretinoin)",
+      "policy_text": "Patient has tried one other therapy",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [
+        "corticosteroids",
+        "antibiotics",
+        "retinoids"
+      ],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "DIAG_IMMUNO_TOXICITY": {
+      "criterion_id": "DIAG_IMMUNO_TOXICITY",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Immunotherapy-Related Toxicity",
+      "description": "Patient developed an immunotherapy-related toxicity other than hepatitis while receiving a checkpoint inhibitor",
+      "policy_text": "According to the prescriber, patient developed an immunotherapy-related toxicity other than hepatitis; AND Patient developed this immunotherapy related toxicity while receiving a checkpoint inhibitor",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "STEP_IMMUNO_STEROID": {
+      "criterion_id": "STEP_IMMUNO_STEROID",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Systemic Corticosteroid (Toxicity)",
+      "description": "Patient has tried one systemic corticosteroid",
+      "policy_text": "Patient has tried one systemic corticosteroid",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [
+        "corticosteroids"
+      ],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "DIAG_INDETERMINATE_COLITIS": {
+      "criterion_id": "DIAG_INDETERMINATE_COLITIS",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Diagnosis of Indeterminate Colitis",
+      "description": "Patient has a diagnosis of Indeterminate Colitis",
+      "policy_text": "Indeterminate Colitis",
+      "clinical_codes": [
+        {
+          "system": "ICD-10",
+          "code": "K52.3",
+          "display": "Indeterminate colitis"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "STEP_IC_STEROID": {
+      "criterion_id": "STEP_IC_STEROID",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Systemic Corticosteroid (IC)",
+      "description": "Patient has tried one systemic corticosteroid",
+      "policy_text": "Patient has tried one systemic corticosteroid",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [
+        "corticosteroids"
+      ],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "STEP_IC_MESALAMINE": {
+      "criterion_id": "STEP_IC_MESALAMINE",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Mesalamine (IC)",
+      "description": "Patient has tried mesalamine",
+      "policy_text": "Patient has tried mesalamine",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [
+        "mesalamine"
+      ],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "STEP_IC_IMMUNOSUPPRESSANT": {
+      "criterion_id": "STEP_IC_IMMUNOSUPPRESSANT",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Immunosuppressant (IC)",
+      "description": "Patient has tried either azathioprine or 6-mercaptopurine",
+      "policy_text": "Patient has tried either azathioprine or 6-mercaptopurine",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [
+        "azathioprine",
+        "6-mercaptopurine"
+      ],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "DIAG_JIA": {
+      "criterion_id": "DIAG_JIA",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Diagnosis of Juvenile Idiopathic Arthritis",
+      "description": "Patient has a diagnosis of Juvenile Idiopathic Arthritis",
+      "policy_text": "Juvenile Idiopathic Arthritis (JIA)",
+      "clinical_codes": [
+        {
+          "system": "ICD-10",
+          "code": "M08.9",
+          "display": "Juvenile arthritis, unspecified"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "STEP_JIA_SYSTEMIC": {
+      "criterion_id": "STEP_JIA_SYSTEMIC",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Systemic Medication (JIA)",
+      "description": "Patient has tried one other systemic medication for this condition",
+      "policy_text": "Patient has tried one other systemic medication for this condition",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [
+        "methotrexate",
+        "sulfasalazine",
+        "leflunomide",
+        "ibuprofen",
+        "naproxen"
+      ],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "CLINICAL_JIA_AGGRESSIVE": {
+      "criterion_id": "CLINICAL_JIA_AGGRESSIVE",
+      "criterion_type": "diagnosis_severity",
+      "name": "Aggressive Disease (JIA)",
+      "description": "Patient has aggressive disease, as determined by the prescriber",
+      "policy_text": "Patient has aggressive disease, as determined by the prescriber",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "DIAG_PYODERMA": {
+      "criterion_id": "DIAG_PYODERMA",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Diagnosis of Pyoderma Gangrenosum",
+      "description": "Patient has a diagnosis of Pyoderma Gangrenosum",
+      "policy_text": "Pyoderma Gangrenosum",
+      "clinical_codes": [
+        {
+          "system": "ICD-10",
+          "code": "L88",
+          "display": "Pyoderma gangrenosum"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "STEP_PYODERMA_STEROID": {
+      "criterion_id": "STEP_PYODERMA_STEROID",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Systemic Corticosteroid (Pyoderma)",
+      "description": "Patient has tried one systemic corticosteroid",
+      "policy_text": "Patient has tried one systemic corticosteroid",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [
+        "corticosteroids"
+      ],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "STEP_PYODERMA_IMMUNO": {
+      "criterion_id": "STEP_PYODERMA_IMMUNO",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Immunosuppressant (Pyoderma)",
+      "description": "Patient has tried one other immunosuppressant for at least 2 months or was intolerant",
+      "policy_text": "Patient has tried one other immunosuppressant for at least 2 months or was intolerant to one of these medications",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": 2,
+      "threshold_value_upper": null,
+      "threshold_unit": "months",
+      "allowed_values": [],
+      "drug_names": [
+        "mycophenolate mofetil",
+        "cyclosporine"
+      ],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "DIAG_SARCOIDOSIS": {
+      "criterion_id": "DIAG_SARCOIDOSIS",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Diagnosis of Sarcoidosis",
+      "description": "Patient has a diagnosis of Sarcoidosis",
+      "policy_text": "Sarcoidosis",
+      "clinical_codes": [
+        {
+          "system": "ICD-10",
+          "code": "D86.9",
+          "display": "Sarcoidosis, unspecified"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "STEP_SARCOID_STEROID": {
+      "criterion_id": "STEP_SARCOID_STEROID",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Corticosteroid (Sarcoidosis)",
+      "description": "Patient has tried at least one corticosteroid",
+      "policy_text": "Patient has tried at least one corticosteroid",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [
+        "corticosteroids"
+      ],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "STEP_SARCOID_IMMUNO": {
+      "criterion_id": "STEP_SARCOID_IMMUNO",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Immunosuppressive (Sarcoidosis)",
+      "description": "Patient has tried at least one immunosuppressive medication",
+      "policy_text": "Patient has tried at least one immunosuppressive medication",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [
+        "methotrexate",
+        "azathioprine",
+        "leflunomide",
+        "mycophenolate mofetil",
+        "hydroxychloroquine",
+        "chloroquine"
+      ],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "DIAG_SCLERITIS": {
+      "criterion_id": "DIAG_SCLERITIS",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Diagnosis of Scleritis or Sterile Corneal Ulceration",
+      "description": "Patient has a diagnosis of Scleritis or Sterile Corneal Ulceration",
+      "policy_text": "Scleritis or Sterile Corneal Ulceration",
+      "clinical_codes": [
+        {
+          "system": "ICD-10",
+          "code": "H15.0",
+          "display": "Scleritis"
+        },
+        {
+          "system": "ICD-10",
+          "code": "H16.0",
+          "display": "Corneal ulcer"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "STEP_SCLERITIS_THERAPY": {
+      "criterion_id": "STEP_SCLERITIS_THERAPY",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Therapy (Scleritis)",
+      "description": "Patient has tried one other therapy for this condition (NSAIDs, corticosteroids, immunosuppressants)",
+      "policy_text": "Patient has tried one other therapy for this condition",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [
+        "NSAIDs",
+        "corticosteroids",
+        "immunosuppressants"
+      ],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "DIAG_SPONDYLOARTHRITIS_OTHER": {
+      "criterion_id": "DIAG_SPONDYLOARTHRITIS_OTHER",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Diagnosis of Spondyloarthritis (Other Subtypes)",
+      "description": "Patient has a diagnosis of Spondyloarthritis, Other Subtypes (e.g., undifferentiated arthritis, non-radiographic axial spondylitis, Reactive Arthritis)",
+      "policy_text": "Spondyloarthritis, Other Subtypes",
+      "clinical_codes": [
+        {
+          "system": "ICD-10",
+          "code": "M46.8",
+          "display": "Other specified inflammatory spondylopathies"
+        },
+        {
+          "system": "ICD-10",
+          "code": "M02.9",
+          "display": "Reactive arthritis, unspecified"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "CLINICAL_SPA_PERIPHERAL": {
+      "criterion_id": "CLINICAL_SPA_PERIPHERAL",
+      "criterion_type": "clinical_marker_present",
+      "name": "Peripheral Arthritis (SpA)",
+      "description": "Patient has arthritis primarily in the knees, ankles, elbows, wrists, hands, and/or feet AND has tried at least ONE conventional synthetic DMARD",
+      "policy_text": "Patient has arthritis primarily in the knees, ankles, elbows, wrists, hands, and/or feet AND has tried at least ONE conventional synthetic disease-modifying antirheumatic drug (DMARD)",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "CLINICAL_SPA_AXIAL": {
+      "criterion_id": "CLINICAL_SPA_AXIAL",
+      "criterion_type": "clinical_marker_present",
+      "name": "Axial Spondyloarthritis",
+      "description": "Patient has axial spondyloarthritis with objective signs of inflammation (elevated CRP or Sacroiliitis on MRI)",
+      "policy_text": "Patient has axial spondyloarthritis with objective signs of inflammation",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "DIAG_STILLS": {
+      "criterion_id": "DIAG_STILLS",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Diagnosis of Still's Disease",
+      "description": "Patient has a diagnosis of Still's Disease",
+      "policy_text": "Still's Disease",
+      "clinical_codes": [
+        {
+          "system": "ICD-10",
+          "code": "M06.1",
+          "display": "Adult-onset Still's disease"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "STEP_STILLS_STEROID": {
+      "criterion_id": "STEP_STILLS_STEROID",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Corticosteroid (Still's)",
+      "description": "Patient has tried one corticosteroid",
+      "policy_text": "Patient has tried one corticosteroid",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [
+        "corticosteroids"
+      ],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "STEP_STILLS_DMARD": {
+      "criterion_id": "STEP_STILLS_DMARD",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of DMARD (Still's)",
+      "description": "Patient has tried one conventional synthetic DMARD given for at least 2 months or was intolerant",
+      "policy_text": "Patient has tried one conventional synthetic disease-modifying antirheumatic drug (DMARD) given for at least 2 months or was intolerant",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": 2,
+      "threshold_value_upper": null,
+      "threshold_unit": "months",
+      "allowed_values": [],
+      "drug_names": [
+        "methotrexate"
+      ],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "DIAG_UVEITIS": {
+      "criterion_id": "DIAG_UVEITIS",
+      "criterion_type": "diagnosis_confirmed",
+      "name": "Diagnosis of Uveitis",
+      "description": "Patient has a diagnosis of Uveitis (including posterior uveitides and panuveitis syndromes)",
+      "policy_text": "Uveitis",
+      "clinical_codes": [
+        {
+          "system": "ICD-10",
+          "code": "H20.9",
+          "display": "Unspecified iridocyclitis"
+        },
+        {
+          "system": "ICD-10",
+          "code": "H30.9",
+          "display": "Unspecified chorioretinal inflammation"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "diagnosis",
+      "source_section": null
+    },
+    "STEP_UVEITIS_THERAPY": {
+      "criterion_id": "STEP_UVEITIS_THERAPY",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Trial of Therapy (Uveitis)",
+      "description": "Patient has tried one of the following therapies: periocular, intraocular, or systemic corticosteroids, or immunosuppressives",
+      "policy_text": "Patient has tried one of the following therapies: periocular, intraocular, or systemic corticosteroids, or immunosuppressives",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [
+        "corticosteroids",
+        "immunosuppressives"
+      ],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "PRIOR_BIOLOGIC_TRIAL": {
+      "criterion_id": "PRIOR_BIOLOGIC_TRIAL",
+      "criterion_type": "prior_treatment_tried",
+      "name": "Prior Biologic Trial",
+      "description": "Patient has already tried at least one biologic other than the requested medication (biosimilars do not count)",
+      "policy_text": "Patient has already tried at least one biologic other than the requested medication",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "step_therapy",
+      "source_section": null
+    },
+    "SAFETY_TB_SCREENING_NEGATIVE": {
+      "criterion_id": "SAFETY_TB_SCREENING_NEGATIVE",
+      "criterion_type": "safety_screening_negative",
+      "name": "Tuberculosis Screening Negative",
+      "description": "Patient has completed tuberculosis screening with negative result prior to initiating biologic therapy",
+      "policy_text": "Prior to initiating therapy, patient must have tuberculosis screening with negative result. Acceptable tests include QuantiFERON-TB Gold, T-SPOT.TB, or PPD with chest X-ray.",
+      "clinical_codes": [
+        {
+          "system": "LOINC",
+          "code": "71774-4",
+          "display": "QuantiFERON-TB Gold Plus"
+        },
+        {
+          "system": "LOINC",
+          "code": "64083-9",
+          "display": "T-SPOT.TB"
+        },
+        {
+          "system": "CPT",
+          "code": "86480",
+          "display": "TB skin test, intradermal"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": ["negative", "not detected"],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": ["lab_result", "diagnostic_test"],
+      "is_required": true,
+      "category": "safety_screening",
+      "source_section": "Pre-biologic Safety Screening Requirements"
+    },
+    "SAFETY_HEPATITIS_B_SCREENING": {
+      "criterion_id": "SAFETY_HEPATITIS_B_SCREENING",
+      "criterion_type": "safety_screening_completed",
+      "name": "Hepatitis B Screening Completed",
+      "description": "Patient has completed hepatitis B screening panel (HBsAg, anti-HBc, anti-HBs) prior to initiating biologic therapy",
+      "policy_text": "Prior to initiating therapy, patient must have hepatitis B screening including HBsAg, anti-HBc, and anti-HBs to rule out active or chronic hepatitis B infection.",
+      "clinical_codes": [
+        {
+          "system": "LOINC",
+          "code": "5195-3",
+          "display": "Hepatitis B surface Ag"
+        },
+        {
+          "system": "LOINC",
+          "code": "16933-4",
+          "display": "Hepatitis B core Ab"
+        },
+        {
+          "system": "LOINC",
+          "code": "10900-9",
+          "display": "Hepatitis B surface Ab"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": ["lab_result"],
+      "is_required": true,
+      "category": "safety_screening",
+      "source_section": "Pre-biologic Safety Screening Requirements"
+    },
+    "SAFETY_HEPATITIS_C_SCREENING": {
+      "criterion_id": "SAFETY_HEPATITIS_C_SCREENING",
+      "criterion_type": "safety_screening_completed",
+      "name": "Hepatitis C Screening Completed",
+      "description": "Patient has completed hepatitis C antibody screening prior to initiating biologic therapy",
+      "policy_text": "Prior to initiating therapy, patient should have hepatitis C screening to identify patients at risk for HCV reactivation.",
+      "clinical_codes": [
+        {
+          "system": "LOINC",
+          "code": "16128-1",
+          "display": "Hepatitis C Ab"
+        }
+      ],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": ["lab_result"],
+      "is_required": false,
+      "category": "safety_screening",
+      "source_section": "Pre-biologic Safety Screening Requirements"
+    },
+    "CONTINUATION_ESTABLISHED_6MO": {
+      "criterion_id": "CONTINUATION_ESTABLISHED_6MO",
+      "criterion_type": "prior_treatment_duration",
+      "name": "Established on Therapy (6 months)",
+      "description": "Patient has been established on therapy for at least 6 months",
+      "policy_text": "Patient has been established on therapy for at least 6 months",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": 6,
+      "threshold_value_upper": null,
+      "threshold_unit": "months",
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "continuation",
+      "source_section": null
+    },
+    "CONTINUATION_ESTABLISHED_3MO": {
+      "criterion_id": "CONTINUATION_ESTABLISHED_3MO",
+      "criterion_type": "prior_treatment_duration",
+      "name": "Established on Therapy (3 months)",
+      "description": "Patient has been established on therapy for at least 3 months",
+      "policy_text": "Patient has been established on therapy for at least 3 months",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": 3,
+      "threshold_value_upper": null,
+      "threshold_unit": "months",
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "continuation",
+      "source_section": null
+    },
+    "CONTINUATION_ESTABLISHED_1MO": {
+      "criterion_id": "CONTINUATION_ESTABLISHED_1MO",
+      "criterion_type": "prior_treatment_duration",
+      "name": "Established on Therapy (1 month)",
+      "description": "Patient has been established on therapy for at least 1 month",
+      "policy_text": "Patient has been established on an infliximab product for at least 1 month",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": 1,
+      "threshold_value_upper": null,
+      "threshold_unit": "months",
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "continuation",
+      "source_section": null
+    },
+    "CONTINUATION_ESTABLISHED_4MO": {
+      "criterion_id": "CONTINUATION_ESTABLISHED_4MO",
+      "criterion_type": "prior_treatment_duration",
+      "name": "Established on Therapy (4 months)",
+      "description": "Patient has been established on therapy for at least 4 months",
+      "policy_text": "Patient has been established on therapy for at least 4 months",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": 4,
+      "threshold_value_upper": null,
+      "threshold_unit": "months",
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": true,
+      "category": "continuation",
+      "source_section": null
+    },
+    "RESPONSE_OBJECTIVE": {
+      "criterion_id": "RESPONSE_OBJECTIVE",
+      "criterion_type": "clinical_marker_present",
+      "name": "Objective Clinical Response",
+      "description": "Patient experienced a beneficial clinical response when assessed by at least one objective measure",
+      "policy_text": "When assessed by at least one objective measure, patient experienced a beneficial clinical response from baseline",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "continuation",
+      "source_section": null
+    },
+    "RESPONSE_SUBJECTIVE": {
+      "criterion_id": "RESPONSE_SUBJECTIVE",
+      "criterion_type": "clinical_marker_present",
+      "name": "Subjective Symptom Improvement",
+      "description": "Patient experienced an improvement in at least one symptom",
+      "policy_text": "Compared with baseline, patient experienced an improvement in at least one symptom",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "continuation",
+      "source_section": null
+    },
+    "CRIT_CONCURRENT_BIOLOGIC": {
+      "criterion_id": "CRIT_CONCURRENT_BIOLOGIC",
+      "criterion_type": "concurrent_therapy",
+      "name": "Concurrent Biologic/Targeted Synthetic",
+      "description": "Medication administered in combination with another biologic or targeted synthetic oral small molecule drug",
+      "policy_text": "This medication should not be administered in combination with another biologic or with a targeted synthetic oral small molecule drug",
+      "clinical_codes": [],
+      "comparison_operator": null,
+      "threshold_value": null,
+      "threshold_value_upper": null,
+      "threshold_unit": null,
+      "allowed_values": [],
+      "drug_names": [],
+      "drug_classes": [],
+      "evidence_types": [],
+      "is_required": false,
+      "category": "exclusion",
+      "source_section": null
+    }
+  },
+  "criterion_groups": {
+    "GRP_AS_INITIAL": {
+      "group_id": "GRP_AS_INITIAL",
+      "name": "Ankylosing Spondylitis Initial Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_18",
+        "DIAG_AS",
+        "PRESCRIBER_RHEUM"
+      ],
+      "subgroups": ["GRP_SAFETY_SCREENING_BIOLOGIC"],
+      "negated": false
+    },
+    "GRP_AS_CONTINUATION": {
+      "group_id": "GRP_AS_CONTINUATION",
+      "name": "Ankylosing Spondylitis Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_6MO"
+      ],
+      "subgroups": [
+        "GRP_RESPONSE_ANY"
+      ],
+      "negated": false
+    },
+    "GRP_RESPONSE_ANY": {
+      "group_id": "GRP_RESPONSE_ANY",
+      "name": "Clinical Response (Objective or Subjective)",
+      "description": null,
+      "operator": "OR",
+      "criteria": [
+        "RESPONSE_OBJECTIVE",
+        "RESPONSE_SUBJECTIVE"
+      ],
+      "subgroups": [],
+      "negated": false
+    },
+    "GRP_SAFETY_SCREENING_BIOLOGIC": {
+      "group_id": "GRP_SAFETY_SCREENING_BIOLOGIC",
+      "name": "Pre-Biologic Safety Screening",
+      "description": "Required safety screenings prior to initiating biologic therapy to rule out latent infections",
+      "operator": "AND",
+      "criteria": [
+        "SAFETY_TB_SCREENING_NEGATIVE",
+        "SAFETY_HEPATITIS_B_SCREENING"
+      ],
+      "subgroups": [],
+      "negated": false
+    },
+    "GRP_CD_INITIAL": {
+      "group_id": "GRP_CD_INITIAL",
+      "name": "Crohn's Disease Initial Criteria",
+      "description": "Initial approval criteria for Infliximab in Crohn's Disease including safety screening requirements",
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_6",
+        "DIAG_CD",
+        "PRESCRIBER_GI"
+      ],
+      "subgroups": [
+        "GRP_CD_STEP_THERAPY",
+        "GRP_SAFETY_SCREENING_BIOLOGIC"
+      ],
+      "negated": false
+    },
+    "GRP_CD_STEP_THERAPY": {
+      "group_id": "GRP_CD_STEP_THERAPY",
+      "name": "Crohn's Disease Step Therapy",
+      "description": null,
+      "operator": "OR",
+      "criteria": [
+        "STEP_CD_STEROIDS",
+        "STEP_CD_CONVENTIONAL",
+        "CLINICAL_CD_FISTULAS",
+        "CLINICAL_CD_RESECTION",
+        "PRIOR_BIOLOGIC_TRIAL"
+      ],
+      "subgroups": [],
+      "negated": false
+    },
+    "GRP_CD_CONTINUATION": {
+      "group_id": "GRP_CD_CONTINUATION",
+      "name": "Crohn's Disease Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_6MO"
+      ],
+      "subgroups": [
+        "GRP_RESPONSE_ANY"
+      ],
+      "negated": false
+    },
+    "GRP_PSO_INITIAL": {
+      "group_id": "GRP_PSO_INITIAL",
+      "name": "Plaque Psoriasis Initial Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_18",
+        "DIAG_PSO",
+        "PRESCRIBER_DERM"
+      ],
+      "subgroups": [
+        "GRP_PSO_STEP_THERAPY",
+        "GRP_SAFETY_SCREENING_BIOLOGIC"
+      ],
+      "negated": false
+    },
+    "GRP_PSO_STEP_THERAPY": {
+      "group_id": "GRP_PSO_STEP_THERAPY",
+      "name": "Plaque Psoriasis Step Therapy",
+      "description": null,
+      "operator": "OR",
+      "criteria": [
+        "STEP_PSO_SYSTEMIC",
+        "STEP_PSO_PUVA",
+        "CONTRAINDICATION_MTX",
+        "PRIOR_BIOLOGIC_TRIAL"
+      ],
+      "subgroups": [],
+      "negated": false
+    },
+    "GRP_PSO_CONTINUATION": {
+      "group_id": "GRP_PSO_CONTINUATION",
+      "name": "Plaque Psoriasis Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_3MO",
+        "RESPONSE_OBJECTIVE",
+        "RESPONSE_SUBJECTIVE"
+      ],
+      "subgroups": [],
+      "negated": false
+    },
+    "GRP_PSA_INITIAL": {
+      "group_id": "GRP_PSA_INITIAL",
+      "name": "Psoriatic Arthritis Initial Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_18",
+        "DIAG_PSA"
+      ],
+      "subgroups": [
+        "GRP_PRESCRIBER_RHEUM_DERM",
+        "GRP_SAFETY_SCREENING_BIOLOGIC"
+      ],
+      "negated": false
+    },
+    "GRP_PRESCRIBER_RHEUM_DERM": {
+      "group_id": "GRP_PRESCRIBER_RHEUM_DERM",
+      "name": "Prescriber Rheum or Derm",
+      "description": null,
+      "operator": "OR",
+      "criteria": [
+        "PRESCRIBER_RHEUM",
+        "PRESCRIBER_DERM"
+      ],
+      "subgroups": [],
+      "negated": false
+    },
+    "GRP_PSA_CONTINUATION": {
+      "group_id": "GRP_PSA_CONTINUATION",
+      "name": "Psoriatic Arthritis Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_6MO"
+      ],
+      "subgroups": [
+        "GRP_RESPONSE_ANY"
+      ],
+      "negated": false
+    },
+    "GRP_RA_INITIAL": {
+      "group_id": "GRP_RA_INITIAL",
+      "name": "Rheumatoid Arthritis Initial Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_18",
+        "DIAG_RA",
+        "PRESCRIBER_RHEUM"
+      ],
+      "subgroups": [
+        "GRP_RA_STEP_THERAPY",
+        "GRP_SAFETY_SCREENING_BIOLOGIC"
+      ],
+      "negated": false
+    },
+    "GRP_RA_STEP_THERAPY": {
+      "group_id": "GRP_RA_STEP_THERAPY",
+      "name": "RA Step Therapy",
+      "description": null,
+      "operator": "OR",
+      "criteria": [
+        "STEP_RA_DMARD",
+        "PRIOR_BIOLOGIC_TRIAL"
+      ],
+      "subgroups": [],
+      "negated": false
+    },
+    "GRP_RA_CONTINUATION": {
+      "group_id": "GRP_RA_CONTINUATION",
+      "name": "Rheumatoid Arthritis Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_6MO"
+      ],
+      "subgroups": [
+        "GRP_RESPONSE_ANY"
+      ],
+      "negated": false
+    },
+    "GRP_UC_INITIAL": {
+      "group_id": "GRP_UC_INITIAL",
+      "name": "Ulcerative Colitis Initial Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_6",
+        "DIAG_UC",
+        "PRESCRIBER_GI"
+      ],
+      "subgroups": ["GRP_SAFETY_SCREENING_BIOLOGIC"],
+      "negated": false
+    },
+    "GRP_UC_CONTINUATION": {
+      "group_id": "GRP_UC_CONTINUATION",
+      "name": "Ulcerative Colitis Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_6MO"
+      ],
+      "subgroups": [
+        "GRP_RESPONSE_ANY"
+      ],
+      "negated": false
+    },
+    "GRP_BEHCETS_INITIAL": {
+      "group_id": "GRP_BEHCETS_INITIAL",
+      "name": "Behcet's Disease Initial Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_6",
+        "DIAG_BEHCETS",
+        "PRESCRIBER_MULTI_SPECIALTY_BEHCETS"
+      ],
+      "subgroups": [
+        "GRP_BEHCETS_STEP",
+        "GRP_SAFETY_SCREENING_BIOLOGIC"
+      ],
+      "negated": false
+    },
+    "GRP_BEHCETS_STEP": {
+      "group_id": "GRP_BEHCETS_STEP",
+      "name": "Behcet's Step Therapy",
+      "description": null,
+      "operator": "OR",
+      "criteria": [
+        "STEP_BEHCETS_CONVENTIONAL",
+        "CLINICAL_BEHCETS_OPHTHALMIC",
+        "PRIOR_BIOLOGIC_TRIAL"
+      ],
+      "subgroups": [],
+      "negated": false
+    },
+    "GRP_BEHCETS_CONTINUATION": {
+      "group_id": "GRP_BEHCETS_CONTINUATION",
+      "name": "Behcet's Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_3MO",
+        "RESPONSE_OBJECTIVE",
+        "RESPONSE_SUBJECTIVE"
+      ],
+      "subgroups": [],
+      "negated": false
+    },
+    "GRP_GVHD_INITIAL": {
+      "group_id": "GRP_GVHD_INITIAL",
+      "name": "GVHD Initial Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_6",
+        "DIAG_GVHD",
+        "STEP_GVHD_SYSTEMIC",
+        "PRESCRIBER_ONC_HEM_TRANSPLANT"
+      ],
+      "subgroups": ["GRP_SAFETY_SCREENING_BIOLOGIC"],
+      "negated": false
+    },
+    "GRP_GVHD_CONTINUATION": {
+      "group_id": "GRP_GVHD_CONTINUATION",
+      "name": "GVHD Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_1MO"
+      ],
+      "subgroups": [
+        "GRP_RESPONSE_ANY"
+      ],
+      "negated": false
+    },
+    "GRP_HS_INITIAL": {
+      "group_id": "GRP_HS_INITIAL",
+      "name": "Hidradenitis Suppurativa Initial Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_18",
+        "DIAG_HS",
+        "STEP_HS_THERAPY",
+        "PRESCRIBER_DERM"
+      ],
+      "subgroups": ["GRP_SAFETY_SCREENING_BIOLOGIC"],
+      "negated": false
+    },
+    "GRP_HS_CONTINUATION": {
+      "group_id": "GRP_HS_CONTINUATION",
+      "name": "Hidradenitis Suppurativa Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_3MO",
+        "RESPONSE_OBJECTIVE",
+        "RESPONSE_SUBJECTIVE"
+      ],
+      "subgroups": [],
+      "negated": false
+    },
+    "GRP_IMMUNO_INITIAL": {
+      "group_id": "GRP_IMMUNO_INITIAL",
+      "name": "Immunotherapy Toxicity Initial Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_18",
+        "DIAG_IMMUNO_TOXICITY",
+        "STEP_IMMUNO_STEROID",
+        "PRESCRIBER_MULTI_SPECIALTY_IMMUNO"
+      ],
+      "subgroups": ["GRP_SAFETY_SCREENING_BIOLOGIC"],
+      "negated": false
+    },
+    "GRP_IMMUNO_CONTINUATION": {
+      "group_id": "GRP_IMMUNO_CONTINUATION",
+      "name": "Immunotherapy Toxicity Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_6MO"
+      ],
+      "subgroups": [
+        "GRP_RESPONSE_ANY"
+      ],
+      "negated": false
+    },
+    "GRP_IC_INITIAL": {
+      "group_id": "GRP_IC_INITIAL",
+      "name": "Indeterminate Colitis Initial Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_6",
+        "DIAG_INDETERMINATE_COLITIS",
+        "STEP_IC_STEROID",
+        "STEP_IC_MESALAMINE",
+        "STEP_IC_IMMUNOSUPPRESSANT",
+        "PRESCRIBER_GI"
+      ],
+      "subgroups": ["GRP_SAFETY_SCREENING_BIOLOGIC"],
+      "negated": false
+    },
+    "GRP_IC_CONTINUATION": {
+      "group_id": "GRP_IC_CONTINUATION",
+      "name": "Indeterminate Colitis Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_6MO"
+      ],
+      "subgroups": [
+        "GRP_RESPONSE_ANY"
+      ],
+      "negated": false
+    },
+    "GRP_JIA_INITIAL": {
+      "group_id": "GRP_JIA_INITIAL",
+      "name": "JIA Initial Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_6",
+        "DIAG_JIA",
+        "PRESCRIBER_RHEUM"
+      ],
+      "subgroups": [
+        "GRP_JIA_STEP",
+        "GRP_SAFETY_SCREENING_BIOLOGIC"
+      ],
+      "negated": false
+    },
+    "GRP_JIA_STEP": {
+      "group_id": "GRP_JIA_STEP",
+      "name": "JIA Step Therapy",
+      "description": null,
+      "operator": "OR",
+      "criteria": [
+        "STEP_JIA_SYSTEMIC",
+        "CLINICAL_JIA_AGGRESSIVE",
+        "PRIOR_BIOLOGIC_TRIAL"
+      ],
+      "subgroups": [],
+      "negated": false
+    },
+    "GRP_JIA_CONTINUATION": {
+      "group_id": "GRP_JIA_CONTINUATION",
+      "name": "JIA Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_6MO"
+      ],
+      "subgroups": [
+        "GRP_RESPONSE_ANY"
+      ],
+      "negated": false
+    },
+    "GRP_PYODERMA_INITIAL": {
+      "group_id": "GRP_PYODERMA_INITIAL",
+      "name": "Pyoderma Gangrenosum Initial Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_18",
+        "DIAG_PYODERMA",
+        "PRESCRIBER_DERM"
+      ],
+      "subgroups": [
+        "GRP_PYODERMA_STEP",
+        "GRP_SAFETY_SCREENING_BIOLOGIC"
+      ],
+      "negated": false
+    },
+    "GRP_PYODERMA_STEP": {
+      "group_id": "GRP_PYODERMA_STEP",
+      "name": "Pyoderma Step Therapy",
+      "description": null,
+      "operator": "OR",
+      "criteria": [
+        "STEP_PYODERMA_STEROID",
+        "STEP_PYODERMA_IMMUNO"
+      ],
+      "subgroups": [],
+      "negated": false
+    },
+    "GRP_PYODERMA_CONTINUATION": {
+      "group_id": "GRP_PYODERMA_CONTINUATION",
+      "name": "Pyoderma Gangrenosum Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_4MO",
+        "RESPONSE_OBJECTIVE",
+        "RESPONSE_SUBJECTIVE"
+      ],
+      "subgroups": [],
+      "negated": false
+    },
+    "GRP_SARCOID_INITIAL": {
+      "group_id": "GRP_SARCOID_INITIAL",
+      "name": "Sarcoidosis Initial Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_18",
+        "DIAG_SARCOIDOSIS",
+        "STEP_SARCOID_STEROID",
+        "STEP_SARCOID_IMMUNO",
+        "PRESCRIBER_MULTI_SPECIALTY_SARCOID"
+      ],
+      "subgroups": ["GRP_SAFETY_SCREENING_BIOLOGIC"],
+      "negated": false
+    },
+    "GRP_SARCOID_CONTINUATION": {
+      "group_id": "GRP_SARCOID_CONTINUATION",
+      "name": "Sarcoidosis Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_3MO",
+        "RESPONSE_OBJECTIVE",
+        "RESPONSE_SUBJECTIVE"
+      ],
+      "subgroups": [],
+      "negated": false
+    },
+    "GRP_SCLERITIS_INITIAL": {
+      "group_id": "GRP_SCLERITIS_INITIAL",
+      "name": "Scleritis Initial Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_18",
+        "DIAG_SCLERITIS",
+        "STEP_SCLERITIS_THERAPY",
+        "PRESCRIBER_OPHTH"
+      ],
+      "subgroups": ["GRP_SAFETY_SCREENING_BIOLOGIC"],
+      "negated": false
+    },
+    "GRP_SCLERITIS_CONTINUATION": {
+      "group_id": "GRP_SCLERITIS_CONTINUATION",
+      "name": "Scleritis Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_6MO"
+      ],
+      "subgroups": [
+        "GRP_RESPONSE_ANY"
+      ],
+      "negated": false
+    },
+    "GRP_SPA_OTHER_INITIAL": {
+      "group_id": "GRP_SPA_OTHER_INITIAL",
+      "name": "SpA Other Subtypes Initial Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_18",
+        "DIAG_SPONDYLOARTHRITIS_OTHER",
+        "PRESCRIBER_RHEUM"
+      ],
+      "subgroups": [
+        "GRP_SPA_OTHER_STEP",
+        "GRP_SAFETY_SCREENING_BIOLOGIC"
+      ],
+      "negated": false
+    },
+    "GRP_SPA_OTHER_STEP": {
+      "group_id": "GRP_SPA_OTHER_STEP",
+      "name": "SpA Other Subtypes Step Therapy",
+      "description": null,
+      "operator": "OR",
+      "criteria": [
+        "CLINICAL_SPA_PERIPHERAL",
+        "CLINICAL_SPA_AXIAL"
+      ],
+      "subgroups": [],
+      "negated": false
+    },
+    "GRP_SPA_OTHER_CONTINUATION": {
+      "group_id": "GRP_SPA_OTHER_CONTINUATION",
+      "name": "SpA Other Subtypes Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_6MO"
+      ],
+      "subgroups": [
+        "GRP_RESPONSE_ANY"
+      ],
+      "negated": false
+    },
+    "GRP_STILLS_INITIAL": {
+      "group_id": "GRP_STILLS_INITIAL",
+      "name": "Still's Disease Initial Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_18",
+        "DIAG_STILLS",
+        "STEP_STILLS_STEROID",
+        "STEP_STILLS_DMARD",
+        "PRESCRIBER_RHEUM"
+      ],
+      "subgroups": ["GRP_SAFETY_SCREENING_BIOLOGIC"],
+      "negated": false
+    },
+    "GRP_STILLS_CONTINUATION": {
+      "group_id": "GRP_STILLS_CONTINUATION",
+      "name": "Still's Disease Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_6MO"
+      ],
+      "subgroups": [
+        "GRP_RESPONSE_ANY"
+      ],
+      "negated": false
+    },
+    "GRP_UVEITIS_INITIAL": {
+      "group_id": "GRP_UVEITIS_INITIAL",
+      "name": "Uveitis Initial Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "AGE_GE_6",
+        "DIAG_UVEITIS",
+        "STEP_UVEITIS_THERAPY",
+        "PRESCRIBER_OPHTH"
+      ],
+      "subgroups": ["GRP_SAFETY_SCREENING_BIOLOGIC"],
+      "negated": false
+    },
+    "GRP_UVEITIS_CONTINUATION": {
+      "group_id": "GRP_UVEITIS_CONTINUATION",
+      "name": "Uveitis Continuation Criteria",
+      "description": null,
+      "operator": "AND",
+      "criteria": [
+        "CONTINUATION_ESTABLISHED_6MO"
+      ],
+      "subgroups": [
+        "GRP_RESPONSE_ANY"
+      ],
+      "negated": false
+    }
+  },
+  "indications": [
+    {
+      "indication_id": "ANKYLOSING_SPONDYLITIS",
+      "indication_name": "Ankylosing Spondylitis",
+      "indication_codes": [
+        {
+          "system": "ICD-10",
+          "code": "M45.0",
+          "display": "Ankylosing spondylitis of multiple sites in spine"
+        }
+      ],
+      "initial_approval_criteria": "GRP_AS_INITIAL",
+      "continuation_criteria": "GRP_AS_CONTINUATION",
+      "initial_approval_duration_months": 6,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [
+        {
+          "indication": "Ankylosing Spondylitis",
+          "phase": "induction",
+          "dose_value": 5.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Weeks 0, 2, 6, then every 6 weeks",
+          "max_dose": null,
+          "max_dose_unit": null,
+          "notes": null
+        },
+        {
+          "indication": "Ankylosing Spondylitis",
+          "phase": "maintenance",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Every 4 weeks",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Maximum dose for continuation"
+        }
+      ],
+      "min_age_years": 18,
+      "max_age_years": null
+    },
+    {
+      "indication_id": "CROHNS_DISEASE",
+      "indication_name": "Crohn's Disease",
+      "indication_codes": [
+        {
+          "system": "ICD-10",
+          "code": "K50",
+          "display": "Crohn's disease [regional enteritis] - all subtypes"
+        },
+        {
+          "system": "ICD-10",
+          "code": "K50.0",
+          "display": "Crohn's disease of small intestine"
+        },
+        {
+          "system": "ICD-10",
+          "code": "K50.1",
+          "display": "Crohn's disease of large intestine"
+        },
+        {
+          "system": "ICD-10",
+          "code": "K50.8",
+          "display": "Crohn's disease of both small and large intestine"
+        },
+        {
+          "system": "ICD-10",
+          "code": "K50.9",
+          "display": "Crohn's disease, unspecified"
+        },
+        {
+          "system": "ICD-10",
+          "code": "K50.013",
+          "display": "Crohn's disease of small intestine with fistula"
+        },
+        {
+          "system": "ICD-10",
+          "code": "K50.113",
+          "display": "Crohn's disease of large intestine with fistula"
+        },
+        {
+          "system": "ICD-10",
+          "code": "K50.813",
+          "display": "Crohn's disease of both small and large intestine with fistula"
+        },
+        {
+          "system": "ICD-10",
+          "code": "K50.913",
+          "display": "Crohn's disease, unspecified, with fistula"
+        }
+      ],
+      "initial_approval_criteria": "GRP_CD_INITIAL",
+      "continuation_criteria": "GRP_CD_CONTINUATION",
+      "initial_approval_duration_months": 6,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [
+        {
+          "indication": "Crohn's Disease",
+          "phase": "induction",
+          "dose_value": 5.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Weeks 0, 2, 6, then every 8 weeks",
+          "max_dose": null,
+          "max_dose_unit": null,
+          "notes": null
+        },
+        {
+          "indication": "Crohn's Disease",
+          "phase": "maintenance",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Every 4 weeks",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Maximum dose for continuation"
+        }
+      ],
+      "min_age_years": 6,
+      "max_age_years": null
+    },
+    {
+      "indication_id": "PLAQUE_PSORIASIS",
+      "indication_name": "Plaque Psoriasis",
+      "indication_codes": [
+        {
+          "system": "ICD-10",
+          "code": "L40.0",
+          "display": "Psoriasis vulgaris"
+        }
+      ],
+      "initial_approval_criteria": "GRP_PSO_INITIAL",
+      "continuation_criteria": "GRP_PSO_CONTINUATION",
+      "initial_approval_duration_months": 3,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [
+        {
+          "indication": "Plaque Psoriasis",
+          "phase": "induction",
+          "dose_value": 5.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Weeks 0, 2, 6, then every 8 weeks",
+          "max_dose": null,
+          "max_dose_unit": null,
+          "notes": null
+        },
+        {
+          "indication": "Plaque Psoriasis",
+          "phase": "maintenance",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Every 4 weeks",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Maximum dose for continuation"
+        }
+      ],
+      "min_age_years": 18,
+      "max_age_years": null
+    },
+    {
+      "indication_id": "PSORIATIC_ARTHRITIS",
+      "indication_name": "Psoriatic Arthritis",
+      "indication_codes": [
+        {
+          "system": "ICD-10",
+          "code": "L40.50",
+          "display": "Arthropathic psoriasis, unspecified"
+        }
+      ],
+      "initial_approval_criteria": "GRP_PSA_INITIAL",
+      "continuation_criteria": "GRP_PSA_CONTINUATION",
+      "initial_approval_duration_months": 6,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [
+        {
+          "indication": "Psoriatic Arthritis",
+          "phase": "induction",
+          "dose_value": 5.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Weeks 0, 2, 6, then every 8 weeks",
+          "max_dose": null,
+          "max_dose_unit": null,
+          "notes": null
+        },
+        {
+          "indication": "Psoriatic Arthritis",
+          "phase": "maintenance",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Every 4 weeks",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Maximum dose for continuation"
+        }
+      ],
+      "min_age_years": 18,
+      "max_age_years": null
+    },
+    {
+      "indication_id": "RHEUMATOID_ARTHRITIS",
+      "indication_name": "Rheumatoid Arthritis",
+      "indication_codes": [
+        {
+          "system": "ICD-10",
+          "code": "M06.9",
+          "display": "Rheumatoid arthritis, unspecified"
+        }
+      ],
+      "initial_approval_criteria": "GRP_RA_INITIAL",
+      "continuation_criteria": "GRP_RA_CONTINUATION",
+      "initial_approval_duration_months": 6,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [
+        {
+          "indication": "Rheumatoid Arthritis",
+          "phase": "induction",
+          "dose_value": 3.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Weeks 0, 2, 6, then every 8 weeks",
+          "max_dose": null,
+          "max_dose_unit": null,
+          "notes": null
+        },
+        {
+          "indication": "Rheumatoid Arthritis",
+          "phase": "maintenance",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Every 4 weeks",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Maximum dose for continuation"
+        }
+      ],
+      "min_age_years": 18,
+      "max_age_years": null
+    },
+    {
+      "indication_id": "ULCERATIVE_COLITIS",
+      "indication_name": "Ulcerative Colitis",
+      "indication_codes": [
+        {
+          "system": "ICD-10",
+          "code": "K51.9",
+          "display": "Ulcerative colitis, unspecified"
+        }
+      ],
+      "initial_approval_criteria": "GRP_UC_INITIAL",
+      "continuation_criteria": "GRP_UC_CONTINUATION",
+      "initial_approval_duration_months": 6,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [
+        {
+          "indication": "Ulcerative Colitis",
+          "phase": "induction",
+          "dose_value": 5.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Weeks 0, 2, 6, then every 8 weeks",
+          "max_dose": null,
+          "max_dose_unit": null,
+          "notes": null
+        },
+        {
+          "indication": "Ulcerative Colitis",
+          "phase": "maintenance",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Every 4 weeks",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Maximum dose for continuation"
+        }
+      ],
+      "min_age_years": 6,
+      "max_age_years": null
+    },
+    {
+      "indication_id": "BEHCETS_DISEASE",
+      "indication_name": "Behcet's Disease",
+      "indication_codes": [
+        {
+          "system": "ICD-10",
+          "code": "M35.2",
+          "display": "Behcet's disease"
+        }
+      ],
+      "initial_approval_criteria": "GRP_BEHCETS_INITIAL",
+      "continuation_criteria": "GRP_BEHCETS_CONTINUATION",
+      "initial_approval_duration_months": 3,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [
+        {
+          "indication": "Behcet's Disease",
+          "phase": "induction",
+          "dose_value": 5.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Weeks 0, 2, 6, then every 6 weeks",
+          "max_dose": null,
+          "max_dose_unit": null,
+          "notes": null
+        },
+        {
+          "indication": "Behcet's Disease",
+          "phase": "maintenance",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Every 4 weeks",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Maximum dose for continuation"
+        }
+      ],
+      "min_age_years": 6,
+      "max_age_years": null
+    },
+    {
+      "indication_id": "GVHD",
+      "indication_name": "Graft-Versus-Host Disease",
+      "indication_codes": [
+        {
+          "system": "ICD-10",
+          "code": "D89.810",
+          "display": "Acute graft-versus-host disease"
+        }
+      ],
+      "initial_approval_criteria": "GRP_GVHD_INITIAL",
+      "continuation_criteria": "GRP_GVHD_CONTINUATION",
+      "initial_approval_duration_months": 1,
+      "continuation_approval_duration_months": 3,
+      "dosing_requirements": [
+        {
+          "indication": "Graft-Versus-Host Disease",
+          "phase": "all",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Once weekly",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Doses administered no more frequently than once weekly"
+        }
+      ],
+      "min_age_years": 6,
+      "max_age_years": null
+    },
+    {
+      "indication_id": "HIDRADENITIS_SUPPURATIVA",
+      "indication_name": "Hidradenitis Suppurativa",
+      "indication_codes": [
+        {
+          "system": "ICD-10",
+          "code": "L73.2",
+          "display": "Hidradenitis suppurativa"
+        }
+      ],
+      "initial_approval_criteria": "GRP_HS_INITIAL",
+      "continuation_criteria": "GRP_HS_CONTINUATION",
+      "initial_approval_duration_months": 3,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [
+        {
+          "indication": "Hidradenitis Suppurativa",
+          "phase": "induction",
+          "dose_value": 5.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Weeks 0, 2, 6, then every 8 weeks",
+          "max_dose": null,
+          "max_dose_unit": null,
+          "notes": null
+        },
+        {
+          "indication": "Hidradenitis Suppurativa",
+          "phase": "maintenance",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Every 4 weeks",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Maximum dose for continuation"
+        }
+      ],
+      "min_age_years": 18,
+      "max_age_years": null
+    },
+    {
+      "indication_id": "IMMUNOTHERAPY_TOXICITY",
+      "indication_name": "Immunotherapy-Related Toxicities",
+      "indication_codes": [],
+      "initial_approval_criteria": "GRP_IMMUNO_INITIAL",
+      "continuation_criteria": "GRP_IMMUNO_CONTINUATION",
+      "initial_approval_duration_months": 6,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [
+        {
+          "indication": "Immunotherapy-Related Toxicities",
+          "phase": "induction",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Weeks 0, 2, 6, then every 4 weeks",
+          "max_dose": null,
+          "max_dose_unit": null,
+          "notes": null
+        },
+        {
+          "indication": "Immunotherapy-Related Toxicities",
+          "phase": "maintenance",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Every 4 weeks",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Maximum dose for continuation"
+        }
+      ],
+      "min_age_years": 18,
+      "max_age_years": null
+    },
+    {
+      "indication_id": "INDETERMINATE_COLITIS",
+      "indication_name": "Indeterminate Colitis",
+      "indication_codes": [
+        {
+          "system": "ICD-10",
+          "code": "K52.3",
+          "display": "Indeterminate colitis"
+        }
+      ],
+      "initial_approval_criteria": "GRP_IC_INITIAL",
+      "continuation_criteria": "GRP_IC_CONTINUATION",
+      "initial_approval_duration_months": 6,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [
+        {
+          "indication": "Indeterminate Colitis",
+          "phase": "induction",
+          "dose_value": 5.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Weeks 0, 2, 6, then every 8 weeks",
+          "max_dose": null,
+          "max_dose_unit": null,
+          "notes": null
+        },
+        {
+          "indication": "Indeterminate Colitis",
+          "phase": "maintenance",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Every 4 weeks",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Maximum dose for continuation"
+        }
+      ],
+      "min_age_years": 6,
+      "max_age_years": null
+    },
+    {
+      "indication_id": "JIA",
+      "indication_name": "Juvenile Idiopathic Arthritis",
+      "indication_codes": [
+        {
+          "system": "ICD-10",
+          "code": "M08.9",
+          "display": "Juvenile arthritis, unspecified"
+        }
+      ],
+      "initial_approval_criteria": "GRP_JIA_INITIAL",
+      "continuation_criteria": "GRP_JIA_CONTINUATION",
+      "initial_approval_duration_months": 6,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [
+        {
+          "indication": "Juvenile Idiopathic Arthritis",
+          "phase": "induction",
+          "dose_value": 6.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Weeks 0, 2, 6, then every 8 weeks",
+          "max_dose": null,
+          "max_dose_unit": null,
+          "notes": null
+        },
+        {
+          "indication": "Juvenile Idiopathic Arthritis",
+          "phase": "maintenance",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Every 4 weeks",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Maximum dose for continuation"
+        }
+      ],
+      "min_age_years": 6,
+      "max_age_years": null
+    },
+    {
+      "indication_id": "PYODERMA_GANGRENOSUM",
+      "indication_name": "Pyoderma Gangrenosum",
+      "indication_codes": [
+        {
+          "system": "ICD-10",
+          "code": "L88",
+          "display": "Pyoderma gangrenosum"
+        }
+      ],
+      "initial_approval_criteria": "GRP_PYODERMA_INITIAL",
+      "continuation_criteria": "GRP_PYODERMA_CONTINUATION",
+      "initial_approval_duration_months": 4,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [
+        {
+          "indication": "Pyoderma Gangrenosum",
+          "phase": "induction",
+          "dose_value": 5.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Weeks 0, 2, 6, then every 8 weeks",
+          "max_dose": null,
+          "max_dose_unit": null,
+          "notes": null
+        },
+        {
+          "indication": "Pyoderma Gangrenosum",
+          "phase": "maintenance",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Every 4 weeks",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Maximum dose for continuation"
+        }
+      ],
+      "min_age_years": 18,
+      "max_age_years": null
+    },
+    {
+      "indication_id": "SARCOIDOSIS",
+      "indication_name": "Sarcoidosis",
+      "indication_codes": [
+        {
+          "system": "ICD-10",
+          "code": "D86.9",
+          "display": "Sarcoidosis, unspecified"
+        }
+      ],
+      "initial_approval_criteria": "GRP_SARCOID_INITIAL",
+      "continuation_criteria": "GRP_SARCOID_CONTINUATION",
+      "initial_approval_duration_months": 3,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [
+        {
+          "indication": "Sarcoidosis",
+          "phase": "induction",
+          "dose_value": 5.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Weeks 0, 2, 6, then every 6 weeks",
+          "max_dose": null,
+          "max_dose_unit": null,
+          "notes": null
+        },
+        {
+          "indication": "Sarcoidosis",
+          "phase": "maintenance",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Every 4 weeks",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Maximum dose for continuation"
+        }
+      ],
+      "min_age_years": 18,
+      "max_age_years": null
+    },
+    {
+      "indication_id": "SCLERITIS",
+      "indication_name": "Scleritis or Sterile Corneal Ulceration",
+      "indication_codes": [
+        {
+          "system": "ICD-10",
+          "code": "H15.0",
+          "display": "Scleritis"
+        },
+        {
+          "system": "ICD-10",
+          "code": "H16.0",
+          "display": "Corneal ulcer"
+        }
+      ],
+      "initial_approval_criteria": "GRP_SCLERITIS_INITIAL",
+      "continuation_criteria": "GRP_SCLERITIS_CONTINUATION",
+      "initial_approval_duration_months": 6,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [
+        {
+          "indication": "Scleritis or Sterile Corneal Ulceration",
+          "phase": "induction",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Baseline, then up to 3 additional doses at 2, 6, 8 weeks",
+          "max_dose": null,
+          "max_dose_unit": null,
+          "notes": null
+        },
+        {
+          "indication": "Scleritis or Sterile Corneal Ulceration",
+          "phase": "maintenance",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Every 4 weeks",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Maximum dose for continuation"
+        }
+      ],
+      "min_age_years": 18,
+      "max_age_years": null
+    },
+    {
+      "indication_id": "SPA_OTHER",
+      "indication_name": "Spondyloarthritis, Other Subtypes",
+      "indication_codes": [
+        {
+          "system": "ICD-10",
+          "code": "M46.8",
+          "display": "Other specified inflammatory spondylopathies"
+        }
+      ],
+      "initial_approval_criteria": "GRP_SPA_OTHER_INITIAL",
+      "continuation_criteria": "GRP_SPA_OTHER_CONTINUATION",
+      "initial_approval_duration_months": 6,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [
+        {
+          "indication": "Spondyloarthritis, Other Subtypes",
+          "phase": "induction",
+          "dose_value": 5.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Weeks 0, 2, 6, then every 6 weeks",
+          "max_dose": null,
+          "max_dose_unit": null,
+          "notes": null
+        },
+        {
+          "indication": "Spondyloarthritis, Other Subtypes",
+          "phase": "maintenance",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Every 4 weeks",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Maximum dose for continuation"
+        }
+      ],
+      "min_age_years": 18,
+      "max_age_years": null
+    },
+    {
+      "indication_id": "STILLS_DISEASE",
+      "indication_name": "Still's Disease",
+      "indication_codes": [
+        {
+          "system": "ICD-10",
+          "code": "M06.1",
+          "display": "Adult-onset Still's disease"
+        }
+      ],
+      "initial_approval_criteria": "GRP_STILLS_INITIAL",
+      "continuation_criteria": "GRP_STILLS_CONTINUATION",
+      "initial_approval_duration_months": 6,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [
+        {
+          "indication": "Still's Disease",
+          "phase": "induction",
+          "dose_value": 6.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Weeks 0, 2, 6, then every 8 weeks",
+          "max_dose": null,
+          "max_dose_unit": null,
+          "notes": null
+        },
+        {
+          "indication": "Still's Disease",
+          "phase": "maintenance",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Every 4 weeks",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Maximum dose for continuation"
+        }
+      ],
+      "min_age_years": 18,
+      "max_age_years": null
+    },
+    {
+      "indication_id": "UVEITIS",
+      "indication_name": "Uveitis",
+      "indication_codes": [
+        {
+          "system": "ICD-10",
+          "code": "H20.9",
+          "display": "Unspecified iridocyclitis"
+        }
+      ],
+      "initial_approval_criteria": "GRP_UVEITIS_INITIAL",
+      "continuation_criteria": "GRP_UVEITIS_CONTINUATION",
+      "initial_approval_duration_months": 6,
+      "continuation_approval_duration_months": 12,
+      "dosing_requirements": [
+        {
+          "indication": "Uveitis",
+          "phase": "induction",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Weeks 0, 2, 6, then every 4 weeks",
+          "max_dose": null,
+          "max_dose_unit": null,
+          "notes": null
+        },
+        {
+          "indication": "Uveitis",
+          "phase": "maintenance",
+          "dose_value": 10.0,
+          "dose_unit": "mg/kg",
+          "route": "IV",
+          "frequency": "Every 4 weeks",
+          "max_dose": 10.0,
+          "max_dose_unit": null,
+          "notes": "Maximum dose for continuation"
+        }
+      ],
+      "min_age_years": 6,
+      "max_age_years": null
+    }
+  ],
+  "exclusions": [
+    {
+      "exclusion_id": "EXCL_CONCURRENT_BIOLOGIC",
+      "name": "Concurrent Biologic Therapy",
+      "description": "Cannot be used with another biologic or targeted synthetic oral small molecule drug for an inflammatory condition",
+      "policy_text": "This medication should not be administered in combination with another biologic or with a targeted synthetic oral small molecule drug used for an inflammatory condition",
+      "trigger_criteria": [
+        "CRIT_CONCURRENT_BIOLOGIC"
+      ]
+    }
+  ],
+  "step_therapy_requirements": [
+    {
+      "requirement_id": "STEP_REQ_CD",
+      "indication": "Crohn's Disease",
+      "required_drugs": [],
+      "required_drug_classes": [
+        "corticosteroids",
+        "conventional systemic therapy"
+      ],
+      "minimum_trials": 1,
+      "minimum_duration_days": null,
+      "failure_required": false,
+      "intolerance_acceptable": true,
+      "contraindication_acceptable": true,
+      "documentation_requirements": [
+        "prescription records"
+      ]
+    },
+    {
+      "requirement_id": "STEP_REQ_PSO",
+      "indication": "Plaque Psoriasis",
+      "required_drugs": [
+        "methotrexate",
+        "cyclosporine",
+        "acitretin"
+      ],
+      "required_drug_classes": [
+        "traditional systemic agent"
+      ],
+      "minimum_trials": 1,
+      "minimum_duration_days": 90,
+      "failure_required": false,
+      "intolerance_acceptable": true,
+      "contraindication_acceptable": true,
+      "documentation_requirements": [
+        "prescription records"
+      ]
+    },
+    {
+      "requirement_id": "STEP_REQ_RA",
+      "indication": "Rheumatoid Arthritis",
+      "required_drugs": [
+        "methotrexate",
+        "leflunomide",
+        "hydroxychloroquine",
+        "sulfasalazine"
+      ],
+      "required_drug_classes": [
+        "conventional synthetic DMARD"
+      ],
+      "minimum_trials": 1,
+      "minimum_duration_days": 90,
+      "failure_required": false,
+      "intolerance_acceptable": true,
+      "contraindication_acceptable": true,
+      "documentation_requirements": [
+        "prescription records"
+      ]
+    }
+  ],
+  "required_specialties": [
+    "rheumatologist",
+    "gastroenterologist",
+    "dermatologist",
+    "ophthalmologist",
+    "oncologist",
+    "hematologist",
+    "transplant physician",
+    "neurologist",
+    "pulmonologist",
+    "cardiologist",
+    "nephrologist"
+  ],
+  "consultation_allowed": true,
+  "safety_screenings": [
+    {
+      "screening_id": "TB_SCREENING",
+      "name": "Tuberculosis Screening",
+      "description": "Prior to initiating biologic therapy, patient must have tuberculosis screening with negative result",
+      "required": true,
+      "timing": "prior_to_initiation",
+      "criterion_id": "SAFETY_TB_SCREENING_NEGATIVE",
+      "acceptable_tests": [
+        {
+          "test_name": "QuantiFERON-TB Gold Plus",
+          "loinc_code": "71774-4"
+        },
+        {
+          "test_name": "T-SPOT.TB",
+          "loinc_code": "64083-9"
+        },
+        {
+          "test_name": "PPD (Tuberculin Skin Test)",
+          "cpt_code": "86480"
+        }
+      ],
+      "if_positive": "Treatment for latent TB must be initiated before starting biologic therapy"
+    },
+    {
+      "screening_id": "HEPATITIS_B_SCREENING",
+      "name": "Hepatitis B Screening",
+      "description": "Prior to initiating biologic therapy, patient must have hepatitis B panel to rule out active or chronic infection",
+      "required": true,
+      "timing": "prior_to_initiation",
+      "criterion_id": "SAFETY_HEPATITIS_B_SCREENING",
+      "acceptable_tests": [
+        {
+          "test_name": "Hepatitis B Surface Antigen (HBsAg)",
+          "loinc_code": "5195-3"
+        },
+        {
+          "test_name": "Hepatitis B Core Antibody (anti-HBc)",
+          "loinc_code": "16933-4"
+        },
+        {
+          "test_name": "Hepatitis B Surface Antibody (anti-HBs)",
+          "loinc_code": "10900-9"
+        }
+      ],
+      "if_positive": "Consult hepatologist; may require antiviral prophylaxis during biologic therapy"
+    },
+    {
+      "screening_id": "HEPATITIS_C_SCREENING",
+      "name": "Hepatitis C Screening",
+      "description": "Prior to initiating biologic therapy, patient should have hepatitis C antibody screening",
+      "required": false,
+      "timing": "prior_to_initiation",
+      "criterion_id": "SAFETY_HEPATITIS_C_SCREENING",
+      "acceptable_tests": [
+        {
+          "test_name": "Hepatitis C Antibody",
+          "loinc_code": "16128-1"
+        }
+      ],
+      "if_positive": "Consult hepatologist; assess viral load and liver function"
+    }
+  ],
+  "extraction_timestamp": "2026-01-25T22:04:26.525416",
+  "extraction_model": "gemini-3-pro-preview",
+  "source_document_hash": "bad0805a670f166a"
+}

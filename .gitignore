@@ -1,0 +1,33 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+
+# Logs
+tmp/
+*.log
+
+# Database
+*.db
+*.sqlite
+
+# Archive
+.archive/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Node (in case frontend is restored)
+node_modules/
+frontend/dist/
