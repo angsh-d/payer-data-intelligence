@@ -6,6 +6,7 @@ __pycache__/
 *.egg-info/
 dist/
 build/
+.pythonlibs/
 
 # Environment
 .env
@@ -31,3 +32,6 @@ tmp/
 # Node (in case frontend is restored)
 node_modules/
 frontend/dist/
+
+# Replit
+.cache/

@@ -51,3 +51,4 @@ tenacity
 uvicorn[standard]
 watchdog
 websockets
+google-api-core
