@@ -15,7 +15,6 @@ import {
   CheckCircle2,
   Info,
   Sparkles,
-  BarChart3,
   List,
   Upload,
 } from 'lucide-react'
@@ -56,7 +55,7 @@ function Spinner({ size = 20 }: { size?: number }) {
   )
 }
 
-type DiffTab = 'summary' | 'changes' | 'impact'
+type DiffTab = 'summary' | 'changes'
 
 function SegmentedControl({ tabs, active, onChange }: {
   tabs: { key: DiffTab; label: string; icon: typeof Sparkles }[]
@@ -235,7 +234,6 @@ export default function PolicyIntelligence() {
           ...(rawChanges.exclusions || []),
         ]
       : []
-  const stats = diffData?.summary || diffData?.statistics || diffData?.stats || {}
 
   return (
     <div className="p-10 max-w-[1400px] space-y-8">
@@ -510,7 +508,6 @@ export default function PolicyIntelligence() {
                     tabs={[
                       { key: 'summary', label: 'Summary', icon: Sparkles },
                       { key: 'changes', label: 'Changes', icon: List },
-                      { key: 'impact', label: 'Impact', icon: BarChart3 },
                     ]}
                     active={activeTab}
                     onChange={setActiveTab}
@@ -534,17 +531,57 @@ export default function PolicyIntelligence() {
                         <Sparkles className="w-4 h-4 text-accent-purple" />
                         <h3 className="text-sm font-medium text-text-secondary">AI-Generated Summary</h3>
                       </div>
-                      <div className="prose prose-sm max-w-none">
-                        <p className="text-text-primary leading-relaxed whitespace-pre-wrap text-sm">
-                          {typeof diffResult.summary === 'string'
-                            ? diffResult.summary
-                            : typeof diffResult.summary === 'object' && diffResult.summary
-                              ? Object.entries(diffResult.summary as Record<string, string>)
-                                  .map(([key, val]) => `${key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}:\n${val}`)
-                                  .join('\n\n')
-                              : 'No summary available for this comparison.'}
-                        </p>
-                      </div>
+                      {typeof diffResult.summary === 'string' ? (
+                        <p className="text-text-primary leading-relaxed whitespace-pre-wrap text-sm">{diffResult.summary}</p>
+                      ) : typeof diffResult.summary === 'object' && diffResult.summary ? (
+                        <div className="space-y-4">
+                          {Object.entries(diffResult.summary as Record<string, string>).map(([key, val]) => {
+                            if (!val || typeof val !== 'string') return null
+                            const title = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+                            const sectionConfig: Record<string, { icon: typeof AlertTriangle; color: string; bg: string }> = {
+                              'executive_summary': { icon: Sparkles, color: 'text-accent-blue', bg: 'bg-accent-blue/5 border-accent-blue/15' },
+                              'breaking_changes_summary': { icon: AlertTriangle, color: 'text-accent-red', bg: 'bg-accent-red/5 border-accent-red/15' },
+                              'material_changes_summary': { icon: RefreshCw, color: 'text-accent-amber', bg: 'bg-accent-amber/5 border-accent-amber/15' },
+                              'minor_changes_summary': { icon: Info, color: 'text-text-tertiary', bg: 'bg-surface-tertiary/50 border-border-primary' },
+                              'recommended_actions': { icon: CheckCircle2, color: 'text-accent-green', bg: 'bg-accent-green/5 border-accent-green/15' },
+                            }
+                            const config = sectionConfig[key] || { icon: Info, color: 'text-text-secondary', bg: 'bg-surface-tertiary/50 border-border-primary' }
+                            const SectionIcon = config.icon
+                            const friendlyTitle: Record<string, string> = {
+                              'Executive Summary': 'Overview',
+                              'Breaking Changes Summary': 'High-Impact Changes',
+                              'Material Changes Summary': 'Moderate Changes',
+                              'Minor Changes Summary': 'Minor Changes',
+                              'Recommended Actions': 'Recommended Next Steps',
+                            }
+                            const bullets = val.split(/[.,](?=\s|$)/).map(s => s.trim()).filter(Boolean)
+                            return (
+                              <div key={key} className={`rounded-xl border p-4 ${config.bg}`}>
+                                <div className="flex items-center gap-2 mb-2.5">
+                                  <SectionIcon className={`w-4 h-4 ${config.color}`} />
+                                  <h4 className={`text-xs font-semibold uppercase tracking-wide ${config.color}`}>
+                                    {friendlyTitle[title] || title}
+                                  </h4>
+                                </div>
+                                {key === 'executive_summary' ? (
+                                  <p className="text-sm text-text-primary leading-relaxed">{val}</p>
+                                ) : (
+                                  <ul className="space-y-1.5">
+                                    {bullets.map((bullet, bi) => (
+                                      <li key={bi} className="flex items-start gap-2 text-sm text-text-primary leading-relaxed">
+                                        <span className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${config.color.replace('text-', 'bg-')}`} />
+                                        <span>{bullet}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                )}
+                              </div>
+                            )
+                          })}
+                        </div>
+                      ) : (
+                        <p className="text-text-secondary text-sm">No summary available for this comparison.</p>
+                      )}
                     </motion.div>
                   )}
 
@@ -702,82 +739,6 @@ export default function PolicyIntelligence() {
                     </motion.div>
                   )}
 
-                  {activeTab === 'impact' && (
-                    <motion.div
-                      key="impact"
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -12 }}
-                      transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-                      className="rounded-2xl border border-border-primary bg-surface-secondary/60 backdrop-blur-xl p-8"
-                    >
-                      <div className="flex items-center gap-2 mb-6">
-                        <BarChart3 className="w-4 h-4 text-accent-blue" />
-                        <h3 className="text-sm font-medium text-text-secondary">Impact Analysis</h3>
-                      </div>
-
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
-                        {[
-                          {
-                            label: 'Old Criteria',
-                            value: stats.old_criteria_count ?? stats.criteria_old ?? stats.total_old ?? '—',
-                            color: 'text-text-secondary',
-                          },
-                          {
-                            label: 'New Criteria',
-                            value: stats.new_criteria_count ?? stats.criteria_new ?? stats.total_new ?? '—',
-                            color: 'text-text-secondary',
-                          },
-                          {
-                            label: 'Added',
-                            value: stats.added ?? stats.criteria_added ?? 0,
-                            color: 'text-accent-green',
-                            icon: Plus,
-                          },
-                          {
-                            label: 'Removed',
-                            value: stats.removed ?? stats.criteria_removed ?? 0,
-                            color: 'text-accent-red',
-                            icon: Minus,
-                          },
-                          {
-                            label: 'Modified',
-                            value: stats.modified ?? stats.criteria_modified ?? 0,
-                            color: 'text-accent-amber',
-                            icon: RefreshCw,
-                          },
-                        ].map((stat) => {
-                          const Icon = stat.icon
-                          return (
-                            <div
-                              key={stat.label}
-                              className="rounded-xl border border-border-primary bg-surface-tertiary/50 p-4"
-                            >
-                              <div className="flex items-center gap-1.5 mb-1">
-                                {Icon && <Icon className={`w-3 h-3 ${stat.color}`} />}
-                                <span className="text-xs text-text-tertiary">{stat.label}</span>
-                              </div>
-                              <span className={`text-2xl font-semibold ${stat.color}`}>
-                                {stat.value}
-                              </span>
-                            </div>
-                          )
-                        })}
-                      </div>
-
-                      {(stats.severity_assessment || stats.overall_severity || diffData?.severity_assessment) && (
-                        <div className="rounded-xl border border-border-primary bg-surface-tertiary/30 p-4">
-                          <div className="flex items-center gap-2 mb-2">
-                            <AlertTriangle className="w-4 h-4 text-accent-amber" />
-                            <span className="text-xs font-medium text-text-secondary">Severity Assessment</span>
-                          </div>
-                          <p className="text-sm text-text-primary leading-relaxed">
-                            {stats.severity_assessment || stats.overall_severity || diffData?.severity_assessment || 'No severity assessment available.'}
-                          </p>
-                        </div>
-                      )}
-                    </motion.div>
-                  )}
                 </AnimatePresence>
               </motion.div>
             )}
