@@ -1,15 +1,29 @@
 # Payer Data Intelligence Platform
 
 ## Overview
-Policy digitalization, versioning, diff analysis, and coverage intelligence platform. Python FastAPI backend serving a REST API with Swagger docs.
+Policy digitalization, versioning, diff analysis, and AI-powered policy intelligence platform. Python FastAPI backend + React TypeScript frontend with premium Apple-inspired dark UI.
 
 ## Current State
-- Backend API running on port 5000
-- SQLite database (local dev) with async SQLAlchemy
-- Supports PostgreSQL via `EXTERNAL_DATABASE_URL` environment variable
+- Frontend: React + TypeScript + Vite + Tailwind CSS v4, served on port 5000
+- Backend: FastAPI API on port 5001, proxied via Vite in dev
+- Database: PostgreSQL (NeonDB) with SQLite fallback
 - LLM integrations: Anthropic Claude, Google Gemini, Azure OpenAI
+- Four core experiences: Command Center, Policy Vault, Policy Intelligence, Policy Assistant
 
 ## Architecture
+
+### Frontend (`frontend/`)
+- **Framework:** React 19 + TypeScript + Vite 7 + Tailwind CSS v4
+- **Design System:** Apple-inspired dark theme with Inter font, frosted glass effects, spring animations
+- **Entry point:** `frontend/src/main.tsx` → `frontend/src/App.tsx`
+- **Pages:**
+  - `CommandCenter.tsx` — Dashboard with stat cards, quality metrics, activity feed
+  - `PolicyVault.tsx` — Policy bank grid, drag-and-drop upload with 3-step pipeline progress
+  - `PolicyIntelligence.tsx` — Version timeline, diff viewer with severity-coded changes
+  - `PolicyAssistant.tsx` — AI chat with filter pills, suggested questions, markdown rendering
+- **API layer:** `frontend/src/lib/api.ts` — typed API client for all backend endpoints
+- **Styling:** `frontend/src/index.css` — Tailwind v4 @theme tokens (surface, text, accent colors)
+- **Animations:** framer-motion throughout, staggered entrances, spring physics
 
 ### Backend (`backend/`)
 - **Entry point:** `backend/main.py` — FastAPI app
@@ -31,13 +45,31 @@ Policy digitalization, versioning, diff analysis, and coverage intelligence plat
 | GET | `/api/v1/policies/bank` | Policy bank listing |
 | POST | `/api/v1/policies/upload` | Upload & digitalize |
 | POST | `/api/v1/policies/assistant/query` | Policy Q&A |
+| GET | `/api/v1/policies/{payer}/{med}/versions` | Version listing |
+| GET | `/api/v1/policies/{payer}/{med}/diff` | Diff summary |
+| POST | `/api/v1/policies/upload/infer-metadata` | Metadata inference |
 | GET | `/health` | Health check |
 | GET | `/docs` | Swagger API docs |
 
 ## Development
 ```bash
-python -m uvicorn backend.main:app --host 0.0.0.0 --port 5000 --reload
+# Workflow runs both:
+python -m uvicorn backend.main:app --host 0.0.0.0 --port 5001 --reload
+cd frontend && npm run dev  # Vite on port 5000, proxies /api to 5001
 ```
+
+## Production Deployment
+```bash
+cd frontend && npm run build
+python -m uvicorn backend.main:app --host 0.0.0.0 --port 5000
+```
+
+## Design System
+- **Backgrounds:** #0a0a0a (primary), #141414 (secondary), #1a1a1a (tertiary), #1e1e1e (elevated)
+- **Text:** #f5f5f7 (primary), #a1a1a6 (secondary), #6e6e73 (tertiary)
+- **Accent:** #0071e3 (blue, used sparingly), #30d158 (green), #ff9f0a (amber), #ff453a (red), #bf5af2 (purple)
+- **Font:** Inter via Google Fonts, loaded in index.html
+- **Effects:** backdrop-blur-xl, border rgba(255,255,255,0.08), rounded-2xl cards
 
 ## Environment Variables
 - `ANTHROPIC_API_KEY` — Claude API key (required for policy reasoning)
@@ -45,5 +77,11 @@ python -m uvicorn backend.main:app --host 0.0.0.0 --port 5000 --reload
 - `AZURE_OPENAI_API_KEY` — Azure OpenAI fallback
 - `EXTERNAL_DATABASE_URL` — PostgreSQL connection URL (optional, uses SQLite by default)
 
+## User Preferences
+- Apple-inspired design: dark, minimal, frosted glass, single blue accent
+- NO Coverage Analyzer in this module — four core experiences only
+- Premium UI quality matching Apple product standards
+
 ## Recent Changes
-- 2026-02-08: Imported to Replit, configured to run on port 5000, installed dependencies
+- 2026-02-09: Built complete React frontend with four Apple-inspired pages, all wired to backend APIs
+- 2026-02-08: Imported to Replit, configured backend, installed dependencies
