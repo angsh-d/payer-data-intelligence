@@ -146,14 +146,6 @@ function StatCard({ icon: Icon, label, value, color, index }: {
   )
 }
 
-function formatDate(dateStr: string): string {
-  try {
-    const d = new Date(dateStr)
-    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-  } catch {
-    return dateStr
-  }
-}
 
 export default function CommandCenter() {
   const [policies, setPolicies] = useState<PolicyBankItem[]>([])
