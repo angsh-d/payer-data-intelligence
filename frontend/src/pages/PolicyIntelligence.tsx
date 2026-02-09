@@ -567,7 +567,11 @@ export default function PolicyIntelligence() {
                       ) : (
                         changes.map((change: any, i: number) => {
                           const isExpanded = expandedChanges.has(i)
-                          const hasDetails = !!(change.field_changes || change.fields || change.details || change.description)
+                          const changeType = (change.change_type || change.type || '').toLowerCase()
+                          const addedVal = changeType === 'added' && change.new_value && typeof change.new_value === 'object' ? change.new_value : null
+                          const removedVal = changeType === 'removed' && change.old_value && typeof change.old_value === 'object' ? change.old_value : null
+                          const fieldChanges = change.field_changes || change.fields || change.details || []
+                          const hasDetails = !!(addedVal || removedVal || fieldChanges.length > 0 || change.description || change.human_summary)
                           const toggleExpand = () => {
                             setExpandedChanges(prev => {
                               const next = new Set(prev)
@@ -624,23 +628,64 @@ export default function PolicyIntelligence() {
                                     className="overflow-hidden"
                                   >
                                     <div className="px-5 pb-5 pt-0 ml-10 border-t border-border-secondary">
-                                      {change.description && (
-                                        <p className="text-xs text-text-secondary mt-3 leading-relaxed">{change.description}</p>
+                                      {(change.description || change.human_summary) && (
+                                        <p className="text-xs text-text-secondary mt-3 leading-relaxed">{change.description || change.human_summary}</p>
                                       )}
 
-                                      {(change.field_changes || change.fields || change.details) && (
+                                      {addedVal && (
                                         <div className="mt-3 space-y-2">
-                                          {(change.field_changes || change.fields || change.details || []).map((field: any, j: number) => (
-                                            <div key={j} className="flex items-start gap-2 text-xs rounded-lg bg-surface-primary/60 p-2.5">
-                                              <span className="text-text-tertiary font-mono shrink-0 font-medium">{field.field || field.name || `Field ${j + 1}`}:</span>
-                                              <div className="flex flex-col gap-0.5">
-                                                {(field.old_value ?? field.old) !== undefined && (
-                                                  <span className="text-accent-red/80 line-through">{String(field.old_value ?? field.old)}</span>
+                                          <p className="text-[11px] font-medium text-accent-green uppercase tracking-wide">New Criterion Details</p>
+                                          {[
+                                            { label: 'Description', value: addedVal.description },
+                                            { label: 'Policy Text', value: addedVal.policy_text },
+                                            { label: 'Category', value: addedVal.category || addedVal.criterion_category },
+                                            { label: 'Type', value: addedVal.criterion_type },
+                                            { label: 'Required', value: addedVal.is_required != null ? (addedVal.is_required ? 'Yes' : 'No') : null },
+                                            { label: 'Threshold', value: addedVal.threshold_value != null ? `${addedVal.comparison_operator || ''} ${addedVal.threshold_value}${addedVal.threshold_value_upper != null ? ` – ${addedVal.threshold_value_upper}` : ''} ${addedVal.threshold_unit || ''}`.trim() : null },
+                                          ].filter(r => r.value).map((row, j) => (
+                                            <div key={j} className="rounded-lg bg-surface-primary/60 p-2.5 text-xs">
+                                              <span className="text-text-tertiary font-medium">{row.label}: </span>
+                                              <span className="text-text-primary">{row.value}</span>
+                                            </div>
+                                          ))}
+                                        </div>
+                                      )}
+
+                                      {removedVal && (
+                                        <div className="mt-3 space-y-2">
+                                          <p className="text-[11px] font-medium text-accent-red uppercase tracking-wide">Removed Criterion Details</p>
+                                          {[
+                                            { label: 'Description', value: removedVal.description },
+                                            { label: 'Policy Text', value: removedVal.policy_text },
+                                            { label: 'Category', value: removedVal.category || removedVal.criterion_category },
+                                          ].filter(r => r.value).map((row, j) => (
+                                            <div key={j} className="rounded-lg bg-surface-primary/60 p-2.5 text-xs">
+                                              <span className="text-text-tertiary font-medium">{row.label}: </span>
+                                              <span className="text-text-primary">{row.value}</span>
+                                            </div>
+                                          ))}
+                                        </div>
+                                      )}
+
+                                      {fieldChanges.length > 0 && (
+                                        <div className="mt-3 space-y-2">
+                                          <p className="text-[11px] font-medium text-accent-amber uppercase tracking-wide">What Changed</p>
+                                          {fieldChanges.map((field: any, j: number) => (
+                                            <div key={j} className="rounded-lg bg-surface-primary/60 p-3 text-xs space-y-1.5">
+                                              <span className="text-text-tertiary font-medium">{(field.field || field.field_name || field.name || `Field ${j + 1}`).replace(/_/g, ' ')}</span>
+                                              <div className="flex flex-col gap-1 pl-2 border-l-2 border-border-primary">
+                                                {(field.old_value ?? field.old) != null && (
+                                                  <div className="flex items-start gap-1.5">
+                                                    <span className="text-accent-red font-medium shrink-0">Before:</span>
+                                                    <span className="text-text-secondary">{String(field.old_value ?? field.old)}</span>
+                                                  </div>
                                                 )}
-                                                {(field.new_value ?? field.new) !== undefined && (
-                                                  <span className="text-accent-green/80">{String(field.new_value ?? field.new)}</span>
+                                                {(field.new_value ?? field.new) != null && (
+                                                  <div className="flex items-start gap-1.5">
+                                                    <span className="text-accent-green font-medium shrink-0">After:</span>
+                                                    <span className="text-text-primary">{String(field.new_value ?? field.new)}</span>
+                                                  </div>
                                                 )}
-                                                {field.change && <span className="text-text-secondary">{field.change}</span>}
                                               </div>
                                             </div>
                                           ))}
