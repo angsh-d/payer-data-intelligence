@@ -126,4 +126,18 @@ export const api = {
         medication_filter: medicationFilter || undefined,
       }),
     }),
+
+  getPdfUrl: (payer: string, medication: string) =>
+    `${BASE}/${encodeURIComponent(payer)}/${encodeURIComponent(medication)}/pdf`,
+
+  checkPdfExists: async (payer: string, medication: string): Promise<boolean> => {
+    try {
+      const url = `${BASE}/${encodeURIComponent(payer)}/${encodeURIComponent(medication)}/pdf`;
+      let res = await fetch(url, { method: 'HEAD' });
+      if (res.status === 405) {
+        res = await fetch(url, { method: 'GET', headers: { Range: 'bytes=0-0' } });
+      }
+      return res.ok || res.status === 206;
+    } catch { return false; }
+  },
 };

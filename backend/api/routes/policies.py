@@ -7,6 +7,7 @@ import uuid
 from datetime import datetime, timezone
 from typing import Optional, List
 from fastapi import APIRouter, HTTPException, UploadFile, File, Form
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field, field_validator
 
 from backend.api.requests import AnalyzePoliciesRequest
@@ -1028,5 +1029,27 @@ async def get_digitized_policy(payer: str, medication: str):
     except Exception as e:
         logger.error("Error getting digitized policy", error=str(e))
         raise HTTPException(status_code=500, detail="Internal server error")
+
+
+@router.get("/{payer}/{medication}/pdf")
+async def get_policy_pdf(payer: str, medication: str):
+    """Serve the original PDF file for a policy."""
+    from pathlib import Path
+
+    payer_safe = _validate_name(payer, "Payer")
+    medication_safe = _validate_name(medication, "Medication")
+
+    policies_dir = Path(get_settings().policies_dir)
+    pdf_path = policies_dir / f"{payer_safe}_{medication_safe}.pdf"
+
+    if not pdf_path.exists():
+        raise HTTPException(status_code=404, detail=f"PDF not found for {payer_safe}/{medication_safe}")
+
+    return FileResponse(
+        path=str(pdf_path),
+        media_type="application/pdf",
+        filename=f"{payer_safe}_{medication_safe}.pdf",
+        headers={"Content-Disposition": "inline"},
+    )
 
 

@@ -13,6 +13,7 @@ import {
 } from 'lucide-react'
 import { api, type PolicyBankItem, type UploadResponse } from '../lib/api'
 import { getDrugInfo, getPayerInfo } from '../lib/drugInfo'
+import PolicyDetailView from '../components/PolicyDetailView'
 
 function relativeTime(dateStr: string): string {
   try {
@@ -412,6 +413,7 @@ export default function PolicyVault() {
   const [policies, setPolicies] = useState<PolicyBankItem[]>([])
   const [loading, setLoading] = useState(true)
   const [modalOpen, setModalOpen] = useState(false)
+  const [selectedPolicy, setSelectedPolicy] = useState<PolicyBankItem | null>(null)
 
   const fetchPolicies = useCallback(() => {
     setLoading(true)
@@ -422,6 +424,10 @@ export default function PolicyVault() {
   }, [])
 
   useEffect(() => { fetchPolicies() }, [fetchPolicies])
+
+  if (selectedPolicy) {
+    return <PolicyDetailView policy={selectedPolicy} onBack={() => setSelectedPolicy(null)} />
+  }
 
   return (
     <div className="p-10 space-y-8 max-w-[1400px]">
@@ -495,7 +501,8 @@ export default function PolicyVault() {
                 variants={fadeUp}
                 initial="hidden"
                 animate="visible"
-                className="group rounded-2xl border border-border-primary bg-surface-secondary/60 backdrop-blur-xl p-6 flex flex-col gap-4 hover:bg-surface-hover/40 hover:border-border-hover transition-all duration-300"
+                onClick={() => setSelectedPolicy(policy)}
+                className="group rounded-2xl border border-border-primary bg-surface-secondary/60 backdrop-blur-xl p-6 flex flex-col gap-4 hover:bg-surface-hover/40 hover:border-border-hover transition-all duration-300 cursor-pointer"
               >
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-2">

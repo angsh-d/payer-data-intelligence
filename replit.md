@@ -84,5 +84,9 @@ python -m uvicorn backend.main:app --host 0.0.0.0 --port 5000
 - Premium UI quality matching Apple product standards
 
 ## Recent Changes
+- 2026-02-09: Added dual-pane policy detail view — clicking a policy card shows extracted JSON data (left) + synced PDF viewer (right) with page navigation
+- 2026-02-09: Added PDF serving endpoint at /api/v1/policies/{payer}/{medication}/pdf
+- 2026-02-09: Deduplicated policy change entries in Policy Intelligence diff view
+- 2026-02-09: Redesigned Summary tab with grouped impact sections (High/Medium/Low + Recommended Actions)
 - 2026-02-09: Built complete React frontend with four Apple-inspired pages, all wired to backend APIs
 - 2026-02-08: Imported to Replit, configured backend, installed dependencies
