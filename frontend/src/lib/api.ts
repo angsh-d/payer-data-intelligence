@@ -19,6 +19,7 @@ export interface PolicyBankItem {
   version_count: number;
   last_updated: string;
   extraction_quality: string;
+  source_filenames?: string[];
 }
 
 export interface PolicyVersion {

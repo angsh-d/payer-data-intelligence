@@ -163,6 +163,8 @@ async def get_policy_bank():
             versions = await repo.list_versions(row.payer_name, row.medication_name)
             latest_version = versions[0].version if versions else "unknown"
 
+            source_filenames = [v.source_filename for v in versions if v.source_filename]
+
             latest_policy = await repo.load_version(row.payer_name, row.medication_name, latest_version)
             extraction_quality = latest_policy.extraction_quality if latest_policy else "unknown"
 
@@ -173,6 +175,7 @@ async def get_policy_bank():
                 "version_count": row.version_count,
                 "last_updated": row.last_updated.isoformat() if row.last_updated else None,
                 "extraction_quality": extraction_quality,
+                "source_filenames": source_filenames,
             })
 
         return {"policies": bank}

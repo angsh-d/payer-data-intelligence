@@ -331,7 +331,19 @@ export default function CommandCenter() {
                       <span className="text-text-secondary font-normal">{getDrugInfo(policy.medication).brandName}</span>
                     </p>
                     <p className="text-xs text-text-tertiary mt-0.5">
-                      v{policy.latest_version} · Updated {formatDate(policy.last_updated)}
+                      {(() => {
+                        const years = (policy.source_filenames || [])
+                          .map(f => f.match(/\b(20\d{2})\b/)?.[1])
+                          .filter(Boolean)
+                          .sort()
+                        const uniqueYears = [...new Set(years)]
+                        const yearLabel = uniqueYears.length > 0
+                          ? uniqueYears.join(' – ')
+                          : null
+                        return yearLabel
+                          ? `Effective ${yearLabel} · ${policy.version_count} version${policy.version_count > 1 ? 's' : ''}`
+                          : `${policy.version_count} version${policy.version_count > 1 ? 's' : ''}`
+                      })()}
                     </p>
                   </div>
                   <span className={`text-xs px-2.5 py-1 rounded-full font-medium shrink-0 ${
