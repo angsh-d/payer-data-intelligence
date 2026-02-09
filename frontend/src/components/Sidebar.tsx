@@ -11,7 +11,7 @@ import {
 } from 'lucide-react'
 
 const navItems = [
-  { path: '/', icon: LayoutDashboard, label: 'Command Center' },
+  { path: '/dashboard', icon: LayoutDashboard, label: 'Command Center' },
   { path: '/vault', icon: Archive, label: 'Policy Vault' },
   { path: '/intelligence', icon: GitCompareArrows, label: 'Policy Intelligence' },
   { path: '/assistant', icon: MessageSquare, label: 'Policy Assistant' },
