@@ -130,12 +130,22 @@ async def list_available_policies():
     return {"policies": policies}
 
 
+MEDICATION_ALIASES = {
+    "ciltacabtagene_autoleucel": "carvykti",
+    "lisocabtagene_maraleucel": "breyanzi",
+    "nusinersen": "spinraza",
+    "palbociclib": "ibrance",
+    "infliximab": "remicade",
+}
+
+def _canonical_medication(med: str) -> str:
+    return MEDICATION_ALIASES.get(med, med)
+
+
 @router.get("/bank")
 async def get_policy_bank():
     """
-    Get all digitized policies with version counts.
-
-    Returns policies grouped by payer + medication with version metadata.
+    Get all digitized policies with version counts, deduplicated by brand/generic pairs.
     """
     from sqlalchemy import select, func
     from backend.storage.database import get_db
@@ -155,28 +165,51 @@ async def get_policy_bank():
             result = await session.execute(stmt)
             rows = result.all()
 
-        bank = []
+        from backend.policy_digitalization.policy_repository import get_policy_repository
+        repo = get_policy_repository()
+
+        merged: dict[str, dict] = {}
         for row in rows:
-            # Get latest version's extraction quality
-            from backend.policy_digitalization.policy_repository import get_policy_repository
-            repo = get_policy_repository()
+            canonical = _canonical_medication(row.medication_name)
+            key = f"{row.payer_name}/{canonical}"
+
             versions = await repo.list_versions(row.payer_name, row.medication_name)
-            latest_version = versions[0].version if versions else "unknown"
-
             source_filenames = [v.source_filename for v in versions if v.source_filename]
+            non_latest = [v for v in versions if v.version != "latest"]
+            content_hashes = {v.content_hash for v in (non_latest if non_latest else versions) if v.content_hash}
 
-            latest_policy = await repo.load_version(row.payer_name, row.medication_name, latest_version)
-            extraction_quality = latest_policy.extraction_quality if latest_policy else "unknown"
+            if key in merged:
+                existing = merged[key]
+                existing["_hashes"].update(content_hashes)
+                existing["version_count"] = len(existing["_hashes"])
+                existing["source_filenames"] = list(set(existing["source_filenames"] + source_filenames))
+                if row.last_updated and (
+                    not existing["_last_updated"] or row.last_updated > existing["_last_updated"]
+                ):
+                    existing["_last_updated"] = row.last_updated
+                    existing["last_updated"] = row.last_updated.isoformat()
+            else:
+                latest_version = versions[0].version if versions else "unknown"
+                latest_policy = await repo.load_version(row.payer_name, row.medication_name, latest_version)
+                extraction_quality = latest_policy.extraction_quality if latest_policy else "unknown"
 
-            bank.append({
-                "payer": row.payer_name,
-                "medication": row.medication_name,
-                "latest_version": latest_version,
-                "version_count": row.version_count,
-                "last_updated": row.last_updated.isoformat() if row.last_updated else None,
-                "extraction_quality": extraction_quality,
-                "source_filenames": source_filenames,
-            })
+                merged[key] = {
+                    "payer": row.payer_name,
+                    "medication": canonical,
+                    "latest_version": latest_version,
+                    "version_count": len(content_hashes),
+                    "last_updated": row.last_updated.isoformat() if row.last_updated else None,
+                    "_last_updated": row.last_updated,
+                    "_hashes": content_hashes,
+                    "extraction_quality": extraction_quality,
+                    "source_filenames": source_filenames,
+                }
+
+        bank = []
+        for entry in merged.values():
+            entry.pop("_last_updated", None)
+            entry.pop("_hashes", None)
+            bank.append(entry)
 
         return {"policies": bank}
     except Exception as e:
