@@ -1,7 +1,9 @@
 """Policy Differ — compares two DigitizedPolicy versions."""
 
+import re
+from difflib import SequenceMatcher
 from enum import Enum
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 from pydantic import BaseModel, Field
 
 from backend.models.policy_schema import DigitizedPolicy, AtomicCriterion
@@ -129,16 +131,85 @@ class PolicyDiffer:
             criterion_changes=criterion_changes,
         )
 
+    @staticmethod
+    def _normalize_id(text: str) -> str:
+        """Normalize a criterion ID or name for fuzzy comparison."""
+        return re.sub(r'[^a-z0-9]', '', text.lower())
+
+    @staticmethod
+    def _criterion_signature(c: AtomicCriterion) -> str:
+        """Build a comparable signature from a criterion's semantic content."""
+        parts = [
+            c.name or '',
+            c.description or '',
+            c.criterion_type or '',
+            c.category or '',
+        ]
+        return re.sub(r'[^a-z0-9 ]', '', ' '.join(parts).lower()).strip()
+
+    def _match_unmatched_criteria(
+        self,
+        unmatched_old: Dict[str, AtomicCriterion],
+        unmatched_new: Dict[str, AtomicCriterion],
+    ) -> Tuple[List[Tuple[str, str]], List[str], List[str]]:
+        """Match unmatched criteria by semantic similarity (name, description, type).
+
+        Returns (matched_pairs, truly_added_ids, truly_removed_ids).
+        """
+        if not unmatched_old or not unmatched_new:
+            return [], list(unmatched_new.keys()), list(unmatched_old.keys())
+
+        old_sigs = {oid: self._criterion_signature(oc) for oid, oc in unmatched_old.items()}
+        new_sigs = {nid: self._criterion_signature(nc) for nid, nc in unmatched_new.items()}
+
+        matched: List[Tuple[str, str]] = []
+        used_old: set = set()
+        used_new: set = set()
+
+        scored: List[Tuple[float, str, str]] = []
+        for nid, nsig in new_sigs.items():
+            for oid, osig in old_sigs.items():
+                name_ratio = SequenceMatcher(None, self._normalize_id(unmatched_old[oid].name), self._normalize_id(unmatched_new[nid].name)).ratio()
+                sig_ratio = SequenceMatcher(None, osig, nsig).ratio()
+                combined = 0.5 * name_ratio + 0.5 * sig_ratio
+                scored.append((combined, oid, nid))
+
+        scored.sort(key=lambda x: -x[0])
+
+        for score, oid, nid in scored:
+            if oid in used_old or nid in used_new:
+                continue
+            if score >= 0.55:
+                matched.append((oid, nid))
+                used_old.add(oid)
+                used_new.add(nid)
+                logger.info(
+                    "Fuzzy-matched criteria",
+                    old_id=oid, new_id=nid,
+                    old_name=unmatched_old[oid].name,
+                    new_name=unmatched_new[nid].name,
+                    score=round(score, 3),
+                )
+
+        truly_added = [nid for nid in unmatched_new if nid not in used_new]
+        truly_removed = [oid for oid in unmatched_old if oid not in used_old]
+        return matched, truly_added, truly_removed
+
     def _diff_criteria(
         self, old_criteria: Dict[str, AtomicCriterion], new_criteria: Dict[str, AtomicCriterion]
     ) -> List[CriterionChange]:
-        """Diff atomic criteria between two versions."""
+        """Diff atomic criteria between two versions with fuzzy ID matching."""
         changes = []
         old_ids = set(old_criteria.keys())
         new_ids = set(new_criteria.keys())
 
-        # Added criteria
-        for cid in new_ids - old_ids:
+        exact_match_ids = old_ids & new_ids
+        unmatched_old = {cid: old_criteria[cid] for cid in old_ids - new_ids}
+        unmatched_new = {cid: new_criteria[cid] for cid in new_ids - old_ids}
+
+        fuzzy_pairs, truly_added, truly_removed = self._match_unmatched_criteria(unmatched_old, unmatched_new)
+
+        for cid in truly_added:
             c = new_criteria[cid]
             severity = "breaking" if c.is_required else "material"
             changes.append(CriterionChange(
@@ -150,8 +221,7 @@ class PolicyDiffer:
                 human_summary=f"New {'required' if c.is_required else 'optional'} criterion added: {c.name}",
             ))
 
-        # Removed criteria
-        for cid in old_ids - new_ids:
+        for cid in truly_removed:
             c = old_criteria[cid]
             changes.append(CriterionChange(
                 criterion_id=cid,
@@ -162,15 +232,17 @@ class PolicyDiffer:
                 human_summary=f"Criterion removed: {c.name}",
             ))
 
-        # Modified or unchanged
-        for cid in old_ids & new_ids:
-            old_c = old_criteria[cid]
-            new_c = new_criteria[cid]
+        all_pairs: List[Tuple[str, str]] = [(cid, cid) for cid in exact_match_ids] + fuzzy_pairs
+
+        for old_id, new_id in all_pairs:
+            old_c = old_criteria[old_id]
+            new_c = new_criteria[new_id]
             field_changes = self._compare_criterion_fields(old_c, new_c)
 
+            display_id = new_id
             if not field_changes:
                 changes.append(CriterionChange(
-                    criterion_id=cid,
+                    criterion_id=display_id,
                     criterion_name=new_c.name,
                     change_type=ChangeType.UNCHANGED,
                 ))
@@ -180,7 +252,7 @@ class PolicyDiffer:
                 for fc in field_changes:
                     summary_parts.append(f"{fc.field_name}: {fc.old} -> {fc.new}")
                 changes.append(CriterionChange(
-                    criterion_id=cid,
+                    criterion_id=display_id,
                     criterion_name=new_c.name,
                     change_type=ChangeType.MODIFIED,
                     old_value=old_c.model_dump(mode="json") if hasattr(old_c, 'model_dump') else {},
