@@ -223,16 +223,26 @@ export default function PolicyIntelligence() {
 
   const diffData = diffResult?.diff
   const rawChanges = diffData?.changes || diffData?.criterion_changes || []
-  const changes: any[] = Array.isArray(rawChanges)
-    ? rawChanges
-    : typeof rawChanges === 'object' && rawChanges !== null
-      ? [
-          ...(rawChanges.criteria || []),
-          ...(rawChanges.indications || []),
-          ...(rawChanges.step_therapy || []),
-          ...(rawChanges.exclusions || []),
-        ]
-      : []
+  const changes: any[] = (() => {
+    let all: any[] = []
+    if (Array.isArray(rawChanges)) {
+      all = rawChanges
+    } else if (typeof rawChanges === 'object' && rawChanges !== null) {
+      all = [
+        ...(rawChanges.criteria || []),
+        ...(rawChanges.indications || []),
+        ...(rawChanges.step_therapy || []),
+        ...(rawChanges.exclusions || []),
+      ]
+    }
+    const seen = new Set<string>()
+    return all.filter(c => {
+      const id = c.criterion_id || c.criterion_name || c.indication_id || c.name || JSON.stringify(c)
+      if (seen.has(id)) return false
+      seen.add(id)
+      return true
+    })
+  })()
 
   return (
     <div className="p-10 max-w-[1400px] space-y-8">
