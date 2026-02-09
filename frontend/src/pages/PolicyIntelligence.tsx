@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import {
   GitCompareArrows,
   ChevronDown,
+  ChevronRight,
   Search,
   FileText,
   Clock,
@@ -112,6 +113,16 @@ function severityColor(severity: string) {
   }
 }
 
+function severityLabel(severity: string) {
+  switch (severity?.toLowerCase()) {
+    case 'breaking': return 'High Impact'
+    case 'material': return 'Moderate Impact'
+    case 'minor': return 'Low Impact'
+    case 'cosmetic': return 'Cosmetic'
+    default: return 'Info'
+  }
+}
+
 function changeTypeIcon(type: string) {
   switch (type?.toLowerCase()) {
     case 'added': return <Plus className="w-3.5 h-3.5 text-accent-green" />
@@ -144,6 +155,7 @@ export default function PolicyIntelligence() {
   const [diffResult, setDiffResult] = useState<DiffSummaryResponse | null>(null)
   const [diffLoading, setDiffLoading] = useState(false)
   const [activeTab, setActiveTab] = useState<DiffTab>('summary')
+  const [expandedChanges, setExpandedChanges] = useState<Set<number>>(new Set())
 
   useEffect(() => {
     api.getPolicyBank()
@@ -195,6 +207,7 @@ export default function PolicyIntelligence() {
     if (!selectedPolicy || !selectedOld || !selectedNew) return
     setDiffLoading(true)
     setActiveTab('summary')
+    setExpandedChanges(new Set())
     try {
       const result = await api.getDiffSummary(
         selectedPolicy.payer,
@@ -552,58 +565,94 @@ export default function PolicyIntelligence() {
                           </div>
                         </div>
                       ) : (
-                        changes.map((change: any, i: number) => (
-                          <motion.div
-                            key={i}
-                            custom={i}
-                            variants={fadeUp}
-                            initial="hidden"
-                            animate="visible"
-                            className="rounded-2xl border border-border-primary bg-surface-secondary/60 backdrop-blur-xl p-5"
-                          >
-                            <div className="flex items-start gap-3">
-                              <div className={`flex items-center justify-center w-7 h-7 rounded-lg shrink-0 mt-0.5 ${changeTypeBg(change.change_type || change.type)}`}>
-                                {changeTypeIcon(change.change_type || change.type)}
-                              </div>
-                              <div className="flex-1 min-w-0">
-                                <div className="flex items-center gap-2 flex-wrap">
+                        changes.map((change: any, i: number) => {
+                          const isExpanded = expandedChanges.has(i)
+                          const hasDetails = !!(change.field_changes || change.fields || change.details || change.description)
+                          const toggleExpand = () => {
+                            setExpandedChanges(prev => {
+                              const next = new Set(prev)
+                              if (next.has(i)) next.delete(i)
+                              else next.add(i)
+                              return next
+                            })
+                          }
+                          return (
+                            <motion.div
+                              key={i}
+                              custom={i}
+                              variants={fadeUp}
+                              initial="hidden"
+                              animate="visible"
+                              className="rounded-2xl border border-border-primary bg-surface-secondary/60 backdrop-blur-xl overflow-hidden"
+                            >
+                              <button
+                                onClick={hasDetails ? toggleExpand : undefined}
+                                className={`w-full flex items-center gap-3 p-5 text-left ${hasDetails ? 'cursor-pointer hover:bg-surface-tertiary/40 transition-colors' : 'cursor-default'}`}
+                              >
+                                <div className={`flex items-center justify-center w-7 h-7 rounded-lg shrink-0 ${changeTypeBg(change.change_type || change.type)}`}>
+                                  {changeTypeIcon(change.change_type || change.type)}
+                                </div>
+                                <div className="flex-1 min-w-0 flex items-center gap-2 flex-wrap">
                                   <span className="text-sm font-medium text-text-primary">
                                     {change.criterion_name || change.criterion || change.name || `Change ${i + 1}`}
                                   </span>
                                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium border ${severityColor(change.severity)}`}>
-                                    {(change.severity || 'minor').toUpperCase()}
+                                    {severityLabel(change.severity)}
                                   </span>
                                   <span className="text-xs text-text-tertiary capitalize">
                                     {change.change_type || change.type || 'modified'}
                                   </span>
                                 </div>
-
-                                {change.description && (
-                                  <p className="text-xs text-text-secondary mt-2 leading-relaxed">{change.description}</p>
+                                {hasDetails && (
+                                  <motion.div
+                                    animate={{ rotate: isExpanded ? 90 : 0 }}
+                                    transition={{ duration: 0.2 }}
+                                    className="shrink-0"
+                                  >
+                                    <ChevronRight className="w-4 h-4 text-text-tertiary" />
+                                  </motion.div>
                                 )}
+                              </button>
 
-                                {(change.field_changes || change.fields || change.details) && (
-                                  <div className="mt-3 space-y-1.5">
-                                    {(change.field_changes || change.fields || change.details || []).map((field: any, j: number) => (
-                                      <div key={j} className="flex items-start gap-2 text-xs">
-                                        <span className="text-text-tertiary font-mono shrink-0">{field.field || field.name || `Field ${j + 1}`}:</span>
-                                        <div className="flex flex-col gap-0.5">
-                                          {(field.old_value ?? field.old) !== undefined && (
-                                            <span className="text-accent-red/80 line-through">{String(field.old_value ?? field.old)}</span>
-                                          )}
-                                          {(field.new_value ?? field.new) !== undefined && (
-                                            <span className="text-accent-green/80">{String(field.new_value ?? field.new)}</span>
-                                          )}
-                                          {field.change && <span className="text-text-secondary">{field.change}</span>}
+                              <AnimatePresence>
+                                {isExpanded && (
+                                  <motion.div
+                                    initial={{ height: 0, opacity: 0 }}
+                                    animate={{ height: 'auto', opacity: 1 }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+                                    className="overflow-hidden"
+                                  >
+                                    <div className="px-5 pb-5 pt-0 ml-10 border-t border-border-secondary">
+                                      {change.description && (
+                                        <p className="text-xs text-text-secondary mt-3 leading-relaxed">{change.description}</p>
+                                      )}
+
+                                      {(change.field_changes || change.fields || change.details) && (
+                                        <div className="mt-3 space-y-2">
+                                          {(change.field_changes || change.fields || change.details || []).map((field: any, j: number) => (
+                                            <div key={j} className="flex items-start gap-2 text-xs rounded-lg bg-surface-primary/60 p-2.5">
+                                              <span className="text-text-tertiary font-mono shrink-0 font-medium">{field.field || field.name || `Field ${j + 1}`}:</span>
+                                              <div className="flex flex-col gap-0.5">
+                                                {(field.old_value ?? field.old) !== undefined && (
+                                                  <span className="text-accent-red/80 line-through">{String(field.old_value ?? field.old)}</span>
+                                                )}
+                                                {(field.new_value ?? field.new) !== undefined && (
+                                                  <span className="text-accent-green/80">{String(field.new_value ?? field.new)}</span>
+                                                )}
+                                                {field.change && <span className="text-text-secondary">{field.change}</span>}
+                                              </div>
+                                            </div>
+                                          ))}
                                         </div>
-                                      </div>
-                                    ))}
-                                  </div>
+                                      )}
+                                    </div>
+                                  </motion.div>
                                 )}
-                              </div>
-                            </div>
-                          </motion.div>
-                        ))
+                              </AnimatePresence>
+                            </motion.div>
+                          )
+                        })
                       )}
                     </motion.div>
                   )}
