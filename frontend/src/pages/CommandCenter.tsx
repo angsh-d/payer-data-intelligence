@@ -33,10 +33,13 @@ function useCountUp(target: number, duration = 1200) {
 
 function qualityToPercent(q: string): number {
   switch (q?.toLowerCase()) {
-    case 'high': return 95
-    case 'medium': return 70
-    case 'low': return 40
-    default: return 0
+    case 'high':
+    case 'good': return 95
+    case 'medium':
+    case 'needs_review': return 70
+    case 'low':
+    case 'poor': return 40
+    default: return 50
   }
 }
 
@@ -158,15 +161,35 @@ export default function CommandCenter() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    Promise.allSettled([
-      api.getPolicyBank(),
-      api.health(),
-    ]).then(([bankResult, healthResult]) => {
-      if (bankResult.status === 'fulfilled') setPolicies(bankResult.value)
-      if (healthResult.status === 'fulfilled') setHealthStatus(healthResult.value.status)
-      else setHealthStatus('error')
-      setLoading(false)
-    })
+    let cancelled = false
+    const fetchData = async (attempt = 0) => {
+      try {
+        const [bankResult, healthResult] = await Promise.allSettled([
+          api.getPolicyBank(),
+          api.health(),
+        ])
+        if (cancelled) return
+        if (bankResult.status === 'fulfilled' && bankResult.value.length > 0) {
+          setPolicies(bankResult.value)
+        } else if (bankResult.status === 'fulfilled') {
+          setPolicies(bankResult.value)
+        } else if (attempt < 2) {
+          setTimeout(() => fetchData(attempt + 1), 2000)
+          return
+        }
+        if (healthResult.status === 'fulfilled') setHealthStatus(healthResult.value.status)
+        else setHealthStatus('error')
+        setLoading(false)
+      } catch {
+        if (!cancelled && attempt < 2) {
+          setTimeout(() => fetchData(attempt + 1), 2000)
+        } else {
+          setLoading(false)
+        }
+      }
+    }
+    fetchData()
+    return () => { cancelled = true }
   }, [])
 
   const totalPolicies = policies.length
@@ -312,13 +335,13 @@ export default function CommandCenter() {
                     </p>
                   </div>
                   <span className={`text-xs px-2.5 py-1 rounded-full font-medium shrink-0 ${
-                    policy.extraction_quality?.toLowerCase() === 'high'
+                    ['high', 'good'].includes(policy.extraction_quality?.toLowerCase())
                       ? 'bg-accent-green/10 text-accent-green'
-                      : policy.extraction_quality?.toLowerCase() === 'medium'
+                      : ['medium', 'needs_review'].includes(policy.extraction_quality?.toLowerCase())
                       ? 'bg-accent-amber/10 text-accent-amber'
                       : 'bg-accent-red/10 text-accent-red'
                   }`}>
-                    {policy.extraction_quality || 'Unknown'}
+                    {policy.extraction_quality === 'good' ? 'Good' : policy.extraction_quality === 'needs_review' ? 'Needs Review' : policy.extraction_quality || 'Unknown'}
                   </span>
                 </motion.div>
               ))}
