@@ -7,7 +7,7 @@ export default function Navbar() {
   const isLanding = location.pathname === '/'
 
   return (
-    <header className="sticky top-0 z-[60] flex items-center h-14 px-5 border-b border-border-primary bg-white/80 backdrop-blur-xl">
+    <header className="z-[60] flex items-center h-14 min-h-[3.5rem] px-5 border-b border-border-primary bg-white/80 backdrop-blur-xl shrink-0">
       <button
         onClick={() => navigate('/')}
         className="flex items-center gap-0 shrink-0 hover:opacity-80 transition-opacity duration-200"
