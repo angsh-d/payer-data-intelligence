@@ -211,8 +211,18 @@ export default function PolicyIntelligence() {
   }, [selectedPolicy, selectedOld, selectedNew])
 
   const diffData = diffResult?.diff
-  const changes: any[] = diffData?.changes || diffData?.criterion_changes || []
-  const stats = diffData?.statistics || diffData?.stats || {}
+  const rawChanges = diffData?.changes || diffData?.criterion_changes || []
+  const changes: any[] = Array.isArray(rawChanges)
+    ? rawChanges
+    : typeof rawChanges === 'object' && rawChanges !== null
+      ? [
+          ...(rawChanges.criteria || []),
+          ...(rawChanges.indications || []),
+          ...(rawChanges.step_therapy || []),
+          ...(rawChanges.exclusions || []),
+        ]
+      : []
+  const stats = diffData?.summary || diffData?.statistics || diffData?.stats || {}
 
   return (
     <div className="p-10 max-w-[1400px] space-y-8">
@@ -578,11 +588,11 @@ export default function PolicyIntelligence() {
                                       <div key={j} className="flex items-start gap-2 text-xs">
                                         <span className="text-text-tertiary font-mono shrink-0">{field.field || field.name || `Field ${j + 1}`}:</span>
                                         <div className="flex flex-col gap-0.5">
-                                          {field.old_value !== undefined && (
-                                            <span className="text-accent-red/80 line-through">{String(field.old_value)}</span>
+                                          {(field.old_value ?? field.old) !== undefined && (
+                                            <span className="text-accent-red/80 line-through">{String(field.old_value ?? field.old)}</span>
                                           )}
-                                          {field.new_value !== undefined && (
-                                            <span className="text-accent-green/80">{String(field.new_value)}</span>
+                                          {(field.new_value ?? field.new) !== undefined && (
+                                            <span className="text-accent-green/80">{String(field.new_value ?? field.new)}</span>
                                           )}
                                           {field.change && <span className="text-text-secondary">{field.change}</span>}
                                         </div>
