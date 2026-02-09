@@ -409,18 +409,62 @@ function UploadModal({ open, onClose, onSuccess }: { open: boolean; onClose: () 
   )
 }
 
+function extractYears(versions: { version: string; source_filename?: string; cached_at?: string }[]): string[] {
+  const years = new Set<string>()
+  for (const v of versions) {
+    const fn = v.source_filename || ''
+    const match = fn.match(/\b(20\d{2})\b/)
+    if (match) {
+      years.add(match[1])
+    }
+  }
+  if (years.size === 0) {
+    for (const v of versions) {
+      if (v.version && v.version !== 'latest') {
+        years.add(v.version)
+      }
+    }
+  }
+  return Array.from(years).sort()
+}
+
 export default function PolicyVault() {
   const [policies, setPolicies] = useState<PolicyBankItem[]>([])
   const [loading, setLoading] = useState(true)
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedPolicy, setSelectedPolicy] = useState<PolicyBankItem | null>(null)
+  const [versionYears, setVersionYears] = useState<Record<string, string[]>>({})
 
-  const fetchPolicies = useCallback(() => {
+  const fetchPolicies = useCallback(async () => {
     setLoading(true)
-    api.getPolicyBank()
-      .then(setPolicies)
-      .catch(() => setPolicies([]))
-      .finally(() => setLoading(false))
+    try {
+      const raw = await api.getPolicyBank()
+      const sorted = [...raw].sort((a, b) => {
+        const nameA = getDrugInfo(a.medication).brandName.toLowerCase()
+        const nameB = getDrugInfo(b.medication).brandName.toLowerCase()
+        return nameA.localeCompare(nameB)
+      })
+      setPolicies(sorted)
+      setLoading(false)
+
+      const multiVersion = sorted.filter(p => p.version_count >= 2)
+      if (multiVersion.length > 0) {
+        const yearMap: Record<string, string[]> = {}
+        await Promise.all(
+          multiVersion.map(async p => {
+            try {
+              const versions = await api.getPolicyVersions(p.payer, p.medication)
+              const key = `${p.payer}-${p.medication}`
+              yearMap[key] = extractYears(versions)
+            } catch {}
+          })
+        )
+        setVersionYears(yearMap)
+      }
+    } catch {
+      setPolicies([])
+      setLoading(false)
+    }
   }, [])
 
   useEffect(() => { fetchPolicies() }, [fetchPolicies])
@@ -546,6 +590,18 @@ export default function PolicyVault() {
                   <div className="flex items-center gap-1.5 text-xs text-text-tertiary">
                     <FileText className="w-3.5 h-3.5" />
                     <span>{policy.version_count} version{policy.version_count !== 1 ? 's' : ''}</span>
+                    {(() => {
+                      const key = `${policy.payer}-${policy.medication}`
+                      const years = versionYears[key]
+                      if (!years || years.length === 0) return null
+                      return (
+                        <span className="flex items-center gap-1 ml-1">
+                          {years.map(y => (
+                            <span key={y} className="px-1.5 py-0.5 rounded bg-[#0071e3]/[0.08] text-[10px] font-semibold text-[#0071e3]">{y}</span>
+                          ))}
+                        </span>
+                      )
+                    })()}
                   </div>
                   <div className="flex items-center gap-1.5 text-xs text-text-tertiary">
                     <Clock className="w-3.5 h-3.5" />
