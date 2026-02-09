@@ -530,16 +530,12 @@ class PolicyReasoner:
             if c.criterion_id in exclusion_ids and c.is_met and c.confidence >= 0.7
         ]
         if triggered_exclusions:
-            hard_block_cap = 0.15
-            if likelihood > hard_block_cap:
-                logger.warning(
-                    "Approval likelihood hard-capped: exclusion criterion triggered",
-                    payer=payer_name,
-                    raw_likelihood=raw_likelihood,
-                    capped_likelihood=hard_block_cap,
-                    triggered_exclusions=[c.criterion_id for c in triggered_exclusions],
-                )
-                return hard_block_cap
+            logger.info(
+                "Exclusion criteria triggered (no cap applied)",
+                payer=payer_name,
+                raw_likelihood=raw_likelihood,
+                triggered_exclusions=[c.criterion_id for c in triggered_exclusions],
+            )
 
         met_count = sum(1 for c in criteria if c.is_met)
         total_count = len(criteria)
