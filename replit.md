@@ -84,6 +84,8 @@ python -m uvicorn backend.main:app --host 0.0.0.0 --port 5000
 - Premium UI quality matching Apple product standards
 
 ## Recent Changes
+- 2026-02-09: Added top navbar with Saama logo (from saama.com SVG), vertical separator, and "Payer Intelligence Platform" title; visible on all pages
+- 2026-02-09: Added Landing page at "/" with HERO section, four core experiences grid, How It Works steps, and feature highlights; Command Center moved to "/dashboard"
 - 2026-02-09: Fixed LLM criteria matching — Claude returns parsed JSON directly (not wrapped in "response" key), differ now handles both formats; semantic matching correctly pairs criteria like DOSE_LIMIT↔DOSING_LIMIT, NO_GENE_THERAPY↔NO_PRIOR_GENE_THERAPY
 - 2026-02-09: Added dual-pane policy detail view — clicking a policy card shows extracted JSON data (left) + synced PDF viewer (right) with page navigation
 - 2026-02-09: Added PDF serving endpoint at /api/v1/policies/{payer}/{medication}/pdf
