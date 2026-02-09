@@ -11,7 +11,6 @@ import {
   Plus,
   Minus,
   RefreshCw,
-  AlertTriangle,
   CheckCircle2,
   Info,
   Sparkles,
@@ -527,61 +526,83 @@ export default function PolicyIntelligence() {
                       transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] as const }}
                       className="rounded-2xl border border-border-primary bg-surface-secondary/60 backdrop-blur-xl p-8"
                     >
-                      <div className="flex items-center gap-2 mb-5">
-                        <Sparkles className="w-4 h-4 text-accent-purple" />
-                        <h3 className="text-sm font-medium text-text-secondary">AI-Generated Summary</h3>
-                      </div>
-                      {typeof diffResult.summary === 'string' ? (
-                        <p className="text-text-primary leading-relaxed whitespace-pre-wrap text-sm">{diffResult.summary}</p>
-                      ) : typeof diffResult.summary === 'object' && diffResult.summary ? (
-                        <div className="space-y-4">
-                          {Object.entries(diffResult.summary as Record<string, string>).map(([key, val]) => {
-                            if (!val || typeof val !== 'string') return null
-                            const title = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
-                            const sectionConfig: Record<string, { icon: typeof AlertTriangle; color: string; bg: string }> = {
-                              'executive_summary': { icon: Sparkles, color: 'text-accent-blue', bg: 'bg-accent-blue/5 border-accent-blue/15' },
-                              'breaking_changes_summary': { icon: AlertTriangle, color: 'text-accent-red', bg: 'bg-accent-red/5 border-accent-red/15' },
-                              'material_changes_summary': { icon: RefreshCw, color: 'text-accent-amber', bg: 'bg-accent-amber/5 border-accent-amber/15' },
-                              'minor_changes_summary': { icon: Info, color: 'text-text-tertiary', bg: 'bg-surface-tertiary/50 border-border-primary' },
-                              'recommended_actions': { icon: CheckCircle2, color: 'text-accent-green', bg: 'bg-accent-green/5 border-accent-green/15' },
-                            }
-                            const config = sectionConfig[key] || { icon: Info, color: 'text-text-secondary', bg: 'bg-surface-tertiary/50 border-border-primary' }
-                            const SectionIcon = config.icon
-                            const friendlyTitle: Record<string, string> = {
-                              'Executive Summary': 'Overview',
-                              'Breaking Changes Summary': 'High-Impact Changes',
-                              'Material Changes Summary': 'Moderate Changes',
-                              'Minor Changes Summary': 'Minor Changes',
-                              'Recommended Actions': 'Recommended Next Steps',
-                            }
-                            const bullets = val.split(/[.,](?=\s|$)/).map(s => s.trim()).filter(Boolean)
-                            return (
-                              <div key={key} className={`rounded-xl border p-4 ${config.bg}`}>
-                                <div className="flex items-center gap-2 mb-2.5">
-                                  <SectionIcon className={`w-4 h-4 ${config.color}`} />
-                                  <h4 className={`text-xs font-semibold uppercase tracking-wide ${config.color}`}>
-                                    {friendlyTitle[title] || title}
-                                  </h4>
-                                </div>
-                                {key === 'executive_summary' ? (
-                                  <p className="text-sm text-text-primary leading-relaxed">{val}</p>
-                                ) : (
-                                  <ul className="space-y-1.5">
-                                    {bullets.map((bullet, bi) => (
-                                      <li key={bi} className="flex items-start gap-2 text-sm text-text-primary leading-relaxed">
-                                        <span className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${config.color.replace('text-', 'bg-')}`} />
-                                        <span>{bullet}</span>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                )}
+                      {(() => {
+                        const summary = diffResult.summary
+                        const s = typeof summary === 'string'
+                          ? { executive_summary: summary } as Record<string, string>
+                          : (typeof summary === 'object' && summary ? summary : {}) as Record<string, string>
+
+                        const exec = s.executive_summary || ''
+                        const sections = [
+                          { key: 'breaking_changes_summary', label: 'High Impact', dot: 'bg-[#d70015]', text: 'text-[#d70015]' },
+                          { key: 'material_changes_summary', label: 'Medium Impact', dot: 'bg-[#b25000]', text: 'text-[#b25000]' },
+                          { key: 'minor_changes_summary', label: 'Low Impact', dot: 'bg-[#86868b]', text: 'text-[#86868b]' },
+                        ]
+                        const actions = s.recommended_actions || ''
+
+                        const splitBullets = (text: string) =>
+                          text.split(/[.,;](?=\s[A-Z])/)
+                            .map(b => b.replace(/^[.,;]\s*/, '').trim())
+                            .filter(b => b.length > 10)
+
+                        return (
+                          <div className="space-y-6">
+                            {exec && (
+                              <p className="text-[15px] text-[#1d1d1f] leading-[1.6] font-normal">{exec}</p>
+                            )}
+
+                            {sections.some(sec => s[sec.key]) && (
+                              <div className="rounded-2xl border border-[rgba(0,0,0,0.06)] bg-white overflow-hidden">
+                                {sections.map((sec, si) => {
+                                  const content = s[sec.key]
+                                  if (!content) return null
+                                  const items = splitBullets(content)
+                                  return (
+                                    <div key={sec.key}>
+                                      {si > 0 && s[sections[si - 1]?.key] && (
+                                        <div className="mx-4 border-t border-[rgba(0,0,0,0.06)]" />
+                                      )}
+                                      <div className="px-5 py-4">
+                                        <div className="flex items-center gap-2 mb-3">
+                                          <span className={`w-2 h-2 rounded-full ${sec.dot}`} />
+                                          <span className={`text-[11px] font-semibold uppercase tracking-[0.06em] ${sec.text}`}>{sec.label}</span>
+                                        </div>
+                                        <div className="space-y-2.5 pl-4">
+                                          {items.map((item, ii) => (
+                                            <p key={ii} className="text-[13px] text-[#1d1d1f] leading-[1.55] relative pl-3.5 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-[5px] before:h-[5px] before:rounded-full before:bg-[rgba(0,0,0,0.15)]">
+                                              {item}
+                                            </p>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  )
+                                })}
                               </div>
-                            )
-                          })}
-                        </div>
-                      ) : (
-                        <p className="text-text-secondary text-sm">No summary available for this comparison.</p>
-                      )}
+                            )}
+
+                            {actions && (
+                              <div className="rounded-2xl border border-[rgba(0,0,0,0.06)] bg-[#f5f5f7] px-5 py-4">
+                                <div className="flex items-center gap-2 mb-3">
+                                  <CheckCircle2 className="w-3.5 h-3.5 text-[#248a3d]" />
+                                  <span className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#248a3d]">Recommended Actions</span>
+                                </div>
+                                <div className="space-y-2.5 pl-4">
+                                  {splitBullets(actions).map((item, ii) => (
+                                    <p key={ii} className="text-[13px] text-[#1d1d1f] leading-[1.55] relative pl-3.5 before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-[5px] before:h-[5px] before:rounded-full before:bg-[rgba(0,0,0,0.15)]">
+                                      {item}
+                                    </p>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+
+                            {!exec && !sections.some(sec => s[sec.key]) && !actions && (
+                              <p className="text-[#86868b] text-sm">No summary available for this comparison.</p>
+                            )}
+                          </div>
+                        )
+                      })()}
                     </motion.div>
                   )}
 
