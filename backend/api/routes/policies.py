@@ -995,8 +995,9 @@ async def analyze_policy_impact(payer: str, medication: str, request: ImpactRequ
         if not new_policy:
             raise HTTPException(status_code=404, detail=f"Version {new_ver} not found")
 
-        old_hash = old_policy.content_hash or ""
-        new_hash = new_policy.content_hash or ""
+        import hashlib
+        old_hash = old_policy.source_document_hash or hashlib.sha256(old_policy.model_dump_json().encode()).hexdigest()[:16]
+        new_hash = new_policy.source_document_hash or hashlib.sha256(new_policy.model_dump_json().encode()).hexdigest()[:16]
 
         from backend.storage.database import get_db
         from backend.storage.models import PolicyImpactCacheModel

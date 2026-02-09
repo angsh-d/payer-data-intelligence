@@ -256,10 +256,10 @@ export default function PolicyIntelligence() {
   }, [selectedPolicy, selectedOld, selectedNew, impactResult, impactLoading])
 
   useEffect(() => {
-    if (activeTab === 'impact' && !impactResult && !impactLoading) {
+    if (activeTab === 'impact' && !impactResult && !impactLoading && !impactError) {
       fetchImpact()
     }
-  }, [activeTab, fetchImpact, impactResult, impactLoading])
+  }, [activeTab, fetchImpact, impactResult, impactLoading, impactError])
 
   const diffData = diffResult?.diff
   const rawChanges = diffData?.changes || diffData?.criterion_changes || []
