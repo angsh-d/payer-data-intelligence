@@ -639,7 +639,7 @@ async def diff_policy_with_summary(payer: str, medication: str, request: DiffSum
 
         # Cache miss — compute diff + LLM summary
         differ = PolicyDiffer()
-        diff_result = differ.diff(old_policy, new_policy)
+        diff_result = await differ.diff(old_policy, new_policy)
         diff_dict = diff_result.model_dump()
 
         prompt_loader = get_prompt_loader()
@@ -946,7 +946,7 @@ async def diff_policy_versions(payer: str, medication: str, request: DiffRequest
             raise HTTPException(status_code=404, detail=f"Version {request.new_version} not found")
 
         differ = PolicyDiffer()
-        result = differ.diff(old_policy, new_policy)
+        result = await differ.diff(old_policy, new_policy)
         return result.model_dump()
     except HTTPException:
         raise
@@ -1007,7 +1007,7 @@ async def analyze_policy_impact(payer: str, medication: str, request: ImpactRequ
 
         # Diff
         differ = PolicyDiffer()
-        diff = differ.diff(old_policy, new_policy)
+        diff = await differ.diff(old_policy, new_policy)
 
         # Load patient JSON files from data/patients/
         case_states = []

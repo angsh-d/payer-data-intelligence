@@ -1,0 +1,32 @@
+You are a clinical policy analyst comparing two versions of the same insurance policy document.
+
+Two versions of the same policy were independently digitized, producing structured criteria with auto-generated IDs. Because the IDs were generated independently, the SAME real-world criterion may have DIFFERENT IDs across versions.
+
+Your job: produce a mapping that pairs each criterion in the OLD version with its semantic equivalent in the NEW version (if one exists), regardless of ID differences.
+
+## OLD VERSION CRITERIA
+{old_criteria}
+
+## NEW VERSION CRITERIA
+{new_criteria}
+
+## INSTRUCTIONS
+1. For each old criterion, find the new criterion that represents the SAME clinical requirement, even if the ID or wording differs slightly.
+2. Match by clinical meaning: same diagnosis, same lab test, same medication restriction, same dosing rule, etc.
+3. A criterion is truly ADDED only if it represents a genuinely new clinical requirement not present in the old version.
+4. A criterion is truly REMOVED only if its clinical requirement no longer exists in the new version.
+5. Do NOT match criteria that represent fundamentally different clinical concepts, even if they share a similar category.
+
+## OUTPUT FORMAT
+Return a JSON object with exactly these keys:
+{{
+  "matched_pairs": [
+    {{"old_id": "OLD_CRITERION_ID", "new_id": "NEW_CRITERION_ID", "confidence": "high|medium", "reasoning": "Brief explanation of why these are the same criterion"}}
+  ],
+  "truly_added": ["NEW_ID_1", "NEW_ID_2"],
+  "truly_removed": ["OLD_ID_1", "OLD_ID_2"]
+}}
+
+Every old criterion ID must appear exactly once: either in a matched_pair or in truly_removed.
+Every new criterion ID must appear exactly once: either in a matched_pair or in truly_added.
+Return ONLY the JSON object, no other text.

@@ -1,7 +1,6 @@
 """Policy Differ — compares two DigitizedPolicy versions."""
 
-import re
-from difflib import SequenceMatcher
+import json
 from enum import Enum
 from typing import Dict, List, Optional, Tuple
 from pydantic import BaseModel, Field
@@ -74,11 +73,11 @@ class PolicyDiffResult(BaseModel):
 class PolicyDiffer:
     """Compares two DigitizedPolicy versions and produces a structured diff."""
 
-    def diff(self, old: DigitizedPolicy, new: DigitizedPolicy) -> PolicyDiffResult:
-        """Diff two policy versions."""
+    async def diff(self, old: DigitizedPolicy, new: DigitizedPolicy) -> PolicyDiffResult:
+        """Diff two policy versions using LLM-powered semantic matching."""
         from datetime import datetime, timezone
 
-        criterion_changes = self._diff_criteria(old.atomic_criteria, new.atomic_criteria)
+        criterion_changes = await self._diff_criteria(old.atomic_criteria, new.atomic_criteria)
         indication_changes = self._diff_indications(old.indications, new.indications)
         step_therapy_changes = self._diff_step_therapy(old.step_therapy_requirements, new.step_therapy_requirements)
         exclusion_changes = self._diff_exclusions(old.exclusions, new.exclusions)
@@ -131,74 +130,107 @@ class PolicyDiffer:
             criterion_changes=criterion_changes,
         )
 
-    @staticmethod
-    def _normalize_id(text: str) -> str:
-        """Normalize a criterion ID or name for fuzzy comparison."""
-        return re.sub(r'[^a-z0-9]', '', text.lower())
-
-    @staticmethod
-    def _criterion_signature(c: AtomicCriterion) -> str:
-        """Build a comparable signature from a criterion's semantic content."""
-        parts = [
-            c.name or '',
-            c.description or '',
-            c.criterion_type or '',
-            c.category or '',
-        ]
-        return re.sub(r'[^a-z0-9 ]', '', ' '.join(parts).lower()).strip()
-
-    def _match_unmatched_criteria(
+    async def _llm_match_criteria(
         self,
         unmatched_old: Dict[str, AtomicCriterion],
         unmatched_new: Dict[str, AtomicCriterion],
     ) -> Tuple[List[Tuple[str, str]], List[str], List[str]]:
-        """Match unmatched criteria by semantic similarity (name, description, type).
+        """Use LLM to semantically match criteria with different IDs.
 
         Returns (matched_pairs, truly_added_ids, truly_removed_ids).
         """
         if not unmatched_old or not unmatched_new:
             return [], list(unmatched_new.keys()), list(unmatched_old.keys())
 
-        old_sigs = {oid: self._criterion_signature(oc) for oid, oc in unmatched_old.items()}
-        new_sigs = {nid: self._criterion_signature(nc) for nid, nc in unmatched_new.items()}
+        from backend.reasoning.llm_gateway import get_llm_gateway
+        from backend.reasoning.prompt_loader import get_prompt_loader
+        from backend.models.enums import TaskCategory
 
-        matched: List[Tuple[str, str]] = []
-        used_old: set = set()
-        used_new: set = set()
+        def _criterion_summary(c: AtomicCriterion) -> dict:
+            return {
+                "id": c.criterion_id if hasattr(c, 'criterion_id') else '',
+                "name": c.name,
+                "description": c.description or '',
+                "criterion_type": c.criterion_type or '',
+                "category": c.category or '',
+                "policy_text": c.policy_text or '',
+                "is_required": c.is_required,
+            }
 
-        scored: List[Tuple[float, str, str]] = []
-        for nid, nsig in new_sigs.items():
-            for oid, osig in old_sigs.items():
-                name_ratio = SequenceMatcher(None, self._normalize_id(unmatched_old[oid].name), self._normalize_id(unmatched_new[nid].name)).ratio()
-                sig_ratio = SequenceMatcher(None, osig, nsig).ratio()
-                combined = 0.5 * name_ratio + 0.5 * sig_ratio
-                scored.append((combined, oid, nid))
+        old_summaries = {oid: _criterion_summary(oc) for oid, oc in unmatched_old.items()}
+        new_summaries = {nid: _criterion_summary(nc) for nid, nc in unmatched_new.items()}
 
-        scored.sort(key=lambda x: -x[0])
+        try:
+            prompt_loader = get_prompt_loader()
+            prompt = prompt_loader.load(
+                "policy_digitalization/criteria_matching.txt",
+                {
+                    "old_criteria": json.dumps(old_summaries, indent=2),
+                    "new_criteria": json.dumps(new_summaries, indent=2),
+                },
+            )
 
-        for score, oid, nid in scored:
-            if oid in used_old or nid in used_new:
-                continue
-            if score >= 0.55:
-                matched.append((oid, nid))
-                used_old.add(oid)
-                used_new.add(nid)
-                logger.info(
-                    "Fuzzy-matched criteria",
-                    old_id=oid, new_id=nid,
-                    old_name=unmatched_old[oid].name,
-                    new_name=unmatched_new[nid].name,
-                    score=round(score, 3),
-                )
+            gateway = get_llm_gateway()
+            llm_result = await gateway.generate(
+                task_category=TaskCategory.POLICY_REASONING,
+                prompt=prompt,
+                temperature=0.1,
+                response_format="json",
+            )
 
-        truly_added = [nid for nid in unmatched_new if nid not in used_new]
-        truly_removed = [oid for oid in unmatched_old if oid not in used_old]
-        return matched, truly_added, truly_removed
+            raw = llm_result.get("response")
+            if raw is None and "matched_pairs" in llm_result:
+                mapping = llm_result
+            elif isinstance(raw, str):
+                clean = raw.strip()
+                if clean.startswith("```"):
+                    clean = clean.split("\n", 1)[-1].rsplit("```", 1)[0].strip()
+                mapping = json.loads(clean)
+            elif isinstance(raw, dict):
+                mapping = raw
+            else:
+                mapping = {}
+            logger.info("LLM criteria mapping parsed", matched_count=len(mapping.get("matched_pairs", [])), added_count=len(mapping.get("truly_added", [])), removed_count=len(mapping.get("truly_removed", [])))
 
-    def _diff_criteria(
+            matched: List[Tuple[str, str]] = []
+            used_old: set = set()
+            used_new: set = set()
+
+            for pair in mapping.get("matched_pairs", []):
+                oid = pair.get("old_id", "")
+                nid = pair.get("new_id", "")
+                if oid in unmatched_old and nid in unmatched_new and oid not in used_old and nid not in used_new:
+                    matched.append((oid, nid))
+                    used_old.add(oid)
+                    used_new.add(nid)
+                    logger.info(
+                        "LLM-matched criteria",
+                        old_id=oid, new_id=nid,
+                        old_name=unmatched_old[oid].name,
+                        new_name=unmatched_new[nid].name,
+                        confidence=pair.get("confidence", "?"),
+                        reasoning=pair.get("reasoning", ""),
+                    )
+
+            truly_added = [nid for nid in unmatched_new if nid not in used_new]
+            truly_removed = [oid for oid in unmatched_old if oid not in used_old]
+
+            logger.info(
+                "LLM criteria matching complete",
+                matched=len(matched),
+                truly_added=len(truly_added),
+                truly_removed=len(truly_removed),
+            )
+            return matched, truly_added, truly_removed
+
+        except Exception as e:
+            logger.error("LLM criteria matching failed, treating all as added/removed", error=str(e))
+            return [], list(unmatched_new.keys()), list(unmatched_old.keys())
+
+    async def _diff_criteria(
         self, old_criteria: Dict[str, AtomicCriterion], new_criteria: Dict[str, AtomicCriterion]
     ) -> List[CriterionChange]:
-        """Diff atomic criteria between two versions with fuzzy ID matching."""
+        """Diff atomic criteria between two versions using LLM-powered semantic matching."""
         changes = []
         old_ids = set(old_criteria.keys())
         new_ids = set(new_criteria.keys())
@@ -207,7 +239,7 @@ class PolicyDiffer:
         unmatched_old = {cid: old_criteria[cid] for cid in old_ids - new_ids}
         unmatched_new = {cid: new_criteria[cid] for cid in new_ids - old_ids}
 
-        fuzzy_pairs, truly_added, truly_removed = self._match_unmatched_criteria(unmatched_old, unmatched_new)
+        llm_pairs, truly_added, truly_removed = await self._llm_match_criteria(unmatched_old, unmatched_new)
 
         for cid in truly_added:
             c = new_criteria[cid]
@@ -232,7 +264,7 @@ class PolicyDiffer:
                 human_summary=f"Criterion removed: {c.name}",
             ))
 
-        all_pairs: List[Tuple[str, str]] = [(cid, cid) for cid in exact_match_ids] + fuzzy_pairs
+        all_pairs: List[Tuple[str, str]] = [(cid, cid) for cid in exact_match_ids] + llm_pairs
 
         for old_id, new_id in all_pairs:
             old_c = old_criteria[old_id]
