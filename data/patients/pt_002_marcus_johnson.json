@@ -1,0 +1,58 @@
+{
+  "patient_id": "PT-002",
+  "first_name": "Marcus",
+  "last_name": "Johnson",
+  "demographics": {
+    "first_name": "Marcus",
+    "last_name": "Johnson",
+    "date_of_birth": "2023-08-22",
+    "age": 2,
+    "gender": "male",
+    "weight_kg": 11.2
+  },
+  "diagnosis": {
+    "primary": "Spinal Muscular Atrophy Type I",
+    "icd10": "G12.0",
+    "onset_date": "2023-11-01",
+    "genetic_confirmation": true,
+    "smn1_deletion": true,
+    "smn2_copy_number": 2
+  },
+  "clinical_status": {
+    "ambulatory": false,
+    "ventilator_dependent": true,
+    "permanent_ventilator": false,
+    "motor_milestone_score": 15,
+    "baseline_motor_score": 12,
+    "clinical_improvement": false,
+    "symptomatic": true,
+    "prior_gene_therapy": true,
+    "concurrent_risdiplam": false,
+    "enrolled_in_clinical_trial": false
+  },
+  "treatment_history": {
+    "current_medication": "nusinersen",
+    "treatment_start_date": "2024-03-01",
+    "doses_received": 4,
+    "last_dose_date": "2025-07-15",
+    "prescriber_specialty": "pediatric_neurology",
+    "prior_therapies": ["onasemnogene_abeparvovec"]
+  },
+  "insurance": {
+    "primary": {
+      "payer_name": "bcbs",
+      "plan_type": "HMO",
+      "member_id": "BCB-2024-55102",
+      "group_number": "GRP-3391"
+    }
+  },
+  "medication_request": {
+    "medication_name": "nusinersen",
+    "brand_name": "spinraza",
+    "route": "intrathecal",
+    "request_type": "continuation",
+    "prior_authorization_status": "approved",
+    "approval_date": "2024-09-15",
+    "expiration_date": "2025-09-15"
+  }
+}

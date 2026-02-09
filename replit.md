@@ -84,6 +84,8 @@ python -m uvicorn backend.main:app --host 0.0.0.0 --port 5000
 - Premium UI quality matching Apple product standards
 
 ## Recent Changes
+- 2026-02-09: Added Patient Impact Analysis tab in Policy Intelligence — evaluates how policy version changes affect active BV/PA cases using LLM-powered coverage assessment against both versions; shows stats (active cases, impacted, verdict flips, at risk), action items, and expandable per-patient cards with criteria details
+- 2026-02-09: Created 5 sample patient records in data/patients/ for BCBS/Spinraza with varied clinical profiles (SMA Types I-III, presymptomatic, concurrent therapies, ventilator dependence)
 - 2026-02-09: Added top navbar with Saama logo (from saama.com SVG), vertical separator, and "Payer Intelligence Platform" title; visible on all pages
 - 2026-02-09: Added Landing page at "/" with HERO section, four core experiences grid, How It Works steps, and feature highlights; Command Center moved to "/dashboard"
 - 2026-02-09: Fixed LLM criteria matching — Claude returns parsed JSON directly (not wrapped in "response" key), differ now handles both formats; semantic matching correctly pairs criteria like DOSE_LIMIT↔DOSING_LIMIT, NO_GENE_THERAPY↔NO_PRIOR_GENE_THERAPY

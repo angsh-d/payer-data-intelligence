@@ -1,0 +1,56 @@
+{
+  "patient_id": "PT-003",
+  "first_name": "Sofia",
+  "last_name": "Rodriguez",
+  "demographics": {
+    "first_name": "Sofia",
+    "last_name": "Rodriguez",
+    "date_of_birth": "2024-01-10",
+    "age": 1,
+    "gender": "female",
+    "weight_kg": 8.7
+  },
+  "diagnosis": {
+    "primary": "Spinal Muscular Atrophy - Presymptomatic",
+    "icd10": "G12.1",
+    "onset_date": "2024-02-15",
+    "genetic_confirmation": true,
+    "smn1_deletion": true,
+    "smn2_copy_number": 2
+  },
+  "clinical_status": {
+    "ambulatory": false,
+    "ventilator_dependent": false,
+    "permanent_ventilator": false,
+    "motor_milestone_score": null,
+    "baseline_motor_score": null,
+    "clinical_improvement": null,
+    "symptomatic": false,
+    "prior_gene_therapy": false,
+    "concurrent_risdiplam": false,
+    "enrolled_in_clinical_trial": false
+  },
+  "treatment_history": {
+    "current_medication": "nusinersen",
+    "treatment_start_date": "2024-06-01",
+    "doses_received": 3,
+    "last_dose_date": "2025-06-01",
+    "prescriber_specialty": "pediatric_neurology"
+  },
+  "insurance": {
+    "primary": {
+      "payer_name": "bcbs",
+      "plan_type": "PPO",
+      "member_id": "BCB-2024-67234",
+      "group_number": "GRP-5518"
+    }
+  },
+  "medication_request": {
+    "medication_name": "nusinersen",
+    "brand_name": "spinraza",
+    "route": "intrathecal",
+    "request_type": "initial",
+    "prior_authorization_status": "pending",
+    "submission_date": "2025-08-01"
+  }
+}

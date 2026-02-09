@@ -16,6 +16,12 @@ import {
   Sparkles,
   List,
   Upload,
+  Users,
+  AlertTriangle,
+  TrendingDown,
+  TrendingUp,
+  Shield,
+  CircleDot,
 } from 'lucide-react'
 import { api, type PolicyBankItem, type PolicyVersion, type DiffSummaryResponse } from '../lib/api'
 import { getDrugInfo, getPayerInfo } from '../lib/drugInfo'
@@ -54,7 +60,7 @@ function Spinner({ size = 20 }: { size?: number }) {
   )
 }
 
-type DiffTab = 'summary' | 'changes'
+type DiffTab = 'summary' | 'changes' | 'impact'
 
 function SegmentedControl({ tabs, active, onChange }: {
   tabs: { key: DiffTab; label: string; icon: typeof Sparkles }[]
@@ -155,6 +161,11 @@ export default function PolicyIntelligence() {
   const [activeTab, setActiveTab] = useState<DiffTab>('summary')
   const [expandedChanges, setExpandedChanges] = useState<Set<number>>(new Set())
 
+  const [impactResult, setImpactResult] = useState<any>(null)
+  const [impactLoading, setImpactLoading] = useState(false)
+  const [impactError, setImpactError] = useState<string | null>(null)
+  const [expandedPatients, setExpandedPatients] = useState<Set<string>>(new Set())
+
   useEffect(() => {
     api.getPolicyBank()
       .then(setPolicies)
@@ -206,6 +217,9 @@ export default function PolicyIntelligence() {
     setDiffLoading(true)
     setActiveTab('summary')
     setExpandedChanges(new Set())
+    setImpactResult(null)
+    setImpactError(null)
+    setExpandedPatients(new Set())
     try {
       const result = await api.getDiffSummary(
         selectedPolicy.payer,
@@ -220,6 +234,32 @@ export default function PolicyIntelligence() {
       setDiffLoading(false)
     }
   }, [selectedPolicy, selectedOld, selectedNew])
+
+  const fetchImpact = useCallback(async () => {
+    if (!selectedPolicy || !selectedOld || !selectedNew) return
+    if (impactResult || impactLoading) return
+    setImpactLoading(true)
+    setImpactError(null)
+    try {
+      const result = await api.getImpact(
+        selectedPolicy.payer,
+        selectedPolicy.medication,
+        selectedOld,
+        selectedNew
+      )
+      setImpactResult(result)
+    } catch (err: any) {
+      setImpactError(err?.message || 'Failed to load impact analysis')
+    } finally {
+      setImpactLoading(false)
+    }
+  }, [selectedPolicy, selectedOld, selectedNew, impactResult, impactLoading])
+
+  useEffect(() => {
+    if (activeTab === 'impact' && !impactResult && !impactLoading) {
+      fetchImpact()
+    }
+  }, [activeTab, fetchImpact, impactResult, impactLoading])
 
   const diffData = diffResult?.diff
   const rawChanges = diffData?.changes || diffData?.criterion_changes || []
@@ -517,6 +557,7 @@ export default function PolicyIntelligence() {
                     tabs={[
                       { key: 'summary', label: 'Summary', icon: Sparkles },
                       { key: 'changes', label: 'Changes', icon: List },
+                      { key: 'impact', label: 'Patient Impact', icon: Users },
                     ]}
                     active={activeTab}
                     onChange={setActiveTab}
@@ -620,6 +661,252 @@ export default function PolicyIntelligence() {
                           </div>
                         )
                       })()}
+                    </motion.div>
+                  )}
+
+                  {activeTab === 'impact' && (
+                    <motion.div
+                      key="impact"
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -12 }}
+                      transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+                      className="space-y-5"
+                    >
+                      {impactLoading ? (
+                        <div className="rounded-2xl border border-border-primary bg-surface-secondary/60 backdrop-blur-xl p-8">
+                          <div className="flex flex-col items-center justify-center py-16 gap-4">
+                            <Spinner size={28} />
+                            <div className="text-center">
+                              <p className="text-text-secondary text-sm font-medium">Analyzing patient impact...</p>
+                              <p className="text-text-quaternary text-xs mt-1">Evaluating BV/PA cases against policy changes</p>
+                            </div>
+                          </div>
+                        </div>
+                      ) : impactError ? (
+                        <div className="rounded-2xl border border-accent-red/20 bg-accent-red/5 p-8">
+                          <div className="flex flex-col items-center justify-center py-8 gap-3">
+                            <AlertTriangle className="w-10 h-10 text-accent-red" />
+                            <p className="text-text-secondary text-sm">{impactError}</p>
+                            <button
+                              onClick={() => { setImpactResult(null); setImpactError(null); fetchImpact(); }}
+                              className="text-xs text-accent-blue hover:underline mt-2"
+                            >
+                              Retry Analysis
+                            </button>
+                          </div>
+                        </div>
+                      ) : impactResult ? (
+                        <>
+                          <div className="grid grid-cols-4 gap-3">
+                            {[
+                              { label: 'Active Cases', value: impactResult.total_active_cases, icon: Users, color: 'text-accent-blue', bg: 'bg-accent-blue/8' },
+                              { label: 'Impacted', value: impactResult.impacted_cases, icon: AlertTriangle, color: 'text-accent-amber', bg: 'bg-accent-amber/8' },
+                              { label: 'Verdict Flips', value: impactResult.verdict_flips, icon: TrendingDown, color: 'text-accent-red', bg: 'bg-accent-red/8' },
+                              { label: 'At Risk', value: impactResult.at_risk_cases, icon: Shield, color: 'text-accent-purple', bg: 'bg-accent-purple/8' },
+                            ].map((stat) => (
+                              <div key={stat.label} className="rounded-2xl border border-border-primary bg-surface-secondary/60 backdrop-blur-xl p-4">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <div className={`flex items-center justify-center w-7 h-7 rounded-lg ${stat.bg}`}>
+                                    <stat.icon className={`w-3.5 h-3.5 ${stat.color}`} />
+                                  </div>
+                                  <span className="text-xs text-text-tertiary">{stat.label}</span>
+                                </div>
+                                <span className="text-2xl font-semibold text-text-primary">{stat.value}</span>
+                              </div>
+                            ))}
+                          </div>
+
+                          {impactResult.action_items?.length > 0 && (
+                            <div className="rounded-2xl border border-accent-amber/20 bg-accent-amber/5 p-5">
+                              <h4 className="text-xs font-medium text-accent-amber uppercase tracking-wide mb-3">Action Items</h4>
+                              <ul className="space-y-2">
+                                {impactResult.action_items.map((item: string, i: number) => (
+                                  <li key={i} className="flex items-start gap-2 text-sm text-text-primary">
+                                    <CircleDot className="w-3.5 h-3.5 text-accent-amber shrink-0 mt-0.5" />
+                                    {item}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          {impactResult.patient_impacts?.length > 0 ? (
+                            <div className="space-y-3">
+                              <h4 className="text-xs font-medium text-text-secondary uppercase tracking-wide">Individual Patient Impact</h4>
+                              {impactResult.patient_impacts.map((pt: any) => {
+                                const isExpanded = expandedPatients.has(pt.patient_id)
+                                const riskColors: Record<string, { badge: string; dot: string }> = {
+                                  verdict_flip: { badge: 'bg-accent-red/10 text-accent-red border-accent-red/20', dot: 'bg-accent-red' },
+                                  at_risk: { badge: 'bg-accent-amber/10 text-accent-amber border-accent-amber/20', dot: 'bg-accent-amber' },
+                                  improved: { badge: 'bg-accent-green/10 text-accent-green border-accent-green/20', dot: 'bg-accent-green' },
+                                  no_impact: { badge: 'bg-surface-tertiary text-text-tertiary border-border-primary', dot: 'bg-text-quaternary' },
+                                }
+                                const rc = riskColors[pt.risk_level] || riskColors.no_impact
+                                const riskLabels: Record<string, string> = {
+                                  verdict_flip: 'Verdict Flip',
+                                  at_risk: 'At Risk',
+                                  improved: 'Improved',
+                                  no_impact: 'No Impact',
+                                }
+
+                                const likelihoodDelta = pt.projected_likelihood - pt.current_likelihood
+                                const statusChanged = pt.current_status !== pt.projected_status
+
+                                return (
+                                  <motion.div
+                                    key={pt.patient_id}
+                                    layout
+                                    className="rounded-2xl border border-border-primary bg-surface-secondary/60 backdrop-blur-xl overflow-hidden"
+                                  >
+                                    <button
+                                      onClick={() => {
+                                        const next = new Set(expandedPatients)
+                                        isExpanded ? next.delete(pt.patient_id) : next.add(pt.patient_id)
+                                        setExpandedPatients(next)
+                                      }}
+                                      className="w-full flex items-center gap-4 p-4 text-left hover:bg-surface-hover/30 transition-colors duration-200"
+                                    >
+                                      <div className="flex items-center justify-center w-9 h-9 rounded-full bg-surface-tertiary text-text-secondary text-xs font-semibold shrink-0">
+                                        {(pt.patient_name || 'U')[0].toUpperCase()}
+                                      </div>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="flex items-center gap-2">
+                                          <span className="text-sm font-medium text-text-primary truncate">{pt.patient_name || pt.patient_id}</span>
+                                          <span className="text-xs text-text-quaternary">{pt.case_id || pt.patient_id}</span>
+                                        </div>
+                                        <div className="flex items-center gap-3 mt-1">
+                                          <span className="text-xs text-text-tertiary capitalize">{pt.current_status?.replace(/_/g, ' ')}</span>
+                                          {statusChanged && (
+                                            <>
+                                              <ArrowRight className="w-3 h-3 text-text-quaternary" />
+                                              <span className={`text-xs font-medium capitalize ${pt.projected_status?.includes('not') ? 'text-accent-red' : 'text-accent-green'}`}>
+                                                {pt.projected_status?.replace(/_/g, ' ')}
+                                              </span>
+                                            </>
+                                          )}
+                                        </div>
+                                      </div>
+                                      <div className="flex items-center gap-3 shrink-0">
+                                        {likelihoodDelta !== 0 && (
+                                          <div className={`flex items-center gap-1 text-xs font-medium ${likelihoodDelta < 0 ? 'text-accent-red' : 'text-accent-green'}`}>
+                                            {likelihoodDelta < 0 ? <TrendingDown className="w-3.5 h-3.5" /> : <TrendingUp className="w-3.5 h-3.5" />}
+                                            {likelihoodDelta > 0 ? '+' : ''}{(likelihoodDelta * 100).toFixed(0)}%
+                                          </div>
+                                        )}
+                                        <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium border ${rc.badge}`}>
+                                          <span className={`w-1.5 h-1.5 rounded-full ${rc.dot}`} />
+                                          {riskLabels[pt.risk_level] || pt.risk_level}
+                                        </span>
+                                        <motion.div
+                                          animate={{ rotate: isExpanded ? 90 : 0 }}
+                                          transition={{ duration: 0.2 }}
+                                        >
+                                          <ChevronRight className="w-4 h-4 text-text-quaternary" />
+                                        </motion.div>
+                                      </div>
+                                    </button>
+
+                                    <AnimatePresence>
+                                      {isExpanded && (
+                                        <motion.div
+                                          initial={{ height: 0, opacity: 0 }}
+                                          animate={{ height: 'auto', opacity: 1 }}
+                                          exit={{ height: 0, opacity: 0 }}
+                                          transition={{ duration: 0.25 }}
+                                          className="overflow-hidden"
+                                        >
+                                          <div className="px-4 pb-4 border-t border-border-secondary pt-4 space-y-4">
+                                            <div className="grid grid-cols-2 gap-4">
+                                              <div className="rounded-xl bg-surface-tertiary/50 p-3">
+                                                <span className="text-[11px] text-text-tertiary uppercase tracking-wide">Current Approval</span>
+                                                <div className="flex items-center gap-2 mt-1">
+                                                  <span className="text-lg font-semibold text-text-primary">{(pt.current_likelihood * 100).toFixed(0)}%</span>
+                                                  <span className="text-xs text-text-secondary capitalize">{pt.current_status?.replace(/_/g, ' ')}</span>
+                                                </div>
+                                              </div>
+                                              <div className="rounded-xl bg-surface-tertiary/50 p-3">
+                                                <span className="text-[11px] text-text-tertiary uppercase tracking-wide">Projected Approval</span>
+                                                <div className="flex items-center gap-2 mt-1">
+                                                  <span className={`text-lg font-semibold ${likelihoodDelta < 0 ? 'text-accent-red' : likelihoodDelta > 0 ? 'text-accent-green' : 'text-text-primary'}`}>
+                                                    {(pt.projected_likelihood * 100).toFixed(0)}%
+                                                  </span>
+                                                  <span className="text-xs text-text-secondary capitalize">{pt.projected_status?.replace(/_/g, ' ')}</span>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                            {pt.recommended_action && pt.recommended_action !== 'no action needed' && (
+                                              <div className="rounded-xl bg-accent-blue/5 border border-accent-blue/15 p-3">
+                                                <span className="text-[11px] text-accent-blue uppercase tracking-wide font-medium">Recommended Action</span>
+                                                <p className="text-sm text-text-primary mt-1">{pt.recommended_action}</p>
+                                              </div>
+                                            )}
+
+                                            {pt.criteria_detail?.length > 0 && (
+                                              <div>
+                                                <span className="text-[11px] text-text-tertiary uppercase tracking-wide">Affected Criteria</span>
+                                                <div className="mt-2 space-y-2">
+                                                  {pt.criteria_detail.map((cd: any, i: number) => (
+                                                    <div key={i} className="flex items-center gap-3 rounded-xl bg-surface-primary/80 border border-border-secondary p-3">
+                                                      <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${
+                                                        cd.change === 'verdict_flip' ? 'bg-accent-red/10' :
+                                                        cd.change === 'added' ? 'bg-accent-green/10' :
+                                                        cd.change === 'removed' ? 'bg-accent-red/10' :
+                                                        'bg-accent-amber/10'
+                                                      }`}>
+                                                        {cd.change === 'verdict_flip' ? <TrendingDown className="w-3.5 h-3.5 text-accent-red" /> :
+                                                         cd.change === 'added' ? <Plus className="w-3.5 h-3.5 text-accent-green" /> :
+                                                         cd.change === 'removed' ? <Minus className="w-3.5 h-3.5 text-accent-red" /> :
+                                                         <RefreshCw className="w-3.5 h-3.5 text-accent-amber" />}
+                                                      </div>
+                                                      <div className="flex-1 min-w-0">
+                                                        <span className="text-[13px] font-medium text-text-primary">{cd.criterion_name || cd.criterion_id}</span>
+                                                        <div className="flex items-center gap-3 mt-0.5">
+                                                          {cd.old_met !== null && cd.old_met !== undefined && (
+                                                            <span className={`text-xs ${cd.old_met ? 'text-accent-green' : 'text-accent-red'}`}>
+                                                              Was: {cd.old_met ? 'Met' : 'Not Met'}
+                                                            </span>
+                                                          )}
+                                                          {cd.new_met !== null && cd.new_met !== undefined && (
+                                                            <span className={`text-xs ${cd.new_met ? 'text-accent-green' : 'text-accent-red'}`}>
+                                                              Now: {cd.new_met ? 'Met' : 'Not Met'}
+                                                            </span>
+                                                          )}
+                                                        </div>
+                                                      </div>
+                                                      <span className={`text-[11px] px-2 py-0.5 rounded-md font-medium capitalize ${
+                                                        cd.change === 'verdict_flip' ? 'bg-accent-red/10 text-accent-red' :
+                                                        cd.change === 'added' ? 'bg-accent-green/10 text-accent-green' :
+                                                        cd.change === 'removed' ? 'bg-accent-red/10 text-accent-red' :
+                                                        'bg-accent-amber/10 text-accent-amber'
+                                                      }`}>
+                                                        {cd.change?.replace(/_/g, ' ')}
+                                                      </span>
+                                                    </div>
+                                                  ))}
+                                                </div>
+                                              </div>
+                                            )}
+                                          </div>
+                                        </motion.div>
+                                      )}
+                                    </AnimatePresence>
+                                  </motion.div>
+                                )
+                              })}
+                            </div>
+                          ) : (
+                            <div className="rounded-2xl border border-border-primary bg-surface-secondary/60 backdrop-blur-xl p-8">
+                              <div className="flex flex-col items-center justify-center py-8 gap-3">
+                                <Users className="w-10 h-10 text-text-quaternary" />
+                                <p className="text-text-secondary text-sm">No active BV/PA cases found for this policy</p>
+                                <p className="text-text-quaternary text-xs">Add patient records to see impact analysis</p>
+                              </div>
+                            </div>
+                          )}
+                        </>
+                      ) : null}
                     </motion.div>
                   )}
 

@@ -1,0 +1,58 @@
+{
+  "patient_id": "PT-004",
+  "first_name": "James",
+  "last_name": "O'Connor",
+  "demographics": {
+    "first_name": "James",
+    "last_name": "O'Connor",
+    "date_of_birth": "2017-11-03",
+    "age": 8,
+    "gender": "male",
+    "weight_kg": 24.1
+  },
+  "diagnosis": {
+    "primary": "Spinal Muscular Atrophy Type III",
+    "icd10": "G12.1",
+    "onset_date": "2019-08-01",
+    "genetic_confirmation": true,
+    "smn1_deletion": true,
+    "smn2_copy_number": 4
+  },
+  "clinical_status": {
+    "ambulatory": true,
+    "ventilator_dependent": false,
+    "permanent_ventilator": false,
+    "motor_milestone_score": 58,
+    "baseline_motor_score": 55,
+    "clinical_improvement": true,
+    "symptomatic": true,
+    "prior_gene_therapy": false,
+    "concurrent_risdiplam": true,
+    "enrolled_in_clinical_trial": false
+  },
+  "treatment_history": {
+    "current_medication": "nusinersen",
+    "treatment_start_date": "2020-05-01",
+    "doses_received": 12,
+    "last_dose_date": "2025-08-20",
+    "prescriber_specialty": "neurology",
+    "concurrent_medications": ["risdiplam"]
+  },
+  "insurance": {
+    "primary": {
+      "payer_name": "bcbs",
+      "plan_type": "EPO",
+      "member_id": "BCB-2020-33457",
+      "group_number": "GRP-9902"
+    }
+  },
+  "medication_request": {
+    "medication_name": "nusinersen",
+    "brand_name": "spinraza",
+    "route": "intrathecal",
+    "request_type": "continuation",
+    "prior_authorization_status": "approved",
+    "approval_date": "2025-02-01",
+    "expiration_date": "2026-02-01"
+  }
+}
