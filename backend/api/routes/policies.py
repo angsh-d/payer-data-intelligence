@@ -25,7 +25,6 @@ logger = get_logger(__name__)
 MAX_CACHE_SIZE = 64
 
 _diff_summary_cache: dict[tuple[str, str, str, str], dict] = {}
-_impact_cache: dict[tuple[str, str, str, str], dict] = {}
 
 
 def _bounded_cache_set(cache: dict, key: tuple, value: dict) -> None:
@@ -441,14 +440,10 @@ async def upload_policy(
         for k in list(_diff_summary_cache):
             if k[0] == payer_safe and k[1] == med_safe:
                 del _diff_summary_cache[k]
-        for k in list(_impact_cache):
-            if k[0] == payer_safe and k[1] == med_safe:
-                del _impact_cache[k]
-
-        # Invalidate L2 DB caches (diff + QA)
+        # Invalidate L2 DB caches (diff + impact + QA)
         try:
             from sqlalchemy import delete
-            from backend.storage.models import PolicyDiffCacheModel, PolicyQACacheModel
+            from backend.storage.models import PolicyDiffCacheModel, PolicyQACacheModel, PolicyImpactCacheModel
 
             async with get_db() as session:
                 await session.execute(
@@ -456,7 +451,11 @@ async def upload_policy(
                     .where(PolicyDiffCacheModel.payer_name == payer_safe)
                     .where(PolicyDiffCacheModel.medication_name == med_safe)
                 )
-                # Clear QA cache for matching filters (exact match on payer_filter)
+                await session.execute(
+                    delete(PolicyImpactCacheModel)
+                    .where(PolicyImpactCacheModel.payer_name == payer_safe)
+                    .where(PolicyImpactCacheModel.medication_name == med_safe)
+                )
                 await session.execute(
                     delete(PolicyQACacheModel)
                     .where(
@@ -988,12 +987,6 @@ async def analyze_policy_impact(payer: str, medication: str, request: ImpactRequ
             new_ver = new_ver or versions[0].version
             old_ver = old_ver or versions[1].version
 
-        # Return cached result if available
-        cache_key = (payer_safe, med_safe, old_ver, new_ver)
-        if cache_key in _impact_cache:
-            logger.info("Returning cached impact analysis", payer=payer_safe, medication=med_safe)
-            return _impact_cache[cache_key]
-
         old_policy = await repo.load_version(payer_safe, med_safe, old_ver)
         new_policy = await repo.load_version(payer_safe, med_safe, new_ver)
 
@@ -1002,21 +995,37 @@ async def analyze_policy_impact(payer: str, medication: str, request: ImpactRequ
         if not new_policy:
             raise HTTPException(status_code=404, detail=f"Version {new_ver} not found")
 
-        # Diff
+        old_hash = old_policy.content_hash or ""
+        new_hash = new_policy.content_hash or ""
+
+        from backend.storage.database import get_db
+        from backend.storage.models import PolicyImpactCacheModel
+        from sqlalchemy import select
+        import json as _json
+
+        async with get_db() as session:
+            stmt = select(PolicyImpactCacheModel).where(
+                PolicyImpactCacheModel.payer_name == payer_safe,
+                PolicyImpactCacheModel.medication_name == med_safe,
+                PolicyImpactCacheModel.old_version == old_ver,
+                PolicyImpactCacheModel.new_version == new_ver,
+            )
+            cached = (await session.execute(stmt)).scalar_one_or_none()
+            if cached and cached.old_content_hash == old_hash and cached.new_content_hash == new_hash:
+                logger.info("Returning DB-cached impact analysis", payer=payer_safe, medication=med_safe)
+                return cached.impact_data
+
         differ = PolicyDiffer()
         diff = await differ.diff(old_policy, new_policy)
 
-        # Load patient JSON files from data/patients/
-        case_states = []
-        import json as _json
         from pathlib import Path as _Path
+        case_states = []
         patients_dir = _Path(get_settings().patients_dir)
         if patients_dir.exists():
             for pf in patients_dir.glob("*.json"):
                 try:
                     with open(pf, "r", encoding="utf-8") as f:
                         pdata = _json.load(f)
-                    # Match by medication (brand_name or medication_name) and payer
                     med_req = pdata.get("medication_request", {})
                     brand = (med_req.get("brand_name") or "").lower()
                     generic = (med_req.get("medication_name") or "").lower()
@@ -1026,12 +1035,40 @@ async def analyze_policy_impact(payer: str, medication: str, request: ImpactRequ
                 except Exception:
                     continue
 
-        # Analyze impact
         analyzer = PolicyImpactAnalyzer()
         report = await analyzer.analyze_impact(diff, old_policy, new_policy, case_states)
         result = report.model_dump()
 
-        _bounded_cache_set(_impact_cache, cache_key, result)
+        import uuid
+        async with get_db() as session:
+            existing = (await session.execute(
+                select(PolicyImpactCacheModel).where(
+                    PolicyImpactCacheModel.payer_name == payer_safe,
+                    PolicyImpactCacheModel.medication_name == med_safe,
+                    PolicyImpactCacheModel.old_version == old_ver,
+                    PolicyImpactCacheModel.new_version == new_ver,
+                )
+            )).scalar_one_or_none()
+            if existing:
+                existing.impact_data = result
+                existing.old_content_hash = old_hash
+                existing.new_content_hash = new_hash
+                from datetime import datetime, timezone
+                existing.cached_at = datetime.now(timezone.utc)
+            else:
+                session.add(PolicyImpactCacheModel(
+                    id=str(uuid.uuid4()),
+                    payer_name=payer_safe,
+                    medication_name=med_safe,
+                    old_version=old_ver,
+                    new_version=new_ver,
+                    old_content_hash=old_hash,
+                    new_content_hash=new_hash,
+                    impact_data=result,
+                ))
+            await session.commit()
+            logger.info("Impact analysis cached to DB", payer=payer_safe, medication=med_safe)
+
         return result
     except HTTPException:
         raise

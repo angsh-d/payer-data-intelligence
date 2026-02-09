@@ -71,6 +71,27 @@ class PolicyDiffCacheModel(Base):
     )
 
 
+class PolicyImpactCacheModel(Base):
+    """Persistent cache for patient impact analysis results."""
+    __tablename__ = "policy_impact_cache"
+
+    id = Column(String(36), primary_key=True)
+    payer_name = Column(String(100), nullable=False)
+    medication_name = Column(String(200), nullable=False)
+    old_version = Column(String(50), nullable=False)
+    new_version = Column(String(50), nullable=False)
+    old_content_hash = Column(String(64), nullable=False)
+    new_content_hash = Column(String(64), nullable=False)
+    impact_data = Column(JSON, nullable=False)
+    cached_at = Column(DateTime(timezone=True), nullable=False, default=_utcnow)
+
+    __table_args__ = (
+        UniqueConstraint('payer_name', 'medication_name', 'old_version', 'new_version',
+                         name='uq_impact_cache_versions'),
+        Index('ix_impact_cache_payer_med', 'payer_name', 'medication_name'),
+    )
+
+
 class PolicyQACacheModel(Base):
     """Semantic cache for Policy Assistant Q&A pairs with embeddings."""
     __tablename__ = "policy_qa_cache"
