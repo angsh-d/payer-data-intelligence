@@ -1085,7 +1085,11 @@ async def get_policy_pdf(payer: str, medication: str):
         path=str(pdf_path),
         media_type="application/pdf",
         filename=f"{payer_safe}_{medication_safe}.pdf",
-        headers={"Content-Disposition": "inline"},
+        headers={
+            "Content-Disposition": "inline",
+            "Access-Control-Allow-Origin": "*",
+            "Cache-Control": "public, max-age=3600",
+        },
     )
 
 

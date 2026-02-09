@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   ArrowLeft,
@@ -16,6 +16,7 @@ import {
 } from 'lucide-react'
 import { api, type PolicyBankItem } from '../lib/api'
 import { getDrugInfo, getPayerInfo } from '../lib/drugInfo'
+import PdfViewer from './PdfViewer'
 
 interface PolicyDetailViewProps {
   policy: PolicyBankItem
@@ -76,7 +77,6 @@ export default function PolicyDetailView({ policy, onBack }: PolicyDetailViewPro
   const [pdfPage, setPdfPage] = useState(1)
   const [expandedCriteria, setExpandedCriteria] = useState<Set<string>>(new Set())
   const [activeCriterionId, setActiveCriterionId] = useState<string | null>(null)
-  const iframeRef = useRef<HTMLIFrameElement>(null)
 
   const drugInfo = getDrugInfo(policy.medication)
   const payerInfo = getPayerInfo(policy.payer)
@@ -107,10 +107,7 @@ export default function PolicyDetailView({ policy, onBack }: PolicyDetailViewPro
   const navigateToPage = useCallback((page: number) => {
     if (!page || page < 1) return
     setPdfPage(page)
-    if (iframeRef.current) {
-      iframeRef.current.src = `${pdfUrl}#page=${page}`
-    }
-  }, [pdfUrl])
+  }, [])
 
   const handleCriterionClick = useCallback((criterion: CriterionData) => {
     const id = criterion.criterion_id || ''
@@ -434,18 +431,14 @@ export default function PolicyDetailView({ policy, onBack }: PolicyDetailViewPro
         <div className="w-1/2 bg-[#f0f0f0] flex flex-col">
           {hasPdf ? (
             <>
-              <div className="px-5 py-3 bg-white border-b border-[rgba(0,0,0,0.06)] flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <FileText className="w-3.5 h-3.5 text-[#86868b]" />
-                  <span className="text-[12px] font-semibold text-[#6e6e73]">Source Document</span>
-                </div>
-                <span className="text-[11px] text-[#aeaeb2]">Page {pdfPage}</span>
+              <div className="px-5 py-3 bg-white border-b border-[rgba(0,0,0,0.06)] flex items-center gap-2">
+                <FileText className="w-3.5 h-3.5 text-[#86868b]" />
+                <span className="text-[12px] font-semibold text-[#6e6e73]">Source Document</span>
               </div>
-              <iframe
-                ref={iframeRef}
-                src={`${pdfUrl}#page=${pdfPage}`}
-                className="flex-1 w-full border-0"
-                title="Policy PDF"
+              <PdfViewer
+                url={pdfUrl}
+                page={pdfPage}
+                onPageChange={setPdfPage}
               />
             </>
           ) : (
