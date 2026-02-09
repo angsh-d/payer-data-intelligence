@@ -82,8 +82,14 @@ async def health_check():
     }
 
 
+FRONTEND_DIST = Path(__file__).parent.parent / "frontend" / "dist"
+
+
 @app.get("/")
 async def root():
+    index_html = FRONTEND_DIST / "index.html"
+    if index_html.exists():
+        return FileResponse(str(index_html))
     return {
         "name": "Payer Data Intelligence Platform",
         "version": "0.1.0",
@@ -93,24 +99,21 @@ async def root():
     }
 
 
-# SPA serving for PDI frontend build
-FRONTEND_DIST = Path(__file__).parent.parent / "frontend" / "dist"
-if FRONTEND_DIST.exists():
-    app.mount("/assets", StaticFiles(directory=str(FRONTEND_DIST / "assets")), name="static-assets")
-
-    @app.get("/{full_path:path}")
-    async def serve_spa(full_path: str):
-        if full_path.startswith("api/"):
-            from fastapi import HTTPException
-            raise HTTPException(status_code=404, detail=f"API endpoint not found: /{full_path}")
-        try:
-            file_path = (FRONTEND_DIST / full_path).resolve()
-            file_path.relative_to(FRONTEND_DIST.resolve())
-        except (ValueError, RuntimeError):
-            return FileResponse(str(FRONTEND_DIST / "index.html"))
-        if file_path.exists() and file_path.is_file():
-            return FileResponse(str(file_path))
+@app.get("/{full_path:path}")
+async def serve_spa(full_path: str):
+    if full_path.startswith("api/"):
+        from fastapi import HTTPException
+        raise HTTPException(status_code=404, detail=f"API endpoint not found: /{full_path}")
+    if not FRONTEND_DIST.exists():
+        return JSONResponse({"error": "Frontend not built"}, status_code=404)
+    try:
+        file_path = (FRONTEND_DIST / full_path).resolve()
+        file_path.relative_to(FRONTEND_DIST.resolve())
+    except (ValueError, RuntimeError):
         return FileResponse(str(FRONTEND_DIST / "index.html"))
+    if file_path.exists() and file_path.is_file():
+        return FileResponse(str(file_path))
+    return FileResponse(str(FRONTEND_DIST / "index.html"))
 
 
 if __name__ == "__main__":
