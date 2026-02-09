@@ -539,21 +539,28 @@ export default function PolicyIntelligence() {
                       {(() => {
                         const summary = diffResult.summary
                         const s = typeof summary === 'string'
-                          ? { executive_summary: summary } as Record<string, string>
-                          : (typeof summary === 'object' && summary ? summary : {}) as Record<string, string>
+                          ? { executive_summary: summary } as Record<string, any>
+                          : (typeof summary === 'object' && summary ? summary : {}) as Record<string, any>
 
-                        const exec = s.executive_summary || ''
+                        const exec = typeof s.executive_summary === 'string' ? s.executive_summary : (s.executive_summary ? String(s.executive_summary) : '')
                         const sections = [
                           { key: 'breaking_changes_summary', label: 'High Impact', dot: 'bg-[#d70015]', text: 'text-[#d70015]' },
                           { key: 'material_changes_summary', label: 'Medium Impact', dot: 'bg-[#b25000]', text: 'text-[#b25000]' },
                           { key: 'minor_changes_summary', label: 'Low Impact', dot: 'bg-[#86868b]', text: 'text-[#86868b]' },
                         ]
-                        const actions = s.recommended_actions || ''
+                        const actions = s.recommended_actions || null
 
-                        const splitBullets = (text: string) =>
-                          text.split(/[.,;](?=\s[A-Z])/)
+                        const splitBullets = (raw: any): string[] => {
+                          if (!raw) return []
+                          if (Array.isArray(raw)) return raw.map(r => String(r)).filter(b => b.length > 5)
+                          const text = String(raw)
+                          if (!text) return []
+                          const byNewline = text.split(/\n/).map(b => b.replace(/^[-•*]\s*/, '').trim()).filter(b => b.length > 5)
+                          if (byNewline.length > 1) return byNewline
+                          return text.split(/[.,;](?=\s[A-Z])/)
                             .map(b => b.replace(/^[.,;]\s*/, '').trim())
                             .filter(b => b.length > 10)
+                        }
 
                         return (
                           <div className="space-y-6">
@@ -591,7 +598,7 @@ export default function PolicyIntelligence() {
                               </div>
                             )}
 
-                            {actions && (
+                            {actions && splitBullets(actions).length > 0 && (
                               <div className="rounded-2xl border border-[rgba(0,0,0,0.06)] bg-[#f5f5f7] px-5 py-4">
                                 <div className="flex items-center gap-2 mb-3">
                                   <CheckCircle2 className="w-3.5 h-3.5 text-[#248a3d]" />
