@@ -5,10 +5,10 @@ import {
   Layers,
   Users,
   Activity,
-  Clock,
   ShieldCheck,
 } from 'lucide-react'
 import { api, type PolicyBankItem } from '../lib/api'
+import { getDrugInfo, getPayerInfo } from '../lib/drugInfo'
 
 function useCountUp(target: number, duration = 1200) {
   const [value, setValue] = useState(0)
@@ -296,14 +296,16 @@ export default function CommandCenter() {
                   animate="visible"
                   className="flex items-center gap-4 p-3 rounded-xl hover:bg-surface-hover/50 transition-colors duration-200 group"
                 >
-                  <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-surface-tertiary shrink-0">
-                    <Clock className="w-4 h-4 text-text-tertiary" />
+                  {(() => { const drugInfo = getDrugInfo(policy.medication); const DrugIcon = drugInfo.icon; return (
+                  <div className={`flex items-center justify-center w-8 h-8 rounded-lg shrink-0 ${drugInfo.color}`}>
+                    <DrugIcon className="w-4 h-4" />
                   </div>
+                  ); })()}
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-text-primary truncate">
-                      {policy.payer}
+                      {getPayerInfo(policy.payer).abbreviation}
                       <span className="text-text-tertiary font-normal"> · </span>
-                      <span className="text-text-secondary font-normal">{policy.medication}</span>
+                      <span className="text-text-secondary font-normal">{getDrugInfo(policy.medication).brandName}</span>
                     </p>
                     <p className="text-xs text-text-tertiary mt-0.5">
                       v{policy.latest_version} · Updated {formatDate(policy.last_updated)}

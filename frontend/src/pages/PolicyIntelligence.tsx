@@ -19,6 +19,7 @@ import {
   Upload,
 } from 'lucide-react'
 import { api, type PolicyBankItem, type PolicyVersion, type DiffSummaryResponse } from '../lib/api'
+import { getDrugInfo, getPayerInfo } from '../lib/drugInfo'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -235,7 +236,7 @@ export default function PolicyIntelligence() {
             <Search className="w-4 h-4 text-text-tertiary" />
             <span className={`flex-1 text-left text-sm ${selectedPolicy ? 'text-text-primary' : 'text-text-tertiary'}`}>
               {selectedPolicy
-                ? `${selectedPolicy.payer} · ${selectedPolicy.medication}`
+                ? `${getPayerInfo(selectedPolicy.payer).abbreviation} · ${getDrugInfo(selectedPolicy.medication).brandName}`
                 : 'Select a policy to analyze...'}
             </span>
             <ChevronDown className={`w-4 h-4 text-text-tertiary transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
@@ -277,8 +278,8 @@ export default function PolicyIntelligence() {
                           <FileText className="w-4 h-4 text-text-tertiary" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-text-primary truncate">{p.payer}</p>
-                          <p className="text-xs text-text-tertiary truncate">{p.medication} · v{p.latest_version} · {p.version_count} versions</p>
+                          <p className="text-sm font-medium text-text-primary truncate">{getPayerInfo(p.payer).abbreviation}</p>
+                          <p className="text-xs text-text-tertiary truncate">{getDrugInfo(p.medication).brandName} · v{p.latest_version} · {p.version_count} versions</p>
                         </div>
                       </button>
                     ))}
@@ -512,7 +513,13 @@ export default function PolicyIntelligence() {
                       </div>
                       <div className="prose prose-sm max-w-none">
                         <p className="text-text-primary leading-relaxed whitespace-pre-wrap text-sm">
-                          {diffResult.summary || 'No summary available for this comparison.'}
+                          {typeof diffResult.summary === 'string'
+                            ? diffResult.summary
+                            : typeof diffResult.summary === 'object' && diffResult.summary
+                              ? Object.entries(diffResult.summary as Record<string, string>)
+                                  .map(([key, val]) => `${key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}:\n${val}`)
+                                  .join('\n\n')
+                              : 'No summary available for this comparison.'}
                         </p>
                       </div>
                     </motion.div>

@@ -127,7 +127,7 @@ function FilterDropdown({
         onClick={() => onChange(null)}
         className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-accent-blue/30 bg-accent-blue/10 text-accent-blue text-sm font-medium transition-colors hover:bg-accent-blue/15"
       >
-        <span className="truncate max-w-[140px]">{value}</span>
+        <span className="truncate max-w-[140px]">{label === 'Payer' ? value.toUpperCase() : value}</span>
         <X className="w-3.5 h-3.5 flex-shrink-0" />
       </button>
     )

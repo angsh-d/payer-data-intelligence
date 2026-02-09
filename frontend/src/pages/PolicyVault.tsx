@@ -12,6 +12,7 @@ import {
   Loader2,
 } from 'lucide-react'
 import { api, type PolicyBankItem, type UploadResponse } from '../lib/api'
+import { getDrugInfo, getPayerInfo } from '../lib/drugInfo'
 
 function relativeTime(dateStr: string): string {
   try {
@@ -218,7 +219,7 @@ function UploadModal({ open, onClose, onSuccess }: { open: boolean; onClose: () 
                   <div className="text-center">
                     <p className="text-lg font-semibold text-text-primary">Upload Successful</p>
                     <p className="text-sm text-text-secondary mt-1">
-                      {payer} · {medication}
+                      {getPayerInfo(payer).abbreviation} · {getDrugInfo(medication).brandName}
                     </p>
                     {uploadResult && (
                       <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-text-tertiary">
@@ -482,42 +483,71 @@ export default function PolicyVault() {
         </motion.div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {policies.map((policy, i) => (
-            <motion.div
-              key={`${policy.payer}-${policy.medication}`}
-              custom={i + 1}
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              className="group rounded-2xl border border-border-primary bg-surface-secondary/60 backdrop-blur-xl p-6 flex flex-col gap-4 hover:bg-surface-hover/40 hover:border-border-hover transition-all duration-300"
-            >
-              <div className="flex items-start justify-between">
-                <span className="inline-flex px-3 py-1 rounded-full bg-surface-tertiary text-xs font-medium text-text-secondary">
-                  {policy.payer}
-                </span>
-                <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${qualityColor(policy.extraction_quality)}`}>
-                  {policy.extraction_quality || 'Unknown'}
-                </span>
-              </div>
-
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold text-text-primary tracking-tight group-hover:text-accent-blue transition-colors duration-200">
-                  {policy.medication}
-                </h3>
-              </div>
-
-              <div className="flex items-center justify-between pt-2 border-t border-border-primary">
-                <div className="flex items-center gap-1.5 text-xs text-text-tertiary">
-                  <FileText className="w-3.5 h-3.5" />
-                  <span>{policy.version_count} version{policy.version_count !== 1 ? 's' : ''}</span>
+          {policies.map((policy, i) => {
+            const drugInfo = getDrugInfo(policy.medication)
+            const payerInfo = getPayerInfo(policy.payer)
+            const DrugIcon = drugInfo.icon
+            const showGeneric = drugInfo.genericName && drugInfo.genericName.toLowerCase() !== drugInfo.brandName.toLowerCase()
+            return (
+              <motion.div
+                key={`${policy.payer}-${policy.medication}`}
+                custom={i + 1}
+                variants={fadeUp}
+                initial="hidden"
+                animate="visible"
+                className="group rounded-2xl border border-border-primary bg-surface-secondary/60 backdrop-blur-xl p-6 flex flex-col gap-4 hover:bg-surface-hover/40 hover:border-border-hover transition-all duration-300"
+              >
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className={`w-6 h-6 rounded-full ${payerInfo.color} flex items-center justify-center shrink-0`}>
+                      <span className="text-[10px] font-bold text-white leading-none">{payerInfo.abbreviation.charAt(0)}</span>
+                    </div>
+                    <span className="inline-flex px-3 py-1 rounded-full bg-surface-tertiary text-xs font-semibold text-text-secondary tracking-wide">
+                      {payerInfo.abbreviation}
+                    </span>
+                  </div>
+                  <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${qualityColor(policy.extraction_quality)}`}>
+                    {policy.extraction_quality || 'Unknown'}
+                  </span>
                 </div>
-                <div className="flex items-center gap-1.5 text-xs text-text-tertiary">
-                  <Clock className="w-3.5 h-3.5" />
-                  <span>{relativeTime(policy.last_updated)}</span>
+
+                <div className="flex-1">
+                  <div className="flex items-center gap-2.5">
+                    <div className={`w-8 h-8 rounded-lg ${drugInfo.color.split(' ').find(c => c.startsWith('bg-')) || 'bg-surface-tertiary'} flex items-center justify-center shrink-0`}>
+                      <DrugIcon className={`w-4 h-4 ${drugInfo.color.split(' ').find(c => c.startsWith('text-')) || 'text-text-secondary'}`} />
+                    </div>
+                    <h3 className="text-xl font-semibold text-text-primary tracking-tight group-hover:text-accent-blue transition-colors duration-200">
+                      {drugInfo.brandName}
+                    </h3>
+                  </div>
+                  {(showGeneric || drugInfo.category) && (
+                    <div className="flex items-center gap-2 mt-1.5 ml-[42px]">
+                      {showGeneric && (
+                        <span className="text-xs text-text-tertiary">{drugInfo.genericName}</span>
+                      )}
+                      {showGeneric && drugInfo.category && (
+                        <span className="text-text-quaternary text-xs">·</span>
+                      )}
+                      {drugInfo.category && (
+                        <span className="text-xs text-text-quaternary">{drugInfo.category}</span>
+                      )}
+                    </div>
+                  )}
                 </div>
-              </div>
-            </motion.div>
-          ))}
+
+                <div className="flex items-center justify-between pt-2 border-t border-border-primary">
+                  <div className="flex items-center gap-1.5 text-xs text-text-tertiary">
+                    <FileText className="w-3.5 h-3.5" />
+                    <span>{policy.version_count} version{policy.version_count !== 1 ? 's' : ''}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs text-text-tertiary">
+                    <Clock className="w-3.5 h-3.5" />
+                    <span>{relativeTime(policy.last_updated)}</span>
+                  </div>
+                </div>
+              </motion.div>
+            )
+          })}
         </div>
       )}
 
