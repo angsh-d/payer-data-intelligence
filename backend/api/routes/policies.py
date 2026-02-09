@@ -146,70 +146,67 @@ def _canonical_medication(med: str) -> str:
 async def get_policy_bank():
     """
     Get all digitized policies with version counts, deduplicated by brand/generic pairs.
+    Uses a single database query to avoid N+1 performance issues.
     """
-    from sqlalchemy import select, func
+    from sqlalchemy import select
     from backend.storage.database import get_db
     from backend.storage.models import PolicyCacheModel
 
     try:
         async with get_db() as session:
             stmt = (
-                select(
-                    PolicyCacheModel.payer_name,
-                    PolicyCacheModel.medication_name,
-                    func.count(PolicyCacheModel.id).label("version_count"),
-                    func.max(PolicyCacheModel.cached_at).label("last_updated"),
-                )
-                .group_by(PolicyCacheModel.payer_name, PolicyCacheModel.medication_name)
+                select(PolicyCacheModel)
+                .order_by(PolicyCacheModel.cached_at.desc())
             )
             result = await session.execute(stmt)
-            rows = result.all()
-
-        from backend.policy_digitalization.policy_repository import get_policy_repository
-        repo = get_policy_repository()
+            all_entries = result.scalars().all()
 
         merged: dict[str, dict] = {}
-        for row in rows:
-            canonical = _canonical_medication(row.medication_name)
-            key = f"{row.payer_name}/{canonical}"
-
-            versions = await repo.list_versions(row.payer_name, row.medication_name)
-            source_filenames = [v.source_filename for v in versions if v.source_filename]
-            non_latest = [v for v in versions if v.version != "latest"]
-            content_hashes = {v.content_hash for v in (non_latest if non_latest else versions) if v.content_hash}
+        for entry in all_entries:
+            canonical = _canonical_medication(entry.medication_name)
+            key = f"{entry.payer_name}/{canonical}"
 
             if key in merged:
                 existing = merged[key]
-                existing["_hashes"].update(content_hashes)
+                if entry.content_hash:
+                    existing["_hashes"].add(entry.content_hash)
                 existing["version_count"] = len(existing["_hashes"])
-                existing["source_filenames"] = list(set(existing["source_filenames"] + source_filenames))
-                if row.last_updated and (
-                    not existing["_last_updated"] or row.last_updated > existing["_last_updated"]
+                if entry.source_filename:
+                    existing["source_filenames"].add(entry.source_filename)
+                if entry.cached_at and (
+                    not existing["_last_updated"] or entry.cached_at > existing["_last_updated"]
                 ):
-                    existing["_last_updated"] = row.last_updated
-                    existing["last_updated"] = row.last_updated.isoformat()
+                    existing["_last_updated"] = entry.cached_at
+                    existing["last_updated"] = entry.cached_at.isoformat()
             else:
-                latest_version = versions[0].version if versions else "unknown"
-                latest_policy = await repo.load_version(row.payer_name, row.medication_name, latest_version)
-                extraction_quality = latest_policy.extraction_quality if latest_policy else "unknown"
+                version = entry.policy_version or "latest"
+                quality = "unknown"
+                if entry.parsed_criteria:
+                    import json
+                    try:
+                        parsed = json.loads(entry.parsed_criteria) if isinstance(entry.parsed_criteria, str) else entry.parsed_criteria
+                        quality = parsed.get("extraction_quality", "unknown") if isinstance(parsed, dict) else "unknown"
+                    except Exception:
+                        pass
 
                 merged[key] = {
-                    "payer": row.payer_name,
+                    "payer": entry.payer_name,
                     "medication": canonical,
-                    "latest_version": latest_version,
-                    "version_count": len(content_hashes),
-                    "last_updated": row.last_updated.isoformat() if row.last_updated else None,
-                    "_last_updated": row.last_updated,
-                    "_hashes": content_hashes,
-                    "extraction_quality": extraction_quality,
-                    "source_filenames": source_filenames,
+                    "latest_version": version,
+                    "version_count": 1,
+                    "last_updated": entry.cached_at.isoformat() if entry.cached_at else None,
+                    "_last_updated": entry.cached_at,
+                    "_hashes": {entry.content_hash} if entry.content_hash else set(),
+                    "extraction_quality": quality,
+                    "source_filenames": {entry.source_filename} if entry.source_filename else set(),
                 }
 
         bank = []
-        for entry in merged.values():
-            entry.pop("_last_updated", None)
-            entry.pop("_hashes", None)
-            bank.append(entry)
+        for e in merged.values():
+            e.pop("_last_updated", None)
+            e.pop("_hashes", None)
+            e["source_filenames"] = list(e["source_filenames"])
+            bank.append(e)
 
         return {"policies": bank}
     except Exception as e:
