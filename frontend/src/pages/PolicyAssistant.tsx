@@ -352,7 +352,7 @@ export default function PolicyAssistant() {
 
           <form
             onSubmit={handleSubmit}
-            className="flex items-center gap-3 rounded-2xl border border-border-primary bg-surface-secondary/80 backdrop-blur-xl px-4 py-3 shadow-lg shadow-black/20 transition-colors focus-within:border-border-hover"
+            className="flex items-center gap-3 rounded-2xl border border-border-primary bg-surface-secondary/80 backdrop-blur-xl px-4 py-3 shadow-lg shadow-black/5 transition-colors focus-within:border-border-hover"
           >
             <input
               ref={inputRef}

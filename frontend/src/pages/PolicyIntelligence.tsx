@@ -38,7 +38,7 @@ const fadeIn = {
 function ShimmerBlock({ className }: { className?: string }) {
   return (
     <div className={`relative overflow-hidden rounded-2xl bg-surface-secondary ${className}`}>
-      <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/[0.03] to-transparent" />
+      <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-black/[0.04] to-transparent" />
     </div>
   )
 }
@@ -510,7 +510,7 @@ export default function PolicyIntelligence() {
                         <Sparkles className="w-4 h-4 text-accent-purple" />
                         <h3 className="text-sm font-medium text-text-secondary">AI-Generated Summary</h3>
                       </div>
-                      <div className="prose prose-invert prose-sm max-w-none">
+                      <div className="prose prose-sm max-w-none">
                         <p className="text-text-primary leading-relaxed whitespace-pre-wrap text-sm">
                           {diffResult.summary || 'No summary available for this comparison.'}
                         </p>

@@ -64,12 +64,13 @@ cd frontend && npm run build
 python -m uvicorn backend.main:app --host 0.0.0.0 --port 5000
 ```
 
-## Design System
-- **Backgrounds:** #0a0a0a (primary), #141414 (secondary), #1a1a1a (tertiary), #1e1e1e (elevated)
-- **Text:** #f5f5f7 (primary), #a1a1a6 (secondary), #6e6e73 (tertiary)
-- **Accent:** #0071e3 (blue, used sparingly), #30d158 (green), #ff9f0a (amber), #ff453a (red), #bf5af2 (purple)
+## Design System (Light Mode)
+- **Backgrounds:** #ffffff (primary), #f5f5f7 (secondary), #e8e8ed (tertiary), #ffffff (elevated)
+- **Text:** #1d1d1f (primary), #6e6e73 (secondary), #86868b (tertiary), #aeaeb2 (quaternary)
+- **Accent:** #0071e3 (blue, used sparingly), #248a3d (green), #b25000 (amber), #d70015 (red), #8944ab (purple)
+- **Borders:** rgba(0,0,0,0.08) (primary), rgba(0,0,0,0.04) (secondary), rgba(0,0,0,0.15) (hover)
 - **Font:** Inter via Google Fonts, loaded in index.html
-- **Effects:** backdrop-blur-xl, border rgba(255,255,255,0.08), rounded-2xl cards
+- **Effects:** backdrop-blur-xl, rounded-2xl cards, subtle shadows
 
 ## Environment Variables
 - `ANTHROPIC_API_KEY` — Claude API key (required for policy reasoning)
