@@ -253,6 +253,10 @@ class PolicyImpactAnalyzer:
     ) -> tuple:
         """Compare per-criterion assessments between two versions.
 
+        Uses criterion_name matching to reconcile criteria whose IDs changed
+        between versions (e.g. PRESCRIBER_SPECIALTY → PRESCRIBER_SPEC).
+        Without this, renamed criteria appear as remove+add instead of unchanged.
+
         Returns (affected_criterion_ids, criteria_detail_list).
         """
         # Build lookup maps: criterion_id -> CriterionAssessment
@@ -263,6 +267,59 @@ class PolicyImpactAnalyzer:
             c.criterion_id: c for c in new_assessment.criteria_assessments
         }
 
+        # Build name-based mapping to reconcile IDs that changed between versions.
+        # old_to_new[old_id] = new_id when criterion names match but IDs differ.
+        old_name_to_id: Dict[str, str] = {}
+        for c in old_assessment.criteria_assessments:
+            name = (c.criterion_name or "").strip().lower()
+            if name:
+                old_name_to_id[name] = c.criterion_id
+
+        new_name_to_id: Dict[str, str] = {}
+        for c in new_assessment.criteria_assessments:
+            name = (c.criterion_name or "").strip().lower()
+            if name:
+                new_name_to_id[name] = c.criterion_id
+
+        old_to_new: Dict[str, str] = {}
+        new_to_old: Dict[str, str] = {}
+
+        # Unmatched old IDs (not directly in new_map)
+        unmatched_old = {oid for oid in old_map if oid not in new_map}
+        unmatched_new = {nid for nid in new_map if nid not in old_map}
+
+        # Pass 1: exact name match
+        for old_name, old_id in old_name_to_id.items():
+            if old_id in unmatched_old and old_name in new_name_to_id:
+                new_id = new_name_to_id[old_name]
+                if new_id in unmatched_new:
+                    old_to_new[old_id] = new_id
+                    new_to_old[new_id] = old_id
+                    unmatched_old.discard(old_id)
+                    unmatched_new.discard(new_id)
+
+        # Pass 2: fuzzy name match — one name contains the other
+        if unmatched_old and unmatched_new:
+            for old_id in list(unmatched_old):
+                old_c = old_map[old_id]
+                old_name = (old_c.criterion_name or "").strip().lower()
+                if not old_name:
+                    continue
+                best_new_id = None
+                for new_id in unmatched_new:
+                    new_c = new_map[new_id]
+                    new_name = (new_c.criterion_name or "").strip().lower()
+                    if not new_name:
+                        continue
+                    if old_name in new_name or new_name in old_name:
+                        best_new_id = new_id
+                        break
+                if best_new_id:
+                    old_to_new[old_id] = best_new_id
+                    new_to_old[best_new_id] = old_id
+                    unmatched_old.discard(old_id)
+                    unmatched_new.discard(best_new_id)
+
         # Get criterion IDs that changed in the policy diff
         all_changes = diff.criterion_changes + diff.step_therapy_changes + diff.exclusion_changes
         changed_criterion_ids = {
@@ -272,62 +329,76 @@ class PolicyImpactAnalyzer:
 
         affected = []
         criteria_detail = []
-        all_cids = set(old_map.keys()) | set(new_map.keys())
 
-        for cid in all_cids:
-            old_c = old_map.get(cid)
-            new_c = new_map.get(cid)
+        # Track which new IDs we've already compared (via name-matched pairs)
+        matched_new_ids: set = set()
+        processed_old_ids: set = set()
 
-            # Criterion only in old (removed)
-            if old_c and not new_c:
-                affected.append(cid)
+        # First pass: process old criteria
+        for old_id, old_c in old_map.items():
+            processed_old_ids.add(old_id)
+
+            # Direct match: same ID in both versions
+            new_c = new_map.get(old_id)
+            matched_new_id = old_id
+
+            # Name-based match: ID renamed between versions
+            if not new_c and old_id in old_to_new:
+                matched_new_id = old_to_new[old_id]
+                new_c = new_map.get(matched_new_id)
+
+            if new_c:
+                matched_new_ids.add(matched_new_id)
+                # Both exist — compare
+                if old_c.is_met != new_c.is_met:
+                    affected.append(matched_new_id)
+                    criteria_detail.append({
+                        "criterion_id": matched_new_id,
+                        "criterion_name": new_c.criterion_name or old_c.criterion_name,
+                        "change": "verdict_flip",
+                        "old_met": old_c.is_met,
+                        "new_met": new_c.is_met,
+                        "confidence_change": new_c.confidence - old_c.confidence,
+                    })
+                elif matched_new_id in changed_criterion_ids or old_id in changed_criterion_ids:
+                    confidence_delta = new_c.confidence - old_c.confidence
+                    if abs(confidence_delta) > 0.15:
+                        affected.append(matched_new_id)
+                        criteria_detail.append({
+                            "criterion_id": matched_new_id,
+                            "criterion_name": new_c.criterion_name or old_c.criterion_name,
+                            "change": "confidence_shift",
+                            "old_met": old_c.is_met,
+                            "new_met": new_c.is_met,
+                            "confidence_change": confidence_delta,
+                        })
+            else:
+                # Truly removed (no match by ID or name)
+                affected.append(old_id)
                 criteria_detail.append({
-                    "criterion_id": cid,
+                    "criterion_id": old_id,
                     "criterion_name": old_c.criterion_name,
                     "change": "removed",
                     "old_met": old_c.is_met,
                     "new_met": None,
                     "confidence_change": -old_c.confidence,
                 })
-                continue
 
-            # Criterion only in new (added)
-            if new_c and not old_c:
-                affected.append(cid)
-                criteria_detail.append({
-                    "criterion_id": cid,
-                    "criterion_name": new_c.criterion_name,
-                    "change": "added",
-                    "old_met": None,
-                    "new_met": new_c.is_met,
-                    "confidence_change": new_c.confidence,
-                })
+        # Second pass: new criteria not matched to any old one
+        for new_id, new_c in new_map.items():
+            if new_id in matched_new_ids or new_id in processed_old_ids:
                 continue
-
-            # Both exist — check for verdict flip or confidence change
-            if old_c.is_met != new_c.is_met:
-                affected.append(cid)
-                criteria_detail.append({
-                    "criterion_id": cid,
-                    "criterion_name": old_c.criterion_name,
-                    "change": "verdict_flip",
-                    "old_met": old_c.is_met,
-                    "new_met": new_c.is_met,
-                    "confidence_change": new_c.confidence - old_c.confidence,
-                })
-            elif cid in changed_criterion_ids:
-                # Policy criterion changed but verdict didn't flip yet
-                confidence_delta = new_c.confidence - old_c.confidence
-                if abs(confidence_delta) > 0.15:
-                    affected.append(cid)
-                    criteria_detail.append({
-                        "criterion_id": cid,
-                        "criterion_name": old_c.criterion_name,
-                        "change": "confidence_shift",
-                        "old_met": old_c.is_met,
-                        "new_met": new_c.is_met,
-                        "confidence_change": confidence_delta,
-                    })
+            if new_id in new_to_old:
+                continue  # Already handled via name match
+            affected.append(new_id)
+            criteria_detail.append({
+                "criterion_id": new_id,
+                "criterion_name": new_c.criterion_name,
+                "change": "added",
+                "old_met": None,
+                "new_met": new_c.is_met,
+                "confidence_change": new_c.confidence,
+            })
 
         return affected, criteria_detail
 
