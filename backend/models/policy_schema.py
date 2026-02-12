@@ -132,6 +132,20 @@ class CriterionType(str, Enum):
     CUSTOM = "custom"
 
 
+class CodeSource(str, Enum):
+    """Origin of a clinical code mapping."""
+    VERBATIM = "verbatim"     # Appears literally in policy text
+    INFERRED = "inferred"     # Mapped from natural language by LLM
+    EXPANDED = "expanded"     # Child code of a verbatim or inferred code
+
+
+class ConsensusStatus(str, Enum):
+    """Dual-LLM consensus validation status."""
+    CONFIRMED = "confirmed"           # Both Gemini and Claude agree
+    REVIEW_NEEDED = "review_needed"   # Only one model proposed
+    REJECTED = "rejected"             # One proposed, other rejected
+
+
 class ClinicalCode(BaseModel):
     """A clinical code (ICD-10, HCPCS, CPT, NDC, etc.)."""
     system: Literal["ICD-10", "ICD-10-CM", "ICD-10-PCS", "HCPCS", "CPT", "NDC", "LOINC", "SNOMED", "RxNorm", "NPI"] = Field(
@@ -142,6 +156,32 @@ class ClinicalCode(BaseModel):
 
     def __str__(self) -> str:
         return f"{self.system}:{self.code}"
+
+
+class EnrichedClinicalCode(BaseModel):
+    """A clinical code with provenance and consensus metadata from Pass 4."""
+    system: Literal["ICD-10", "ICD-10-CM", "ICD-10-PCS", "HCPCS", "CPT", "NDC", "LOINC", "SNOMED", "RxNorm", "NPI"] = Field(
+        ..., description="Code system"
+    )
+    code: str = Field(..., description="The code value")
+    display: Optional[str] = Field(None, description="Human-readable display name")
+    source: CodeSource = Field(CodeSource.INFERRED, description="How this code was obtained")
+    consensus_status: ConsensusStatus = Field(ConsensusStatus.REVIEW_NEEDED, description="Dual-LLM consensus result")
+    parent_code: Optional[str] = Field(None, description="Parent code if this is an expanded child")
+    concept_text: str = Field("", description="Natural language concept this code maps from")
+
+
+class CodificationMetadata(BaseModel):
+    """Metadata from Pass 4 clinical codification run."""
+    codification_timestamp: Optional[str] = None
+    codification_model_a: Optional[str] = None   # Gemini (proposer)
+    codification_model_b: Optional[str] = None   # Claude (validator)
+    total_codes_proposed: int = 0
+    confirmed_codes: int = 0
+    review_needed_codes: int = 0
+    rejected_codes: int = 0
+    criteria_codified: int = 0
+    indications_codified: int = 0
 
 
 class AtomicCriterion(BaseModel):
@@ -225,6 +265,12 @@ class AtomicCriterion(BaseModel):
     )
     codes_validated: bool = Field(False, description="Whether clinical codes have been validated against reference data")
 
+    # Pass 4: Enriched clinical codes from dual-LLM codification
+    enriched_codes: List[EnrichedClinicalCode] = Field(
+        default_factory=list,
+        description="Enriched codes from Pass 4 clinical codification with consensus status"
+    )
+
     # Duration requirements for step therapy criteria
     minimum_duration_days: Optional[int] = Field(None, description="Minimum trial duration in days")
 
@@ -306,6 +352,12 @@ class IndicationCriteria(BaseModel):
     # Age restrictions
     min_age_years: Optional[int] = Field(None, description="Minimum age requirement")
     max_age_years: Optional[int] = Field(None, description="Maximum age requirement")
+
+    # Pass 4: Enriched indication codes from dual-LLM codification
+    enriched_codes: List[EnrichedClinicalCode] = Field(
+        default_factory=list,
+        description="Enriched codes from Pass 4 clinical codification with consensus status"
+    )
 
 
 class ExclusionCriteria(BaseModel):
@@ -450,6 +502,11 @@ class DigitizedPolicy(BaseModel):
     extraction_quality: Optional[str] = Field(None, description="good / needs_review / poor")
     provenances: Dict[str, CriterionProvenance] = Field(
         default_factory=dict, description="Provenance per criterion_id"
+    )
+
+    # Pass 4: Clinical codification metadata
+    codification_metadata: Optional[CodificationMetadata] = Field(
+        None, description="Metadata from Pass 4 clinical codification"
     )
 
     def get_criterion(self, criterion_id: str) -> Optional[AtomicCriterion]:

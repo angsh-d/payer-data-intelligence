@@ -1,22 +1,32 @@
-"""Policy Assistant — conversational Q&A over digitized policies using Claude."""
+"""Policy Assistant — conversational Q&A over digitized policies using Claude.
+
+Supports:
+- Conversation memory via session IDs
+- Semantic caching for repeated questions
+- Streaming responses via SSE
+- RAG retrieval from vector store when available
+"""
 
 import hashlib
 import json
 import uuid
-from typing import Optional, Dict, Any, List
+from typing import Optional, Dict, Any, List, AsyncGenerator
 
 from backend.reasoning.llm_gateway import get_llm_gateway, LLMGateway
 from backend.reasoning.prompt_loader import get_prompt_loader
 from backend.models.enums import TaskCategory
 from backend.policy_digitalization.policy_repository import get_policy_repository
 from backend.storage.database import get_db
-from backend.storage.models import PolicyCacheModel, PolicyQACacheModel
+from backend.storage.models import PolicyCacheModel, PolicyQACacheModel, ConversationSessionModel
 from backend.config.logging_config import get_logger
 
 logger = get_logger(__name__)
 
 # Semantic similarity threshold for cache hits
 _SEMANTIC_SIMILARITY_THRESHOLD = 0.90
+
+# Max conversation history turns to include in context
+_MAX_HISTORY_TURNS = 10
 
 
 class PolicyAssistant:
@@ -27,17 +37,19 @@ class PolicyAssistant:
         question: str,
         payer_filter: Optional[str] = None,
         medication_filter: Optional[str] = None,
+        session_id: Optional[str] = None,
     ) -> Dict[str, Any]:
         """
         Query digitized policies with a natural language question.
 
         Uses semantic cache: embeds the question, searches DB for similar cached Q&A,
-        and only calls Claude on a cache miss.
+        and only calls Claude on a cache miss. Supports conversation memory via session_id.
 
         Args:
             question: Natural language question
             payer_filter: Optional payer name filter
             medication_filter: Optional medication name filter
+            session_id: Optional session ID for conversation memory
 
         Returns:
             Dictionary with answer, citations, policies_consulted, confidence
@@ -58,14 +70,27 @@ class PolicyAssistant:
         # Compute policy content hash for cache freshness
         policy_content_hash = hashlib.sha256(policies_context.encode()).hexdigest()
 
-        # Try semantic cache lookup
-        cached = await self._semantic_cache_lookup(
-            gateway, question, payer_filter, medication_filter, policy_content_hash
-        )
-        if cached is not None:
-            return cached
+        # Try semantic cache lookup (skip for conversational queries with session)
+        if not session_id:
+            cached = await self._semantic_cache_lookup(
+                gateway, question, payer_filter, medication_filter, policy_content_hash
+            )
+            if cached is not None:
+                return cached
 
-        # Cache miss — call Claude
+        # Load conversation history if session exists
+        conversation_context = ""
+        if session_id:
+            conversation_context = await self._load_conversation_history(session_id)
+            # Store user message
+            await self._store_conversation_turn(session_id, "user", question, payer_filter, medication_filter)
+
+        # Try RAG retrieval for relevant chunks
+        rag_context = await self._retrieve_relevant_chunks(question, payer_filter, medication_filter)
+        if rag_context:
+            policies_context = f"{rag_context}\n\n---\n\n{policies_context}"
+
+        # Build prompt
         filter_parts = []
         if payer_filter:
             filter_parts.append(f"Payer: {payer_filter}")
@@ -81,6 +106,7 @@ class PolicyAssistant:
                 "policies_context": policies_context,
                 "question": question,
                 "filter_context": filter_context,
+                "conversation_history": conversation_context or "No prior conversation.",
             },
         )
 
@@ -115,20 +141,219 @@ class PolicyAssistant:
             "citations": parsed.get("citations", []),
             "policies_consulted": parsed.get("policies_consulted", []),
             "confidence": parsed.get("confidence", 0.5),
+            "follow_up_questions": parsed.get("follow_up_questions", []),
             "provider": result.get("provider", "unknown"),
+            "session_id": session_id,
         }
 
-        # Store in semantic cache (fire-and-forget — don't block the response)
-        try:
-            question_embedding = await gateway.embed(question)
-            await self._store_in_cache(
-                question, question_embedding, payer_filter, medication_filter,
-                policy_content_hash, response_data,
+        # Store assistant response in conversation history
+        if session_id:
+            await self._store_conversation_turn(
+                session_id, "assistant", response_data["answer"], payer_filter, medication_filter
             )
-        except Exception as e:
-            logger.warning("Failed to store Q&A in semantic cache", error=str(e))
+
+        # Store in semantic cache (fire-and-forget — don't block the response)
+        if not session_id:
+            try:
+                question_embedding = await gateway.embed(question)
+                await self._store_in_cache(
+                    question, question_embedding, payer_filter, medication_filter,
+                    policy_content_hash, response_data,
+                )
+            except Exception as e:
+                logger.warning("Failed to store Q&A in semantic cache", error=str(e))
 
         return response_data
+
+    async def query_stream(
+        self,
+        question: str,
+        payer_filter: Optional[str] = None,
+        medication_filter: Optional[str] = None,
+        session_id: Optional[str] = None,
+    ) -> AsyncGenerator[str, None]:
+        """
+        Stream policy assistant responses, yielding text chunks.
+
+        Args:
+            question: Natural language question
+            payer_filter: Optional payer name filter
+            medication_filter: Optional medication name filter
+            session_id: Optional session ID for conversation memory
+
+        Yields:
+            String chunks of the response
+        """
+        policies_context = await self._build_policies_context(payer_filter, medication_filter)
+
+        if not policies_context:
+            yield "No digitized policies found matching the specified filters."
+            return
+
+        gateway = get_llm_gateway()
+
+        # Load conversation history
+        conversation_context = ""
+        if session_id:
+            conversation_context = await self._load_conversation_history(session_id)
+            await self._store_conversation_turn(session_id, "user", question, payer_filter, medication_filter)
+
+        # Try RAG retrieval
+        rag_context = await self._retrieve_relevant_chunks(question, payer_filter, medication_filter)
+        if rag_context:
+            policies_context = f"{rag_context}\n\n---\n\n{policies_context}"
+
+        filter_parts = []
+        if payer_filter:
+            filter_parts.append(f"Payer: {payer_filter}")
+        if medication_filter:
+            filter_parts.append(f"Medication: {medication_filter}")
+        filter_context = ", ".join(filter_parts) if filter_parts else "All policies"
+
+        prompt_loader = get_prompt_loader()
+        system_prompt = prompt_loader.load("policy_digitalization/policy_assistant_system.txt")
+        query_prompt = prompt_loader.load(
+            "policy_digitalization/policy_assistant_query.txt",
+            {
+                "policies_context": policies_context,
+                "question": question,
+                "filter_context": filter_context,
+                "conversation_history": conversation_context or "No prior conversation.",
+            },
+        )
+
+        # Stream from LLM
+        full_response = []
+        async for chunk in gateway.generate_stream(
+            task_category=TaskCategory.POLICY_QA,
+            prompt=query_prompt,
+            system_prompt=system_prompt,
+            temperature=0.1,
+        ):
+            full_response.append(chunk)
+            yield chunk
+
+        # Store assistant response
+        if session_id:
+            await self._store_conversation_turn(
+                session_id, "assistant", "".join(full_response), payer_filter, medication_filter
+            )
+
+    async def _load_conversation_history(self, session_id: str) -> str:
+        """Load recent conversation turns for a session."""
+        from sqlalchemy import select
+
+        try:
+            async with get_db() as session:
+                stmt = (
+                    select(ConversationSessionModel)
+                    .where(ConversationSessionModel.session_id == session_id)
+                    .order_by(ConversationSessionModel.turn_number.desc())
+                    .limit(_MAX_HISTORY_TURNS)
+                )
+                result = await session.execute(stmt)
+                turns = list(reversed(result.scalars().all()))
+
+            if not turns:
+                return ""
+
+            history_parts = []
+            for turn in turns:
+                role_label = "User" if turn.role == "user" else "Assistant"
+                history_parts.append(f"{role_label}: {turn.content}")
+
+            return "\n\n".join(history_parts)
+        except Exception as e:
+            logger.warning("Failed to load conversation history", error=str(e))
+            return ""
+
+    async def _store_conversation_turn(
+        self,
+        session_id: str,
+        role: str,
+        content: str,
+        payer_filter: Optional[str],
+        medication_filter: Optional[str],
+    ) -> None:
+        """Store a conversation turn in the database."""
+        from sqlalchemy import func, select
+
+        try:
+            async with get_db() as session:
+                # Get the next turn number
+                stmt = (
+                    select(func.coalesce(func.max(ConversationSessionModel.turn_number), -1))
+                    .where(ConversationSessionModel.session_id == session_id)
+                )
+                result = await session.execute(stmt)
+                max_turn = result.scalar() or -1
+
+                row = ConversationSessionModel(
+                    id=str(uuid.uuid4()),
+                    session_id=session_id,
+                    role=role,
+                    content=content[:10000],  # Cap content length
+                    payer_filter=payer_filter.lower() if payer_filter else None,
+                    medication_filter=medication_filter.lower() if medication_filter else None,
+                    turn_number=max_turn + 1,
+                )
+                session.add(row)
+        except Exception as e:
+            logger.warning("Failed to store conversation turn", error=str(e))
+
+    async def _retrieve_relevant_chunks(
+        self,
+        question: str,
+        payer_filter: Optional[str],
+        medication_filter: Optional[str],
+    ) -> str:
+        """Retrieve relevant policy chunks using vector similarity (RAG)."""
+        from backend.storage.models import PolicyEmbeddingModel
+        from sqlalchemy import select
+
+        try:
+            gateway = get_llm_gateway()
+            question_embedding = await gateway.embed(question, task_type="RETRIEVAL_QUERY")
+
+            async with get_db() as session:
+                stmt = select(PolicyEmbeddingModel)
+                if payer_filter:
+                    stmt = stmt.where(PolicyEmbeddingModel.payer_name == payer_filter.lower())
+                if medication_filter:
+                    stmt = stmt.where(PolicyEmbeddingModel.medication_name == medication_filter.lower())
+                stmt = stmt.limit(100)  # Scan up to 100 chunks
+
+                result = await session.execute(stmt)
+                chunks = result.scalars().all()
+
+            if not chunks:
+                return ""
+
+            # Compute similarity and rank
+            scored = []
+            for chunk in chunks:
+                score = LLMGateway.cosine_similarity(question_embedding, chunk.embedding)
+                if score >= 0.70:  # Relevance threshold
+                    scored.append((score, chunk))
+
+            scored.sort(key=lambda x: x[0], reverse=True)
+            top_chunks = scored[:5]  # Top 5 most relevant
+
+            if not top_chunks:
+                return ""
+
+            parts = []
+            for score, chunk in top_chunks:
+                parts.append(
+                    f"[Relevance: {score:.2f}] {chunk.payer_name}/{chunk.medication_name} "
+                    f"v{chunk.policy_version}:\n{chunk.chunk_text}"
+                )
+
+            return "## Relevant Policy Sections (RAG Retrieved)\n\n" + "\n\n---\n\n".join(parts)
+
+        except Exception as e:
+            logger.debug("RAG retrieval skipped", error=str(e))
+            return ""
 
     async def _semantic_cache_lookup(
         self,

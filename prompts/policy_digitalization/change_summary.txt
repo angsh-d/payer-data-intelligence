@@ -1,3 +1,6 @@
+# Prompt: change_summary | Version: 1.1 | Updated: 2026-02-11
+# Changes: Added versioning header
+
 You are a clinical policy change analyst. Summarize the following policy changes for a prior authorization specialist.
 
 ## Policy Change Details

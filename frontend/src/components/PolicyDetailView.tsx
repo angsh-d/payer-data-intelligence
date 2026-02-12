@@ -113,12 +113,6 @@ export default function PolicyDetailView({ policy, onBack }: PolicyDetailViewPro
     const id = criterion.criterion_id || ''
     setActiveCriterionId(id)
 
-    setExpandedCriteria(prev => {
-      const next = new Set(prev)
-      next.add(id)
-      return next
-    })
-
     if (criterion.source_page && criterion.source_page > 0) {
       navigateToPage(criterion.source_page)
     }
@@ -182,10 +176,10 @@ export default function PolicyDetailView({ policy, onBack }: PolicyDetailViewPro
 
   return (
     <div className="h-full">
-      <div className="px-8 pt-6 pb-4 border-b border-[rgba(0,0,0,0.06)] bg-white">
+      <div className="px-8 pt-6 pb-4 border-b border-border-primary bg-surface-primary">
         <button
           onClick={onBack}
-          className="flex items-center gap-1.5 text-[13px] text-[#86868b] hover:text-[#0071e3] transition-colors mb-4"
+          className="flex items-center gap-1.5 text-[13px] text-text-tertiary hover:text-accent-blue transition-colors mb-4"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           Back to Policy Vault
@@ -196,12 +190,12 @@ export default function PolicyDetailView({ policy, onBack }: PolicyDetailViewPro
           </div>
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-semibold text-[#1d1d1f] tracking-tight">{drugInfo.brandName}</h1>
-              <span className="inline-flex px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[11px] font-semibold text-[#6e6e73] tracking-wide">
+              <h1 className="text-2xl font-semibold text-text-primary tracking-tight">{drugInfo.brandName}</h1>
+              <span className="inline-flex px-2.5 py-0.5 rounded-full bg-surface-secondary text-[11px] font-semibold text-text-secondary tracking-wide">
                 {payerInfo.abbreviation}
               </span>
             </div>
-            <p className="text-[13px] text-[#86868b] mt-0.5">
+            <p className="text-[13px] text-text-tertiary mt-0.5">
               {drugInfo.genericName}{drugInfo.category ? ` · ${drugInfo.category}` : ''}
               {digitizedData?.policy_id ? ` · Policy ${digitizedData.policy_id}` : ''}
             </p>
@@ -210,30 +204,30 @@ export default function PolicyDetailView({ policy, onBack }: PolicyDetailViewPro
       </div>
 
       <div className="flex h-[calc(100vh-160px)]">
-        <div className="w-1/2 overflow-y-auto border-r border-[rgba(0,0,0,0.06)] bg-[#fafafa]">
+        <div className="w-1/2 overflow-y-auto border-r border-border-primary bg-surface-secondary">
           <div className="p-6 space-y-5">
 
             {digitizedData?.policy_title && (
-              <div className="rounded-2xl border border-[rgba(0,0,0,0.06)] bg-white p-5">
-                <h3 className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#86868b] mb-3">Policy Overview</h3>
+              <div className="rounded-2xl border border-border-primary bg-surface-primary p-5">
+                <h3 className="text-[11px] font-semibold uppercase tracking-[0.06em] text-text-tertiary mb-3">Policy Overview</h3>
                 <div className="grid grid-cols-2 gap-3 text-[13px]">
                   {digitizedData.policy_title && (
-                    <div><span className="text-[#86868b]">Title</span><p className="text-[#1d1d1f] font-medium mt-0.5">{digitizedData.policy_title}</p></div>
+                    <div><span className="text-text-tertiary">Title</span><p className="text-text-primary font-medium mt-0.5">{digitizedData.policy_title}</p></div>
                   )}
                   {digitizedData.policy_number && (
-                    <div><span className="text-[#86868b]">Number</span><p className="text-[#1d1d1f] font-medium mt-0.5">{digitizedData.policy_number}</p></div>
+                    <div><span className="text-text-tertiary">Number</span><p className="text-text-primary font-medium mt-0.5">{digitizedData.policy_number}</p></div>
                   )}
                   {digitizedData.effective_date && (
-                    <div><span className="text-[#86868b]">Effective</span><p className="text-[#1d1d1f] font-medium mt-0.5">{digitizedData.effective_date}</p></div>
+                    <div><span className="text-text-tertiary">Effective</span><p className="text-text-primary font-medium mt-0.5">{digitizedData.effective_date}</p></div>
                   )}
                   {digitizedData.last_revision_date && (
-                    <div><span className="text-[#86868b]">Revised</span><p className="text-[#1d1d1f] font-medium mt-0.5">{digitizedData.last_revision_date}</p></div>
+                    <div><span className="text-text-tertiary">Revised</span><p className="text-text-primary font-medium mt-0.5">{digitizedData.last_revision_date}</p></div>
                   )}
                   {digitizedData.policy_type && (
-                    <div><span className="text-[#86868b]">Type</span><p className="text-[#1d1d1f] font-medium mt-0.5">{digitizedData.policy_type.replace(/_/g, ' ')}</p></div>
+                    <div><span className="text-text-tertiary">Type</span><p className="text-text-primary font-medium mt-0.5">{digitizedData.policy_type.replace(/_/g, ' ')}</p></div>
                   )}
                   {digitizedData.extraction_quality && (
-                    <div><span className="text-[#86868b]">Quality</span><p className="text-[#1d1d1f] font-medium mt-0.5 capitalize">{digitizedData.extraction_quality}</p></div>
+                    <div><span className="text-text-tertiary">Quality</span><p className="text-text-primary font-medium mt-0.5 capitalize">{digitizedData.extraction_quality}</p></div>
                   )}
                 </div>
               </div>
@@ -241,20 +235,28 @@ export default function PolicyDetailView({ policy, onBack }: PolicyDetailViewPro
 
             {Object.keys(grouped).length > 0 && (
               <div className="space-y-3">
-                <h3 className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#86868b] px-1">
-                  Extracted Criteria ({Object.values(atomicCriteria).length})
-                </h3>
+                <div className="flex items-center gap-3 px-1">
+                  <h3 className="text-[11px] font-semibold uppercase tracking-[0.06em] text-text-tertiary">
+                    Extracted Criteria ({Object.values(atomicCriteria).length})
+                  </h3>
+                  {digitizedData?.codification_metadata && (
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">
+                      {digitizedData.codification_metadata.confirmed_codes} codes confirmed
+                      {digitizedData.codification_metadata.review_needed_codes > 0 && ` · ${digitizedData.codification_metadata.review_needed_codes} review`}
+                    </span>
+                  )}
+                </div>
                 {Object.entries(grouped).map(([category, criteria]) => {
                   const CatIcon = categoryIcons[category] || FileText
                   const label = categoryLabels[category] || category.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
                   return (
-                    <div key={category} className="rounded-2xl border border-[rgba(0,0,0,0.06)] bg-white overflow-hidden">
-                      <div className="px-5 py-3 bg-[#fafafa] border-b border-[rgba(0,0,0,0.04)] flex items-center gap-2">
-                        <CatIcon className="w-3.5 h-3.5 text-[#86868b]" />
-                        <span className="text-[12px] font-semibold text-[#6e6e73]">{label}</span>
-                        <span className="text-[11px] text-[#aeaeb2] ml-auto">{criteria.length}</span>
+                    <div key={category} className="rounded-2xl border border-border-primary bg-surface-primary overflow-hidden">
+                      <div className="px-5 py-3 bg-surface-secondary border-b border-border-secondary flex items-center gap-2">
+                        <CatIcon className="w-3.5 h-3.5 text-text-tertiary" />
+                        <span className="text-[12px] font-semibold text-text-secondary">{label}</span>
+                        <span className="text-[11px] text-text-quaternary ml-auto">{criteria.length}</span>
                       </div>
-                      <div className="divide-y divide-[rgba(0,0,0,0.04)]">
+                      <div className="divide-y divide-border-secondary">
                         {criteria.map((criterion) => {
                           const id = criterion.criterion_id || ''
                           const isExpanded = expandedCriteria.has(id)
@@ -266,33 +268,41 @@ export default function PolicyDetailView({ policy, onBack }: PolicyDetailViewPro
                           return (
                             <div
                               key={id}
-                              className={`transition-colors duration-150 ${isActive ? 'bg-[#0071e3]/[0.04]' : ''}`}
+                              className={`transition-colors duration-150 ${isActive ? 'bg-accent-blue/5' : ''}`}
                             >
                               <button
                                 onClick={() => {
                                   toggleExpand(id)
                                   handleCriterionClick({ ...criterion, source_page: sourcePage })
                                 }}
-                                className="w-full px-5 py-3 flex items-center gap-3 text-left hover:bg-[rgba(0,0,0,0.02)] transition-colors"
+                                className="w-full px-5 py-3 flex items-center gap-3 text-left hover:bg-surface-hover/30 transition-colors"
                               >
                                 <div className={`w-4 h-4 flex items-center justify-center transition-transform ${isExpanded ? 'rotate-0' : '-rotate-90'}`}>
-                                  <ChevronDown className="w-3.5 h-3.5 text-[#aeaeb2]" />
+                                  <ChevronDown className="w-3.5 h-3.5 text-text-quaternary" />
                                 </div>
                                 <div className="flex-1 min-w-0">
                                   <div className="flex items-center gap-2">
-                                    <span className="text-[13px] font-medium text-[#1d1d1f] truncate">
+                                    <span className="text-[13px] font-medium text-text-primary truncate">
                                       {criterion.criterion_name || criterion.description || id}
                                     </span>
                                     {criterion.is_required && (
-                                      <span className="shrink-0 text-[10px] px-1.5 py-0.5 rounded bg-[#d70015]/10 text-[#d70015] font-medium">Required</span>
+                                      <span className="shrink-0 text-[10px] px-1.5 py-0.5 rounded bg-surface-tertiary text-text-secondary font-medium flex items-center gap-1"><span className="w-1 h-1 rounded-full bg-text-quaternary" />Required</span>
                                     )}
                                   </div>
                                   {criterion.description && criterion.criterion_name && (
-                                    <p className="text-[12px] text-[#86868b] truncate mt-0.5">{criterion.description}</p>
+                                    <p className="text-[12px] text-text-tertiary truncate mt-0.5">{criterion.description}</p>
                                   )}
                                 </div>
                                 {sourcePage && (
-                                  <span className="shrink-0 text-[11px] text-[#0071e3] font-medium px-2 py-0.5 rounded-full bg-[#0071e3]/[0.06]">
+                                  <span
+                                    role="button"
+                                    onClick={(e) => {
+                                      e.stopPropagation()
+                                      navigateToPage(sourcePage)
+                                      setActiveCriterionId(id)
+                                    }}
+                                    className="shrink-0 text-[11px] text-accent-blue font-medium px-2 py-0.5 rounded-full bg-accent-blue/8 hover:bg-accent-blue/15 cursor-pointer transition-colors"
+                                  >
                                     p.{sourcePage}
                                   </span>
                                 )}
@@ -314,23 +324,56 @@ export default function PolicyDetailView({ policy, onBack }: PolicyDetailViewPro
                                         const label = field.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
                                         return (
                                           <div key={field} className="flex gap-3">
-                                            <span className="text-[11px] text-[#aeaeb2] w-28 shrink-0 pt-0.5 uppercase tracking-wide font-medium">{label}</span>
-                                            <span className="text-[12px] text-[#1d1d1f] leading-relaxed flex-1">{renderFieldValue(field, val)}</span>
+                                            <span className="text-[11px] text-text-quaternary w-28 shrink-0 pt-0.5 uppercase tracking-wide font-medium">{label}</span>
+                                            <span className="text-[12px] text-text-primary leading-relaxed flex-1">{renderFieldValue(field, val)}</span>
                                           </div>
                                         )
                                       })}
                                       {prov?.extraction_confidence && (
                                         <div className="flex gap-3">
-                                          <span className="text-[11px] text-[#aeaeb2] w-28 shrink-0 pt-0.5 uppercase tracking-wide font-medium">Confidence</span>
-                                          <span className="text-[12px] text-[#1d1d1f] capitalize">{prov.extraction_confidence}</span>
+                                          <span className="text-[11px] text-text-quaternary w-28 shrink-0 pt-0.5 uppercase tracking-wide font-medium">Confidence</span>
+                                          <span className="text-[12px] text-text-primary capitalize">{prov.extraction_confidence}</span>
                                         </div>
                                       )}
                                       {prov?.validation_action && (
                                         <div className="flex gap-3">
-                                          <span className="text-[11px] text-[#aeaeb2] w-28 shrink-0 pt-0.5 uppercase tracking-wide font-medium">Validation</span>
-                                          <span className="text-[12px] text-[#1d1d1f] capitalize">{prov.validation_action}</span>
+                                          <span className="text-[11px] text-text-quaternary w-28 shrink-0 pt-0.5 uppercase tracking-wide font-medium">Validation</span>
+                                          <span className="text-[12px] text-text-primary capitalize">{prov.validation_action}</span>
                                         </div>
                                       )}
+                                      {(() => {
+                                        const codes = criterion.enriched_codes?.length
+                                          ? criterion.enriched_codes
+                                          : criterion.clinical_codes?.length
+                                            ? criterion.clinical_codes.map((c: any) => ({ ...c, source: 'verbatim', consensus_status: 'confirmed' }))
+                                            : []
+                                        if (!codes.length) return null
+                                        return (
+                                          <div className="mt-3 pt-3 border-t border-border-secondary">
+                                            <span className="text-[11px] text-text-quaternary uppercase tracking-wide font-medium">Clinical Codes</span>
+                                            <div className="mt-1.5 flex flex-wrap gap-1.5">
+                                              {codes.map((code: any, ci: number) => {
+                                                const status = code.consensus_status || 'confirmed'
+                                                const statusColor = status === 'confirmed'
+                                                  ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+                                                  : status === 'review_needed'
+                                                    ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                                                    : 'bg-red-500/10 text-red-400 border-red-500/20'
+                                                return (
+                                                  <span
+                                                    key={ci}
+                                                    title={[code.display, code.concept_text && `Concept: ${code.concept_text}`, code.source && `Source: ${code.source}`].filter(Boolean).join('\n')}
+                                                    className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md border text-[11px] font-mono ${statusColor}`}
+                                                  >
+                                                    <span className="opacity-60">{code.system}</span>
+                                                    <span className="font-semibold">{code.code}</span>
+                                                  </span>
+                                                )
+                                              })}
+                                            </div>
+                                          </div>
+                                        )
+                                      })()}
                                     </div>
                                   </motion.div>
                                 )}
@@ -346,41 +389,70 @@ export default function PolicyDetailView({ policy, onBack }: PolicyDetailViewPro
             )}
 
             {indications.length > 0 && (
-              <div className="rounded-2xl border border-[rgba(0,0,0,0.06)] bg-white overflow-hidden">
-                <div className="px-5 py-3 bg-[#fafafa] border-b border-[rgba(0,0,0,0.04)] flex items-center gap-2">
-                  <ClipboardList className="w-3.5 h-3.5 text-[#86868b]" />
-                  <span className="text-[12px] font-semibold text-[#6e6e73]">Indications</span>
-                  <span className="text-[11px] text-[#aeaeb2] ml-auto">{indications.length}</span>
+              <div className="rounded-2xl border border-border-primary bg-surface-primary overflow-hidden">
+                <div className="px-5 py-3 bg-surface-secondary border-b border-border-secondary flex items-center gap-2">
+                  <ClipboardList className="w-3.5 h-3.5 text-text-tertiary" />
+                  <span className="text-[12px] font-semibold text-text-secondary">Indications</span>
+                  <span className="text-[11px] text-text-quaternary ml-auto">{indications.length}</span>
                 </div>
-                <div className="divide-y divide-[rgba(0,0,0,0.04)]">
-                  {indications.map((ind: any, i: number) => (
-                    <div key={i} className="px-5 py-3">
-                      <p className="text-[13px] font-medium text-[#1d1d1f]">{ind.indication_name || `Indication ${i + 1}`}</p>
-                      {ind.initial_approval_duration_months && (
-                        <p className="text-[12px] text-[#86868b] mt-1">Initial: {ind.initial_approval_duration_months} months</p>
-                      )}
-                      {ind.continuation_approval_duration_months && (
-                        <p className="text-[12px] text-[#86868b]">Continuation: {ind.continuation_approval_duration_months} months</p>
-                      )}
-                    </div>
-                  ))}
+                <div className="divide-y divide-border-secondary">
+                  {indications.map((ind: any, i: number) => {
+                    const indCodes = ind.enriched_codes?.length
+                      ? ind.enriched_codes
+                      : ind.indication_codes?.length
+                        ? ind.indication_codes.map((c: any) => ({ ...c, source: 'verbatim', consensus_status: 'confirmed' }))
+                        : []
+                    return (
+                      <div key={i} className="px-5 py-3">
+                        <p className="text-[13px] font-medium text-text-primary">{ind.indication_name || `Indication ${i + 1}`}</p>
+                        {ind.initial_approval_duration_months && (
+                          <p className="text-[12px] text-text-tertiary mt-1">Initial: {ind.initial_approval_duration_months} months</p>
+                        )}
+                        {ind.continuation_approval_duration_months && (
+                          <p className="text-[12px] text-text-tertiary">Continuation: {ind.continuation_approval_duration_months} months</p>
+                        )}
+                        {indCodes.length > 0 && (
+                          <div className="mt-2 flex flex-wrap gap-1.5">
+                            {indCodes.map((code: any, ci: number) => {
+                              const status = code.consensus_status || 'confirmed'
+                              const statusColor = status === 'confirmed'
+                                ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+                                : status === 'review_needed'
+                                  ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                                  : 'bg-red-500/10 text-red-400 border-red-500/20'
+                              return (
+                                <span
+                                  key={ci}
+                                  title={[code.display, code.concept_text && `Concept: ${code.concept_text}`].filter(Boolean).join('\n')}
+                                  className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md border text-[11px] font-mono ${statusColor}`}
+                                >
+                                  <span className="opacity-60">{code.system}</span>
+                                  <span className="font-semibold">{code.code}</span>
+                                </span>
+                              )
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             )}
 
             {exclusions.length > 0 && (
-              <div className="rounded-2xl border border-[rgba(0,0,0,0.06)] bg-white overflow-hidden">
-                <div className="px-5 py-3 bg-[#fafafa] border-b border-[rgba(0,0,0,0.04)] flex items-center gap-2">
-                  <Ban className="w-3.5 h-3.5 text-[#86868b]" />
-                  <span className="text-[12px] font-semibold text-[#6e6e73]">Exclusions</span>
-                  <span className="text-[11px] text-[#aeaeb2] ml-auto">{exclusions.length}</span>
+              <div className="rounded-2xl border border-border-primary bg-surface-primary overflow-hidden">
+                <div className="px-5 py-3 bg-surface-secondary border-b border-border-secondary flex items-center gap-2">
+                  <Ban className="w-3.5 h-3.5 text-text-tertiary" />
+                  <span className="text-[12px] font-semibold text-text-secondary">Exclusions</span>
+                  <span className="text-[11px] text-text-quaternary ml-auto">{exclusions.length}</span>
                 </div>
-                <div className="divide-y divide-[rgba(0,0,0,0.04)]">
+                <div className="divide-y divide-border-secondary">
                   {exclusions.map((ex: any, i: number) => (
                     <div key={i} className="px-5 py-3">
-                      <p className="text-[13px] font-medium text-[#1d1d1f]">{ex.name || `Exclusion ${i + 1}`}</p>
-                      {ex.description && <p className="text-[12px] text-[#86868b] mt-1">{ex.description}</p>}
-                      {ex.policy_text && <p className="text-[12px] text-[#6e6e73] mt-1 italic">"{ex.policy_text}"</p>}
+                      <p className="text-[13px] font-medium text-text-primary">{ex.name || `Exclusion ${i + 1}`}</p>
+                      {ex.description && <p className="text-[12px] text-text-tertiary mt-1">{ex.description}</p>}
+                      {ex.policy_text && <p className="text-[12px] text-text-secondary mt-1 italic">"{ex.policy_text}"</p>}
                     </div>
                   ))}
                 </div>
@@ -388,18 +460,18 @@ export default function PolicyDetailView({ policy, onBack }: PolicyDetailViewPro
             )}
 
             {safetyScreenings.length > 0 && (
-              <div className="rounded-2xl border border-[rgba(0,0,0,0.06)] bg-white overflow-hidden">
-                <div className="px-5 py-3 bg-[#fafafa] border-b border-[rgba(0,0,0,0.04)] flex items-center gap-2">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#86868b]" />
-                  <span className="text-[12px] font-semibold text-[#6e6e73]">Safety Screenings</span>
-                  <span className="text-[11px] text-[#aeaeb2] ml-auto">{safetyScreenings.length}</span>
+              <div className="rounded-2xl border border-border-primary bg-surface-primary overflow-hidden">
+                <div className="px-5 py-3 bg-surface-secondary border-b border-border-secondary flex items-center gap-2">
+                  <ShieldCheck className="w-3.5 h-3.5 text-text-tertiary" />
+                  <span className="text-[12px] font-semibold text-text-secondary">Safety Screenings</span>
+                  <span className="text-[11px] text-text-quaternary ml-auto">{safetyScreenings.length}</span>
                 </div>
-                <div className="divide-y divide-[rgba(0,0,0,0.04)]">
+                <div className="divide-y divide-border-secondary">
                   {safetyScreenings.map((ss: any, i: number) => (
                     <div key={i} className="px-5 py-3">
-                      <p className="text-[13px] font-medium text-[#1d1d1f]">{ss.name || `Screening ${i + 1}`}</p>
-                      {ss.description && <p className="text-[12px] text-[#86868b] mt-1">{ss.description}</p>}
-                      {ss.frequency && <p className="text-[12px] text-[#6e6e73] mt-1">Frequency: {ss.frequency}</p>}
+                      <p className="text-[13px] font-medium text-text-primary">{ss.name || `Screening ${i + 1}`}</p>
+                      {ss.description && <p className="text-[12px] text-text-tertiary mt-1">{ss.description}</p>}
+                      {ss.frequency && <p className="text-[12px] text-text-secondary mt-1">Frequency: {ss.frequency}</p>}
                     </div>
                   ))}
                 </div>
@@ -407,18 +479,18 @@ export default function PolicyDetailView({ policy, onBack }: PolicyDetailViewPro
             )}
 
             {Object.keys(criterionGroups).length > 0 && (
-              <div className="rounded-2xl border border-[rgba(0,0,0,0.06)] bg-white overflow-hidden">
-                <div className="px-5 py-3 bg-[#fafafa] border-b border-[rgba(0,0,0,0.04)] flex items-center gap-2">
-                  <BookOpen className="w-3.5 h-3.5 text-[#86868b]" />
-                  <span className="text-[12px] font-semibold text-[#6e6e73]">Criterion Groups</span>
-                  <span className="text-[11px] text-[#aeaeb2] ml-auto">{Object.keys(criterionGroups).length}</span>
+              <div className="rounded-2xl border border-border-primary bg-surface-primary overflow-hidden">
+                <div className="px-5 py-3 bg-surface-secondary border-b border-border-secondary flex items-center gap-2">
+                  <BookOpen className="w-3.5 h-3.5 text-text-tertiary" />
+                  <span className="text-[12px] font-semibold text-text-secondary">Criterion Groups</span>
+                  <span className="text-[11px] text-text-quaternary ml-auto">{Object.keys(criterionGroups).length}</span>
                 </div>
-                <div className="divide-y divide-[rgba(0,0,0,0.04)]">
+                <div className="divide-y divide-border-secondary">
                   {Object.entries(criterionGroups).map(([gid, group]: [string, any]) => (
                     <div key={gid} className="px-5 py-3">
-                      <p className="text-[13px] font-medium text-[#1d1d1f]">{group.group_name || gid}</p>
-                      {group.description && <p className="text-[12px] text-[#86868b] mt-1">{group.description}</p>}
-                      {group.logic && <p className="text-[12px] text-[#6e6e73] mt-1">Logic: {group.logic}</p>}
+                      <p className="text-[13px] font-medium text-text-primary">{group.group_name || gid}</p>
+                      {group.description && <p className="text-[12px] text-text-tertiary mt-1">{group.description}</p>}
+                      {group.logic && <p className="text-[12px] text-text-secondary mt-1">Logic: {group.logic}</p>}
                     </div>
                   ))}
                 </div>
@@ -428,12 +500,12 @@ export default function PolicyDetailView({ policy, onBack }: PolicyDetailViewPro
           </div>
         </div>
 
-        <div className="w-1/2 bg-[#f0f0f0] flex flex-col">
+        <div className="w-1/2 bg-surface-secondary flex flex-col">
           {hasPdf ? (
             <>
-              <div className="px-5 py-3 bg-white border-b border-[rgba(0,0,0,0.06)] flex items-center gap-2">
-                <FileText className="w-3.5 h-3.5 text-[#86868b]" />
-                <span className="text-[12px] font-semibold text-[#6e6e73]">Source Document</span>
+              <div className="px-5 py-3 bg-surface-primary border-b border-border-primary flex items-center gap-2">
+                <FileText className="w-3.5 h-3.5 text-text-tertiary" />
+                <span className="text-[12px] font-semibold text-text-secondary">Source Document</span>
               </div>
               <PdfViewer
                 url={pdfUrl}
@@ -443,12 +515,12 @@ export default function PolicyDetailView({ policy, onBack }: PolicyDetailViewPro
             </>
           ) : (
             <div className="flex-1 flex flex-col items-center justify-center gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-[rgba(0,0,0,0.04)] flex items-center justify-center">
-                <FileText className="w-8 h-8 text-[#aeaeb2]" />
+              <div className="w-16 h-16 rounded-2xl bg-surface-tertiary/30 flex items-center justify-center">
+                <FileText className="w-8 h-8 text-text-quaternary" />
               </div>
               <div className="text-center">
-                <p className="text-[15px] font-medium text-[#6e6e73]">No PDF Available</p>
-                <p className="text-[13px] text-[#aeaeb2] mt-1 max-w-xs">
+                <p className="text-[15px] font-medium text-text-secondary">No PDF Available</p>
+                <p className="text-[13px] text-text-quaternary mt-1 max-w-xs">
                   The original PDF document was not found for this policy. Only the extracted data is shown.
                 </p>
               </div>

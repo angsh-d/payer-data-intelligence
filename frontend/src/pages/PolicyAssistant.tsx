@@ -1,12 +1,15 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Sparkles, ArrowUp, X, ChevronDown, Bot } from 'lucide-react'
+import { Sparkles, ArrowUp, X, ChevronDown, Bot, RotateCcw, Zap } from 'lucide-react'
 import { api, type PolicyBankItem } from '../lib/api'
 
 interface Message {
   role: 'user' | 'assistant'
   content: string
   follow_ups?: string[]
+  citations?: Array<{ policy?: string; criteria_id?: string; text?: string }>
+  confidence?: number
+  streaming?: boolean
 }
 
 const SUGGESTIONS = [
@@ -177,10 +180,13 @@ export default function PolicyAssistant() {
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
+  const [streaming, setStreaming] = useState(false)
+  const [useStreaming, setUseStreaming] = useState(true)
   const [payerFilter, setPayerFilter] = useState<string | null>(null)
   const [medicationFilter, setMedicationFilter] = useState<string | null>(null)
   const [payers, setPayers] = useState<string[]>([])
   const [medications, setMedications] = useState<string[]>([])
+  const [sessionId] = useState(() => crypto.randomUUID())
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -195,13 +201,59 @@ export default function PolicyAssistant() {
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [messages, loading])
+  }, [messages, loading, streaming])
 
-  const sendMessage = async (text: string) => {
-    const question = text.trim()
-    if (!question || loading) return
+  const sendMessageStreaming = useCallback(async (question: string) => {
+    setMessages((prev) => [...prev, { role: 'user', content: question }])
+    setStreaming(true)
+    setMessages((prev) => [...prev, { role: 'assistant', content: '', streaming: true }])
 
-    setInput('')
+    try {
+      let fullContent = ''
+      for await (const chunk of api.streamAssistant(
+        question,
+        payerFilter || undefined,
+        medicationFilter || undefined,
+        sessionId,
+      )) {
+        fullContent += chunk
+        setMessages((prev) => {
+          const updated = [...prev]
+          const last = updated[updated.length - 1]
+          if (last.role === 'assistant' && last.streaming) {
+            updated[updated.length - 1] = { ...last, content: fullContent }
+          }
+          return updated
+        })
+      }
+      // Finalize
+      setMessages((prev) => {
+        const updated = [...prev]
+        const last = updated[updated.length - 1]
+        if (last.role === 'assistant') {
+          updated[updated.length - 1] = { ...last, streaming: false }
+        }
+        return updated
+      })
+    } catch (err: any) {
+      setMessages((prev) => {
+        const updated = [...prev]
+        const last = updated[updated.length - 1]
+        if (last.role === 'assistant' && last.streaming) {
+          updated[updated.length - 1] = {
+            ...last,
+            content: `I encountered an error: ${err.message || 'Unknown error'}. Please try again.`,
+            streaming: false,
+          }
+        }
+        return updated
+      })
+    } finally {
+      setStreaming(false)
+    }
+  }, [payerFilter, medicationFilter, sessionId])
+
+  const sendMessageNonStreaming = useCallback(async (question: string) => {
     setMessages((prev) => [...prev, { role: 'user', content: question }])
     setLoading(true)
 
@@ -209,7 +261,8 @@ export default function PolicyAssistant() {
       const res = await api.queryAssistant(
         question,
         payerFilter || undefined,
-        medicationFilter || undefined
+        medicationFilter || undefined,
+        sessionId,
       )
       setMessages((prev) => [
         ...prev,
@@ -217,6 +270,8 @@ export default function PolicyAssistant() {
           role: 'assistant',
           content: res.answer,
           follow_ups: res.follow_up_questions,
+          citations: res.citations,
+          confidence: res.confidence,
         },
       ])
     } catch (err: any) {
@@ -230,7 +285,19 @@ export default function PolicyAssistant() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [payerFilter, medicationFilter, sessionId])
+
+  const sendMessage = useCallback(async (text: string) => {
+    const question = text.trim()
+    if (!question || loading || streaming) return
+    setInput('')
+
+    if (useStreaming) {
+      await sendMessageStreaming(question)
+    } else {
+      await sendMessageNonStreaming(question)
+    }
+  }, [loading, streaming, useStreaming, sendMessageStreaming, sendMessageNonStreaming])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -241,7 +308,12 @@ export default function PolicyAssistant() {
     sendMessage(suggestion)
   }
 
+  const handleNewSession = useCallback(() => {
+    setMessages([])
+  }, [])
+
   const hasMessages = messages.length > 0
+  const isActive = loading || streaming
 
   return (
     <div className="flex flex-col h-full relative">
@@ -260,7 +332,7 @@ export default function PolicyAssistant() {
               Policy Assistant
             </h1>
             <p className="text-text-tertiary text-base mb-10 max-w-md">
-              Ask anything about your payer policies
+              Ask anything about your payer policies — with conversation memory
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl w-full">
               {SUGGESTIONS.map((s, i) => (
@@ -300,7 +372,33 @@ export default function PolicyAssistant() {
                       <div className="space-y-3">
                         <div className="rounded-2xl rounded-tl-lg bg-surface-secondary border border-border-primary px-5 py-4 text-sm text-text-secondary leading-relaxed">
                           {renderFormattedText(msg.content)}
+                          {msg.streaming && (
+                            <motion.span
+                              className="inline-block w-2 h-4 bg-accent-purple/60 ml-0.5"
+                              animate={{ opacity: [1, 0] }}
+                              transition={{ duration: 0.8, repeat: Infinity }}
+                            />
+                          )}
                         </div>
+                        {msg.citations && msg.citations.length > 0 && (
+                          <div className="flex flex-wrap gap-1.5 pl-1">
+                            {msg.citations.map((c, ci) => (
+                              <span
+                                key={ci}
+                                className="px-2 py-1 rounded-lg bg-accent-blue/5 border border-accent-blue/15 text-[11px] text-accent-blue font-medium"
+                              >
+                                {c.criteria_id || c.policy || `Citation ${ci + 1}`}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        {msg.confidence !== undefined && msg.confidence < 0.6 && (
+                          <div className="pl-1">
+                            <span className="text-[11px] text-accent-amber">
+                              Low confidence ({(msg.confidence * 100).toFixed(0)}%) — may need human review
+                            </span>
+                          </div>
+                        )}
                         {msg.follow_ups && msg.follow_ups.length > 0 && (
                           <div className="flex flex-wrap gap-2 pl-1">
                             {msg.follow_ups.map((fq) => (
@@ -327,7 +425,7 @@ export default function PolicyAssistant() {
                 </motion.div>
               ))}
             </AnimatePresence>
-            {loading && <TypingIndicator />}
+            {loading && !streaming && <TypingIndicator />}
             <div ref={messagesEndRef} />
           </div>
         )}
@@ -348,6 +446,27 @@ export default function PolicyAssistant() {
               value={medicationFilter}
               onChange={setMedicationFilter}
             />
+            <div className="flex-1" />
+            {hasMessages && (
+              <button
+                onClick={handleNewSession}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border-primary text-text-tertiary text-xs font-medium transition-colors hover:bg-surface-hover hover:text-text-secondary"
+              >
+                <RotateCcw className="w-3 h-3" />
+                New Chat
+              </button>
+            )}
+            <button
+              onClick={() => setUseStreaming(!useStreaming)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-medium transition-colors ${
+                useStreaming
+                  ? 'border-accent-purple/30 bg-accent-purple/10 text-accent-purple'
+                  : 'border-border-primary text-text-tertiary hover:bg-surface-hover'
+              }`}
+            >
+              <Zap className="w-3 h-3" />
+              Stream
+            </button>
           </div>
 
           <form
@@ -360,12 +479,12 @@ export default function PolicyAssistant() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about policies..."
-              disabled={loading}
+              disabled={isActive}
               className="flex-1 bg-transparent text-sm text-text-primary placeholder:text-text-quaternary outline-none disabled:opacity-50"
             />
             <button
               type="submit"
-              disabled={!input.trim() || loading}
+              disabled={!input.trim() || isActive}
               className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-blue flex items-center justify-center transition-all duration-200 hover:bg-accent-blue-hover disabled:opacity-30 disabled:cursor-not-allowed"
             >
               <ArrowUp className="w-4 h-4 text-white" />

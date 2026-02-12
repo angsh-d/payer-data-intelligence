@@ -19,3 +19,8 @@ class EvaluationError(Exception):
 class PolicyNotFoundError(Exception):
     """Requested policy not found in repository."""
     pass
+
+
+class CodificationError(Exception):
+    """Error during clinical codification (Pass 4)."""
+    pass

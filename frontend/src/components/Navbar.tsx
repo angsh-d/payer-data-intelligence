@@ -18,7 +18,7 @@ export default function Navbar() {
       <div className="mx-4 h-6 w-px bg-border-hover shrink-0" />
 
       <span className="text-[15px] font-semibold text-text-primary tracking-tight whitespace-nowrap">
-        Payer Intelligence Platform
+        Formulary Intelligence Agent
       </span>
 
       {!isLanding && (

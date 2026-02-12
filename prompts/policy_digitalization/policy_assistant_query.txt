@@ -1,3 +1,6 @@
+# Prompt: policy_assistant_query | Version: 1.1 | Updated: 2026-02-11
+# Changes: Added versioning header
+
 ## Available Policy Data
 
 {policies_context}
@@ -5,12 +8,17 @@
 ## Filter Context
 {filter_context}
 
-## Question
+## Conversation History
+{conversation_history}
+
+## Current Question
 {question}
 
 ## Instructions
 Answer the question using ONLY the policy data above. Cite criterion IDs. If comparing across payers, use a structured comparison.
 
 IMPORTANT: Always try to answer the user's underlying intent. If the user asks about "changes" or a specific year/version and multiple versions are available, compare the versions you have rather than refusing because the exact year label doesn't match. The user likely wants to know what changed between the available versions.
+
+If there is conversation history, use it to understand context for follow-up questions. For example, if the user previously asked about BCBS coverage and now asks "What about for Cigna?", understand they want the same analysis for Cigna.
 
 Respond in the JSON format specified in your system instructions.

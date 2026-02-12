@@ -12,6 +12,8 @@
     "infliximab": "remicade",
     "remicade": "infliximab",
     "adalimumab": "humira",
-    "humira": "adalimumab"
+    "humira": "adalimumab",
+    "dupilumab": "dupixent",
+    "dupixent": "dupilumab"
   }
 }

@@ -89,17 +89,60 @@ class GeminiClient:
                 raise GeminiError("Empty response from Gemini")
 
             response_text = response.text
-            logger.debug("Gemini response received", length=len(response_text))
+            usage_meta = getattr(response, 'usage_metadata', None)
+            input_tokens = getattr(usage_meta, 'prompt_token_count', 0) if usage_meta else 0
+            output_tokens = getattr(usage_meta, 'candidates_token_count', 0) if usage_meta else 0
+            logger.debug(
+                "Gemini response received",
+                length=len(response_text),
+                input_tokens=input_tokens,
+                output_tokens=output_tokens,
+            )
+
+            usage = {"input_tokens": input_tokens, "output_tokens": output_tokens, "model": self.model_name}
 
             if response_format == "json":
                 parsed = self._extract_json(response_text)
+                parsed["_usage"] = usage
                 return parsed
             else:
-                return {"response": response_text}
+                return {"response": response_text, "_usage": usage}
 
         except Exception as e:
             logger.error("Gemini generation failed", error=str(e))
             raise GeminiError(f"Gemini generation failed: {e}") from e
+
+    async def generate_stream(
+        self,
+        prompt: str,
+        system_prompt: Optional[str] = None,
+        temperature: float = 0.3,
+    ):
+        """
+        Stream content generation from Gemini, yielding text chunks.
+
+        Yields:
+            String chunks of the response as they arrive
+        """
+        logger.info("Streaming with Gemini", model=self.model_name)
+
+        try:
+            config = types.GenerateContentConfig(
+                temperature=temperature,
+                max_output_tokens=self.max_output_tokens,
+                system_instruction=system_prompt if system_prompt else None,
+            )
+
+            async for chunk in self.client.aio.models.generate_content_stream(
+                model=self.model_name,
+                contents=prompt,
+                config=config,
+            ):
+                if chunk.text:
+                    yield chunk.text
+        except Exception as e:
+            logger.error("Gemini streaming failed", error=str(e))
+            raise GeminiError(f"Gemini streaming failed: {e}") from e
 
     async def summarize(self, text: str, max_length: int = 500) -> str:
         """

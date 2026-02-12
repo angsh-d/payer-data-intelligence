@@ -40,7 +40,7 @@ const experiences = [
   },
   {
     icon: GitCompareArrows,
-    title: 'Policy Intelligence',
+    title: 'Formulary Intelligence',
     description: 'AI-powered semantic version comparison that detects meaningful coverage changes across policy updates.',
     path: '/intelligence',
     color: 'text-accent-purple',
@@ -95,7 +95,7 @@ export default function Landing() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-blue/8 border border-accent-blue/15 mb-8"
           >
             <Sparkles className="w-3.5 h-3.5 text-accent-blue" />
-            <span className="text-xs font-medium text-accent-blue tracking-wide">AI-Powered Policy Intelligence</span>
+            <span className="text-xs font-medium text-accent-blue tracking-wide">AI-Powered Formulary Intelligence</span>
           </motion.div>
 
           <motion.h1
@@ -241,7 +241,7 @@ export default function Landing() {
       <footer className="border-t border-border-secondary py-8 px-6">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <span className="text-xs text-text-quaternary">&copy; {new Date().getFullYear()} Saama Technologies. All rights reserved.</span>
-          <span className="text-xs text-text-quaternary">Payer Intelligence Platform v1.0</span>
+          <span className="text-xs text-text-quaternary">Formulary Intelligence Agent v1.0</span>
         </div>
       </footer>
     </div>

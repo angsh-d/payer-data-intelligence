@@ -44,8 +44,13 @@ class ReferenceDataValidator:
             criterion_code_results = {}
 
             for code_entry in codes:
-                system = code_entry.get("system", "")
-                code = code_entry.get("code", "")
+                if isinstance(code_entry, str):
+                    # Plain code string — infer system from format
+                    code = code_entry
+                    system = self._infer_code_system(code)
+                else:
+                    system = code_entry.get("system", "")
+                    code = code_entry.get("code", "")
                 valid = self._validate_code_format(system, code)
                 criterion_code_results[f"{system}:{code}"] = valid
                 if not valid:
@@ -84,6 +89,21 @@ class ReferenceDataValidator:
         )
 
         return policy
+
+    def _infer_code_system(self, code: str) -> str:
+        """Infer the code system from format when only a raw string is provided."""
+        code = code.strip()
+        if ICD10_PATTERN.match(code.upper()):
+            return "ICD-10"
+        if HCPCS_PATTERN.match(code.upper()):
+            return "HCPCS"
+        if CPT_PATTERN.match(code):
+            return "CPT"
+        if NDC_PATTERN.match(code):
+            return "NDC"
+        if LOINC_PATTERN.match(code):
+            return "LOINC"
+        return "unknown"
 
     def _validate_code_format(self, system: str, code: str) -> bool:
         """Validate clinical code format by system."""

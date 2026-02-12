@@ -54,7 +54,7 @@ class Settings(BaseSettings):
 
     # Token limits
     gemini_max_output_tokens: int = Field(default=65536, description="Max output tokens for Gemini 2.5")
-    claude_max_output_tokens: int = Field(default=8192, description="Max output tokens for Claude")
+    claude_max_output_tokens: int = Field(default=16384, description="Max output tokens for Claude")
     azure_max_output_tokens: int = Field(default=4096, description="Max output tokens for Azure OpenAI")
 
     # Data directories (relative to project root)

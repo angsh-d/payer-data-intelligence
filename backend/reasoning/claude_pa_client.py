@@ -93,13 +93,23 @@ class ClaudePAClient:
                 raise ClaudePolicyReasoningError("Empty response from Claude (no content blocks)")
 
             response_text = message.content[0].text
-            logger.debug("Claude response received", length=len(response_text))
+            input_tokens = getattr(message.usage, 'input_tokens', 0)
+            output_tokens = getattr(message.usage, 'output_tokens', 0)
+            logger.debug(
+                "Claude response received",
+                length=len(response_text),
+                input_tokens=input_tokens,
+                output_tokens=output_tokens,
+            )
+
+            usage = {"input_tokens": input_tokens, "output_tokens": output_tokens, "model": self.model}
 
             if response_format == "json":
                 parsed = self._extract_json(response_text)
+                parsed["_usage"] = usage
                 return parsed
             else:
-                return {"response": response_text}
+                return {"response": response_text, "_usage": usage}
 
         except anthropic.APIConnectionError as e:
             logger.error("Claude API connection error", error=str(e))
@@ -116,6 +126,37 @@ class ClaudePAClient:
         except Exception as e:
             logger.error("Unexpected error in Claude policy analysis", error=str(e))
             raise ClaudePolicyReasoningError(f"Policy analysis failed: {e}") from e
+
+    async def analyze_policy_stream(
+        self,
+        prompt: str,
+        system_prompt: Optional[str] = None,
+        temperature: float = 0.0,
+    ):
+        """
+        Stream policy analysis from Claude, yielding text chunks.
+
+        CRITICAL: No fallback. Errors propagate.
+
+        Yields:
+            String chunks of the response as they arrive
+        """
+        from backend.reasoning.prompt_loader import get_prompt_loader
+        default_system = get_prompt_loader().load("system/clinical_reasoning_base.txt")
+
+        try:
+            async with self.client.messages.stream(
+                model=self.model,
+                max_tokens=self.max_tokens,
+                temperature=temperature,
+                system=system_prompt or default_system,
+                messages=[{"role": "user", "content": prompt}],
+            ) as stream:
+                async for text in stream.text_stream:
+                    yield text
+        except Exception as e:
+            logger.error("Claude streaming failed", error=str(e))
+            raise ClaudePolicyReasoningError(f"Claude streaming failed: {e}") from e
 
     async def generate_appeal_strategy(
         self,

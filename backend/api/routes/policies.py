@@ -25,6 +25,7 @@ logger = get_logger(__name__)
 MAX_CACHE_SIZE = 64
 
 _diff_summary_cache: dict[tuple[str, str, str, str], dict] = {}
+_cross_payer_cache: dict[tuple[str, str], dict] = {}  # (medication, payers_hash) → result
 
 
 def _bounded_cache_set(cache: dict, key: tuple, value: dict) -> None:
@@ -172,11 +173,14 @@ async def get_policy_bank():
                 existing["version_count"] = len(existing["_hashes"])
                 if entry.source_filename:
                     existing["source_filenames"].add(entry.source_filename)
+                if entry.effective_year:
+                    existing["_years"].add(entry.effective_year)
                 if entry.cached_at and (
                     not existing["_last_updated"] or entry.cached_at > existing["_last_updated"]
                 ):
                     existing["_last_updated"] = entry.cached_at
                     existing["last_updated"] = entry.cached_at.isoformat()
+                    existing["effective_year"] = entry.effective_year
             else:
                 version = entry.policy_version or "latest"
                 quality = "unknown"
@@ -198,6 +202,8 @@ async def get_policy_bank():
                     "_hashes": {entry.content_hash} if entry.content_hash else set(),
                     "extraction_quality": quality,
                     "source_filenames": {entry.source_filename} if entry.source_filename else set(),
+                    "effective_year": entry.effective_year,
+                    "_years": {entry.effective_year} if entry.effective_year else set(),
                 }
 
         bank = []
@@ -205,6 +211,7 @@ async def get_policy_bank():
             e.pop("_last_updated", None)
             e.pop("_hashes", None)
             e["source_filenames"] = list(e["source_filenames"])
+            e["effective_years"] = sorted(e.pop("_years", set()))
             bank.append(e)
 
         return {"policies": bank}
@@ -317,6 +324,7 @@ async def upload_policy(
     medication_name: str = Form(...),
     amendment_notes: Optional[str] = Form(None),
     amendment_date: Optional[str] = Form(None),
+    effective_year: Optional[int] = Form(None),
 ):
     """
     Upload a policy file (PDF or TXT), trigger the digitalization pipeline,
@@ -414,6 +422,18 @@ async def upload_policy(
             source = str(dest_path)
             source_type = "pdf"
 
+        # Broadcast pipeline start via WebSocket
+        try:
+            from backend.api.routes.websocket import get_notification_manager as _get_notif
+            _notif = _get_notif()
+            await _notif.broadcast_pipeline_progress(
+                payer=payer_safe, medication=med_safe,
+                stage="extraction", progress=10,
+                message="Starting policy extraction with Gemini...",
+            )
+        except Exception:
+            pass
+
         result = await pipeline.digitalize_policy(
             source=source,
             source_type=source_type,
@@ -421,6 +441,17 @@ async def upload_policy(
             medication_name=med_safe,
             skip_store=True,  # Upload endpoint handles versioned storage
         )
+
+        # Broadcast pipeline completion progress
+        try:
+            await _notif.broadcast_pipeline_progress(
+                payer=payer_safe, medication=med_safe,
+                stage="storing", progress=90,
+                message=f"Extracted {result.criteria_count} criteria, storing version...",
+                details={"criteria_count": result.criteria_count, "quality": result.extraction_quality},
+            )
+        except Exception:
+            pass
 
         # Build DigitizedPolicy from pipeline result and store as versioned entry
         from backend.models.policy_schema import DigitizedPolicy
@@ -432,6 +463,7 @@ async def upload_policy(
                 source_filename=file.filename,
                 upload_notes=amendment_notes,
                 amendment_date=parsed_amendment_date,
+                effective_year=effective_year,
             )
         else:
             cache_id = result.cache_id
@@ -500,6 +532,106 @@ async def upload_policy(
         unsuppress_watcher(str(dest_path))
 
 
+import asyncio
+_codify_all_lock = asyncio.Lock()
+
+
+@router.post("/codify-all")
+async def codify_all_policies():
+    """
+    Run Pass 4 clinical codification on all stored policies.
+
+    Loads every policy from the database, runs dual-LLM codification,
+    and stores the enriched result back. Returns per-policy results.
+
+    Guarded by a lock — only one codify-all can run at a time.
+    """
+    from sqlalchemy import select
+    from backend.storage.database import get_db
+    from backend.storage.models import PolicyCacheModel
+    from backend.models.policy_schema import DigitizedPolicy
+    from backend.policy_digitalization.clinical_codifier import get_clinical_codifier
+    from backend.policy_digitalization.policy_repository import get_policy_repository
+
+    if _codify_all_lock.locked():
+        raise HTTPException(status_code=409, detail="Codification already in progress")
+
+    async with _codify_all_lock:
+        try:
+            codifier = get_clinical_codifier()
+            repo = get_policy_repository()
+
+            async with get_db() as session:
+                stmt = (
+                    select(PolicyCacheModel)
+                    .where(PolicyCacheModel.parsed_criteria.isnot(None))
+                    .order_by(PolicyCacheModel.cached_at.desc())
+                )
+                result = await session.execute(stmt)
+                all_entries = result.scalars().all()
+
+            results = []
+            total = 0
+            codified = 0
+            errors = 0
+
+            for entry in all_entries:
+                total += 1
+                try:
+                    parsed = entry.parsed_criteria
+                    if isinstance(parsed, str):
+                        parsed = json.loads(parsed)
+                    if not isinstance(parsed, dict):
+                        continue
+
+                    policy = DigitizedPolicy(**parsed)
+                    enriched = await codifier.codify_policy(policy)
+
+                    # Preserve the original version label when re-storing
+                    version = entry.policy_version or "latest"
+                    if version != "latest":
+                        await repo.store_version(enriched, version)
+                    else:
+                        await repo.store(enriched)
+                    codified += 1
+
+                    meta = enriched.codification_metadata
+                    results.append({
+                        "payer": entry.payer_name,
+                        "medication": entry.medication_name,
+                        "version": version,
+                        "status": "codified",
+                        "confirmed_codes": meta.confirmed_codes if meta else 0,
+                        "review_needed_codes": meta.review_needed_codes if meta else 0,
+                        "total_codes": meta.total_codes_proposed if meta else 0,
+                    })
+                except Exception as e:
+                    errors += 1
+                    results.append({
+                        "payer": entry.payer_name,
+                        "medication": entry.medication_name,
+                        "version": entry.policy_version,
+                        "status": "error",
+                        "error": str(e),
+                    })
+                    logger.warning(
+                        "Codification failed for policy",
+                        payer=entry.payer_name,
+                        medication=entry.medication_name,
+                        error=str(e),
+                    )
+
+            return {
+                "total": total,
+                "codified": codified,
+                "errors": errors,
+                "results": results,
+            }
+        except Exception as e:
+            logger.error("Error in codify-all", error=str(e))
+            raise HTTPException(status_code=500, detail="Internal server error")
+
+
 @router.get("/assistant/query")
 async def assistant_query_get():
     """Placeholder to prevent path conflict — use POST."""
@@ -510,6 +642,7 @@ class PolicyAssistantRequest(BaseModel):
     question: str = Field(..., min_length=3, max_length=2000)
     payer_filter: Optional[str] = None
     medication_filter: Optional[str] = None
+    session_id: Optional[str] = None
 
 
 @router.post("/assistant/query")
@@ -518,6 +651,7 @@ async def query_policy_assistant(request: PolicyAssistantRequest):
     Query the Policy Assistant with a natural language question.
 
     Uses Claude to answer questions about digitized policies.
+    Supports conversation memory via session_id.
     """
     from backend.policy_digitalization.policy_assistant import get_policy_assistant
 
@@ -527,10 +661,349 @@ async def query_policy_assistant(request: PolicyAssistantRequest):
             question=request.question,
             payer_filter=request.payer_filter,
             medication_filter=request.medication_filter,
+            session_id=request.session_id,
         )
         return response
     except Exception as e:
         logger.error("Error in policy assistant", error=str(e))
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+
+@router.post("/assistant/stream")
+async def stream_policy_assistant(request: PolicyAssistantRequest):
+    """
+    Stream Policy Assistant responses via Server-Sent Events (SSE).
+
+    Tokens are streamed progressively for real-time display.
+    """
+    from fastapi.responses import StreamingResponse
+    from backend.policy_digitalization.policy_assistant import get_policy_assistant
+
+    assistant = get_policy_assistant()
+
+    async def event_generator():
+        try:
+            async for chunk in assistant.query_stream(
+                question=request.question,
+                payer_filter=request.payer_filter,
+                medication_filter=request.medication_filter,
+                session_id=request.session_id,
+            ):
+                yield f"data: {json.dumps({'token': chunk})}\n\n"
+            yield f"data: {json.dumps({'done': True})}\n\n"
+        except Exception as e:
+            logger.error("Streaming error", error=str(e))
+            yield f"data: {json.dumps({'error': str(e)})}\n\n"
+
+    return StreamingResponse(
+        event_generator(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",
+        },
+    )
+
+
+class CrossPayerRequest(BaseModel):
+    medication: str = Field(..., min_length=1, max_length=100)
+    payers: Optional[List[str]] = None
+
+
+@router.post("/cross-payer-analysis")
+async def cross_payer_analysis(request: CrossPayerRequest):
+    """
+    Compare coverage criteria for a medication across multiple payers.
+
+    Uses L1 (in-memory) + L2 (database) caching keyed on medication + policy content hashes.
+    Cache auto-invalidates when any contributing policy is re-uploaded.
+    """
+    from sqlalchemy import select
+    from backend.reasoning.cross_payer_analyzer import get_cross_payer_analyzer
+    from backend.storage.database import get_db
+    from backend.storage.models import CrossPayerCacheModel, PolicyCacheModel
+
+    medication = request.medication.lower().strip()
+
+    try:
+        # Build a content hash from all contributing policies for this medication
+        async with get_db() as session:
+            stmt = (
+                select(PolicyCacheModel.payer_name, PolicyCacheModel.content_hash)
+                .where(PolicyCacheModel.medication_name == medication)
+                .where(PolicyCacheModel.parsed_criteria.isnot(None))
+                .order_by(PolicyCacheModel.payer_name, PolicyCacheModel.cached_at.desc())
+            )
+            result = await session.execute(stmt)
+            rows = result.all()
+
+        if not rows:
+            # Try alias resolution
+            from backend.policy_digitalization.pipeline import MEDICATION_NAME_ALIASES
+            alias = MEDICATION_NAME_ALIASES.get(medication)
+            if alias:
+                async with get_db() as session:
+                    stmt = (
+                        select(PolicyCacheModel.payer_name, PolicyCacheModel.content_hash)
+                        .where(PolicyCacheModel.medication_name == alias)
+                        .where(PolicyCacheModel.parsed_criteria.isnot(None))
+                        .order_by(PolicyCacheModel.payer_name, PolicyCacheModel.cached_at.desc())
+                    )
+                    result = await session.execute(stmt)
+                    rows = result.all()
+
+        # Dedupe: keep latest per payer, build composite hash
+        seen_payers: dict[str, str] = {}
+        for payer_name, content_hash in rows:
+            if payer_name not in seen_payers:
+                seen_payers[payer_name] = content_hash
+
+        payers_hash = hashlib.sha256(
+            "|".join(f"{p}:{h}" for p, h in sorted(seen_payers.items())).encode()
+        ).hexdigest()
+
+        # L1: in-memory cache
+        l1_key = (medication, payers_hash)
+        if l1_key in _cross_payer_cache:
+            logger.info("Returning L1 cached cross-payer analysis", medication=medication)
+            return _cross_payer_cache[l1_key]
+
+        # L2: database cache
+        async with get_db() as session:
+            stmt = (
+                select(CrossPayerCacheModel)
+                .where(CrossPayerCacheModel.medication_name == medication)
+                .where(CrossPayerCacheModel.payers_hash == payers_hash)
+            )
+            db_result = await session.execute(stmt)
+            cached_row = db_result.scalar_one_or_none()
+
+        if cached_row:
+            logger.info("Returning L2 DB cached cross-payer analysis", medication=medication)
+            _bounded_cache_set(_cross_payer_cache, l1_key, cached_row.result_data)
+            return cached_row.result_data
+
+        # Cache miss — run LLM analysis
+        analyzer = get_cross_payer_analyzer()
+        result = await analyzer.analyze(
+            medication=request.medication,
+            payers=request.payers,
+        )
+
+        # Store in L1
+        _bounded_cache_set(_cross_payer_cache, l1_key, result)
+
+        # Store in L2 (race-safe upsert)
+        try:
+            async with get_db() as session:
+                stale_stmt = (
+                    select(CrossPayerCacheModel)
+                    .where(CrossPayerCacheModel.medication_name == medication)
+                )
+                stale_result = await session.execute(stale_stmt)
+                stale_row = stale_result.scalar_one_or_none()
+                if stale_row:
+                    await session.delete(stale_row)
+                    await session.flush()
+
+                new_row = CrossPayerCacheModel(
+                    id=str(uuid.uuid4()),
+                    medication_name=medication,
+                    payers_hash=payers_hash,
+                    result_data=result,
+                )
+                session.add(new_row)
+            logger.info("Cross-payer analysis stored in DB cache", medication=medication)
+        except Exception as cache_err:
+            logger.warning("Cross-payer cache write skipped (concurrent insert)", error=str(cache_err))
+
+        return result
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error("Error in cross-payer analysis", error=str(e))
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+
+@router.get("/metrics/llm")
+async def get_llm_metrics():
+    """
+    Get aggregated LLM usage metrics (token counts, latency, cost estimates).
+    """
+    from backend.reasoning.llm_gateway import get_llm_gateway
+
+    try:
+        gateway = get_llm_gateway()
+        return await gateway.get_metrics_summary()
+    except Exception as e:
+        logger.error("Error getting LLM metrics", error=str(e))
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+
+@router.get("/{payer}/{medication}/export/csv")
+async def export_diff_csv(payer: str, medication: str, old_version: str, new_version: str):
+    """
+    Export a policy diff as CSV.
+
+    Returns a CSV file with all criterion changes between two versions.
+    """
+    import csv
+    import io
+    from fastapi.responses import StreamingResponse
+    from backend.policy_digitalization.policy_repository import get_policy_repository
+    from backend.policy_digitalization.differ import PolicyDiffer
+
+    payer_safe = _validate_name(payer, "Payer")
+    med_safe = _validate_name(medication, "Medication")
+
+    try:
+        repo = get_policy_repository()
+        old_policy = await repo.load_version(payer_safe, med_safe, old_version)
+        new_policy = await repo.load_version(payer_safe, med_safe, new_version)
+
+        if not old_policy:
+            raise HTTPException(status_code=404, detail=f"Version {old_version} not found")
+        if not new_policy:
+            raise HTTPException(status_code=404, detail=f"Version {new_version} not found")
+
+        differ = PolicyDiffer()
+        diff_result = await differ.diff(old_policy, new_policy)
+        diff_dict = diff_result.model_dump()
+
+        output = io.StringIO()
+        writer = csv.writer(output)
+        writer.writerow([
+            "Change Type", "Criterion ID", "Criterion Name", "Severity",
+            "Description", "Category", "Field Changed", "Old Value", "New Value",
+        ])
+
+        for change in diff_dict.get("criterion_changes", []):
+            base_row = [
+                change.get("change_type", ""),
+                change.get("criterion_id", ""),
+                change.get("criterion_name", ""),
+                change.get("severity", ""),
+                change.get("human_summary", change.get("description", "")),
+                change.get("category", ""),
+            ]
+            field_changes = change.get("field_changes", [])
+            if field_changes:
+                for fc in field_changes:
+                    writer.writerow(base_row + [
+                        fc.get("field_name", fc.get("field", "")),
+                        str(fc.get("old", fc.get("old_value", ""))),
+                        str(fc.get("new", fc.get("new_value", ""))),
+                    ])
+            else:
+                writer.writerow(base_row + ["", "", ""])
+
+        # Add indication, step therapy, exclusion changes
+        for section_key, section_label in [
+            ("indication_changes", "Indication"),
+            ("step_therapy_changes", "Step Therapy"),
+            ("exclusion_changes", "Exclusion"),
+        ]:
+            for change in diff_dict.get(section_key, []):
+                writer.writerow([
+                    change.get("change_type", ""),
+                    change.get("criterion_id", change.get("indication_id", change.get("requirement_id", change.get("exclusion_id", "")))),
+                    change.get("criterion_name", change.get("indication_name", change.get("name", ""))),
+                    change.get("severity", ""),
+                    f"[{section_label}] {change.get('human_summary', change.get('description', ''))}",
+                    section_label,
+                    "", "", "",
+                ])
+
+        output.seek(0)
+        filename = f"{payer_safe}_{med_safe}_{old_version}_vs_{new_version}_diff.csv"
+        return StreamingResponse(
+            iter([output.getvalue()]),
+            media_type="text/csv",
+            headers={"Content-Disposition": f"attachment; filename={filename}"},
+        )
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error("Error exporting diff CSV", error=str(e))
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+
+class AppealStrategyRequest(BaseModel):
+    denial_reason: str = Field(..., min_length=5, max_length=2000)
+    denial_date: Optional[str] = None
+    denial_reference: Optional[str] = None
+    patient_info: dict = Field(default_factory=dict)
+    original_request: Optional[dict] = None
+    available_documentation: Optional[List[str]] = None
+
+
+@router.post("/{payer}/{medication}/appeal/strategy")
+async def generate_appeal_strategy(payer: str, medication: str, request: AppealStrategyRequest):
+    """
+    Generate an appeal strategy for a prior authorization denial.
+
+    Uses Claude for clinical accuracy — no fallback.
+    """
+    from backend.reasoning.appeal_agent import get_appeal_agent
+
+    payer_safe = _validate_name(payer, "Payer")
+    med_safe = _validate_name(medication, "Medication")
+
+    try:
+        agent = get_appeal_agent()
+        denial_context = {
+            "denial_reason": request.denial_reason,
+            "denial_date": request.denial_date,
+            "denial_reference": request.denial_reference,
+            "original_request": request.original_request or {},
+            "available_documentation": request.available_documentation or [],
+        }
+
+        result = await agent.generate_strategy(
+            denial_context=denial_context,
+            patient_info=request.patient_info,
+            payer_name=payer_safe,
+            medication_name=med_safe,
+        )
+        return result
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error("Error generating appeal strategy", error=str(e))
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+
+class AppealLetterRequest(BaseModel):
+    appeal_strategy: dict = Field(..., description="Previously generated appeal strategy")
+    patient_info: dict = Field(default_factory=dict)
+    denial_context: dict = Field(default_factory=dict)
+
+
+@router.post("/{payer}/{medication}/appeal/letter")
+async def draft_appeal_letter(payer: str, medication: str, request: AppealLetterRequest):
+    """
+    Draft a formal appeal letter based on an appeal strategy.
+    """
+    from backend.reasoning.appeal_agent import get_appeal_agent
+
+    payer_safe = _validate_name(payer, "Payer")
+    med_safe = _validate_name(medication, "Medication")
+
+    try:
+        agent = get_appeal_agent()
+        letter = await agent.draft_letter(
+            appeal_strategy=request.appeal_strategy,
+            patient_info=request.patient_info,
+            denial_context=request.denial_context,
+            payer_name=payer_safe,
+            medication_name=med_safe,
+        )
+        return {"letter": letter, "payer": payer_safe, "medication": med_safe}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error("Error drafting appeal letter", error=str(e))
         raise HTTPException(status_code=500, detail="Internal server error")
 
 
@@ -553,6 +1026,8 @@ async def get_policy_versions(payer: str, medication: str):
             "versions": [
                 {
                     "version": v.version,
+                    "effective_year": v.effective_year,
+                    "effective_date": v.effective_date,
                     "cached_at": v.cached_at,
                     "content_hash": v.content_hash,
                     "id": v.id,
@@ -609,9 +1084,25 @@ async def diff_policy_with_summary(payer: str, medication: str, request: DiffSum
         if not new_policy:
             raise HTTPException(status_code=404, detail=f"Version {request.new_version} not found")
 
-        # Compute content hashes for cache validation
-        old_hash = hashlib.sha256(old_policy.model_dump_json().encode()).hexdigest()
-        new_hash = hashlib.sha256(new_policy.model_dump_json().encode()).hexdigest()
+        # Use stable content_hash from PolicyCacheModel (set at upload time)
+        from backend.storage.models import PolicyCacheModel
+        async with get_db() as session:
+            old_hash_row = (await session.execute(
+                select(PolicyCacheModel.content_hash).where(
+                    PolicyCacheModel.payer_name == payer_safe,
+                    PolicyCacheModel.medication_name == med_safe,
+                    PolicyCacheModel.policy_version == request.old_version,
+                )
+            )).scalar_one_or_none()
+            new_hash_row = (await session.execute(
+                select(PolicyCacheModel.content_hash).where(
+                    PolicyCacheModel.payer_name == payer_safe,
+                    PolicyCacheModel.medication_name == med_safe,
+                    PolicyCacheModel.policy_version == request.new_version,
+                )
+            )).scalar_one_or_none()
+        old_hash = old_hash_row or hashlib.sha256(old_policy.model_dump_json().encode()).hexdigest()
+        new_hash = new_hash_row or hashlib.sha256(new_policy.model_dump_json().encode()).hexdigest()
 
         # L2: Check database cache
         async with get_db() as session:
@@ -654,11 +1145,12 @@ async def diff_policy_with_summary(payer: str, medication: str, request: DiffSum
 
         summary = {}
         try:
+            from backend.reasoning.json_utils import extract_json_from_text
             raw = llm_result.get("response")
             if raw is None:
                 summary = {k: v for k, v in llm_result.items() if k not in ("provider", "task_category")}
             elif isinstance(raw, str):
-                summary = json.loads(raw)
+                summary = extract_json_from_text(raw)
             else:
                 summary = raw
         except (json.JSONDecodeError, TypeError):
@@ -698,34 +1190,39 @@ async def diff_policy_with_summary(payer: str, medication: str, request: DiffSum
         # Store in L1 (in-memory)
         _bounded_cache_set(_diff_summary_cache, cache_key, result)
 
-        # Store in L2 (database) — upsert
-        async with get_db() as session:
-            # Delete any stale row for these versions (content may have changed)
-            stale_stmt = (
-                select(PolicyDiffCacheModel)
-                .where(PolicyDiffCacheModel.payer_name == payer_safe)
-                .where(PolicyDiffCacheModel.medication_name == med_safe)
-                .where(PolicyDiffCacheModel.old_version == request.old_version)
-                .where(PolicyDiffCacheModel.new_version == request.new_version)
-            )
-            stale_result = await session.execute(stale_stmt)
-            stale_row = stale_result.scalar_one_or_none()
-            if stale_row:
-                await session.delete(stale_row)
+        # Store in L2 (database) — race-safe upsert
+        try:
+            async with get_db() as session:
+                # Delete any stale row for these versions (content may have changed)
+                stale_stmt = (
+                    select(PolicyDiffCacheModel)
+                    .where(PolicyDiffCacheModel.payer_name == payer_safe)
+                    .where(PolicyDiffCacheModel.medication_name == med_safe)
+                    .where(PolicyDiffCacheModel.old_version == request.old_version)
+                    .where(PolicyDiffCacheModel.new_version == request.new_version)
+                )
+                stale_result = await session.execute(stale_stmt)
+                stale_row = stale_result.scalar_one_or_none()
+                if stale_row:
+                    await session.delete(stale_row)
+                    await session.flush()
 
-            new_cache_row = PolicyDiffCacheModel(
-                id=str(uuid.uuid4()),
-                payer_name=payer_safe,
-                medication_name=med_safe,
-                old_version=request.old_version,
-                new_version=request.new_version,
-                old_content_hash=old_hash,
-                new_content_hash=new_hash,
-                diff_data=diff_payload,
-                summary_data=summary,
-            )
-            session.add(new_cache_row)
-        logger.info("Diff-summary stored in DB cache", payer=payer_safe, medication=med_safe)
+                new_cache_row = PolicyDiffCacheModel(
+                    id=str(uuid.uuid4()),
+                    payer_name=payer_safe,
+                    medication_name=med_safe,
+                    old_version=request.old_version,
+                    new_version=request.new_version,
+                    old_content_hash=old_hash,
+                    new_content_hash=new_hash,
+                    diff_data=diff_payload,
+                    summary_data=summary,
+                )
+                session.add(new_cache_row)
+            logger.info("Diff-summary stored in DB cache", payer=payer_safe, medication=med_safe)
+        except Exception as cache_err:
+            # Race condition: another request already cached this — harmless
+            logger.warning("Diff-summary cache write skipped (concurrent insert)", error=str(cache_err))
 
         return result
     except HTTPException:
@@ -996,13 +1493,29 @@ async def analyze_policy_impact(payer: str, medication: str, request: ImpactRequ
             raise HTTPException(status_code=404, detail=f"Version {new_ver} not found")
 
         import hashlib
-        old_hash = old_policy.source_document_hash or hashlib.sha256(old_policy.model_dump_json().encode()).hexdigest()[:16]
-        new_hash = new_policy.source_document_hash or hashlib.sha256(new_policy.model_dump_json().encode()).hexdigest()[:16]
-
         from backend.storage.database import get_db
-        from backend.storage.models import PolicyImpactCacheModel
+        from backend.storage.models import PolicyImpactCacheModel, PolicyCacheModel
         from sqlalchemy import select
         import json as _json
+
+        # Use stable content_hash from PolicyCacheModel
+        async with get_db() as session:
+            old_hash_row = (await session.execute(
+                select(PolicyCacheModel.content_hash).where(
+                    PolicyCacheModel.payer_name == payer_safe,
+                    PolicyCacheModel.medication_name == med_safe,
+                    PolicyCacheModel.policy_version == old_ver,
+                )
+            )).scalar_one_or_none()
+            new_hash_row = (await session.execute(
+                select(PolicyCacheModel.content_hash).where(
+                    PolicyCacheModel.payer_name == payer_safe,
+                    PolicyCacheModel.medication_name == med_safe,
+                    PolicyCacheModel.policy_version == new_ver,
+                )
+            )).scalar_one_or_none()
+        old_hash = old_hash_row or old_policy.source_document_hash or hashlib.sha256(old_policy.model_dump_json().encode()).hexdigest()[:16]
+        new_hash = new_hash_row or new_policy.source_document_hash or hashlib.sha256(new_policy.model_dump_json().encode()).hexdigest()[:16]
 
         async with get_db() as session:
             stmt = select(PolicyImpactCacheModel).where(
@@ -1041,34 +1554,37 @@ async def analyze_policy_impact(payer: str, medication: str, request: ImpactRequ
         result = report.model_dump()
 
         import uuid
-        async with get_db() as session:
-            existing = (await session.execute(
-                select(PolicyImpactCacheModel).where(
-                    PolicyImpactCacheModel.payer_name == payer_safe,
-                    PolicyImpactCacheModel.medication_name == med_safe,
-                    PolicyImpactCacheModel.old_version == old_ver,
-                    PolicyImpactCacheModel.new_version == new_ver,
-                )
-            )).scalar_one_or_none()
-            if existing:
-                existing.impact_data = result
-                existing.old_content_hash = old_hash
-                existing.new_content_hash = new_hash
-                from datetime import datetime, timezone
-                existing.cached_at = datetime.now(timezone.utc)
-            else:
-                session.add(PolicyImpactCacheModel(
-                    id=str(uuid.uuid4()),
-                    payer_name=payer_safe,
-                    medication_name=med_safe,
-                    old_version=old_ver,
-                    new_version=new_ver,
-                    old_content_hash=old_hash,
-                    new_content_hash=new_hash,
-                    impact_data=result,
-                ))
-            await session.commit()
-            logger.info("Impact analysis cached to DB", payer=payer_safe, medication=med_safe)
+        try:
+            async with get_db() as session:
+                existing = (await session.execute(
+                    select(PolicyImpactCacheModel).where(
+                        PolicyImpactCacheModel.payer_name == payer_safe,
+                        PolicyImpactCacheModel.medication_name == med_safe,
+                        PolicyImpactCacheModel.old_version == old_ver,
+                        PolicyImpactCacheModel.new_version == new_ver,
+                    )
+                )).scalar_one_or_none()
+                if existing:
+                    existing.impact_data = result
+                    existing.old_content_hash = old_hash
+                    existing.new_content_hash = new_hash
+                    from datetime import datetime, timezone
+                    existing.cached_at = datetime.now(timezone.utc)
+                else:
+                    session.add(PolicyImpactCacheModel(
+                        id=str(uuid.uuid4()),
+                        payer_name=payer_safe,
+                        medication_name=med_safe,
+                        old_version=old_ver,
+                        new_version=new_ver,
+                        old_content_hash=old_hash,
+                        new_content_hash=new_hash,
+                        impact_data=result,
+                    ))
+                await session.commit()
+                logger.info("Impact analysis cached to DB", payer=payer_safe, medication=med_safe)
+        except Exception as cache_err:
+            logger.warning("Impact cache write skipped (concurrent insert)", error=str(cache_err))
 
         return result
     except HTTPException:

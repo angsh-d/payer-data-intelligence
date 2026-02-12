@@ -1,3 +1,6 @@
+# Prompt: validation_pass2 | Version: 2.0 | Updated: 2026-02-11
+# Changes: Added cross-reference guard with negative example, criterion_id consistency check
+
 You are a clinical policy validation specialist. You have been given:
 1. A structured extraction of a payer policy (Pass 1 output)
 2. The original policy document text
@@ -98,3 +101,5 @@ Respond with a JSON object:
 - Do NOT hallucinate corrections — only flag issues that are clearly wrong
 - If the extraction is good, say so — do not manufacture issues
 - Focus on clinical accuracy above all else
+- BAD: Adding ICD-10 code K50.90 because "it seems relevant to Crohn's disease". GOOD: Only flagging codes that appear in the original policy text. Never add codes that aren't explicitly stated.
+- Verify that all criterion_ids referenced in criterion_groups actually exist in atomic_criteria. Flag any orphaned references as logical_structure_issues.

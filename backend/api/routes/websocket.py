@@ -2,7 +2,7 @@
 import asyncio
 from collections import deque
 from datetime import datetime, timezone
-from typing import List, Set, Optional
+from typing import Dict, List, Optional, Set
 
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect, Query
 
@@ -47,6 +47,26 @@ class NotificationManager:
 
         for ws in disconnected:
             self._connections.discard(ws)
+
+    async def broadcast_pipeline_progress(
+        self,
+        payer: str,
+        medication: str,
+        stage: str,
+        progress: int,
+        message: str,
+        details: Optional[dict] = None,
+    ):
+        """Broadcast pipeline progress events during policy digitalization."""
+        await self.broadcast_notification({
+            "type": "pipeline_progress",
+            "payer": payer,
+            "medication": medication,
+            "stage": stage,
+            "progress": progress,
+            "message": message,
+            "details": details or {},
+        })
 
     @property
     def recent_notifications(self) -> List[dict]:

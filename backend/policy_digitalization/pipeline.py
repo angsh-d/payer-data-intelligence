@@ -3,6 +3,7 @@
 Pass 1: Gemini extracts structured criteria from policy document
 Pass 2: Claude validates extraction against original policy text
 Pass 3: Reference data validation (clinical codes)
+Pass 4: Clinical codification & dual-LLM consensus (non-blocking)
 Store: Persist to PolicyCacheModel.parsed_criteria
 """
 
@@ -17,7 +18,8 @@ from backend.policy_digitalization.extractor import GeminiPolicyExtractor, RawEx
 from backend.policy_digitalization.validator import ClaudePolicyValidator, ValidatedExtractionResult
 from backend.policy_digitalization.reference_validator import ReferenceDataValidator
 from backend.policy_digitalization.policy_repository import get_policy_repository
-from backend.policy_digitalization.exceptions import ExtractionError, PolicyNotFoundError
+from backend.policy_digitalization.exceptions import ExtractionError, PolicyNotFoundError, CodificationError
+from backend.policy_digitalization.clinical_codifier import get_clinical_codifier
 from backend.config.logging_config import get_logger
 from backend.config.settings import get_settings
 
@@ -55,12 +57,13 @@ class DigitalizationResult(BaseModel):
 
 
 class PolicyDigitalizationPipeline:
-    """Orchestrates the 3-pass policy digitalization pipeline."""
+    """Orchestrates the multi-pass policy digitalization pipeline."""
 
     def __init__(self):
         self.extractor = GeminiPolicyExtractor()
         self.validator = ClaudePolicyValidator()
         self.reference_validator = ReferenceDataValidator()
+        self.codifier = get_clinical_codifier()
         self.repository = get_policy_repository()
         logger.info("PolicyDigitalizationPipeline initialized")
 
@@ -75,7 +78,7 @@ class PolicyDigitalizationPipeline:
         version_hint: str = "",
     ) -> DigitalizationResult:
         """
-        Run the full 3-pass pipeline.
+        Run the full multi-pass pipeline (up to 4 passes).
 
         Args:
             source: Policy text or path to PDF
@@ -108,7 +111,7 @@ class PolicyDigitalizationPipeline:
                 f"Source length: {len(source)} chars, model: {raw.extraction_model}"
             )
 
-        # Pass 2: Validate (unless skipped)
+        # Pass 2: Validate (unless skipped) — with self-correction loop
         if skip_validation:
             validated = ValidatedExtractionResult(
                 extracted_data=raw.extracted_data,
@@ -119,9 +122,42 @@ class PolicyDigitalizationPipeline:
             validated = await self.validator.validate_extraction(raw, policy_text)
             passes_completed = 2
 
+            # Self-correction: if too many critical corrections, re-run Pass 1 with corrective context
+            critical_corrections = [
+                c for c in validated.corrections_applied
+                if isinstance(c, dict) and c.get("severity", "").lower() in ("critical", "high", "breaking")
+            ]
+            if len(critical_corrections) > 3:
+                logger.warning(
+                    "Self-correction triggered: re-running Pass 1 with corrective context",
+                    critical_count=len(critical_corrections),
+                )
+                correction_hints = "\n".join(
+                    f"- {c.get('field', 'unknown')}: {c.get('reason', c.get('description', ''))}"
+                    for c in critical_corrections[:10]
+                )
+                corrective_hint = (
+                    f"{version_hint}\n\nPREVIOUS EXTRACTION HAD CRITICAL ERRORS. "
+                    f"Please correct these issues:\n{correction_hints}"
+                )
+                if source_type == "pdf":
+                    raw = await self.extractor.extract_from_pdf(source, version_hint=corrective_hint)
+                else:
+                    raw = await self.extractor.extract_from_text(source, version_hint=corrective_hint)
+                validated = await self.validator.validate_extraction(raw, policy_text)
+                logger.info("Self-correction pass complete",
+                            new_corrections=len(validated.corrections_applied))
+
         # Pass 3: Reference validation + build DigitizedPolicy
         policy = await self.reference_validator.validate_codes(validated)
         passes_completed = 3
+
+        # Pass 4: Clinical Codification & Consensus (non-blocking on failure)
+        try:
+            policy = await self.codifier.codify_policy(policy)
+            passes_completed = 4
+        except CodificationError as e:
+            logger.warning("Pass 4 codification failed (non-blocking)", error=str(e))
 
         # Add extraction metadata
         policy.extraction_timestamp = raw.extraction_timestamp
@@ -133,6 +169,19 @@ class PolicyDigitalizationPipeline:
             policy.payer_name = payer_name
         if medication_name:
             policy.medication_name = medication_name
+
+        # Index for RAG retrieval (fire-and-forget, non-blocking)
+        try:
+            from backend.reasoning.retriever import get_policy_retriever
+            retriever = get_policy_retriever()
+            await retriever.index_digitized_policy(
+                payer_name=policy.payer_name,
+                medication_name=policy.medication_name,
+                parsed_criteria=policy.model_dump(mode="json"),
+                policy_version=policy.extraction_pipeline_version,
+            )
+        except Exception as e:
+            logger.warning("RAG indexing failed (non-blocking)", error=str(e))
 
         # Store in repository (skip when caller handles storage, e.g. upload endpoint)
         cache_id = None

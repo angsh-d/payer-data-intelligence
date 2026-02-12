@@ -7,6 +7,7 @@
     "summary_generation": ["gemini", "azure_openai"],
     "data_extraction": ["gemini", "azure_openai"],
     "notification": ["gemini", "azure_openai"],
-    "policy_qa": ["claude"]
+    "policy_qa": ["claude", "gemini"],
+    "clinical_codification": ["gemini", "azure_openai"]
   }
 }

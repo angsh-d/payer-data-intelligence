@@ -13,7 +13,7 @@ import {
 const navItems = [
   { path: '/dashboard', icon: LayoutDashboard, label: 'Command Center' },
   { path: '/vault', icon: Archive, label: 'Policy Vault' },
-  { path: '/intelligence', icon: GitCompareArrows, label: 'Policy Intelligence' },
+  { path: '/intelligence', icon: GitCompareArrows, label: 'Formulary Intelligence' },
   { path: '/assistant', icon: MessageSquare, label: 'Policy Assistant' },
 ]
 

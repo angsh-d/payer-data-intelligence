@@ -28,6 +28,7 @@ class PolicyCacheModel(Base):
     upload_notes = Column(Text, nullable=True)
     amendment_date = Column(DateTime(timezone=True), nullable=True)
     parent_version_id = Column(String(36), nullable=True)
+    effective_year = Column(Integer, nullable=True)
 
     policy_text = Column(Text, nullable=False)
     parsed_criteria = Column(JSON, nullable=True)
@@ -89,6 +90,77 @@ class PolicyImpactCacheModel(Base):
         UniqueConstraint('payer_name', 'medication_name', 'old_version', 'new_version',
                          name='uq_impact_cache_versions'),
         Index('ix_impact_cache_payer_med', 'payer_name', 'medication_name'),
+    )
+
+
+class CrossPayerCacheModel(Base):
+    """Persistent cache for cross-payer analysis results."""
+    __tablename__ = "cross_payer_cache"
+
+    id = Column(String(36), primary_key=True)
+    medication_name = Column(String(200), nullable=False)
+    payers_hash = Column(String(64), nullable=False)  # SHA256 of sorted payer content hashes
+    result_data = Column(JSON, nullable=False)
+    cached_at = Column(DateTime(timezone=True), nullable=False, default=_utcnow)
+
+    __table_args__ = (
+        UniqueConstraint('medication_name', 'payers_hash', name='uq_cross_payer_cache'),
+        Index('ix_cross_payer_cache_med', 'medication_name'),
+    )
+
+
+class ConversationSessionModel(Base):
+    """Stores conversation history for the Policy Assistant."""
+    __tablename__ = "conversation_sessions"
+
+    id = Column(String(36), primary_key=True)
+    session_id = Column(String(36), nullable=False, index=True)
+    role = Column(String(20), nullable=False)  # "user" or "assistant"
+    content = Column(Text, nullable=False)
+    payer_filter = Column(String(100), nullable=True)
+    medication_filter = Column(String(200), nullable=True)
+    created_at = Column(DateTime(timezone=True), nullable=False, default=_utcnow)
+    turn_number = Column(Integer, nullable=False, default=0)
+
+    __table_args__ = (
+        Index('ix_conversation_session_id', 'session_id', 'turn_number'),
+    )
+
+
+class PolicyEmbeddingModel(Base):
+    """Vector embeddings for RAG — stores chunked policy embeddings."""
+    __tablename__ = "policy_embeddings"
+
+    id = Column(String(36), primary_key=True)
+    payer_name = Column(String(100), nullable=False)
+    medication_name = Column(String(200), nullable=False)
+    policy_version = Column(String(50), nullable=True)
+    chunk_index = Column(Integer, nullable=False, default=0)
+    chunk_text = Column(Text, nullable=False)
+    embedding = Column(JSON, nullable=False)  # 768-dim vector
+    created_at = Column(DateTime(timezone=True), nullable=False, default=_utcnow)
+
+    __table_args__ = (
+        Index('ix_policy_embeddings_payer_med', 'payer_name', 'medication_name'),
+    )
+
+
+class LLMMetricsModel(Base):
+    """Token usage and cost tracking for LLM calls."""
+    __tablename__ = "llm_metrics"
+
+    id = Column(String(36), primary_key=True)
+    provider = Column(String(50), nullable=False)
+    model = Column(String(100), nullable=False)
+    task_category = Column(String(50), nullable=False)
+    input_tokens = Column(Integer, nullable=False, default=0)
+    output_tokens = Column(Integer, nullable=False, default=0)
+    latency_ms = Column(Integer, nullable=False, default=0)
+    estimated_cost_usd = Column(String(20), nullable=True)
+    created_at = Column(DateTime(timezone=True), nullable=False, default=_utcnow)
+
+    __table_args__ = (
+        Index('ix_llm_metrics_provider', 'provider', 'created_at'),
     )
 
 

@@ -1,6 +1,8 @@
 """LLM Gateway for task-based model routing."""
 import json
 import math
+import time
+import uuid
 from pathlib import Path
 from typing import Dict, Any, Optional, List
 
@@ -139,6 +141,7 @@ class LLMGateway:
 
         for provider in providers:
             try:
+                start_time = time.monotonic()
                 result = await self._call_provider(
                     provider=provider,
                     prompt=prompt,
@@ -146,8 +149,22 @@ class LLMGateway:
                     temperature=temperature,
                     response_format=response_format
                 )
+                latency_ms = int((time.monotonic() - start_time) * 1000)
                 result["provider"] = provider.value
                 result["task_category"] = task_category.value
+
+                # Record LLM metrics asynchronously
+                usage = result.pop("_usage", None)
+                if usage:
+                    await self._record_metrics(
+                        provider=provider.value,
+                        model=usage.get("model", "unknown"),
+                        task_category=task_category.value,
+                        input_tokens=usage.get("input_tokens", 0),
+                        output_tokens=usage.get("output_tokens", 0),
+                        latency_ms=latency_ms,
+                    )
+
                 return result
 
             except (ClaudePolicyReasoningError, GeminiError, AzureOpenAIError) as e:
@@ -298,6 +315,51 @@ class LLMGateway:
         )
         return result.get("response", "")
 
+    async def generate_stream(
+        self,
+        task_category: TaskCategory,
+        prompt: str,
+        system_prompt: Optional[str] = None,
+        temperature: float = 0.3,
+    ):
+        """
+        Stream content generation, yielding text chunks.
+
+        Routes to the primary provider for the task category.
+        Falls back to non-streaming if streaming is not available.
+
+        Yields:
+            String chunks of the response as they arrive
+        """
+        providers = TASK_MODEL_ROUTING.get(task_category, [LLMProvider.GEMINI])
+        primary = providers[0] if providers else LLMProvider.GEMINI
+
+        logger.info("Streaming LLM request", task_category=task_category.value, provider=primary.value)
+
+        if primary == LLMProvider.CLAUDE:
+            async for chunk in self.claude_client.analyze_policy_stream(
+                prompt=prompt,
+                system_prompt=system_prompt,
+                temperature=temperature,
+            ):
+                yield chunk
+        elif primary == LLMProvider.GEMINI:
+            async for chunk in self.gemini_client.generate_stream(
+                prompt=prompt,
+                system_prompt=system_prompt,
+                temperature=temperature,
+            ):
+                yield chunk
+        else:
+            # Azure OpenAI fallback — no streaming, yield full response
+            result = await self.azure_client.generate(
+                prompt=prompt,
+                system_prompt=system_prompt,
+                temperature=temperature,
+                response_format="text",
+            )
+            yield result.get("response", "")
+
     async def embed(self, text: str, task_type: str = "SEMANTIC_SIMILARITY") -> List[float]:
         """Generate an embedding vector via Gemini embedding model."""
         return await self.gemini_client.embed(text, task_type=task_type)
@@ -309,6 +371,115 @@ class LLMGateway:
         norm_a = math.sqrt(sum(x * x for x in a))
         norm_b = math.sqrt(sum(x * x for x in b))
         return dot / (norm_a * norm_b) if norm_a and norm_b else 0.0
+
+    async def _record_metrics(
+        self,
+        provider: str,
+        model: str,
+        task_category: str,
+        input_tokens: int,
+        output_tokens: int,
+        latency_ms: int,
+    ) -> None:
+        """Record LLM usage metrics to the database."""
+        try:
+            from backend.storage.database import get_db
+            from backend.storage.models import LLMMetricsModel
+
+            # Estimate cost (approximate pricing per 1K tokens)
+            cost_map = {
+                "claude": {"input": 0.003, "output": 0.015},
+                "gemini": {"input": 0.00025, "output": 0.001},
+                "azure_openai": {"input": 0.005, "output": 0.015},
+            }
+            rates = cost_map.get(provider, {"input": 0.001, "output": 0.002})
+            estimated_cost = (input_tokens / 1000 * rates["input"]) + (output_tokens / 1000 * rates["output"])
+
+            async with get_db() as session:
+                session.add(LLMMetricsModel(
+                    id=str(uuid.uuid4()),
+                    provider=provider,
+                    model=model,
+                    task_category=task_category,
+                    input_tokens=input_tokens,
+                    output_tokens=output_tokens,
+                    latency_ms=latency_ms,
+                    estimated_cost_usd=f"{estimated_cost:.6f}",
+                ))
+            logger.debug(
+                "LLM metrics recorded",
+                provider=provider, model=model,
+                input_tokens=input_tokens, output_tokens=output_tokens,
+                latency_ms=latency_ms, cost=f"${estimated_cost:.6f}",
+            )
+        except Exception as e:
+            # Don't let metrics recording failures break the main flow
+            logger.warning("Failed to record LLM metrics", error=str(e))
+
+    async def get_metrics_summary(self) -> Dict[str, Any]:
+        """Get aggregated LLM usage metrics."""
+        from sqlalchemy import select, func
+        from backend.storage.database import get_db
+        from backend.storage.models import LLMMetricsModel
+
+        try:
+            async with get_db() as session:
+                # Per-provider aggregates
+                stmt = (
+                    select(
+                        LLMMetricsModel.provider,
+                        func.count().label("total_calls"),
+                        func.sum(LLMMetricsModel.input_tokens).label("total_input_tokens"),
+                        func.sum(LLMMetricsModel.output_tokens).label("total_output_tokens"),
+                        func.avg(LLMMetricsModel.latency_ms).label("avg_latency_ms"),
+                    )
+                    .group_by(LLMMetricsModel.provider)
+                )
+                result = await session.execute(stmt)
+                provider_stats = [
+                    {
+                        "provider": row.provider,
+                        "total_calls": row.total_calls,
+                        "total_input_tokens": row.total_input_tokens or 0,
+                        "total_output_tokens": row.total_output_tokens or 0,
+                        "avg_latency_ms": int(row.avg_latency_ms or 0),
+                    }
+                    for row in result.all()
+                ]
+
+                # Per-task category aggregates
+                stmt2 = (
+                    select(
+                        LLMMetricsModel.task_category,
+                        func.count().label("total_calls"),
+                        func.sum(LLMMetricsModel.input_tokens).label("total_input_tokens"),
+                        func.sum(LLMMetricsModel.output_tokens).label("total_output_tokens"),
+                    )
+                    .group_by(LLMMetricsModel.task_category)
+                )
+                result2 = await session.execute(stmt2)
+                task_stats = [
+                    {
+                        "task_category": row.task_category,
+                        "total_calls": row.total_calls,
+                        "total_input_tokens": row.total_input_tokens or 0,
+                        "total_output_tokens": row.total_output_tokens or 0,
+                    }
+                    for row in result2.all()
+                ]
+
+                # Total estimated cost
+                stmt3 = select(func.count().label("total")).select_from(LLMMetricsModel)
+                total_row = (await session.execute(stmt3)).one()
+
+            return {
+                "by_provider": provider_stats,
+                "by_task": task_stats,
+                "total_calls": total_row.total,
+            }
+        except Exception as e:
+            logger.error("Failed to get metrics summary", error=str(e))
+            return {"by_provider": [], "by_task": [], "total_calls": 0, "error": str(e)}
 
     async def health_check(self) -> Dict[str, bool]:
         """Check health of all providers."""

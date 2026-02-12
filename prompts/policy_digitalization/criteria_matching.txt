@@ -1,3 +1,6 @@
+# Prompt: criteria_matching | Version: 1.1 | Updated: 2026-02-11
+# Changes: Added versioning header
+
 You are a clinical policy analyst comparing two versions of the same insurance policy document.
 
 Two versions of the same policy were independently digitized, producing structured criteria with auto-generated IDs. Because the IDs were generated independently, the SAME real-world criterion may have DIFFERENT IDs across versions.

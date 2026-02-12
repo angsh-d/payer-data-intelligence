@@ -243,32 +243,28 @@ export default function CommandCenter() {
           icon={FileText}
           label="Total Policies"
           value={totalPolicies}
-          color="bg-accent-blue/10 text-accent-blue"
+          color="bg-surface-tertiary text-text-secondary"
           index={1}
         />
         <StatCard
           icon={Layers}
           label="Total Versions"
           value={totalVersions}
-          color="bg-accent-purple/10 text-accent-purple"
+          color="bg-surface-tertiary text-text-secondary"
           index={2}
         />
         <StatCard
           icon={Users}
           label="Payers Tracked"
           value={uniquePayers}
-          color="bg-accent-amber/10 text-accent-amber"
+          color="bg-surface-tertiary text-text-secondary"
           index={3}
         />
         <StatCard
           icon={Activity}
           label="System Health"
           value={healthLabel}
-          color={
-            healthLabel === 'Operational'
-              ? 'bg-accent-green/10 text-accent-green'
-              : 'bg-accent-red/10 text-accent-red'
-          }
+          color="bg-surface-tertiary text-text-secondary"
           index={4}
         />
       </div>
@@ -338,13 +334,8 @@ export default function CommandCenter() {
                       })()}
                     </p>
                   </div>
-                  <span className={`text-xs px-2.5 py-1 rounded-full font-medium shrink-0 ${
-                    ['high', 'good'].includes(policy.extraction_quality?.toLowerCase())
-                      ? 'bg-accent-green/10 text-accent-green'
-                      : ['medium', 'needs_review'].includes(policy.extraction_quality?.toLowerCase())
-                      ? 'bg-accent-amber/10 text-accent-amber'
-                      : 'bg-accent-red/10 text-accent-red'
-                  }`}>
+                  <span className="text-text-secondary text-xs flex items-center gap-1.5 shrink-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-text-quaternary" />
                     {policy.extraction_quality === 'good' ? 'Good' : policy.extraction_quality === 'needs_review' ? 'Needs Review' : policy.extraction_quality || 'Unknown'}
                   </span>
                 </motion.div>

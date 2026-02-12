@@ -184,16 +184,45 @@ class PolicyFileWatcher:
                     quality=result.extraction_quality,
                 )
 
-                # Notify via callback
+                # Auto-diff against previous version if applicable
+                change_summary = None
+                if len(versions) >= 1:
+                    try:
+                        change_summary = await self._auto_diff(
+                            payer, medication, versions[0].version, next_version,
+                        )
+                    except Exception as diff_err:
+                        logger.warning("Auto-diff failed", error=str(diff_err))
+
+                # Notify via callback with diff summary
+                notification = {
+                    "event": "policy_update",
+                    "payer": payer,
+                    "medication": medication,
+                    "version": next_version,
+                    "extraction_quality": result.extraction_quality,
+                    "criteria_count": result.criteria_count,
+                }
+                if change_summary:
+                    notification["change_summary"] = change_summary
+
                 if self._notification_callback:
-                    await self._notification_callback({
-                        "event": "policy_update",
+                    await self._notification_callback(notification)
+
+                # Also broadcast via WebSocket for real-time alerts
+                try:
+                    from backend.api.routes.websocket import get_notification_manager
+                    notif_mgr = get_notification_manager()
+                    await notif_mgr.broadcast_notification({
+                        "type": "policy_change_detected",
                         "payer": payer,
                         "medication": medication,
                         "version": next_version,
-                        "extraction_quality": result.extraction_quality,
-                        "criteria_count": result.criteria_count,
+                        "material_changes": change_summary.get("breaking_changes", 0) if change_summary else 0,
+                        "message": f"Policy change detected: {payer}/{medication} updated to {next_version}",
                     })
+                except Exception:
+                    pass
 
             except Exception as e:
                 logger.error(
@@ -201,6 +230,48 @@ class PolicyFileWatcher:
                     payer=payer, medication=medication, error=str(e),
                     exc_info=True,
                 )
+
+    async def _auto_diff(
+        self,
+        payer: str,
+        medication: str,
+        old_version: str,
+        new_version: str,
+    ) -> Optional[Dict]:
+        """Run automatic diff analysis when a new version is detected."""
+        from backend.policy_digitalization.policy_repository import get_policy_repository
+        from backend.policy_digitalization.differ import PolicyDiffer
+
+        repo = get_policy_repository()
+        old_policy = await repo.load_version(payer, medication, old_version)
+        new_policy = await repo.load_version(payer, medication, new_version)
+
+        if not old_policy or not new_policy:
+            return None
+
+        differ = PolicyDiffer()
+        diff_result = await differ.diff(old_policy, new_policy)
+        summary = diff_result.summary
+
+        change_summary = {
+            "old_version": old_version,
+            "new_version": new_version,
+            "added_count": summary.added_count,
+            "removed_count": summary.removed_count,
+            "modified_count": summary.modified_count,
+            "breaking_changes": summary.breaking_changes,
+            "material_changes": summary.material_changes,
+            "severity_assessment": summary.severity_assessment,
+        }
+
+        logger.info(
+            "Auto-diff complete",
+            payer=payer, medication=medication,
+            breaking=summary.breaking_changes,
+            material=summary.material_changes,
+        )
+
+        return change_summary
 
     def start(self):
         """Start watching the policies directory."""

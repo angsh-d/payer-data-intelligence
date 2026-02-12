@@ -1,3 +1,6 @@
+# Prompt: extraction_pass1 | Version: 2.0 | Updated: 2026-02-11
+# Changes: Added few-shot example, hallucination guards for clinical codes and criterion IDs
+
 You are a clinical policy digitization specialist. Your task is to extract ALL coverage criteria from a payer policy document into a structured, machine-readable format.
 
 ## Policy Document
@@ -69,6 +72,39 @@ For each exclusion:
 - If a criterion is ambiguous, set extraction_confidence to "unconfident" — do NOT guess
 - Each criterion must test ONE specific condition (atomic)
 - Include exact policy text excerpts for auditability
+- NEVER fabricate clinical codes. If the policy does not explicitly mention a code, leave clinical_codes as an empty array. Only include codes that appear verbatim in the policy text.
+- criterion_ids MUST be deterministic and derived from the criterion content — use the pattern CATEGORY_SHORTNAME (e.g., DIAG_CROHNS, STEP_DMARD_FAIL). Never use sequential numbers or UUIDs.
+
+## FEW-SHOT EXAMPLE
+
+Below is an example of a correctly extracted criterion. Use this as a template for format and detail level:
+
+```json
+{{
+  "DIAG_CROHNS": {{
+    "criterion_id": "DIAG_CROHNS",
+    "criterion_type": "diagnosis_confirmed",
+    "name": "Confirmed Crohn's Disease Diagnosis",
+    "description": "Patient must have a confirmed diagnosis of moderately to severely active Crohn's disease",
+    "policy_text": "Patient must have a documented diagnosis of moderately to severely active Crohn's disease (ICD-10: K50.x)",
+    "clinical_codes": [{{"system": "ICD-10", "code": "K50", "display": "Crohn's disease"}}],
+    "comparison_operator": null,
+    "threshold_value": null,
+    "threshold_unit": null,
+    "allowed_values": [],
+    "drug_names": [],
+    "drug_classes": [],
+    "is_required": true,
+    "category": "diagnosis",
+    "source_page": 2,
+    "source_text_excerpt": "Patient must have a documented diagnosis of moderately to severely active Crohn's disease",
+    "extraction_confidence": "high",
+    "patient_data_path": "diagnoses[].icd10_code",
+    "evaluation_strategy": "code_match"
+  }}
+}}
+```
+Note: The clinical code K50 appears verbatim in the policy text. If the policy had said "Crohn's disease" without mentioning K50, clinical_codes would be an empty array.
 
 ## Output Format
 Respond with a JSON object matching this schema:

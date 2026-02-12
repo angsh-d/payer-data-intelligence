@@ -10,7 +10,7 @@ import uuid
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, FileResponse
+from fastapi.responses import JSONResponse, FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 
 from backend.config.settings import get_settings
@@ -25,7 +25,7 @@ logger = get_logger(__name__)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """PDI application lifespan — database init only."""
-    logger.info("Starting Payer Data Intelligence Platform")
+    logger.info("Starting Formulary Intelligence Agent")
 
     settings = get_settings()
     if not settings.anthropic_api_key:
@@ -38,11 +38,11 @@ async def lifespan(app: FastAPI):
 
     yield
 
-    logger.info("Shutting down Payer Data Intelligence Platform")
+    logger.info("Shutting down Formulary Intelligence Agent")
 
 
 app = FastAPI(
-    title="Payer Data Intelligence Platform",
+    title="Formulary Intelligence Agent",
     description="Policy digitalization, versioning, diff analysis, and coverage intelligence",
     version="0.1.0",
     lifespan=lifespan,
@@ -77,7 +77,7 @@ async def health_check():
         "status": "healthy",
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "version": "0.1.0",
-        "platform": "payer-data-intelligence",
+        "platform": "formulary-intelligence-agent",
         "components": {"database": True},
     }
 
@@ -85,13 +85,24 @@ async def health_check():
 FRONTEND_DIST = Path(__file__).parent.parent / "frontend" / "dist"
 
 
-@app.get("/")
-async def root():
+def _serve_index():
+    """Serve index.html with no-cache so the browser always gets the latest JS bundle."""
     index_html = FRONTEND_DIST / "index.html"
     if index_html.exists():
-        return FileResponse(str(index_html))
+        return HTMLResponse(
+            content=index_html.read_text(),
+            headers={"Cache-Control": "no-cache, no-store, must-revalidate"},
+        )
+    return None
+
+
+@app.get("/")
+async def root():
+    resp = _serve_index()
+    if resp:
+        return resp
     return {
-        "name": "Payer Data Intelligence Platform",
+        "name": "Formulary Intelligence Agent",
         "version": "0.1.0",
         "description": "Policy digitalization, versioning, diff analysis, and coverage intelligence",
         "docs": "/docs",
@@ -113,7 +124,7 @@ async def serve_spa(full_path: str):
         return FileResponse(str(FRONTEND_DIST / "index.html"))
     if file_path.exists() and file_path.is_file():
         return FileResponse(str(file_path))
-    return FileResponse(str(FRONTEND_DIST / "index.html"))
+    return _serve_index() or JSONResponse({"error": "Frontend not built"}, status_code=404)
 
 
 if __name__ == "__main__":

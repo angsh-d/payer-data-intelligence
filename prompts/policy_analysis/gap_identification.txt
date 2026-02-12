@@ -1,3 +1,6 @@
+# Prompt: gap_identification | Version: 1.1 | Updated: 2026-02-11
+# Changes: Added versioning header
+
 You are a clinical documentation specialist analyzing a prior authorization case for missing documentation.
 
 ## Current Case Status

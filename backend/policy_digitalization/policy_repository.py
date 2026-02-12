@@ -27,6 +27,8 @@ class PolicyVersionInfo:
         upload_notes: Optional[str] = None,
         amendment_date: Optional[str] = None,
         parent_version_id: Optional[str] = None,
+        effective_year: Optional[int] = None,
+        effective_date: Optional[str] = None,
     ):
         self.version = version
         self.cached_at = cached_at
@@ -36,6 +38,8 @@ class PolicyVersionInfo:
         self.upload_notes = upload_notes
         self.amendment_date = amendment_date
         self.parent_version_id = parent_version_id
+        self.effective_year = effective_year
+        self.effective_date = effective_date
 
 
 class PolicyRepository:
@@ -178,6 +182,7 @@ class PolicyRepository:
         source_filename: Optional[str] = None,
         upload_notes: Optional[str] = None,
         amendment_date: Optional[datetime] = None,
+        effective_year: Optional[int] = None,
     ) -> str:
         """Store a specific version of a digitized policy with amendment metadata."""
         from sqlalchemy import select, update
@@ -215,6 +220,7 @@ class PolicyRepository:
                     upload_notes=upload_notes,
                     amendment_date=amendment_date,
                     parent_version_id=parent_id,
+                    effective_year=effective_year,
                 )
             )
             await session.execute(update_stmt)
@@ -265,6 +271,8 @@ class PolicyRepository:
                     upload_notes=e.upload_notes,
                     amendment_date=e.amendment_date.isoformat() if e.amendment_date else None,
                     parent_version_id=e.parent_version_id,
+                    effective_year=e.effective_year,
+                    effective_date=(e.parsed_criteria or {}).get("effective_date"),
                 )
                 for e in unique
             ]

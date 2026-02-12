@@ -83,6 +83,7 @@ async def _ensure_amendment_columns(engine) -> None:
             ("upload_notes", "TEXT"),
             ("amendment_date", "TIMESTAMPTZ"),
             ("parent_version_id", "VARCHAR(36)"),
+            ("effective_year", "INTEGER"),
         ]:
             try:
                 await conn.execute(text(

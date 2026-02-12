@@ -11,6 +11,7 @@ class TaskCategory(str, Enum):
     DATA_EXTRACTION = "data_extraction"
     NOTIFICATION = "notification"
     POLICY_QA = "policy_qa"
+    CLINICAL_CODIFICATION = "clinical_codification"
 
 
 class LLMProvider(str, Enum):

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Plus,
@@ -10,6 +10,10 @@ import {
   AlertCircle,
   X,
   Loader2,
+  Search,
+  Filter,
+  ArrowUpDown,
+  ChevronDown,
 } from 'lucide-react'
 import { api, type PolicyBankItem, type UploadResponse } from '../lib/api'
 import { getDrugInfo, getPayerInfo } from '../lib/drugInfo'
@@ -43,13 +47,8 @@ function formatFileSize(bytes: number): string {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
 }
 
-function qualityColor(q: string) {
-  switch (q?.toLowerCase()) {
-    case 'high': return 'bg-accent-green/10 text-accent-green'
-    case 'medium': return 'bg-accent-amber/10 text-accent-amber'
-    case 'low': return 'bg-accent-red/10 text-accent-red'
-    default: return 'bg-surface-tertiary text-text-tertiary'
-  }
+function qualityColor(_q: string) {
+  return 'bg-surface-tertiary text-text-secondary'
 }
 
 const fadeUp = {
@@ -428,12 +427,99 @@ function extractYears(versions: { version: string; source_filename?: string; cac
   return Array.from(years).sort()
 }
 
+type SortOption = 'name-asc' | 'name-desc' | 'last-updated' | 'version-count'
+
+const sortLabels: Record<SortOption, string> = {
+  'name-asc': 'Name (A-Z)',
+  'name-desc': 'Name (Z-A)',
+  'last-updated': 'Last Updated',
+  'version-count': 'Version Count',
+}
+
 export default function PolicyVault() {
   const [policies, setPolicies] = useState<PolicyBankItem[]>([])
   const [loading, setLoading] = useState(true)
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedPolicy, setSelectedPolicy] = useState<PolicyBankItem | null>(null)
   const [versionYears, setVersionYears] = useState<Record<string, string[]>>({})
+
+  const [searchText, setSearchText] = useState('')
+  const [qualityFilter, setQualityFilter] = useState<'All' | 'High' | 'Medium' | 'Low'>('All')
+  const [payerFilter, setPayerFilter] = useState<string>('All')
+  const [sortOption, setSortOption] = useState<SortOption>('name-asc')
+  const [sortDropdownOpen, setSortDropdownOpen] = useState(false)
+  const sortRef = useRef<HTMLDivElement>(null)
+
+  // Close sort dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (sortRef.current && !sortRef.current.contains(e.target as Node)) {
+        setSortDropdownOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  // Derive unique payer list from loaded policies
+  const uniquePayers = useMemo(() => {
+    const seen = new Map<string, string>()
+    for (const p of policies) {
+      const abbr = getPayerInfo(p.payer).abbreviation
+      if (!seen.has(abbr)) seen.set(abbr, p.payer)
+    }
+    return Array.from(seen.entries()).sort((a, b) => a[0].localeCompare(b[0]))
+  }, [policies])
+
+  // Apply search, filters, and sort
+  const filteredPolicies = useMemo(() => {
+    let result = [...policies]
+
+    // Search: fuzzy match on payer name, abbreviation, brand name, generic name
+    if (searchText.trim()) {
+      const q = searchText.toLowerCase().trim()
+      result = result.filter(p => {
+        const drug = getDrugInfo(p.medication)
+        const payer = getPayerInfo(p.payer)
+        return (
+          drug.brandName.toLowerCase().includes(q) ||
+          drug.genericName.toLowerCase().includes(q) ||
+          payer.abbreviation.toLowerCase().includes(q) ||
+          payer.displayName.toLowerCase().includes(q) ||
+          p.medication.toLowerCase().includes(q) ||
+          p.payer.toLowerCase().includes(q)
+        )
+      })
+    }
+
+    // Quality filter
+    if (qualityFilter !== 'All') {
+      result = result.filter(p => (p.extraction_quality || '').toLowerCase() === qualityFilter.toLowerCase())
+    }
+
+    // Payer filter
+    if (payerFilter !== 'All') {
+      result = result.filter(p => p.payer === payerFilter)
+    }
+
+    // Sort
+    result.sort((a, b) => {
+      switch (sortOption) {
+        case 'name-asc':
+          return getDrugInfo(a.medication).brandName.localeCompare(getDrugInfo(b.medication).brandName)
+        case 'name-desc':
+          return getDrugInfo(b.medication).brandName.localeCompare(getDrugInfo(a.medication).brandName)
+        case 'last-updated':
+          return new Date(b.last_updated).getTime() - new Date(a.last_updated).getTime()
+        case 'version-count':
+          return b.version_count - a.version_count
+        default:
+          return 0
+      }
+    })
+
+    return result
+  }, [policies, searchText, qualityFilter, payerFilter, sortOption])
 
   const fetchPolicies = useCallback(async () => {
     setLoading(true)
@@ -501,6 +587,128 @@ export default function PolicyVault() {
         </button>
       </motion.div>
 
+      {/* Search, filter chips, and sort */}
+      {!loading && policies.length > 0 && (
+        <motion.div
+          custom={0.5}
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="space-y-4"
+        >
+          {/* Search bar */}
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-text-quaternary pointer-events-none" />
+            <input
+              type="text"
+              value={searchText}
+              onChange={e => setSearchText(e.target.value)}
+              placeholder="Search by medication or payer name..."
+              className="w-full pl-11 pr-4 py-2.5 rounded-xl bg-surface-tertiary/50 border border-border-primary text-sm text-text-primary placeholder:text-text-quaternary focus:outline-none focus:border-accent-blue/50 focus:ring-1 focus:ring-accent-blue/20 transition-all"
+            />
+          </div>
+
+          {/* Filters and sort row */}
+          <div className="flex items-center justify-between gap-4 flex-wrap">
+            {/* Filter chips */}
+            <div className="flex items-center gap-3 flex-wrap">
+              {/* Quality filter */}
+              <div className="flex items-center gap-1.5">
+                <Filter className="w-3.5 h-3.5 text-text-quaternary shrink-0" />
+                <div className="flex items-center gap-1">
+                  {(['All', 'High', 'Medium', 'Low'] as const).map(q => (
+                    <button
+                      key={q}
+                      onClick={() => setQualityFilter(q)}
+                      className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${
+                        qualityFilter === q
+                          ? 'bg-text-quaternary/20 text-text-primary ring-1 ring-text-quaternary/40'
+                          : 'bg-surface-tertiary text-text-tertiary hover:bg-surface-hover hover:text-text-secondary'
+                      }`}
+                    >
+                      {q}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Payer filter chips - divider */}
+              {uniquePayers.length > 1 && (
+                <>
+                  <div className="w-px h-5 bg-border-primary" />
+                  <div className="flex items-center gap-1 flex-wrap">
+                    <button
+                      onClick={() => setPayerFilter('All')}
+                      className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${
+                        payerFilter === 'All'
+                          ? 'bg-text-quaternary/20 text-text-primary ring-1 ring-text-quaternary/40'
+                          : 'bg-surface-tertiary text-text-tertiary hover:bg-surface-hover hover:text-text-secondary'
+                      }`}
+                    >
+                      All Payers
+                    </button>
+                    {uniquePayers.map(([abbr, raw]) => {
+                      const pInfo = getPayerInfo(raw)
+                      return (
+                        <button
+                          key={raw}
+                          onClick={() => setPayerFilter(raw)}
+                          className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 flex items-center gap-1.5 ${
+                            payerFilter === raw
+                              ? 'bg-text-quaternary/20 text-text-primary ring-1 ring-text-quaternary/40'
+                              : 'bg-surface-tertiary text-text-tertiary hover:bg-surface-hover hover:text-text-secondary'
+                          }`}
+                        >
+                          <div className={`w-3.5 h-3.5 rounded-full ${pInfo.color} shrink-0`} />
+                          {abbr}
+                        </button>
+                      )
+                    })}
+                  </div>
+                </>
+              )}
+            </div>
+
+            {/* Sort dropdown */}
+            <div ref={sortRef} className="relative shrink-0">
+              <button
+                onClick={() => setSortDropdownOpen(prev => !prev)}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-tertiary text-xs font-medium text-text-secondary hover:bg-surface-hover transition-all"
+              >
+                <ArrowUpDown className="w-3.5 h-3.5" />
+                {sortLabels[sortOption]}
+                <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${sortDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              <AnimatePresence>
+                {sortDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -4, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -4, scale: 0.97 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute right-0 top-full mt-1 w-44 rounded-xl border border-border-primary bg-surface-elevated shadow-xl overflow-hidden z-20"
+                  >
+                    {(Object.keys(sortLabels) as SortOption[]).map(opt => (
+                      <button
+                        key={opt}
+                        onClick={() => { setSortOption(opt); setSortDropdownOpen(false) }}
+                        className={`w-full text-left px-4 py-2.5 text-xs font-medium transition-colors ${
+                          sortOption === opt
+                            ? 'text-accent-blue bg-accent-blue/5'
+                            : 'text-text-secondary hover:bg-surface-hover'
+                        }`}
+                      >
+                        {sortLabels[opt]}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
       {loading ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[...Array(6)].map((_, i) => (
@@ -531,9 +739,30 @@ export default function PolicyVault() {
             Upload Policy
           </button>
         </motion.div>
+      ) : filteredPolicies.length === 0 ? (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+          className="flex flex-col items-center justify-center py-24 gap-4"
+        >
+          <div className="w-16 h-16 rounded-2xl bg-surface-secondary flex items-center justify-center">
+            <Search className="w-8 h-8 text-text-quaternary" />
+          </div>
+          <div className="text-center">
+            <p className="text-base font-semibold text-text-secondary">No policies match your filters</p>
+            <p className="text-sm text-text-tertiary mt-1">Try adjusting your search or filter criteria</p>
+          </div>
+          <button
+            onClick={() => { setSearchText(''); setQualityFilter('All'); setPayerFilter('All'); setSortOption('name-asc') }}
+            className="mt-1 px-5 py-2 rounded-full bg-surface-tertiary text-text-primary text-sm font-medium hover:bg-surface-hover transition-colors"
+          >
+            Clear Filters
+          </button>
+        </motion.div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {policies.map((policy, i) => {
+          {filteredPolicies.map((policy, i) => {
             const drugInfo = getDrugInfo(policy.medication)
             const payerInfo = getPayerInfo(policy.payer)
             const DrugIcon = drugInfo.icon
@@ -557,7 +786,8 @@ export default function PolicyVault() {
                       {payerInfo.abbreviation}
                     </span>
                   </div>
-                  <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${qualityColor(policy.extraction_quality)}`}>
+                  <span className="text-xs text-text-tertiary flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-text-quaternary" />
                     {policy.extraction_quality || 'Unknown'}
                   </span>
                 </div>
@@ -597,7 +827,7 @@ export default function PolicyVault() {
                       return (
                         <span className="flex items-center gap-1 ml-1">
                           {years.map(y => (
-                            <span key={y} className="px-1.5 py-0.5 rounded bg-[#0071e3]/[0.08] text-[10px] font-semibold text-[#0071e3]">{y}</span>
+                            <span key={y} className="px-1.5 py-0.5 rounded bg-surface-tertiary text-[10px] font-semibold text-text-secondary">{y}</span>
                           ))}
                         </span>
                       )
