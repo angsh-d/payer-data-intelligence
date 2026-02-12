@@ -258,6 +258,7 @@ export default function PolicyIntelligence() {
   const [crossPayerResult, setCrossPayerResult] = useState<CrossPayerResponse | null>(null)
   const [crossPayerLoading, setCrossPayerLoading] = useState(false)
   const [crossPayerError, setCrossPayerError] = useState<string | null>(null)
+  const [coverageGapsOpen, setCoverageGapsOpen] = useState(false)
 
   useEffect(() => {
     api.getPolicyBank()
@@ -1412,11 +1413,19 @@ export default function PolicyIntelligence() {
                 <motion.div custom={6} variants={fadeUp} initial="hidden" animate="visible"
                   className="rounded-2xl bg-[#f5f5f7] p-6"
                 >
-                  <div className="flex items-center gap-2 mb-4">
+                  <button
+                    onClick={() => setCoverageGapsOpen(!coverageGapsOpen)}
+                    className="flex items-center gap-2 w-full text-left cursor-pointer"
+                  >
+                    <motion.div animate={{ rotate: coverageGapsOpen ? 90 : 0 }} transition={{ duration: 0.2 }}>
+                      <ChevronRight className="w-[14px] h-[14px] text-text-tertiary" />
+                    </motion.div>
                     <Shield className="w-[14px] h-[14px] text-text-secondary" />
                     <h3 className="text-[11px] font-semibold text-text-tertiary tracking-[0.06em] uppercase">Coverage Gaps</h3>
-                  </div>
-                  <div className="rounded-xl bg-white overflow-hidden">
+                    <span className="text-[10px] text-text-quaternary ml-1">({crossPayerResult.coverage_gaps.length})</span>
+                  </button>
+                  {coverageGapsOpen && (
+                  <div className="rounded-xl bg-white overflow-hidden mt-4">
                     <table className="w-full">
                       <thead>
                         <tr className="border-b border-[#f0f0f2]">
@@ -1461,6 +1470,7 @@ export default function PolicyIntelligence() {
                       </tbody>
                     </table>
                   </div>
+                  )}
                 </motion.div>
               )}
 

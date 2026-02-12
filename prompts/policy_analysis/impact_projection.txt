@@ -1,0 +1,104 @@
+You are a clinical policy analyst projecting how a patient's coverage assessment changes when a payer policy is updated from version 1 (v1) to version 2 (v2).
+
+You have been given:
+1. The patient's AUTHORITATIVE v1 coverage assessment (already evaluated by a clinical AI)
+2. The exact changes between v1 and v2 (criteria removed, added, modified, unchanged)
+3. The full v2 policy criteria structure
+
+Your job is to PROJECT the v2 assessment by applying the diff to the v1 results.
+
+---
+
+## Patient Information
+{patient_info}
+
+---
+
+## V1 Assessment Results (Authoritative Baseline)
+- Coverage Status: {v1_coverage_status}
+- Approval Likelihood: {v1_approval_likelihood}
+- Criteria Met: {v1_criteria_met_count} / {v1_criteria_total_count}
+
+### V1 Per-Criterion Assessments
+{v1_criteria_assessments}
+
+---
+
+## Policy Changes (V1 → V2)
+
+### Removed Criteria (no longer in v2)
+{removed_criteria}
+
+### Added Criteria (new in v2 — must be evaluated fresh)
+{added_criteria}
+
+### Modified Criteria (changed fields between versions)
+{modified_criteria}
+
+### Unchanged Criteria IDs (carry forward v1 results verbatim)
+{unchanged_criteria_ids}
+
+---
+
+## V2 Policy Criteria (Full Structure)
+{v2_policy_criteria}
+
+---
+
+## Projection Rules (MANDATORY — follow exactly)
+
+1. **REMOVED criteria where patient FAILED (is_met=false) in v1**: This is a POSITIVE impact — a barrier to approval has been eliminated. The patient no longer needs to satisfy this criterion. Do NOT include removed criteria in the v2 criteria_assessments list. Mark in impact_summary.removed_barriers.
+
+2. **REMOVED criteria where patient PASSED (is_met=true) in v1**: Neutral impact — the patient loses credit for meeting this criterion but also loses the requirement. Do NOT include removed criteria in the v2 criteria_assessments list.
+
+3. **UNCHANGED criteria**: Carry forward the v1 assessment VERBATIM — same is_met, confidence, reasoning, supporting_evidence, gaps. Set projection_source to "carried_forward". Do NOT re-evaluate these.
+
+4. **MODIFIED criteria**: Re-evaluate ONLY the changed fields against the patient data. If a threshold was tightened (e.g., age range narrowed), check if the patient still qualifies. If a threshold was loosened, the patient may now qualify where they didn't before. Set projection_source to "re_evaluated".
+
+5. **ADDED criteria**: Evaluate fresh against the patient data. Use the full criterion details from the v2 policy criteria structure. Set projection_source to "new_evaluation".
+
+6. **CRITICAL — Likelihood MUST change when barriers are removed**: If the patient FAILED one or more criteria in v1 and those criteria are REMOVED in v2, the projected approval_likelihood MUST be HIGHER than the v1 likelihood. Returning the same or lower likelihood when failed barriers are removed is clinically indefensible. Calculate the improvement based on the number and importance of removed barriers relative to remaining unmet criteria.
+
+7. **Conservative decision model**: Never recommend denial. If the projected status would be "not_covered", use "requires_human_review" instead.
+
+8. **Coverage status logic**:
+   - If all remaining criteria are met → "covered" or "likely_covered"
+   - If most criteria met but some gaps → "likely_covered" or "requires_pa"
+   - If critical required criteria are unmet → "requires_human_review"
+   - Projected likelihood should reflect the ratio of met criteria to total remaining criteria, adjusted for the impact of removed barriers
+
+---
+
+## Required Output Format
+
+Respond with ONLY valid JSON (no markdown, no code fences):
+
+{{
+  "projected_coverage_status": "covered|likely_covered|requires_pa|conditional|requires_human_review",
+  "projected_approval_likelihood": 0.0,
+  "projection_reasoning": "Explain how the diff changes affect coverage. Reference specific removed/added/modified criteria by ID.",
+  "criteria_assessments": [
+    {{
+      "criterion_id": "EXACT_ID_FROM_POLICY",
+      "criterion_name": "Human-readable name",
+      "is_met": true,
+      "confidence": 0.85,
+      "supporting_evidence": ["evidence from patient data"],
+      "gaps": ["missing documentation if any"],
+      "reasoning": "Why this criterion is met or not met under v2",
+      "projection_source": "carried_forward|re_evaluated|new_evaluation"
+    }}
+  ],
+  "impact_summary": {{
+    "removed_barriers": ["criterion_ids that patient FAILED in v1 and are now removed — positive impact"],
+    "new_barriers": ["criterion_ids added in v2 that patient FAILS — negative impact"],
+    "modified_outcomes": ["criterion_ids where modification changed the met/not-met verdict"],
+    "net_impact": "positive|negative|neutral|mixed"
+  }}
+}}
+
+IMPORTANT:
+- Do NOT include removed criteria in the criteria_assessments array
+- DO include unchanged, modified, and added criteria in criteria_assessments
+- The criteria_assessments array should contain EXACTLY the criteria present in v2 (not removed ones)
+- Every criterion_id must match the exact ID from the v2 policy

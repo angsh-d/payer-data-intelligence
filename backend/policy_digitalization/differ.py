@@ -516,12 +516,47 @@ class PolicyDiffer:
         return changes
 
     def _diff_exclusions(self, old_excl, new_excl) -> List[CriterionChange]:
-        """Diff exclusion criteria."""
+        """Diff exclusion criteria with name-based reconciliation for renamed IDs."""
         changes = []
         old_map = {e.exclusion_id: e for e in old_excl}
         new_map = {e.exclusion_id: e for e in new_excl}
 
-        for eid in set(new_map.keys()) - set(old_map.keys()):
+        exact_match_ids = set(old_map.keys()) & set(new_map.keys())
+        unmatched_old_ids = set(old_map.keys()) - exact_match_ids
+        unmatched_new_ids = set(new_map.keys()) - exact_match_ids
+
+        # Name-based reconciliation for renamed exclusion IDs
+        name_matched_pairs: List[Tuple[str, str]] = []  # (old_id, new_id)
+        old_name_map = {(old_map[oid].name or "").strip().lower(): oid for oid in unmatched_old_ids if old_map[oid].name}
+        new_name_map = {(new_map[nid].name or "").strip().lower(): nid for nid in unmatched_new_ids if new_map[nid].name}
+
+        # Pass 1: exact name match
+        for name, old_id in list(old_name_map.items()):
+            if name in new_name_map:
+                new_id = new_name_map[name]
+                name_matched_pairs.append((old_id, new_id))
+                unmatched_old_ids.discard(old_id)
+                unmatched_new_ids.discard(new_id)
+                del old_name_map[name]
+                del new_name_map[name]
+
+        # Pass 2: fuzzy containment match (e.g. "Ventilator Dependence" ⊂ "Permanent Ventilator Dependence")
+        if unmatched_old_ids and unmatched_new_ids:
+            for old_name, old_id in list(old_name_map.items()):
+                for new_name, new_id in list(new_name_map.items()):
+                    if old_name in new_name or new_name in old_name:
+                        name_matched_pairs.append((old_id, new_id))
+                        unmatched_old_ids.discard(old_id)
+                        unmatched_new_ids.discard(new_id)
+                        del new_name_map[new_name]
+                        break
+
+        if name_matched_pairs:
+            logger.info("Exclusion name-based reconciliation", matched=len(name_matched_pairs),
+                        pairs=[(o, n) for o, n in name_matched_pairs])
+
+        # Truly added (no match by ID or name)
+        for eid in unmatched_new_ids:
             changes.append(CriterionChange(
                 criterion_id=eid,
                 criterion_name=new_map[eid].name,
@@ -530,7 +565,8 @@ class PolicyDiffer:
                 human_summary=f"New exclusion added: {new_map[eid].name}",
             ))
 
-        for eid in set(old_map.keys()) - set(new_map.keys()):
+        # Truly removed (no match by ID or name)
+        for eid in unmatched_old_ids:
             changes.append(CriterionChange(
                 criterion_id=eid,
                 criterion_name=old_map[eid].name,
@@ -539,11 +575,14 @@ class PolicyDiffer:
                 human_summary=f"Exclusion removed: {old_map[eid].name}",
             ))
 
-        # Check for modifications in shared exclusions
-        for eid in set(old_map.keys()) & set(new_map.keys()):
-            old_e = old_map[eid]
-            new_e = new_map[eid]
+        # Check for modifications in matched exclusions (exact ID + name-matched)
+        all_pairs = [(eid, eid) for eid in exact_match_ids] + name_matched_pairs
+        for old_id, new_id in all_pairs:
+            old_e = old_map[old_id]
+            new_e = new_map[new_id]
             fc = []
+            if old_id != new_id:
+                fc.append(FieldChange(field_name="exclusion_id", old=old_id, new=new_id))
             if old_e.name != new_e.name:
                 fc.append(FieldChange(field_name="name", old=old_e.name, new=new_e.name))
             if old_e.description != new_e.description:
@@ -558,12 +597,18 @@ class PolicyDiffer:
                 ))
             if fc:
                 changes.append(CriterionChange(
-                    criterion_id=eid,
+                    criterion_id=new_id,
                     criterion_name=new_e.name,
                     change_type=ChangeType.MODIFIED,
                     field_changes=fc,
                     severity="breaking" if any(f.field_name == "trigger_criteria" for f in fc) else "material",
                     human_summary="; ".join(f"{f.field_name} changed" for f in fc),
+                ))
+            else:
+                changes.append(CriterionChange(
+                    criterion_id=new_id,
+                    criterion_name=new_e.name,
+                    change_type=ChangeType.UNCHANGED,
                 ))
 
         return changes

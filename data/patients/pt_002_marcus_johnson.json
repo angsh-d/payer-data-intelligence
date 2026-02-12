@@ -20,11 +20,11 @@
   },
   "clinical_status": {
     "ambulatory": false,
-    "ventilator_dependent": true,
+    "ventilator_dependent": false,
     "permanent_ventilator": false,
-    "motor_milestone_score": 15,
+    "motor_milestone_score": 28,
     "baseline_motor_score": 12,
-    "clinical_improvement": false,
+    "clinical_improvement": true,
     "symptomatic": true,
     "prior_gene_therapy": true,
     "concurrent_risdiplam": false,
@@ -36,7 +36,9 @@
     "doses_received": 4,
     "last_dose_date": "2025-07-15",
     "prescriber_specialty": "pediatric_neurology",
-    "prior_therapies": ["onasemnogene_abeparvovec"]
+    "prior_therapies": ["onasemnogene_abeparvovec"],
+    "gene_therapy_outcome": "partial_response",
+    "gene_therapy_notes": "Received Zolgensma at 4 months. Showed initial improvement but plateau after 6 months. Transitioned to nusinersen for continued benefit."
   },
   "insurance": {
     "primary": {
