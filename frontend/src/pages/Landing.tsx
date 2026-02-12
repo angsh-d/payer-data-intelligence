@@ -27,32 +27,24 @@ const experiences = [
     title: 'Command Center',
     description: 'Real-time dashboard with policy quality metrics, activity feeds, and coverage status across all payers.',
     path: '/dashboard',
-    color: 'text-accent-blue',
-    bg: 'bg-accent-blue/8',
   },
   {
     icon: Archive,
     title: 'Policy Vault',
     description: 'Centralized policy bank with drag-and-drop upload, automated digitalization, and structured data extraction.',
     path: '/vault',
-    color: 'text-accent-green',
-    bg: 'bg-accent-green/8',
   },
   {
     icon: GitCompareArrows,
     title: 'Formulary Intelligence',
     description: 'AI-powered semantic version comparison that detects meaningful coverage changes across policy updates.',
     path: '/intelligence',
-    color: 'text-accent-purple',
-    bg: 'bg-accent-purple/8',
   },
   {
     icon: MessageSquare,
     title: 'Policy Assistant',
     description: 'Conversational AI that answers complex policy questions with citations and evidence-based reasoning.',
     path: '/assistant',
-    color: 'text-accent-amber',
-    bg: 'bg-accent-amber/8',
   },
 ]
 
@@ -92,10 +84,10 @@ export default function Landing() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-blue/8 border border-accent-blue/15 mb-8"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-secondary border border-border-hover mb-8"
           >
-            <Sparkles className="w-3.5 h-3.5 text-accent-blue" />
-            <span className="text-xs font-medium text-accent-blue tracking-wide">AI-Powered Formulary Intelligence</span>
+            <Sparkles className="w-3.5 h-3.5 text-text-secondary" />
+            <span className="text-xs font-medium text-text-secondary tracking-wide">AI-Powered Formulary Intelligence</span>
           </motion.div>
 
           <motion.h1
@@ -169,14 +161,14 @@ export default function Landing() {
               initial="hidden"
               animate="visible"
               onClick={() => navigate(exp.path)}
-              className="group relative flex flex-col items-start text-left p-6 rounded-2xl bg-surface-secondary/60 border border-border-secondary hover:border-border-hover hover:bg-surface-secondary transition-all duration-300"
+              className="group relative flex flex-col items-start text-left p-6 rounded-2xl bg-surface-secondary/60 border border-border-secondary hover:border-border-hover hover:bg-surface-secondary hover:-translate-y-0.5 transition-all duration-300"
             >
-              <div className={`flex items-center justify-center w-10 h-10 rounded-xl ${exp.bg} mb-4`}>
-                <exp.icon className={`w-5 h-5 ${exp.color}`} />
+              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-surface-tertiary mb-4">
+                <exp.icon className="w-5 h-5 text-text-secondary" />
               </div>
               <h3 className="text-[15px] font-semibold text-text-primary mb-1.5">{exp.title}</h3>
               <p className="text-[13px] text-text-secondary leading-relaxed">{exp.description}</p>
-              <div className="mt-4 flex items-center gap-1.5 text-xs font-medium text-accent-blue opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              <div className="mt-4 flex items-center gap-1.5 text-xs font-medium text-text-tertiary opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                 Explore <ArrowRight className="w-3 h-3" />
               </div>
             </motion.button>
@@ -202,8 +194,8 @@ export default function Landing() {
                 className="relative"
               >
                 <span className="text-[64px] font-bold text-text-quaternary/30 leading-none">{step.step}</span>
-                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-accent-blue/8 mt-2 mb-4">
-                  <step.icon className="w-5 h-5 text-accent-blue" />
+                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-surface-tertiary mt-2 mb-4">
+                  <step.icon className="w-5 h-5 text-text-secondary" />
                 </div>
                 <h3 className="text-[15px] font-semibold text-text-primary mb-2">{step.title}</h3>
                 <p className="text-[13px] text-text-secondary leading-relaxed">{step.description}</p>

@@ -4,6 +4,7 @@ import Sidebar from './components/Sidebar'
 import ErrorBoundary from './components/ErrorBoundary'
 import { ToastProvider } from './components/Toast'
 import Landing from './pages/Landing'
+import Agents from './pages/Agents'
 import CommandCenter from './pages/CommandCenter'
 import PolicyVault from './pages/PolicyVault'
 import PolicyIntelligence from './pages/PolicyIntelligence'
@@ -12,15 +13,16 @@ import PolicyAssistant from './pages/PolicyAssistant'
 export default function App() {
   const location = useLocation()
   const isLanding = location.pathname === '/'
+  const isAgents = location.pathname === '/agents'
 
-  if (isLanding) {
+  if (isLanding || isAgents) {
     return (
       <ErrorBoundary>
         <ToastProvider>
           <div className="flex flex-col h-screen w-screen bg-surface-primary overflow-hidden">
             <Navbar />
             <main className="flex-1 overflow-y-auto">
-              <Landing />
+              {isLanding ? <Landing /> : <Agents />}
             </main>
           </div>
         </ToastProvider>
